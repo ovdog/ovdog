@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ovjaywang.github.io/"/>
-  <updated>2016-04-28T14:20:51.507Z</updated>
+  <updated>2016-04-28T15:16:56.004Z</updated>
   <id>http://ovjaywang.github.io/</id>
   
   <author>
@@ -16,131 +16,17 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>effective java 笔记--创建对象的几个tips</title>
-    <link href="http://ovjaywang.github.io/2016/04/27/effective%20java%20%E7%AC%94%E8%AE%B0--%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%87%A0%E4%B8%AAtips/"/>
-    <id>http://ovjaywang.github.io/2016/04/27/effective java 笔记--创建对象的几个tips/</id>
-    <published>2016-04-27T03:50:01.000Z</published>
-    <updated>2016-04-28T14:20:51.507Z</updated>
+    <title>svm初探</title>
+    <link href="http://ovjaywang.github.io/2016/04/28/svm%E5%88%9D%E6%8E%A2/"/>
+    <id>http://ovjaywang.github.io/2016/04/28/svm初探/</id>
+    <published>2016-04-28T14:26:41.000Z</published>
+    <updated>2016-04-28T15:16:56.004Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;不希望被实例化-又不想抽象化&quot;&gt;&lt;a href=&quot;#不希望被实例化-又不想抽象化&quot; class=&quot;headerlink&quot; title=&quot;不希望被实例化 又不想抽象化&quot;&gt;&lt;/a&gt;不希望被实例化 又不想抽象化&lt;/h1&gt;&lt;p&gt;某些类不希望被实例化出毫无意义的对象 但不编写显示构造器类会自定义一个隐式无参的构造器 因此可以用一下方式，编写不能实例化的类：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;
-  public class UtilityClass{
-    private UtilityClass(){
-      throw new AssertionError();//直接抛出assert验证异常 好坏
-    }
-  }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;该构造器是私有的。其他类不能过访问（即使同包）。&lt;/p&gt;
-&lt;h1 id=&quot;不要创建没必要的对象&quot;&gt;&lt;a href=&quot;#不要创建没必要的对象&quot; class=&quot;headerlink&quot; title=&quot;不要创建没必要的对象&quot;&gt;&lt;/a&gt;不要创建没必要的对象&lt;/h1&gt;&lt;p&gt;不可变的对象一定要重用（singleton）；重用绝逼不会变的对象（例如计时初始时间、例如物种的属性）。例如，实例化Person对象的时候判断是不是计划生育年代出生的，即判断出生年份是否在1983-2015年。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;
-class Person{
-   private final Date birthDate;
-   private static final Date BIRTH_START;
-   //这俩参数都是不变的 为了对比出生时间 
-   //没必要每次都创建一个日期对象，只在初始化时调用。
-   private static final Date BIRTH_END; 
-
-//静态块的方法 第一次声明Person对象时构建（不用实例化）
-// 后面占用一块内存 不用再次创建
-   static{
-        Calendar gmtCal = Calendar.getInstance(TimeZone.getTimeZone(&amp;quot;GMT&amp;quot;));
-        gmtCal.set(1983,Calendar.JANUARY,1,0,0,0);
-        //这里对日期做了时区判断 
-        //保证都是从某一客观时间点出生的
-        BIRTH_START = gmtCal.getTime();
-        gmtCal.set(2016,Calendar.JANUARY,1,0,0,0);
-        //截止2015年年底 所以取2016年年初
-        BIRTH_END = gmtCal.getTime();
-   }
-
-    public boolean isJiHuaShengYu(){
-        return birthDate.compareTo(BIRTH_START) &amp;gt;=0 &amp;amp;&amp;amp;
-            birthDate.compareTo(BIRTH_END) &amp;lt;=0;
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果isJiHuaShengYu方法&lt;font color=&quot;red&quot;&gt;从未调用&lt;/font&gt;，这个方法就显得不合时宜了，这块静态块的内存就一直占着，因此，可以采用延时初始化的方式，在第一次调用该方法时调用。&lt;/p&gt;
-&lt;p&gt;adapter适配器模式可以提供一个后备对象，使实例化次数减少（包括类适配器和对象适配器）；autoboxing自动装箱模式能够自动创建多余对象，所以尽量少用，而使用基本数据类型。&lt;/p&gt;
-&lt;h2 id=&quot;适配器Adapter&quot;&gt;&lt;a href=&quot;#适配器Adapter&quot; class=&quot;headerlink&quot; title=&quot;适配器Adapter&quot;&gt;&lt;/a&gt;适配器Adapter&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;adapter工作场景&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;适配器模式工作场景是：给定的一个接口不满足需求，需要其一些功能与其他的接口或类配合使用.正如已经给了电压和充电插座，但是插座电压与设备工作电压，这是时候就需要一个转换接头。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;adapter分类 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;一般分为类适配器和对象适配器。&lt;strong&gt;类适配器&lt;/strong&gt;一般继承了给定接口的被适配类，同时拓展实现了标准的接口；而&lt;strong&gt;对象适配器&lt;/strong&gt;则直接关联，以委托的方式完成已知接口的特殊功能。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;类适配器实例：Adaptee（已知的待适配的类） Target（目标类） Adapter（适配器类）&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;
-    // 已存在的、具有特殊功能、但不符合我们既有的标准接口的类
-class Adaptee {
-    public void specificRequest() {
-        System.out.println(&amp;quot;被适配类具有 特殊功能...&amp;quot;);
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;
-// 目标接口，或称为标准接口
-interface Target {
-    public void request();
-}
-
-// 具体目标类，只提供普通功能
-class ConcreteTarget implements Target {
-    public void request() {
-        System.out.println(&amp;quot;普通类 具有 普通功能...&amp;quot;);
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;
-// 适配器类，继承了被适配类，同时实现标准接口
-class Adapter extends Adaptee implements Target{
-    public void request() {
-        super.specificRequest();
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;
-// 测试类
-    public class Client {
-        public static void main(String[] args) {
-            // 使用普通功能类
-            Target concreteTarget = new ConcreteTarget();
-            concreteTarget.request();
-
-            // 使用特殊功能类，即适配类
-            Target adapter = new Adapter();
-            adapter.request();
-        }
-    }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;blockquote&gt;
-&lt;p&gt;对象适配器实例 Adapter适配器类 被适配器同上&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;pre&gt;&lt;code&gt;
-// 适配器类，直接关联被适配类，同时实现标准接口
-class Adapter implements Target{
-    // 直接关联被适配类
-    private Adaptee adaptee;
-
-    // 可以通过构造函数传入具体需要适配的被适配类对象
-    public Adapter (Adaptee adaptee) {
-        this.adaptee = adaptee;
-    }
-
-    public void request() {
-        // 这里是使用委托的方式完成特殊功能
-        this.adaptee.specificRequest();
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;##&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;autoboxing方式&lt;/p&gt;
-&lt;/blockquote&gt;</content>
+    <content type="html">&lt;p&gt;待更……&lt;/p&gt;</content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;不希望被实例化-又不想抽象化&quot;&gt;&lt;a href=&quot;#不希望被实例化-又不想抽象化&quot; class=&quot;headerlink&quot; title=&quot;不希望被实例化 又不想抽象化&quot;&gt;&lt;/a&gt;不希望被实例化 又不想抽象化&lt;/h1&gt;&lt;p&gt;某些类不希望被实例化出毫无意义的对象 但不编
+      &lt;p&gt;待更……&lt;/p&gt;
     
     </summary>
     
@@ -152,7 +38,7 @@ class Adapter implements Target{
     <link href="http://ovjaywang.github.io/2016/04/27/hexo%E5%A4%9A%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%86%99%E4%BD%9C/"/>
     <id>http://ovjaywang.github.io/2016/04/27/hexo多客户端写作/</id>
     <published>2016-04-27T03:50:01.000Z</published>
-    <updated>2016-04-28T13:53:02.041Z</updated>
+    <updated>2016-04-28T15:24:31.428Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;Hexo是很棒的静态博客，简单的安装配置即可专注写作。&lt;br&gt;但是强迫症就是很爱折腾。倘若：&lt;/p&gt;
@@ -236,7 +122,7 @@ npm install
 npm install hexo-deployer-git
 &lt;/code&gt;&lt;/pre&gt;&lt;font color=&quot;red&quot;&gt;&lt;strong&gt;不用hexo init!!!&lt;/strong&gt;&lt;/font&gt;
 
-&lt;h2 id=&quot;后记&quot;&gt;&lt;a href=&quot;#后记&quot; class=&quot;headerlink&quot; title=&quot;后记&quot;&gt;&lt;/a&gt;后记&lt;/h2&gt;&lt;h3 id=&quot;多地部署&quot;&gt;&lt;a href=&quot;#多地部署&quot; class=&quot;headerlink&quot; title=&quot;多地部署&quot;&gt;&lt;/a&gt;多地部署&lt;/h3&gt;&lt;p&gt;pacman的公式和代码支持好差啊~还有需要多地备份的可以尝试coding（page之前免费的现在要钱了 = =）.在站点部署文件中更改deploy：&lt;/p&gt;
+&lt;h1 id=&quot;后记&quot;&gt;&lt;a href=&quot;#后记&quot; class=&quot;headerlink&quot; title=&quot;后记&quot;&gt;&lt;/a&gt;后记&lt;/h1&gt;&lt;h2 id=&quot;多地部署&quot;&gt;&lt;a href=&quot;#多地部署&quot; class=&quot;headerlink&quot; title=&quot;多地部署&quot;&gt;&lt;/a&gt;多地部署&lt;/h2&gt;&lt;p&gt;pacman的公式和代码支持好差啊~还有需要多地备份的可以尝试coding（page之前免费的现在要钱了 = =）.在站点部署文件中更改deploy：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;markdown&quot;&gt;deploy:
    type: git
    repo: 
@@ -244,7 +130,16 @@ npm install hexo-deployer-git
       coding: https://git.coding.net/{YOUR_ID}/{BLOG　NAME}.git,master
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;同理也能部署到自己的ftp服务器上。&lt;/p&gt;
-&lt;h3 id=&quot;bug1–file-name-too-long&quot;&gt;&lt;a href=&quot;#bug1–file-name-too-long&quot; class=&quot;headerlink&quot; title=&quot;bug1–file-name-too-long&quot;&gt;&lt;/a&gt;&lt;font color=&quot;red&quot;&gt;bug1–file-name-too-long&lt;/font&gt;&lt;/h3&gt;&lt;p&gt;在拷贝原始数据的时候，提交远程仓库时可能会报modules的文件夹无法同步。这个情况在windows下安装msysgit进行git bash会报这一问题。&lt;a href=&quot;https://github.com/msysgit/git/pull/110&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;也提到了这个异常。但这并不是git的问题，而是msysgit的问题。使用其他git方式对文件路径较长的提交就不会报错。实测在github for windows下提交该modules文件就不会报错。&lt;/p&gt;</content>
+&lt;h2 id=&quot;bug1-file-name-too-long&quot;&gt;&lt;a href=&quot;#bug1-file-name-too-long&quot; class=&quot;headerlink&quot; title=&quot;bug1 file-name-too-long&quot;&gt;&lt;/a&gt;&lt;font color=&quot;red&quot;&gt;bug1 file-name-too-long&lt;/font&gt;&lt;/h2&gt;&lt;p&gt;在拷贝原始数据的时候，提交远程仓库时可能会报modules的文件夹无法同步。这个情况在windows下安装msysgit进行git bash会报这一问题。&lt;a href=&quot;https://github.com/msysgit/git/pull/110&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;也提到了这个异常。但这并不是git的问题，而是msysgit的问题。使用其他git方式对文件路径较长的提交就不会报错。实测在github for windows下提交该modules文件就不会报错。&lt;/p&gt;
+&lt;h2 id=&quot;bug2-could-not-read-Username-for-‘https-XXX‘&quot;&gt;&lt;a href=&quot;#bug2-could-not-read-Username-for-‘https-XXX‘&quot; class=&quot;headerlink&quot; title=&quot;bug2 could not read Username for ‘https://XXX‘&quot;&gt;&lt;/a&gt;&lt;font color=&quot;red&quot;&gt;bug2 could not read Username for ‘&lt;a href=&quot;https://XXX&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://XXX&lt;/a&gt;‘&lt;/font&gt;&lt;/h2&gt;&lt;p&gt;当需要推送另一台设备的静态文件时，可能极少情况会碰上这个问题。有的说是bash的版本问题，不识别这种方式的推送。然而我用的同一版本的msysgit..&lt;/p&gt;
+&lt;p&gt;在&lt;a href=&quot;&quot;&gt;这里&lt;/a&gt;也发现了这个问题，尝试了一下使用在https中加入用户名和密码的方式能够良好的推送。。当然配置文件别泄露了。。更改配置文件的deploy如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;markdown&quot;&gt;deploy:
+   type: git
+   repo: 
+      github: https://{YOUR_ID}:{Your_Pwd}@github.com/{YOUR_ID}/{YOUR_ID}.github.io.git,master
+      coding: https://{YOUR_ID}:{Your_Pwd}@git.coding.net/{YOUR_ID}/{BLOG　NAME}.git,master
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Enjoy Hexo!&lt;/p&gt;</content>
     
     <summary type="html">
     
@@ -257,6 +152,156 @@ npm install hexo-deployer-git
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;我就纯属蛋疼的。喜欢在办公和休息的地方都写作；或者我一win本&lt;br&gt;一mac 都想写文章。但Hexo的静态部署的原则不像WordPress一样，能关联博客地址，利用数据库进行博客更新。好了，这里就来解决这个问题。┑(￣Д ￣)┍&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>effective java 笔记--创建对象的几个tips</title>
+    <link href="http://ovjaywang.github.io/2016/04/27/effective%20java%20%E7%AC%94%E8%AE%B0--%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%87%A0%E4%B8%AAtips/"/>
+    <id>http://ovjaywang.github.io/2016/04/27/effective java 笔记--创建对象的几个tips/</id>
+    <published>2016-04-27T03:50:01.000Z</published>
+    <updated>2016-04-28T15:23:29.022Z</updated>
+    
+    <content type="html">&lt;p&gt;第一章-创建和销毁对象 的一些 小tips&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h1 id=&quot;不希望被实例化-又不想抽象化&quot;&gt;&lt;a href=&quot;#不希望被实例化-又不想抽象化&quot; class=&quot;headerlink&quot; title=&quot;不希望被实例化 又不想抽象化&quot;&gt;&lt;/a&gt;不希望被实例化 又不想抽象化&lt;/h1&gt;&lt;p&gt;某些类不希望被实例化出毫无意义的对象 但不编写显示构造器类会自定义一个隐式无参的构造器 因此可以用一下方式，编写不能实例化的类：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;
+  public class UtilityClass{
+    private UtilityClass(){
+      throw new AssertionError();//直接抛出assert验证异常 好坏
+    }
+  }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;该构造器是私有的。其他类不能过访问（即使同包）。&lt;/p&gt;
+&lt;h1 id=&quot;不要创建没必要的对象&quot;&gt;&lt;a href=&quot;#不要创建没必要的对象&quot; class=&quot;headerlink&quot; title=&quot;不要创建没必要的对象&quot;&gt;&lt;/a&gt;不要创建没必要的对象&lt;/h1&gt;&lt;p&gt;不可变的对象一定要重用（singleton）；重用绝逼不会变的对象（例如计时初始时间、例如物种的属性）。例如，实例化Person对象的时候判断是不是计划生育年代出生的，即判断出生年份是否在1983-2015年。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+class Person{
+   private final Date birthDate;
+   private static final Date BIRTH_START;
+   //这俩参数都是不变的 为了对比出生时间 
+   //没必要每次都创建一个日期对象，只在初始化时调用。
+   private static final Date BIRTH_END; 
+
+//静态块的方法 第一次声明Person对象时构建（不用实例化）
+// 后面占用一块内存 不用再次创建
+   static{
+        Calendar gmtCal = Calendar.getInstance(TimeZone.getTimeZone(&amp;quot;GMT&amp;quot;));
+        gmtCal.set(1983,Calendar.JANUARY,1,0,0,0);
+        //这里对日期做了时区判断 
+        //保证都是从某一客观时间点出生的
+        BIRTH_START = gmtCal.getTime();
+        gmtCal.set(2016,Calendar.JANUARY,1,0,0,0);
+        //截止2015年年底 所以取2016年年初
+        BIRTH_END = gmtCal.getTime();
+   }
+
+    public boolean isJiHuaShengYu(){
+        return birthDate.compareTo(BIRTH_START) &amp;gt;=0 &amp;amp;&amp;amp;
+            birthDate.compareTo(BIRTH_END) &amp;lt;=0;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果isJiHuaShengYu方法&lt;font color=&quot;red&quot;&gt;从未调用&lt;/font&gt;，这个方法就显得不合时宜了，这块静态块的内存就一直占着，因此，可以采用延时初始化的方式，在第一次调用该方法时调用。&lt;/p&gt;
+&lt;p&gt;adapter适配器模式可以提供一个后备对象，使实例化次数减少（包括类适配器和对象适配器）；autoboxing自动装箱模式能够自动创建多余对象，所以尽量少用，而使用基本数据类型。&lt;/p&gt;
+&lt;h2 id=&quot;适配器Adapter&quot;&gt;&lt;a href=&quot;#适配器Adapter&quot; class=&quot;headerlink&quot; title=&quot;适配器Adapter&quot;&gt;&lt;/a&gt;适配器Adapter&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;adapter工作场景&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;适配器模式工作场景是：给定的一个接口不满足需求，需要其一些功能与其他的接口或类配合使用.正如已经给了电压和充电插座，但是插座电压与设备工作电压，这是时候就需要一个转换接头。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;adapter分类 &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;一般分为类适配器和对象适配器。&lt;strong&gt;类适配器&lt;/strong&gt;一般继承了给定接口的被适配类，同时拓展实现了标准的接口；而&lt;strong&gt;对象适配器&lt;/strong&gt;则直接关联，以委托的方式完成已知接口的特殊功能。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;类适配器实例：Adaptee（已知的待适配的类） Target（目标类） Adapter（适配器类）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;可以看到，类适配器的方式通过继承或实现接口的方式，来传递某些功能或方法，以达到利用已知功能的目的。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;
+    // 已存在的、具有特殊功能、但不符合我们既有的标准接口的类
+class Adaptee {
+    public void specificRequest() {
+        System.out.println(&amp;quot;被适配类具有 特殊功能...&amp;quot;);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;
+// 目标接口，或称为标准接口
+interface Target {
+    public void request();
+}
+
+// 具体目标类，只提供普通功能
+class ConcreteTarget implements Target {
+    public void request() {
+        System.out.println(&amp;quot;普通类 具有 普通功能...&amp;quot;);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;
+// 适配器类，继承了被适配类，同时实现标准接口
+class Adapter extends Adaptee implements Target{
+    public void request() {
+        super.specificRequest();
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;
+// 测试类
+    public class Client {
+        public static void main(String[] args) {
+            // 使用普通功能类
+            Target concreteTarget = new ConcreteTarget();
+            concreteTarget.request();
+
+            // 使用特殊功能类，即适配类
+            Target adapter = new Adapter();
+            adapter.request();
+        }
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;对象适配器实例 Adapter适配器类 被适配器同上&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;对象适配器则通过对被适配类实例化，通过其对象获取其中部分功能，委托这一实例来完成想要传递的方法。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+// 适配器类，直接关联被适配类，同时实现标准接口
+class Adapter implements Target{
+    // 直接关联被适配类
+    private Adaptee adaptee;
+
+    // 可以通过构造函数传入具体需要适配的被适配类对象
+    public Adapter (Adaptee adaptee) {
+        this.adaptee = adaptee;
+    }
+
+    public void request() {
+        // 这里是使用委托的方式完成特殊功能
+        this.adaptee.specificRequest();
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;
+public class Client {
+    public static void main(String[] args) {
+        // 使用普通功能类
+        Target concreteTarget = new ConcreteTarget();
+        concreteTarget.request();
+
+        // 使用特殊功能类，即适配类，
+        // 需要先创建一个被适配类的对象作为参数
+        Target adapter = new Adapter(new Adaptee());
+        adapter.request();
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;参考&lt;a href=&quot;http://haolloyin.blog.51cto.com/1177454/346128&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;##&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;autoboxing方式&lt;/p&gt;
+&lt;/blockquote&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;第一章-创建和销毁对象 的一些 小tips&lt;/p&gt;
     
     </summary>
     
@@ -1665,36 +1710,6 @@ boolean isScreenOn = pm.isScreenOn();
     
     
       <category term="后方交会" scheme="http://ovjaywang.github.io/tags/%E5%90%8E%E6%96%B9%E4%BA%A4%E4%BC%9A/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>后方交会检校(4)--畸变差矫正</title>
-    <link href="http://ovjaywang.github.io/2015/10/28/%E5%90%8E%E6%96%B9%E4%BA%A4%E4%BC%9A%E6%A3%80%E6%A0%A1(4)--%E7%95%B8%E5%8F%98%E5%B7%AE%E7%9F%AB%E6%AD%A3/"/>
-    <id>http://ovjaywang.github.io/2015/10/28/后方交会检校(4)--畸变差矫正/</id>
-    <published>2015-10-28T13:19:08.000Z</published>
-    <updated>2016-04-11T14:09:45.581Z</updated>
-    
-    <content type="html">&lt;p&gt;为毛要做畸变差矫正?&lt;/p&gt;
-&lt;p&gt;单片检校主要目的是精确测量相机的内方位元素和检校相机镜头畸变。而多片后方交会则可以更精确的解算这些参数，还可以同时在平差中解求各个物方测量点的精确估值，也可以利用这些大容量的信息进行基于空间位置的组合镜头多片拼接和航带拼接。本篇主要介绍多片后方交会的应用。&lt;/p&gt;
-&lt;p&gt; 航摄中常用的三种用于加密控制点的方法有&lt;span style=&quot;COLOR: #ff0000&quot;&gt;航带法、独立模型法、光束法&lt;/span&gt;。其中航带法精度较低，不能用于高精度的测量。独立模型法较前者精度略高，光束法则是精度最高同时计算量最大的模型，适用于高精度航摄。&lt;br&gt; 但粗差同样对于精度的影响极大，自检较光束则是最广泛应用的做法。其基本思想是选用一个由若干个参数组成的系统误差模型，将这些附加参数作为未知数与区域网的其他参数一起解求，从而达到在平差过程中自动消除系统误差的目的。其缺点是①&lt;span style=&quot;COLOR: #ff0000&quot;&gt;附加参数人为选择&lt;/span&gt;，选择不当会导致迭代结果不收敛恶化计算结果。②附加参数与区域网参数一起解求，会使&lt;span style=&quot;COLOR: #ff0000&quot;&gt;计算量明显上升&lt;/span&gt;。&lt;/p&gt;
-&lt;div class=&quot;PoweredByWebStory&quot; style=&quot;margin-top:15px;margin-bottom:10px&quot;&gt;&lt;a href=&quot;http://sns.juziyue.com/webinvite.php?u=94887&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;/a&gt;&amp;nbsp;今天你&lt;a href=&quot;http://sns.juziyue.com/webinvite.php?u=94887&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;菊子曰&lt;/a&gt;了么？&lt;/div&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;为毛要做畸变差矫正?&lt;/p&gt;
-&lt;p&gt;单片检校主要目的是精确测量相机的内方位元素和检校相机镜头畸变。而多片后方交会则可以更精确的解算这些参数，还可以同时在平差中解求各个物方测量点的精确估值，也可以利用这些大容量的信息进行基于空间位置的组合镜头多片拼接和航带拼接。本篇主要介绍多
-    
-    </summary>
-    
-      <category term="什么都学一下" scheme="http://ovjaywang.github.io/categories/%E4%BB%80%E4%B9%88%E9%83%BD%E5%AD%A6%E4%B8%80%E4%B8%8B/"/>
-    
-      <category term="学习log" scheme="http://ovjaywang.github.io/categories/%E4%BB%80%E4%B9%88%E9%83%BD%E5%AD%A6%E4%B8%80%E4%B8%8B/%E5%AD%A6%E4%B9%A0log/"/>
-    
-    
-      <category term="后方交会" scheme="http://ovjaywang.github.io/tags/%E5%90%8E%E6%96%B9%E4%BA%A4%E4%BC%9A/"/>
-    
-      <category term="检校" scheme="http://ovjaywang.github.io/tags/%E6%A3%80%E6%A0%A1/"/>
     
   </entry>
   
