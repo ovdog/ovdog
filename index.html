@@ -285,6 +285,150 @@
             
               
                 
+                <a class="post-title-link" href="/2016/04/28/effective java 笔记--创建对象的几个tips/" itemprop="url">
+                  未命名
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-28T21:44:31+08:00" content="2016-04-28">
+              2016-04-28
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/28/effective java 笔记--创建对象的几个tips/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/28/effective java 笔记--创建对象的几个tips/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="不希望被实例化-又不想抽象化"><a href="#不希望被实例化-又不想抽象化" class="headerlink" title="不希望被实例化 又不想抽象化"></a>不希望被实例化 又不想抽象化</h1><p>某些类不希望被实例化出毫无意义的对象 但不编写显示构造器类会自定义一个隐式无参的构造器 因此可以用一下方式，编写不能实例化的类：</p>
+<pre><code class="java">
+    public class UtilityClass{
+        private UtilityClass(){
+            throw new AssertionError();//直接抛出assert验证异常 好坏
+        }
+    }
+</code></pre>
+<p>该构造器是私有的。其他类不能过访问（即使同包）。</p>
+<h1 id="不要创建没必要的对象"><a href="#不要创建没必要的对象" class="headerlink" title="不要创建没必要的对象"></a>不要创建没必要的对象</h1><p>不可变的对象一定要重用（singleton）；重用绝逼不会变的对象（例如计时初始时间、例如物种的属性）。例如，实例化Person对象的时候判断是不是计划生育年代出生的，即判断出生年份是否在1983-2015年。</p>
+<pre><code>
+class Person{
+   private final Date birthDate;
+   private static final Date BIRTH_START;
+   //这俩参数都是不变的 为了对比出生时间 
+   //没必要每次都创建一个日期对象，只在初始化时调用。
+   private static final Date BIRTH_END; 
+
+//静态块的方法 第一次声明Person对象时构建（不用实例化）
+// 后面占用一块内存 不用再次创建
+   static{
+        Calendar gmtCal = Calendar.getInstance(TimeZone.getTimeZone(&quot;GMT&quot;));
+        gmtCal.set(1983,Calendar.JANUARY,1,0,0,0);
+        //这里对日期做了时区判断 
+        //保证都是从某一客观时间点出生的
+        BIRTH_START = gmtCal.getTime();
+        gmtCal.set(2016,Calendar.JANUARY,1,0,0,0);
+        //截止2015年年底 所以取2016年年初
+        BIRTH_END = gmtCal.getTime();
+   }
+
+    public boolean isJiHuaShengYu(){
+        return birthDate.compareTo(BIRTH_START) &gt;=0 &amp;&amp;
+            birthDate.compareTo(BIRTH_END) &lt;=0;
+    }
+}
+</code></pre><p>如果isJiHuaShengYu方法<font color="red">从未调用</font>，这个方法就显得不合时宜了，这块静态块的内存就一直占着，因此，可以采用延时初始化的方式，在第一次调用该方法时调用。</p>
+<p>adapter适配器模式可以提供一个后备对象，使实例化次数减少（包括类适配器和对象适配器）；autoboxing自动装箱模式能够自动创建多余对象，所以尽量少用，而使用基本数据类型。</p>
+<h2 id="适配器"><a href="#适配器" class="headerlink" title="适配器"></a>适配器</h2><blockquote>
+<p>adapter工作场景</p>
+</blockquote>
+<p>适配器模式工作场景是：给定的一个接口不满足需求，需要其一些功能与其他的接口或类配合使用.正如已经给了电压和充电插座，但是插座电压与设备工作电压，这是时候就需要一个转换接头。</p>
+<blockquote>
+<p>autoboxing方式</p>
+</blockquote>
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/04/27/hexo多客户端写作/" itemprop="url">
                   Hexo多客户端写作
                 </a>
@@ -2486,144 +2630,6 @@ boolean isScreenOn = pm.isScreenOn();
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/11/09/后方交会检校(7)--后方检校精度的检验/" itemprop="url">
-                  后方交会检校(7)--后方检校精度的检验
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-11-09T17:39:06+08:00" content="2015-11-09">
-              2015-11-09
-            </time>
-          </span>
-
-          
-            <span class="post-category">
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/什么都学一下/" itemprop="url" rel="index">
-                    <span itemprop="name">什么都学一下</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/什么都学一下/学习log/" itemprop="url" rel="index">
-                    <span itemprop="name">学习log</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/11/09/后方交会检校(7)--后方检校精度的检验/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/09/后方交会检校(7)--后方检校精度的检验/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>后方交会得到的结果，除了使用平差误差表达式来计算之外，还可以通过以下方式进行检验和矫正。</p>
-<p>①利用旋转矩阵，使用物放三维数据，反算二维坐标点，比较二者之差。</p>
-<p>&nbsp;</p>
-<p>②利用多片空间前方交会，通过未参与空间后方交会计算的控制点像点坐标反算理论空间坐标，得出空间坐标的误差。</p>
-<p>使用条件：至少2张相片的内方位元素、外方位元素、畸变因子。把待定点的像点坐标作为观测值，逐点求解待定点物方空间坐标的过程。</p>
-<p>其步骤与多片空间前方交会也类似，给定初值后，进行逐次迭代运算。误差方程为</p>
-<p>&nbsp;</p>
-<div class="PoweredByWebStory" style="margin-top:15px;margin-bottom:10px"><a href="http://sns.juziyue.com/webinvite.php?u=94887" target="_blank" rel="external"></a>&nbsp;今天你<a href="http://sns.juziyue.com/webinvite.php?u=94887" target="_blank" rel="external">菊子曰</a>了么？</div>
-          
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2667,7 +2673,7 @@ boolean isScreenOn = pm.isScreenOn();
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">100</span>
+              <span class="site-state-item-count">101</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
