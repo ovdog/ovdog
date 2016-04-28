@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion">
+<html class="theme-next muse use-motion">
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -103,7 +103,7 @@
 
 我就纯属蛋疼的。喜欢在办公和休息的地方都写作；或者我一win本一mac 都想写文章。但Hexo的静态部署的原则不像WordPress一样，能关联博客地址，利用数据库进行博客更新。好了，这里就来解决这个问题。┑(￣Д">
 <meta property="og:image" content="http://ooo.0o0.ooo/2016/04/27/5720a2a70a238.png">
-<meta property="og:updated_time" content="2016-04-28T15:24:31.428Z">
+<meta property="og:updated_time" content="2016-04-28T15:29:03.676Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo多客户端写作">
 <meta name="twitter:description" content="Hexo是很棒的静态博客，简单的安装配置即可专注写作。但是强迫症就是很爱折腾。倘若：
@@ -121,7 +121,7 @@
 <script type="text/javascript" id="hexo.configuration">
   var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Mist',
+    scheme: 'Muse',
     sidebar: {"position":"left","display":"always"},
     fancybox: true,
     motion: true,
@@ -158,6 +158,12 @@
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-meta custom-logo">
+  
+    <div class="site-meta-headline">
+      <a>
+        <img class="custom-logo-image" src="/images/touxiang.jpg" alt="ov智商捉急">
+      </a>
+    </div>
   
 
   <div class="custom-logo-site-title">
@@ -446,7 +452,7 @@ npm install hexo-deployer-git
 <p>同理也能部署到自己的ftp服务器上。</p>
 <h2 id="bug1-file-name-too-long"><a href="#bug1-file-name-too-long" class="headerlink" title="bug1 file-name-too-long"></a><font color="red">bug1 file-name-too-long</font></h2><p>在拷贝原始数据的时候，提交远程仓库时可能会报modules的文件夹无法同步。这个情况在windows下安装msysgit进行git bash会报这一问题。<a href="https://github.com/msysgit/git/pull/110" target="_blank" rel="external">这里</a>也提到了这个异常。但这并不是git的问题，而是msysgit的问题。使用其他git方式对文件路径较长的提交就不会报错。实测在github for windows下提交该modules文件就不会报错。</p>
 <h2 id="bug2-could-not-read-Username-for-‘https-XXX‘"><a href="#bug2-could-not-read-Username-for-‘https-XXX‘" class="headerlink" title="bug2 could not read Username for ‘https://XXX‘"></a><font color="red">bug2 could not read Username for ‘<a href="https://XXX" target="_blank" rel="external">https://XXX</a>‘</font></h2><p>当需要推送另一台设备的静态文件时，可能极少情况会碰上这个问题。有的说是bash的版本问题，不识别这种方式的推送。然而我用的同一版本的msysgit..</p>
-<p>在<a href="">这里</a>也发现了这个问题，尝试了一下使用在https中加入用户名和密码的方式能够良好的推送。。当然配置文件别泄露了。。更改配置文件的deploy如下：</p>
+<p>在<a href="http://stackoverflow.com/questions/20871549/error-when-push-commits-with-github-fatal-could-not-read-username" target="_blank" rel="external">这里</a>也发现了这个问题，尝试了一下使用在https中加入用户名和密码的方式能够良好的推送。。当然配置文件别泄露了。。更改配置文件的deploy如下：</p>
 <pre><code class="markdown">deploy:
    type: git
    repo: 
@@ -610,6 +616,26 @@ npm install hexo-deployer-git
 
         <div class="links-of-author motion-element">
           
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ovjaywang" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/302060345" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
         </div>
 
         
@@ -660,7 +686,7 @@ npm install hexo-deployer-git
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Muse
   </a>
 </div>
 
