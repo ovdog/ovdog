@@ -34,131 +34,6 @@
   </entry>
   
   <entry>
-    <title>Hexo多客户端写作</title>
-    <link href="http://ovjaywang.github.io/2016/04/27/hexo%E5%A4%9A%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%86%99%E4%BD%9C/"/>
-    <id>http://ovjaywang.github.io/2016/04/27/hexo多客户端写作/</id>
-    <published>2016-04-27T03:50:01.000Z</published>
-    <updated>2016-04-28T15:29:03.676Z</updated>
-    
-    <content type="html">&lt;blockquote&gt;
-&lt;p&gt;Hexo是很棒的静态博客，简单的安装配置即可专注写作。&lt;br&gt;但是强迫症就是很爱折腾。倘若：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;主机烧了数据备份怎么破？&lt;/li&gt;
-&lt;li&gt;换了系统想继续之前的写作怎么破?&lt;/li&gt;
-&lt;li&gt;纯粹就是想多客户端写作怎么破？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;我就纯属蛋疼的。喜欢在办公和休息的地方都写作；或者我一win本&lt;br&gt;一mac 都想写文章。但Hexo的静态部署的原则不像WordPress一样，能关联博客地址，利用数据库进行博客更新。好了，这里就来解决这个问题。┑(￣Д ￣)┍&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h1 id=&quot;Hexo写作的部署逻辑-amp-其他&quot;&gt;&lt;a href=&quot;#Hexo写作的部署逻辑-amp-其他&quot; class=&quot;headerlink&quot; title=&quot;Hexo写作的部署逻辑&amp;amp;其他&quot;&gt;&lt;/a&gt;Hexo写作的部署逻辑&amp;amp;其他&lt;/h1&gt;&lt;h2 id=&quot;Hexo的写作特点&quot;&gt;&lt;a href=&quot;#Hexo的写作特点&quot; class=&quot;headerlink&quot; title=&quot;Hexo的写作特点&quot;&gt;&lt;/a&gt;Hexo的写作特点&lt;/h2&gt;&lt;p&gt;Hexo最大特点就是静态博客，即部署到服务器的博客内容是静态写好的html（由markdown转义），而不像类似wordpress的数据都存放在服务器端数据库，每次更新即一次读写数据库的操作。所以如果需要更改博客内容、发布新内容，必须&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;更改源文件source文件夹下_post及其他各页面文件夹的md文件&lt;/li&gt;
-&lt;li&gt;通过&lt;code&gt;hexo g&lt;/code&gt;或&lt;code&gt;hexo generate&lt;/code&gt;在public生成静态文件。&lt;/li&gt;
-&lt;li&gt;利用&lt;code&gt;hexo-deployer-git&lt;/code&gt;插件及&lt;code&gt;hexo d&lt;/code&gt;命令将public的文件自动的部署到创建好的&lt;code&gt;user-name.github.io&lt;/code&gt;项目中。&lt;blockquote&gt;
-&lt;p&gt;在github项目中可以看到，自动上传的只有public文件夹中的文件，包括以年份分类的静态页面文件夹、tag、categories及其他辅助css、js、img等，还有域名指引的CNAME和rss sitemap等。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;在博客中看到更新的内容。当然，本地目录中，即存放了md源文件，也包含了生成的public文件。其实，本地并不需要public里的内容，只要有写作的源文件，generate一下就能生成。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&quot;Hexo的缺憾&quot;&gt;&lt;a href=&quot;#Hexo的缺憾&quot; class=&quot;headerlink&quot; title=&quot;Hexo的缺憾&quot;&gt;&lt;/a&gt;Hexo的缺憾&lt;/h2&gt;&lt;p&gt;那么问题来了，如果我在公司和贫民窟都想写作怎么办。总不能在两个本地仓库hexo init都部署到pages项目。在公司更新一篇blog里面全都是公司写的，然后回到地下室又写一篇更新又全是小黑屋的内容。  &lt;/p&gt;
-&lt;p&gt;尽管Hexo让人专注写作，随时随地用md写一篇博，等到来到同步的机器才更新一次也让人很不爽。对于远程仓库只存放静态文件的方案，就想到了两个思路&lt;/p&gt;
-&lt;h3 id=&quot;同步静态文件&quot;&gt;&lt;a href=&quot;#同步静态文件&quot; class=&quot;headerlink&quot; title=&quot;同步静态文件&quot;&gt;&lt;/a&gt;同步静态文件&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;新仓库同步静态文件-&amp;gt;hexo g生成静态文件-&amp;gt;合并静态文件-&amp;gt;hexo d部署&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ol&gt;
-&lt;li&gt;在两地分别hexo init建立hexo博客目录，在_config.yml中都部署到同一个远程仓库，在每次generate时，都先将远程仓库的静态文件同步下来（新建一个单独的folder专门用于同步静态文件）。请勿使用hexo博客中的public文件夹用于同步，每次generate会覆盖同名文件。若另一台主机曾做过修改并提交，这次修改的静态文件将被本地未修改的静态文件覆盖。具体操作：&lt;br&gt;第一次克隆远程hexo主分支：&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre&gt;&lt;code&gt;git clone git@github.com:user-name/user-name.github.io.git
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;之后每次hexo仓库发布首先在静态文件仓库获取远程仓库最新静态文件(无条件merge)&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git pull origin master
-&lt;/code&gt;&lt;/pre&gt;&lt;ol&gt;
-&lt;li&gt;在静态文件同步仓库中，将自上次部署后，本地修改过的静态文件&lt;strong&gt;删掉&lt;/strong&gt;（不记得怪我咯┑(￣Д ￣)┍）；同时在hexo blog仓库中&lt;code&gt;hexo -g&lt;/code&gt;生成本地静态文件。&lt;/li&gt;
-&lt;li&gt;将剔除过期静态文件的public仓库中文件复制到hexo的public中。&lt;/li&gt;
-&lt;li&gt;使用&lt;code&gt;hexo -d&lt;/code&gt;部署&lt;blockquote&gt;
-&lt;p&gt;以上步骤2中的删除操作是为了保证静态文件的数据都是最新的，保证博客内容的一致性。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;同步源文件（大招）&quot;&gt;&lt;a href=&quot;#同步源文件（大招）&quot; class=&quot;headerlink&quot; title=&quot;同步源文件（大招）&quot;&gt;&lt;/a&gt;同步源文件（大招）&lt;/h3&gt;&lt;p&gt;想到上述方式需要进行2步骤的主要原因就是本地的源文件不同步，只能通过生成的静态文件进行合并的方式，为毛不将源文件同步呢？！参考&lt;a href=&quot;http://crazymilk.github.io/2015/12/28/GitHub-Pages-Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这篇文章&lt;/a&gt;的思路，同步源文件就是通过远程仓库对源文件融合统一。&lt;/p&gt;
-&lt;h2 id=&quot;呵呵哒&quot;&gt;&lt;a href=&quot;#呵呵哒&quot; class=&quot;headerlink&quot; title=&quot;呵呵哒&quot;&gt;&lt;/a&gt;呵呵哒&lt;/h2&gt;&lt;p&gt;本文为了完成多客户端的同Hexo博的管理和发布，对ssh、git安装、Hexo安装、配置插件主题管理、域名绑定&lt;strong&gt;不涉及&lt;/strong&gt;。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;系统不限制 &lt;/li&gt;
-&lt;li&gt;是否写过博部署过没差&lt;/li&gt;
-&lt;li&gt;最好Hexo3.X,2.X没试过出事自负&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&quot;真·多客户端&quot;&gt;&lt;a href=&quot;#真·多客户端&quot; class=&quot;headerlink&quot; title=&quot;真·多客户端&quot;&gt;&lt;/a&gt;真·多客户端&lt;/h1&gt;&lt;h2 id=&quot;创建远程仓库&quot;&gt;&lt;a href=&quot;#创建远程仓库&quot; class=&quot;headerlink&quot; title=&quot;创建远程仓库&quot;&gt;&lt;/a&gt;创建远程仓库&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;对于没有进行创作的hexo博客，首先创建同名仓库，再创建一个hexo branch。此时俩分支都是空的  &lt;/li&gt;
-&lt;li&gt;对于已经进行创作的hexo博客，直接创建一个hexo 分支。此时，hexo clone了master的静态文件。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;设置主分支&quot;&gt;&lt;a href=&quot;#设置主分支&quot; class=&quot;headerlink&quot; title=&quot;设置主分支&quot;&gt;&lt;/a&gt;设置主分支&lt;/h2&gt;&lt;p&gt;将hexo branch设为主分支，用于同步源文件；master branch作为静态文件的存放。（由于github pages会检索master分支作为该域名下的部署分支，因此必须把master名字保留）&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/04/27/5720a2a70a238.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;同步远程仓库并初始化&quot;&gt;&lt;a href=&quot;#同步远程仓库并初始化&quot; class=&quot;headerlink&quot; title=&quot;同步远程仓库并初始化&quot;&gt;&lt;/a&gt;同步远程仓库并初始化&lt;/h2&gt;&lt;p&gt;在本地（包含第一次所有源文件的主机）新建一个文件夹（就算已经写过博客的也这么搞）同步远程仓库并初始化&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git clone git@github.com:your-Id/your-Id.github.io.git
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;此时输入&lt;code&gt;git branch&lt;/code&gt;可以看到两个分支，红色分支为主分支。&lt;br&gt;若是非空白博客，同步后需要先删掉里面的静态文件.直接删光，把原博客的文件全部复制过来&lt;strong&gt;（好像没有发现更换远程仓库主分支后本地同步更换的git bash。求解?）&lt;/strong&gt;;若是空白博客，那么需要再令建一个文件夹，（因为hexo init操作会覆盖原.git文件导致与远程仓库失联）在该文件夹git bash执行&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;npm install -g hexo
-hexo init
-npm install
-hexo g
-npm install hexo-deployer-git--save
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;好了，里面该有的差不多都有了。全部复制到源文件仓库。&lt;strong&gt;注意把hello worl删掉啊。&lt;/strong&gt;关键的就是，config.yml里deployer的branch是master，而本地仓库关联的是hexo就对了。&lt;br&gt;然后执行&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git add .
-git commit -m &amp;quot;init&amp;quot;
-git push -u origin hexo
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;值得注意的是，有的时候提示主题的文件夹并未加入同步操作，显示&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;
-Changes not staged for commit
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;即主题文件夹的内容尚未有之前版本，应该加入tracked。应在提交前输入&lt;code&gt;git add themes/themes_name/&lt;/code&gt;.最后那个斜杠别忘了加。&lt;br&gt;这就完成源文件的同步了！(￣▽￣)”” 执行&lt;code&gt;hexo d&lt;/code&gt;操作将本地public静态文件部署。&lt;/p&gt;
-&lt;h1 id=&quot;发博日常&quot;&gt;&lt;a href=&quot;#发博日常&quot; class=&quot;headerlink&quot; title=&quot;发博日常&quot;&gt;&lt;/a&gt;发博日常&lt;/h1&gt;&lt;h2 id=&quot;更博&quot;&gt;&lt;a href=&quot;#更博&quot; class=&quot;headerlink&quot; title=&quot;更博&quot;&gt;&lt;/a&gt;更博&lt;/h2&gt;&lt;p&gt;如果你不能确定是否抽风需要经常换客户端，因此需要每次都要同步本地源文件；如果能忍住，，或者有规律的换客户端，那么平时更新不需要经常同步。&lt;br&gt;写博前操作(&lt;strong&gt;特么狠重要啊&lt;/strong&gt;)：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git pull origin hexo
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;更新操作：(同步源文件到hexo分支)&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git add .
-git commit -m &amp;quot;hehe&amp;quot;
-git push origin hexo
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这样每次更博都需要多几个步骤，嫌麻烦就要忍住不手痒了。在手机、pad写md再同步到电脑也是个不错的习惯。&lt;/p&gt;
-&lt;h2 id=&quot;换客户端&quot;&gt;&lt;a href=&quot;#换客户端&quot; class=&quot;headerlink&quot; title=&quot;换客户端&quot;&gt;&lt;/a&gt;换客户端&lt;/h2&gt;&lt;p&gt;easy.只要远程仓库存在了一份完整的源文件，那同步就很容易了。似上步第一次同步，使用&lt;code&gt;git clone git@github.com:your-Id/your-Id.github.io.git&lt;/code&gt;拷贝仓库。然后执行&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;npm install -g hexo
-npm install
-npm install hexo-deployer-git
-&lt;/code&gt;&lt;/pre&gt;&lt;font color=&quot;red&quot;&gt;&lt;strong&gt;不用hexo init!!!&lt;/strong&gt;&lt;/font&gt;
-
-&lt;h1 id=&quot;后记&quot;&gt;&lt;a href=&quot;#后记&quot; class=&quot;headerlink&quot; title=&quot;后记&quot;&gt;&lt;/a&gt;后记&lt;/h1&gt;&lt;h2 id=&quot;多地部署&quot;&gt;&lt;a href=&quot;#多地部署&quot; class=&quot;headerlink&quot; title=&quot;多地部署&quot;&gt;&lt;/a&gt;多地部署&lt;/h2&gt;&lt;p&gt;pacman的公式和代码支持好差啊~还有需要多地备份的可以尝试coding（page之前免费的现在要钱了 = =）.在站点部署文件中更改deploy：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;markdown&quot;&gt;deploy:
-   type: git
-   repo: 
-      github: https://github.com/{YOUR_ID}/{YOUR_ID}.github.io.git,master
-      coding: https://git.coding.net/{YOUR_ID}/{BLOG　NAME}.git,master
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;同理也能部署到自己的ftp服务器上。&lt;/p&gt;
-&lt;h2 id=&quot;bug1-file-name-too-long&quot;&gt;&lt;a href=&quot;#bug1-file-name-too-long&quot; class=&quot;headerlink&quot; title=&quot;bug1 file-name-too-long&quot;&gt;&lt;/a&gt;&lt;font color=&quot;red&quot;&gt;bug1 file-name-too-long&lt;/font&gt;&lt;/h2&gt;&lt;p&gt;在拷贝原始数据的时候，提交远程仓库时可能会报modules的文件夹无法同步。这个情况在windows下安装msysgit进行git bash会报这一问题。&lt;a href=&quot;https://github.com/msysgit/git/pull/110&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;也提到了这个异常。但这并不是git的问题，而是msysgit的问题。使用其他git方式对文件路径较长的提交就不会报错。实测在github for windows下提交该modules文件就不会报错。&lt;/p&gt;
-&lt;h2 id=&quot;bug2-could-not-read-Username-for-‘https-XXX‘&quot;&gt;&lt;a href=&quot;#bug2-could-not-read-Username-for-‘https-XXX‘&quot; class=&quot;headerlink&quot; title=&quot;bug2 could not read Username for ‘https://XXX‘&quot;&gt;&lt;/a&gt;&lt;font color=&quot;red&quot;&gt;bug2 could not read Username for ‘&lt;a href=&quot;https://XXX&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://XXX&lt;/a&gt;‘&lt;/font&gt;&lt;/h2&gt;&lt;p&gt;当需要推送另一台设备的静态文件时，可能极少情况会碰上这个问题。有的说是bash的版本问题，不识别这种方式的推送。然而我用的同一版本的msysgit..&lt;/p&gt;
-&lt;p&gt;在&lt;a href=&quot;http://stackoverflow.com/questions/20871549/error-when-push-commits-with-github-fatal-could-not-read-username&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;也发现了这个问题，尝试了一下使用在https中加入用户名和密码的方式能够良好的推送。。当然配置文件别泄露了。。更改配置文件的deploy如下：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;markdown&quot;&gt;deploy:
-   type: git
-   repo: 
-      github: https://{YOUR_ID}:{Your_Pwd}@github.com/{YOUR_ID}/{YOUR_ID}.github.io.git,master
-      coding: https://{YOUR_ID}:{Your_Pwd}@git.coding.net/{YOUR_ID}/{BLOG　NAME}.git,master
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Enjoy Hexo!&lt;/p&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;Hexo是很棒的静态博客，简单的安装配置即可专注写作。&lt;br&gt;但是强迫症就是很爱折腾。倘若：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;主机烧了数据备份怎么破？&lt;/li&gt;
-&lt;li&gt;换了系统想继续之前的写作怎么破?&lt;/li&gt;
-&lt;li&gt;纯粹就是想多客户端写作怎么破？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;我就纯属蛋疼的。喜欢在办公和休息的地方都写作；或者我一win本&lt;br&gt;一mac 都想写文章。但Hexo的静态部署的原则不像WordPress一样，能关联博客地址，利用数据库进行博客更新。好了，这里就来解决这个问题。┑(￣Д ￣)┍&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>effective java 笔记--创建对象的几个tips</title>
     <link href="http://ovjaywang.github.io/2016/04/27/effective%20java%20%E7%AC%94%E8%AE%B0--%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%87%A0%E4%B8%AAtips/"/>
     <id>http://ovjaywang.github.io/2016/04/27/effective java 笔记--创建对象的几个tips/</id>
@@ -302,6 +177,131 @@ public class Client {
     <summary type="html">
     
       &lt;p&gt;第一章-创建和销毁对象 的一些 小tips&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo多客户端写作</title>
+    <link href="http://ovjaywang.github.io/2016/04/27/hexo%E5%A4%9A%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%86%99%E4%BD%9C/"/>
+    <id>http://ovjaywang.github.io/2016/04/27/hexo多客户端写作/</id>
+    <published>2016-04-27T03:50:01.000Z</published>
+    <updated>2016-04-28T15:29:03.676Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;Hexo是很棒的静态博客，简单的安装配置即可专注写作。&lt;br&gt;但是强迫症就是很爱折腾。倘若：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;主机烧了数据备份怎么破？&lt;/li&gt;
+&lt;li&gt;换了系统想继续之前的写作怎么破?&lt;/li&gt;
+&lt;li&gt;纯粹就是想多客户端写作怎么破？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我就纯属蛋疼的。喜欢在办公和休息的地方都写作；或者我一win本&lt;br&gt;一mac 都想写文章。但Hexo的静态部署的原则不像WordPress一样，能关联博客地址，利用数据库进行博客更新。好了，这里就来解决这个问题。┑(￣Д ￣)┍&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h1 id=&quot;Hexo写作的部署逻辑-amp-其他&quot;&gt;&lt;a href=&quot;#Hexo写作的部署逻辑-amp-其他&quot; class=&quot;headerlink&quot; title=&quot;Hexo写作的部署逻辑&amp;amp;其他&quot;&gt;&lt;/a&gt;Hexo写作的部署逻辑&amp;amp;其他&lt;/h1&gt;&lt;h2 id=&quot;Hexo的写作特点&quot;&gt;&lt;a href=&quot;#Hexo的写作特点&quot; class=&quot;headerlink&quot; title=&quot;Hexo的写作特点&quot;&gt;&lt;/a&gt;Hexo的写作特点&lt;/h2&gt;&lt;p&gt;Hexo最大特点就是静态博客，即部署到服务器的博客内容是静态写好的html（由markdown转义），而不像类似wordpress的数据都存放在服务器端数据库，每次更新即一次读写数据库的操作。所以如果需要更改博客内容、发布新内容，必须&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;更改源文件source文件夹下_post及其他各页面文件夹的md文件&lt;/li&gt;
+&lt;li&gt;通过&lt;code&gt;hexo g&lt;/code&gt;或&lt;code&gt;hexo generate&lt;/code&gt;在public生成静态文件。&lt;/li&gt;
+&lt;li&gt;利用&lt;code&gt;hexo-deployer-git&lt;/code&gt;插件及&lt;code&gt;hexo d&lt;/code&gt;命令将public的文件自动的部署到创建好的&lt;code&gt;user-name.github.io&lt;/code&gt;项目中。&lt;blockquote&gt;
+&lt;p&gt;在github项目中可以看到，自动上传的只有public文件夹中的文件，包括以年份分类的静态页面文件夹、tag、categories及其他辅助css、js、img等，还有域名指引的CNAME和rss sitemap等。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;在博客中看到更新的内容。当然，本地目录中，即存放了md源文件，也包含了生成的public文件。其实，本地并不需要public里的内容，只要有写作的源文件，generate一下就能生成。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;Hexo的缺憾&quot;&gt;&lt;a href=&quot;#Hexo的缺憾&quot; class=&quot;headerlink&quot; title=&quot;Hexo的缺憾&quot;&gt;&lt;/a&gt;Hexo的缺憾&lt;/h2&gt;&lt;p&gt;那么问题来了，如果我在公司和贫民窟都想写作怎么办。总不能在两个本地仓库hexo init都部署到pages项目。在公司更新一篇blog里面全都是公司写的，然后回到地下室又写一篇更新又全是小黑屋的内容。  &lt;/p&gt;
+&lt;p&gt;尽管Hexo让人专注写作，随时随地用md写一篇博，等到来到同步的机器才更新一次也让人很不爽。对于远程仓库只存放静态文件的方案，就想到了两个思路&lt;/p&gt;
+&lt;h3 id=&quot;同步静态文件&quot;&gt;&lt;a href=&quot;#同步静态文件&quot; class=&quot;headerlink&quot; title=&quot;同步静态文件&quot;&gt;&lt;/a&gt;同步静态文件&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;新仓库同步静态文件-&amp;gt;hexo g生成静态文件-&amp;gt;合并静态文件-&amp;gt;hexo d部署&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;在两地分别hexo init建立hexo博客目录，在_config.yml中都部署到同一个远程仓库，在每次generate时，都先将远程仓库的静态文件同步下来（新建一个单独的folder专门用于同步静态文件）。请勿使用hexo博客中的public文件夹用于同步，每次generate会覆盖同名文件。若另一台主机曾做过修改并提交，这次修改的静态文件将被本地未修改的静态文件覆盖。具体操作：&lt;br&gt;第一次克隆远程hexo主分支：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;git clone git@github.com:user-name/user-name.github.io.git
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;之后每次hexo仓库发布首先在静态文件仓库获取远程仓库最新静态文件(无条件merge)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git pull origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;ol&gt;
+&lt;li&gt;在静态文件同步仓库中，将自上次部署后，本地修改过的静态文件&lt;strong&gt;删掉&lt;/strong&gt;（不记得怪我咯┑(￣Д ￣)┍）；同时在hexo blog仓库中&lt;code&gt;hexo -g&lt;/code&gt;生成本地静态文件。&lt;/li&gt;
+&lt;li&gt;将剔除过期静态文件的public仓库中文件复制到hexo的public中。&lt;/li&gt;
+&lt;li&gt;使用&lt;code&gt;hexo -d&lt;/code&gt;部署&lt;blockquote&gt;
+&lt;p&gt;以上步骤2中的删除操作是为了保证静态文件的数据都是最新的，保证博客内容的一致性。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;同步源文件（大招）&quot;&gt;&lt;a href=&quot;#同步源文件（大招）&quot; class=&quot;headerlink&quot; title=&quot;同步源文件（大招）&quot;&gt;&lt;/a&gt;同步源文件（大招）&lt;/h3&gt;&lt;p&gt;想到上述方式需要进行2步骤的主要原因就是本地的源文件不同步，只能通过生成的静态文件进行合并的方式，为毛不将源文件同步呢？！参考&lt;a href=&quot;http://crazymilk.github.io/2015/12/28/GitHub-Pages-Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这篇文章&lt;/a&gt;的思路，同步源文件就是通过远程仓库对源文件融合统一。&lt;/p&gt;
+&lt;h2 id=&quot;呵呵哒&quot;&gt;&lt;a href=&quot;#呵呵哒&quot; class=&quot;headerlink&quot; title=&quot;呵呵哒&quot;&gt;&lt;/a&gt;呵呵哒&lt;/h2&gt;&lt;p&gt;本文为了完成多客户端的同Hexo博的管理和发布，对ssh、git安装、Hexo安装、配置插件主题管理、域名绑定&lt;strong&gt;不涉及&lt;/strong&gt;。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;系统不限制 &lt;/li&gt;
+&lt;li&gt;是否写过博部署过没差&lt;/li&gt;
+&lt;li&gt;最好Hexo3.X,2.X没试过出事自负&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;真·多客户端&quot;&gt;&lt;a href=&quot;#真·多客户端&quot; class=&quot;headerlink&quot; title=&quot;真·多客户端&quot;&gt;&lt;/a&gt;真·多客户端&lt;/h1&gt;&lt;h2 id=&quot;创建远程仓库&quot;&gt;&lt;a href=&quot;#创建远程仓库&quot; class=&quot;headerlink&quot; title=&quot;创建远程仓库&quot;&gt;&lt;/a&gt;创建远程仓库&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;对于没有进行创作的hexo博客，首先创建同名仓库，再创建一个hexo branch。此时俩分支都是空的  &lt;/li&gt;
+&lt;li&gt;对于已经进行创作的hexo博客，直接创建一个hexo 分支。此时，hexo clone了master的静态文件。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;设置主分支&quot;&gt;&lt;a href=&quot;#设置主分支&quot; class=&quot;headerlink&quot; title=&quot;设置主分支&quot;&gt;&lt;/a&gt;设置主分支&lt;/h2&gt;&lt;p&gt;将hexo branch设为主分支，用于同步源文件；master branch作为静态文件的存放。（由于github pages会检索master分支作为该域名下的部署分支，因此必须把master名字保留）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/04/27/5720a2a70a238.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;同步远程仓库并初始化&quot;&gt;&lt;a href=&quot;#同步远程仓库并初始化&quot; class=&quot;headerlink&quot; title=&quot;同步远程仓库并初始化&quot;&gt;&lt;/a&gt;同步远程仓库并初始化&lt;/h2&gt;&lt;p&gt;在本地（包含第一次所有源文件的主机）新建一个文件夹（就算已经写过博客的也这么搞）同步远程仓库并初始化&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git clone git@github.com:your-Id/your-Id.github.io.git
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;此时输入&lt;code&gt;git branch&lt;/code&gt;可以看到两个分支，红色分支为主分支。&lt;br&gt;若是非空白博客，同步后需要先删掉里面的静态文件.直接删光，把原博客的文件全部复制过来&lt;strong&gt;（好像没有发现更换远程仓库主分支后本地同步更换的git bash。求解?）&lt;/strong&gt;;若是空白博客，那么需要再令建一个文件夹，（因为hexo init操作会覆盖原.git文件导致与远程仓库失联）在该文件夹git bash执行&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm install -g hexo
+hexo init
+npm install
+hexo g
+npm install hexo-deployer-git--save
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;好了，里面该有的差不多都有了。全部复制到源文件仓库。&lt;strong&gt;注意把hello worl删掉啊。&lt;/strong&gt;关键的就是，config.yml里deployer的branch是master，而本地仓库关联的是hexo就对了。&lt;br&gt;然后执行&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git add .
+git commit -m &amp;quot;init&amp;quot;
+git push -u origin hexo
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;值得注意的是，有的时候提示主题的文件夹并未加入同步操作，显示&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;
+Changes not staged for commit
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;即主题文件夹的内容尚未有之前版本，应该加入tracked。应在提交前输入&lt;code&gt;git add themes/themes_name/&lt;/code&gt;.最后那个斜杠别忘了加。&lt;br&gt;这就完成源文件的同步了！(￣▽￣)”” 执行&lt;code&gt;hexo d&lt;/code&gt;操作将本地public静态文件部署。&lt;/p&gt;
+&lt;h1 id=&quot;发博日常&quot;&gt;&lt;a href=&quot;#发博日常&quot; class=&quot;headerlink&quot; title=&quot;发博日常&quot;&gt;&lt;/a&gt;发博日常&lt;/h1&gt;&lt;h2 id=&quot;更博&quot;&gt;&lt;a href=&quot;#更博&quot; class=&quot;headerlink&quot; title=&quot;更博&quot;&gt;&lt;/a&gt;更博&lt;/h2&gt;&lt;p&gt;如果你不能确定是否抽风需要经常换客户端，因此需要每次都要同步本地源文件；如果能忍住，，或者有规律的换客户端，那么平时更新不需要经常同步。&lt;br&gt;写博前操作(&lt;strong&gt;特么狠重要啊&lt;/strong&gt;)：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git pull origin hexo
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;更新操作：(同步源文件到hexo分支)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git add .
+git commit -m &amp;quot;hehe&amp;quot;
+git push origin hexo
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这样每次更博都需要多几个步骤，嫌麻烦就要忍住不手痒了。在手机、pad写md再同步到电脑也是个不错的习惯。&lt;/p&gt;
+&lt;h2 id=&quot;换客户端&quot;&gt;&lt;a href=&quot;#换客户端&quot; class=&quot;headerlink&quot; title=&quot;换客户端&quot;&gt;&lt;/a&gt;换客户端&lt;/h2&gt;&lt;p&gt;easy.只要远程仓库存在了一份完整的源文件，那同步就很容易了。似上步第一次同步，使用&lt;code&gt;git clone git@github.com:your-Id/your-Id.github.io.git&lt;/code&gt;拷贝仓库。然后执行&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm install -g hexo
+npm install
+npm install hexo-deployer-git
+&lt;/code&gt;&lt;/pre&gt;&lt;font color=&quot;red&quot;&gt;&lt;strong&gt;不用hexo init!!!&lt;/strong&gt;&lt;/font&gt;
+
+&lt;h1 id=&quot;后记&quot;&gt;&lt;a href=&quot;#后记&quot; class=&quot;headerlink&quot; title=&quot;后记&quot;&gt;&lt;/a&gt;后记&lt;/h1&gt;&lt;h2 id=&quot;多地部署&quot;&gt;&lt;a href=&quot;#多地部署&quot; class=&quot;headerlink&quot; title=&quot;多地部署&quot;&gt;&lt;/a&gt;多地部署&lt;/h2&gt;&lt;p&gt;pacman的公式和代码支持好差啊~还有需要多地备份的可以尝试coding（page之前免费的现在要钱了 = =）.在站点部署文件中更改deploy：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;markdown&quot;&gt;deploy:
+   type: git
+   repo: 
+      github: https://github.com/{YOUR_ID}/{YOUR_ID}.github.io.git,master
+      coding: https://git.coding.net/{YOUR_ID}/{BLOG　NAME}.git,master
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;同理也能部署到自己的ftp服务器上。&lt;/p&gt;
+&lt;h2 id=&quot;bug1-file-name-too-long&quot;&gt;&lt;a href=&quot;#bug1-file-name-too-long&quot; class=&quot;headerlink&quot; title=&quot;bug1 file-name-too-long&quot;&gt;&lt;/a&gt;&lt;font color=&quot;red&quot;&gt;bug1 file-name-too-long&lt;/font&gt;&lt;/h2&gt;&lt;p&gt;在拷贝原始数据的时候，提交远程仓库时可能会报modules的文件夹无法同步。这个情况在windows下安装msysgit进行git bash会报这一问题。&lt;a href=&quot;https://github.com/msysgit/git/pull/110&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;也提到了这个异常。但这并不是git的问题，而是msysgit的问题。使用其他git方式对文件路径较长的提交就不会报错。实测在github for windows下提交该modules文件就不会报错。&lt;/p&gt;
+&lt;h2 id=&quot;bug2-could-not-read-Username-for-‘https-XXX‘&quot;&gt;&lt;a href=&quot;#bug2-could-not-read-Username-for-‘https-XXX‘&quot; class=&quot;headerlink&quot; title=&quot;bug2 could not read Username for ‘https://XXX‘&quot;&gt;&lt;/a&gt;&lt;font color=&quot;red&quot;&gt;bug2 could not read Username for ‘&lt;a href=&quot;https://XXX&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://XXX&lt;/a&gt;‘&lt;/font&gt;&lt;/h2&gt;&lt;p&gt;当需要推送另一台设备的静态文件时，可能极少情况会碰上这个问题。有的说是bash的版本问题，不识别这种方式的推送。然而我用的同一版本的msysgit..&lt;/p&gt;
+&lt;p&gt;在&lt;a href=&quot;http://stackoverflow.com/questions/20871549/error-when-push-commits-with-github-fatal-could-not-read-username&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;也发现了这个问题，尝试了一下使用在https中加入用户名和密码的方式能够良好的推送。。当然配置文件别泄露了。。更改配置文件的deploy如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;markdown&quot;&gt;deploy:
+   type: git
+   repo: 
+      github: https://{YOUR_ID}:{Your_Pwd}@github.com/{YOUR_ID}/{YOUR_ID}.github.io.git,master
+      coding: https://{YOUR_ID}:{Your_Pwd}@git.coding.net/{YOUR_ID}/{BLOG　NAME}.git,master
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Enjoy Hexo!&lt;/p&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;Hexo是很棒的静态博客，简单的安装配置即可专注写作。&lt;br&gt;但是强迫症就是很爱折腾。倘若：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;主机烧了数据备份怎么破？&lt;/li&gt;
+&lt;li&gt;换了系统想继续之前的写作怎么破?&lt;/li&gt;
+&lt;li&gt;纯粹就是想多客户端写作怎么破？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我就纯属蛋疼的。喜欢在办公和休息的地方都写作；或者我一win本&lt;br&gt;一mac 都想写文章。但Hexo的静态部署的原则不像WordPress一样，能关联博客地址，利用数据库进行博客更新。好了，这里就来解决这个问题。┑(￣Д ￣)┍&lt;/p&gt;
     
     </summary>
     
@@ -485,7 +485,7 @@ public interface Builder{
     <link href="http://ovjaywang.github.io/2016/04/13/effective%20java--%E9%9D%99%E6%80%81%E5%B7%A5%E5%8E%82/"/>
     <id>http://ovjaywang.github.io/2016/04/13/effective java--静态工厂/</id>
     <published>2016-04-13T07:15:14.000Z</published>
-    <updated>2016-04-26T06:58:52.407Z</updated>
+    <updated>2016-04-29T10:10:50.732Z</updated>
     
     <content type="html">&lt;h1 id=&quot;静态工厂&quot;&gt;&lt;a href=&quot;#静态工厂&quot; class=&quot;headerlink&quot; title=&quot;静态工厂&quot;&gt;&lt;/a&gt;静态工厂&lt;/h1&gt;&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;    public static Boolean valueOf (boolean b){
         return b?Boolean.True:Boolean.False;
@@ -498,9 +498,7 @@ public interface Builder{
 &lt;/blockquote&gt;
 &lt;p&gt;与不同参数的构造函数不同，不同参数的静态工厂可能返回同一属性的该(子)类的对象。该方式抛弃了重复冗杂的new形式，在C#常见newInstance()构造新对象，而在Java里就比较少的出现，一般都是左右对等的。&lt;/p&gt;
 &lt;p&gt;最上面这段代码最有趣的地方在于，它是Boolean的包装类，输入的是值类型而返回的是Boolean对象,当然Boolean只实例化了两个对象。但当新的子类构建，简单的静态工厂必须重写，常用的改进方法有：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;反射机制+配置&lt;br&gt;例如下面一段就是根据不同的类名，返回不同的对象&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h2 id=&quot;反射机制-配置&quot;&gt;&lt;a href=&quot;#反射机制-配置&quot; class=&quot;headerlink&quot; title=&quot;反射机制+配置&quot;&gt;&lt;/a&gt;反射机制+配置&lt;/h2&gt;&lt;p&gt;  例如下面一段就是根据不同的类名，返回不同的对象&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;java&quot;&gt;    public static InterFace_Name staticFactory(String name)throws
                                 InstantiationException,
                                 IllegalAccessException,
@@ -510,10 +508,7 @@ public interface Builder{
         return (InterFace_Name) Class.forName(name).newInstance();
     }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;注册方式(Service Provider Framework)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
+&lt;h2 id=&quot;注册方式-Service-Provider-Framework&quot;&gt;&lt;a href=&quot;#注册方式-Service-Provider-Framework&quot; class=&quot;headerlink&quot; title=&quot;注册方式(Service Provider Framework)&quot;&gt;&lt;/a&gt;注册方式(Service Provider Framework)&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;注册需要(服务提供者编写的)服务接口、(服务提供者创建服务的实例)而提供的接口(可选)、(服务提供者)注册API、(使用者编写的)服务访问API&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;最常见的实例就是JDBC(Java DataBase Connection)。下面这段最常见的连接mysql的标准函数就很好的体现了注册的方式。&lt;/p&gt;
@@ -538,9 +533,7 @@ public interface Builder{
           else{return null;}//具体的数据库操作逻辑   
     }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;这种方式已经不推荐-工厂模式&lt;br&gt;&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;工厂方法&lt;/a&gt;  &lt;a href=&quot;https://zh.wikipedia.org/wiki/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;抽象工厂&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h2 id=&quot;这种方式已经不推荐-工厂模式&quot;&gt;&lt;a href=&quot;#这种方式已经不推荐-工厂模式&quot; class=&quot;headerlink&quot; title=&quot;这种方式已经不推荐-工厂模式&quot;&gt;&lt;/a&gt;这种方式已经不推荐-工厂模式&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;工厂方法&lt;/a&gt;  &lt;a href=&quot;https://zh.wikipedia.org/wiki/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;抽象工厂&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;参考文章:&lt;a href=&quot;(http://liwenshui322.iteye.com/blog/1267202)&quot;&gt;JAVA 服务提供者框架介绍&lt;/a&gt;、&lt;a href=&quot;(http://blog.csdn.net/csdn0123/article/details/7388445)&quot;&gt;构造器和静态方法&lt;/a&gt;&lt;/p&gt;
 &lt;script src=&quot;../../../../js/highlight.min.js&quot;&gt;&lt;/script&gt;
 &lt;link href=&quot;../../../../css/monokai_sublime.min.css&quot; rel=&quot;stylesheet&quot;&gt;
@@ -570,7 +563,7 @@ public interface Builder{
     <link href="http://ovjaywang.github.io/2016/04/10/Hello-Hexo/"/>
     <id>http://ovjaywang.github.io/2016/04/10/Hello-Hexo/</id>
     <published>2016-04-10T14:51:49.000Z</published>
-    <updated>2016-04-27T04:05:44.330Z</updated>
+    <updated>2016-05-02T15:40:03.205Z</updated>
     
     <content type="html">&lt;p&gt;感谢&lt;a href=&quot;http://zipperary.com/2013/05/28/hexo-guide-2/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这个教程&lt;/a&gt;&lt;br&gt;还有&lt;a href=&quot;http://ibruce.info/2013/11/22/hexo-your-blog/?utm_source=tuicool&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这个&lt;/a&gt;&lt;br&gt;解决了好多bugs的&lt;a href=&quot;http://www.jianshu.com/p/35e197cb1273&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这个&lt;/a&gt;&lt;br&gt;优化cdn图床缓冲的&lt;a href=&quot;http://lukang.me/2015/optimization-of-hexo-2.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这个&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.dute.me/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这个&lt;/a&gt;让我找到了便宜的狗爹优惠码&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;从一开始的阵地wp搬到这里来了。后会有期了dooby.me 再见了WordPress  
@@ -579,6 +572,10 @@ public interface Builder{
 &lt;/code&gt;&lt;/pre&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;hexo坑还是挺多的。&lt;br&gt;$$ \begin{bmatrix} x \\ y \\ 1&lt;br&gt;\end{bmatrix} \sim \begin{bmatrix} f &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 \\ 0 &amp;amp; f &amp;amp; 0 &amp;amp; 0 \\ 0 &amp;amp; 0 &amp;amp; 1 &amp;amp; 0 \end{bmatrix} \begin{bmatrix} r_11 &amp;amp; r_12 &amp;amp; r_13 &amp;amp; t_x \\ r_21 &amp;amp; r_22 &amp;amp; r_23 &amp;amp; t_y \\ r_31 &amp;amp; r_32&amp;amp; r_33 &amp;amp; t_z \\ 0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 1 \end{bmatrix} \begin{bmatrix} p \\ q \\ 0 \\ 1 \end{bmatrix} \sim \begin{bmatrix} fr_11 &amp;amp; fr_12 &amp;amp; ft_x \\ fr_21 &amp;amp; fr_22 &amp;amp; ft_y \\ r_31 &amp;amp; r_32 &amp;amp; t_z \end{bmatrix} \begin{bmatrix} p \\ q \\ 1 \end{bmatrix}&lt;br&gt;$$$$\sim \begin{bmatrix} h_11 &amp;amp; h_12&amp;amp;h_13 \\ h_21 &amp;amp; h_22 &amp;amp; h_23 \\ h_31 &amp;amp; h_32 &amp;amp; h_33 \end{bmatrix} \begin{bmatrix} p \\ q \\ 1 \end{bmatrix}$$&lt;/p&gt;
 &lt;h1 id=&quot;WordPress迁移&quot;&gt;&lt;a href=&quot;#WordPress迁移&quot; class=&quot;headerlink&quot; title=&quot;WordPress迁移&quot;&gt;&lt;/a&gt;WordPress迁移&lt;/h1&gt;&lt;p&gt;这个使用hexo-migrate-wordpress插件还不错 但是切记导出的xml是文章 tag和category会自动建好。否则使用hexo migrate wordpress 会报错&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;沙扬娜拉dooby.me&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/05/02/5727757865698.png&quot; alt=&quot;dooby.me&quot;&gt;&lt;/p&gt;
 &lt;h1 id=&quot;Github和Coding双备份&quot;&gt;&lt;a href=&quot;#Github和Coding双备份&quot; class=&quot;headerlink&quot; title=&quot;Github和Coding双备份&quot;&gt;&lt;/a&gt;Github和Coding双备份&lt;/h1&gt;&lt;p&gt;按照一般的教程都能配置好Github的。但是Coding对国内线路速度相对较快（好蛋疼GitCafe已经被收了）配置文档差不多是这样&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;markdown&quot;&gt;deploy:
    type: git
@@ -725,9 +722,10 @@ public interface Builder{
     <link href="http://ovjaywang.github.io/2016/01/25/opencv-findhomography-findfundanmentalmat/"/>
     <id>http://ovjaywang.github.io/2016/01/25/opencv-findhomography-findfundanmentalmat/</id>
     <published>2016-01-24T16:54:26.000Z</published>
-    <updated>2016-04-19T13:04:59.427Z</updated>
+    <updated>2016-04-29T09:13:23.591Z</updated>
     
-    <content type="html">&lt;p&gt;opencv 中，进行&lt;strong&gt;图像拼接(全景拼接 航摄拼接 三维重建 街景地图)&lt;/strong&gt;，大致流程如下。&lt;/p&gt;
+    <content type="html">&lt;p&gt;openCV中有两个函数，findhomography和findfundamentalmat，长的很像。。一开始严重的弄混，以为都是求对应点投影矩阵的公式，万万没想到其实是两个完全不同的内涵。😒&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;opencv 中，进行&lt;strong&gt;图像拼接(全景拼接 航摄拼接 三维重建 街景地图)&lt;/strong&gt;，大致流程如下。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;利用opencv提供的各类型特征点检测方法（Fast Start SIFT SURF ORB SimpleBlobPyramidAdapter DynamicAdapter 等）在图像中将感兴趣的有独特标识的点找出来,其中orb 是最近提出效率较高的检测和描述算法，金字塔算法则是更高的提高效率的算法；&lt;/li&gt;
 &lt;li&gt;利用不同的描述方式（SIFT SURF），对特征点的信息（周围的梯度、灰度相关性 二进制编码等）进行描述； &lt;/li&gt;
@@ -911,9 +909,7 @@ public interface Builder{
     
     <summary type="html">
     
-      &lt;p&gt;opencv 中，进行&lt;strong&gt;图像拼接(全景拼接 航摄拼接 三维重建 街景地图)&lt;/strong&gt;，大致流程如下。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;利用opencv提供的各类型特征点检测方法（Fast Start SIFT SURF ORB SimpleBlobPyram
+      &lt;p&gt;openCV中有两个函数，findhomography和findfundamentalmat，长的很像。。一开始严重的弄混，以为都是求对应点投影矩阵的公式，万万没想到其实是两个完全不同的内涵。😒&lt;br&gt;
     
     </summary>
     
@@ -933,9 +929,9 @@ public interface Builder{
     <link href="http://ovjaywang.github.io/2016/01/18/%E7%A4%BE%E4%BA%A4app%E7%9A%842015/"/>
     <id>http://ovjaywang.github.io/2016/01/18/社交app的2015/</id>
     <published>2016-01-18T03:45:06.000Z</published>
-    <updated>2016-04-11T14:09:45.583Z</updated>
+    <updated>2016-04-29T09:13:23.592Z</updated>
     
-    <content type="html">&lt;p&gt;手机和网络重度使用患者也该是总结自己的时候了。庆幸的是各大app都热推了自己的2015数据流。把去年的数据库做个直白的excel统计。好吧。。我除了听歌看电影买买买也没别的(性)生活了。&lt;/p&gt;
+    <content type="html">&lt;p&gt;手机和网络重度使用患者也该是总结自己的时候了。庆幸的是各大app都热推了自己的2015数据流。把去年的数据库做个直白的excel统计。好吧。。我除了听歌看电影买买买也没别的(性)生活了。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/01/17/569b74dab78e7.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;进入微信还算比较早的。和我的两个基友都是300w内。但是潜水了快3年才在快毕业的时候旅行发了一条盆友圈。曾一度抗拒盆友圈这个类似空间的东西。当然大学的社交网络还是集中在“找人人上同学”的人人网。。毕竟各大校园通知新闻、文娱八卦、技术贴以及各种曾在校园见过又不知道是谁的人终于知道叫什么名字了。。还曾一度影响了各类插件的发展、影响了谁来看过我我被多少人看过的各类访问人数的截图。。现在看来。。大家当年都是一个水平的嘛&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/01/17/569b765a8c8ed.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
@@ -987,8 +983,7 @@ public interface Builder{
     
     <summary type="html">
     
-      &lt;p&gt;手机和网络重度使用患者也该是总结自己的时候了。庆幸的是各大app都热推了自己的2015数据流。把去年的数据库做个直白的excel统计。好吧。。我除了听歌看电影买买买也没别的(性)生活了。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/01
+      &lt;p&gt;手机和网络重度使用患者也该是总结自己的时候了。庆幸的是各大app都热推了自己的2015数据流。把去年的数据库做个直白的excel统计。好吧。。我除了听歌看电影买买买也没别的(性)生活了。&lt;br&gt;
     
     </summary>
     
@@ -1002,10 +997,10 @@ public interface Builder{
     <link href="http://ovjaywang.github.io/2016/01/04/%5B%E6%B1%87%E6%80%BB%5D%5B2015.1.3%5D%E7%94%B5%E8%84%91%E7%AB%AF%E4%B8%8EAndroid%20iOS%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6/"/>
     <id>http://ovjaywang.github.io/2016/01/04/[汇总][2015.1.3]电脑端与Android iOS传输文件/</id>
     <published>2016-01-03T16:35:49.000Z</published>
-    <updated>2016-04-13T13:22:47.643Z</updated>
+    <updated>2016-04-29T09:13:23.590Z</updated>
     
     <content type="html">&lt;p&gt;曾写过一个这个&lt;a href=&quot;http://www.dooby.me/?p=473&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.dooby.me/?p=473&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;然而时过境迁很多出彩的软件已经出来了。。本篇主要提&lt;font color=&quot;#FF0000&quot;&gt;多客户端的文件无线传输&lt;/font&gt;，忽略笔记类和书签类。&lt;/p&gt;
+&lt;p&gt;然而时过境迁很多出彩的多客户端文件传输的app已经出来了。。本篇主要提&lt;font color=&quot;#FF0000&quot;&gt;多客户端的文件无线传输&lt;/font&gt;，忽略笔记类和书签类。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;1.Airdroid3.1.6 &lt;a href=&quot;http://coolapk.com/apk/com.sand.airdroid&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://coolapk.com/apk/com.sand.airdroid&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://ww1.sinaimg.cn/large/68eb7c93jw1ezmt5t987jj20u01hcn0w.jpg&quot; alt=&quot;&quot;&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/large/68eb7c93jw1ezmt66mv43j20u01hctby.jpg&quot; alt=&quot;&quot;&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/large/68eb7c93jw1ezmt76fl5dj20u01hc77z.jpg&quot; alt=&quot;&quot;&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/large/68eb7c93jw1ezmt7qh365j20u01hctc6.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;tips：只能在安卓与电脑、安卓之间传输，需要注册登录账号&lt;/p&gt;
@@ -1045,8 +1040,8 @@ public interface Builder{
     
     <summary type="html">
     
-      &lt;p&gt;曾写过一个这个&lt;a href=&quot;http://www.dooby.me/?p=473&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.dooby.me/?p=473&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;然而时过境迁很多出彩的软件已经出来了。。本篇主要
+      &lt;p&gt;曾写过一个这个&lt;a href=&quot;http://www.dooby.me/?p=473&quot;&gt;http://www.dooby.me/?p=473&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;然而时过境迁很多出彩的多客户端文件传输的app已经出来了。。本篇主要提&lt;font color=&quot;#FF0000&quot;&gt;多客户端的文件无线传输&lt;/font&gt;，忽略笔记类和书签类。&lt;br&gt;
     
     </summary>
     
@@ -1062,12 +1057,12 @@ public interface Builder{
     <link href="http://ovjaywang.github.io/2016/01/01/Android%E4%B8%BA%E6%AF%9B%E8%80%97%E7%94%B5%5B2%5D/"/>
     <id>http://ovjaywang.github.io/2016/01/01/Android为毛耗电[2]/</id>
     <published>2016-01-01T15:32:08.000Z</published>
-    <updated>2016-04-11T14:09:45.582Z</updated>
+    <updated>2016-04-29T09:13:23.589Z</updated>
     
     <content type="html">&lt;p&gt;&lt;strong&gt;&lt;font size=&quot;4&quot; face=&quot;华文中宋&quot;&gt;本文只讨论安卓手机软节电，不负责推荐底包、rom、调频调压方案，刷机root&lt;font color=&quot;#ff0000&quot;&gt;后果自负&lt;/font&gt;。&lt;/font&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;font size=&quot;4&quot; face=&quot;华文中宋&quot;&gt;本小节只讨论干货。在root及xposed框架下。同时兼顾不能肉身翻墙又想用google服务的小狗们。本人的使用情况是正常功能照开，google需要gmail和google photo及部分gcm，黑屏开启手势和解锁，正常收微信、闹钟、短信电话外熄屏一切不开，后台常开应用有snap锁屏、grenntify绿色守护、调音的audio mix、天气插件、BBS、输入法、Nova Launcher。测试的环境为Android L 5.1.1&lt;/font&gt;
 
-&lt;font size=&quot;4&quot; face=&quot;华文中宋&quot;&gt;&amp;nbsp;&lt;br&gt;&lt;br&gt;&lt;em&gt; &lt;/em&gt; *&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#ff0000&quot;&gt;App干货推荐&lt;/font&gt;&lt;/font&gt;
+&lt;font size=&quot;4&quot; face=&quot;华文中宋&quot;&gt;&amp;nbsp;&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;&lt;em&gt; &lt;/em&gt; *&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#ff0000&quot;&gt;App干货推荐&lt;/font&gt;&lt;/font&gt;
 
 &lt;p&gt;&amp;nbsp;&lt;a href=&quot;http://coolapk.com/apk/com.oasisfeng.greenify&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://coolapk.com/apk/com.oasisfeng.greenify&lt;/a&gt; 绿色守护（评论好多捐赠包）国内优秀开发者–唤醒对其 深度休眠hibernateservice &lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;http://coolapk.com/apk/com.asksven.betterbatterystats&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://coolapk.com/apk/com.asksven.betterbatterystats&lt;/a&gt;BetterBatteryStats（捐赠包只多了小插件和知识库） 国外应用（使用稳定后可删，留着也不费电）–查看耗电最多的程序 资源 频率占比 &lt;a href=&quot;http://coolapk.com/apk/com.uzumapps.wakelockdetector&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://coolapk.com/apk/com.uzumapps.wakelockdetector&lt;/a&gt; wakelock detector（使用后可删，被注册为系统程序，留着不太费电）–查看被CPU 屏幕 时钟唤醒的程序以便将其控制 可以便利的&lt;font color=&quot;#ff0000&quot;&gt;结合绿色守护使用&lt;/font&gt;&lt;/p&gt;
@@ -1172,7 +1167,9 @@ public interface Builder{
     <summary type="html">
     
       &lt;p&gt;&lt;strong&gt;&lt;font size=&quot;4&quot; face=&quot;华文中宋&quot;&gt;本文只讨论安卓手机软节电，不负责推荐底包、rom、调频调压方案，刷机root&lt;font color=&quot;#ff0000&quot;&gt;后果自负&lt;/font&gt;。&lt;/font&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;font siz
+&lt;font size=&quot;4&quot; face=&quot;华文中宋&quot;&gt;本小节只讨论干货。在root及xposed框架下。同时兼顾不能肉身翻墙又想用google服务的小狗们。本人的使用情况是正常功能照开，google需要gmail和google photo及部分gcm，黑屏开启手势和解锁，正常收微信、闹钟、短信电话外熄屏一切不开，后台常开应用有snap锁屏、grenntify绿色守护、调音的audio mix、天气插件、BBS、输入法、Nova Launcher。测试的环境为Android L 5.1.1&lt;/font&gt;
+
+&lt;font size=&quot;4&quot; face=&quot;华文中宋&quot;&gt;&amp;nbsp;&lt;br&gt;
     
     </summary>
     
@@ -1190,11 +1187,12 @@ public interface Builder{
     <link href="http://ovjaywang.github.io/2015/12/28/Android%E4%B8%BA%E6%AF%9B%E8%80%97%E7%94%B5%5B1%5D/"/>
     <id>http://ovjaywang.github.io/2015/12/28/Android为毛耗电[1]/</id>
     <published>2015-12-28T15:34:25.000Z</published>
-    <updated>2016-04-11T14:09:45.582Z</updated>
+    <updated>2016-04-29T09:13:23.588Z</updated>
     
     <content type="html">&lt;p&gt;&lt;strong&gt;&lt;font color=&quot;#000000&quot;&gt;&lt;/font&gt;**&lt;/strong&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot;&gt;&lt;font face=&quot;微软雅黑 Light&quot;&gt;本文只讨论安卓手机软节电，不负责推荐底包、rom、调频调压方案，&lt;font color=&quot;#ff0000&quot;&gt;刷机root后果自负。&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;**&lt;/p&gt;
 &lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;&lt;strong&gt;纯硬货，只想节电看后文。&lt;/strong&gt;&lt;/font&gt;
 
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;使用安德猴主要还是谷歌的情怀。最近无可救药的恋上了无线高质量同步的Google相册和Keep。此外Google Contact和Gmail也时不时要收一下。&lt;/font&gt;
 
 &lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;问题是。。墙内不能随时翻。国内流氓自启和相互唤醒严重影响待机时间。如何破？首先搞清楚什么在耗电。再来解决怎么防流氓的同时不影响收发消息体验。&lt;/font&gt;
@@ -1346,7 +1344,8 @@ boolean isScreenOn = pm.isScreenOn();
     
     <summary type="html">
     
-      &lt;p&gt;&lt;strong&gt;&lt;font color=&quot;#000000&quot;&gt;&lt;/font&gt;**&lt;/strong&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot;&gt;&lt;font face=&quot;微软雅黑 Light&quot;&gt;本文只讨论安卓手机软节电，不负责推荐底包、rom、调频调压方案，&lt;f
+      &lt;p&gt;&lt;strong&gt;&lt;font color=&quot;#000000&quot;&gt;&lt;/font&gt;**&lt;/strong&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot;&gt;&lt;font face=&quot;微软雅黑 Light&quot;&gt;本文只讨论安卓手机软节电，不负责推荐底包、rom、调频调压方案，&lt;font color=&quot;#ff0000&quot;&gt;刷机root后果自负。&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;**&lt;/p&gt;
+&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;&lt;strong&gt;纯硬货，只想节电看后文。&lt;/strong&gt;&lt;/font&gt;
     
     </summary>
     

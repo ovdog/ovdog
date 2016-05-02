@@ -82,18 +82,12 @@
 
 
 
-<meta name="description" content="opencv 中，进行图像拼接(全景拼接 航摄拼接 三维重建 街景地图)，大致流程如下。
-
-利用opencv提供的各类型特征点检测方法（Fast Start SIFT SURF ORB SimpleBlobPyramidAdapter DynamicAdapter 等）在图像中将感兴趣的有独特标识的点找出来,其中orb 是最近提出效率较高的检测和描述算法，金字塔算法则是更高的提高效率的算法；
-利用">
+<meta name="description" content="openCV中有两个函数，findhomography和findfundamentalmat，长的很像。。一开始严重的弄混，以为都是求对应点投影矩阵的公式，万万没想到其实是两个完全不同的内涵。😒">
 <meta property="og:type" content="article">
 <meta property="og:title" content="由opencv中findFundamentalMat和findHomography区别的引申">
 <meta property="og:url" content="http://ovjaywang.github.io/2016/01/25/opencv-findhomography-findfundanmentalmat/index.html">
 <meta property="og:site_name" content="ov智商捉急">
-<meta property="og:description" content="opencv 中，进行图像拼接(全景拼接 航摄拼接 三维重建 街景地图)，大致流程如下。
-
-利用opencv提供的各类型特征点检测方法（Fast Start SIFT SURF ORB SimpleBlobPyramidAdapter DynamicAdapter 等）在图像中将感兴趣的有独特标识的点找出来,其中orb 是最近提出效率较高的检测和描述算法，金字塔算法则是更高的提高效率的算法；
-利用">
+<meta property="og:description" content="openCV中有两个函数，findhomography和findfundamentalmat，长的很像。。一开始严重的弄混，以为都是求对应点投影矩阵的公式，万万没想到其实是两个完全不同的内涵。😒">
 <meta property="og:image" content="http://ooo.0o0.ooo/2016/02/24/56ce7786da1fa.png">
 <meta property="og:image" content="http://ooo.0o0.ooo/2016/02/24/56ce782a3235f.png">
 <meta property="og:image" content="http://ooo.0o0.ooo/2016/02/24/56ce77b362343.png">
@@ -141,13 +135,10 @@
 <meta property="og:image" content="http://ooo.0o0.ooo/2016/02/25/56cf08c613352.png">
 <meta property="og:image" content="http://ooo.0o0.ooo/2016/02/25/56cf0b53675d9.png">
 <meta property="og:image" content="http://ooo.0o0.ooo/2016/02/25/56cf0eb50a41b.png">
-<meta property="og:updated_time" content="2016-04-19T13:04:59.427Z">
+<meta property="og:updated_time" content="2016-04-29T09:13:23.591Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="由opencv中findFundamentalMat和findHomography区别的引申">
-<meta name="twitter:description" content="opencv 中，进行图像拼接(全景拼接 航摄拼接 三维重建 街景地图)，大致流程如下。
-
-利用opencv提供的各类型特征点检测方法（Fast Start SIFT SURF ORB SimpleBlobPyramidAdapter DynamicAdapter 等）在图像中将感兴趣的有独特标识的点找出来,其中orb 是最近提出效率较高的检测和描述算法，金字塔算法则是更高的提高效率的算法；
-利用">
+<meta name="twitter:description" content="openCV中有两个函数，findhomography和findfundamentalmat，长的很像。。一开始严重的弄混，以为都是求对应点投影矩阵的公式，万万没想到其实是两个完全不同的内涵。😒">
 <meta name="twitter:image" content="http://ooo.0o0.ooo/2016/02/24/56ce7786da1fa.png">
 
 
@@ -425,7 +416,8 @@
       
 
       
-        <p>opencv 中，进行<strong>图像拼接(全景拼接 航摄拼接 三维重建 街景地图)</strong>，大致流程如下。</p>
+        <p>openCV中有两个函数，findhomography和findfundamentalmat，长的很像。。一开始严重的弄混，以为都是求对应点投影矩阵的公式，万万没想到其实是两个完全不同的内涵。😒<br><a id="more"></a></p>
+<p>opencv 中，进行<strong>图像拼接(全景拼接 航摄拼接 三维重建 街景地图)</strong>，大致流程如下。</p>
 <ol>
 <li>利用opencv提供的各类型特征点检测方法（Fast Start SIFT SURF ORB SimpleBlobPyramidAdapter DynamicAdapter 等）在图像中将感兴趣的有独特标识的点找出来,其中orb 是最近提出效率较高的检测和描述算法，金字塔算法则是更高的提高效率的算法；</li>
 <li>利用不同的描述方式（SIFT SURF），对特征点的信息（周围的梯度、灰度相关性 二进制编码等）进行描述； </li>
