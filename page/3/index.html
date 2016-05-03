@@ -285,6 +285,162 @@
             
               
                 
+                <a class="post-title-link" href="/2015/05/12/sift-with-python/" itemprop="url">
+                  记录一次心酸而无终的悲催却又惊喜的python添加sift类库过程
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-05-12T17:17:45+08:00" content="2015-05-12">
+              2015-05-12
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/代码狗/" itemprop="url" rel="index">
+                    <span itemprop="name">代码狗</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/代码狗/学习log/" itemprop="url" rel="index">
+                    <span itemprop="name">学习log</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/05/12/sift-with-python/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/12/sift-with-python/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>基于上回对Harris的角点检测和匹配的过程，试想这学习一下另一种角点检测和匹配算法sift.<br>在《Python计算机视觉》书中，由于Python实现所有步骤的效率并不是很高，提到了VLFeat工具进行SIFT兴趣点的检测。</p>
+<p>好的，那就去<a href="http://www.vlfeat.org/" target="_blank" rel="external">官网</a>找。它明确写着Windows Mac Linux都可用。太好了。但是主要提供的是c 和 MATLAB 的api，在python中只能利用shell进行接口的调用。将目录下的\bin\arch\sift.exe 添加到path环境路径，就能在cmd控制台使用shell。可是测试了几次，依据<a href="http://www.vlfeat.org/man/sift.html#EXAMPLES" target="_blank" rel="external">例子</a>或者普林斯顿的<a href="http://vision.cs.princeton.edu/pvt/SiftFu/SiftFu/SIFTransac/vlfeat/doc/man/sift.html" target="_blank" rel="external">抄袭版本</a>，都只能打开可视化的界面，不能输入需要的.sift或者frame图像。</p>
+<p>好吧换个方案，听说Python有一个包装器。找到了供github下的<a href="https://github.com/mmmikael/vlfeat/tree/python-wrappers/python" target="_blank" rel="external">pyhton wrappers主页</a>（居然是寄生在MATLAB的插件下面）可是。。可是。在它的readme发现只能在linux和Mac OX使用。。书中亦提到包装器的安装需要非常高的技巧。好吧放弃。</p>
+<p>再次寻找。发现一个python官网提供的一个<a href="https://pypi.python.org/pypi/pyvlfeat" target="_blank" rel="external">python插件</a>。直接可以利用setup.py insatll进行安装。好了进行安装</p>
+<pre class="brush: shell; gutter: true">python setup.py install
+</pre>
+
+<p>居然出现了bug</p>
+<pre class="brush: shell; gutter: true">Unable to find vcvarsall.bat
+</pre>
+
+<p>找到一些<a href="http://stackoverflow.com/questions/2817869/error-unable-to-find-vcvarsall-bat" target="_blank" rel="external">讨论</a>，大家都说是要安MinGW，找到它的官网，<a href="http://sourceforge.net/projects/mingw/files/Installer/" target="_blank" rel="external">这个</a>看起来不错。默认选择了安装路径，又安装了一堆.bin 的类库。输入</p>
+<pre class="brush: shell; gutter: true">setup.py install build --compiler=mingw32
+</pre>
+
+<p>又出现了bug</p>
+<pre class="brush: shell; gutter: true">error: numpy/arrayobject.h: No such file or directory
+</pre>
+
+<p>日了狗了。在<a href="http://stackoverflow.com/questions/14657375/cython-fatal-error-numpy-arrayobject-h-no-such-file-or-directory" target="_blank" rel="external">这里</a>说需要加点什么路径，然后又在<a href="http://stackoverflow.com/questions/14657375/cython-fatal-error-numpy-arrayobject-h-no-such-file-or-directory" target="_blank" rel="external">这里</a>发现了说是它的mingw已经很旧了不太能匹配新的版本的软件了。可以找到一个<a href="https://github.com/develersrl/gccwinbinaries" target="_blank" rel="external">非官方版本</a>。</p>
+<p>好吧。开心的安上。再一次安了gcc等一系列乱七八糟的bin库。然后执行。。。shit。又是bug arraypobjects.h又找不到。。</p>
+<p>好吧超出了我的技能点了。顺带在半路还捡到一个非官方的python类库，叫做<a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/" target="_blank" rel="external">unofficial windows binaries for python extention package</a><br>..</p>
+<p>正在绝望之时。。居然在csdn发现了这本书的<a href="http://download.csdn.net/detail/shidecai1230/8255391#comment" target="_blank" rel="external">源代码</a>oh wtf。居然它的自带vlfeat能用。好吧到此结束了。直接用命令行好了。py中利用</p>
+<pre class="brush: python; gutter: true">os.system(&#039;cmd&#039;)</pre>
+
+<p>使用命令行进行编写。</p>
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/05/12/harris-python-to-exe/" itemprop="url">
                   Harri特征角点检测&特征匹配的python实现&PyInstaller编译成可执行文件exe
                 </a>
@@ -2780,137 +2936,6 @@ bin/hadoop jar ./share/hadoop/mapreduce/hadoop-mapreduce-examples-2.2.0.jar rand
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/05/15/猜地址游戏/" itemprop="url">
-                  猜地址游戏
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-05-15T19:28:08+08:00" content="2014-05-15">
-              2014-05-15
-            </time>
-          </span>
-
-          
-            <span class="post-category">
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/App强推/" itemprop="url" rel="index">
-                    <span itemprop="name">App强推</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/App强推/软文/" itemprop="url" rel="index">
-                    <span itemprop="name">软文</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2014/05/15/猜地址游戏/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/05/15/猜地址游戏/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="http://www.geoguessr.com#.U3SkybblRoc.link" target="_blank" rel="external">http://www.geoguessr.com#.U3SkybblRoc.link</a><br>碉堡的猜地址游戏！</p>
-          
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2954,7 +2979,7 @@ bin/hadoop jar ./share/hadoop/mapreduce/hadoop-mapreduce-examples-2.2.0.jar rand
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">102</span>
+              <span class="site-state-item-count">103</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

@@ -285,6 +285,154 @@
             
               
                 
+                <a class="post-title-link" href="/2016/05/03/树系列码集合-持更/" itemprop="url">
+                  树系列码集合[持更]
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-03T23:06:28+08:00" content="2016-05-03">
+              2016-05-03
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/03/树系列码集合-持更/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/03/树系列码集合-持更/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>本文持更树操作集合-码狗学习中</p>
+<h1 id="二叉查找树转双链表（c-）"><a href="#二叉查找树转双链表（c-）" class="headerlink" title="二叉查找树转双链表（c++）"></a>二叉查找树转双链表（c++）</h1><blockquote>
+<p>需求就是一个二叉树查找树 ，要转成按顺序排列的双向链表</p>
+<p>思路差不多就是：中序可以按顺序输出；左儿子指针指向相邻小的，右儿子指针指向相邻大的；相邻由中序控制,左右儿子改动的时候寄存在pre(前驱)和root(当前)下</p>
+</blockquote>
+<p><strong>关键代码</strong></p>
+<p>定义模版类及head pre指针</p>
+<pre><code class="c++">
+    template&lt;class T&gt;                  //模版结构体
+    struct TreeNode
+    {
+        T data;                       //节点的内容
+        TreeNode &lt;T&gt; *Lchild, *Rchild,*pParent; //节点的左子树和右子树
+    //可选择参数的默认构造函数
+    TreeNode(T nodeValue = T(), TreeNode&lt;T&gt; *leftNode = NULL, TreeNode&lt;T&gt; *rightNode = NULL, TreeNode&lt;T&gt; *parentNode = NULL)
+    :data(nodeValue),Lchild(leftNode),Rchild(rightNode),pParent(parentNode){}
+    };
+
+    TreeNode&lt;int&gt; * pHead =NULL;//存放头指针
+    TreeNode&lt;int&gt; * previous = NULL;//存放前驱
+</code></pre>
+<p>核心转换代码</p>
+<pre><code class="c++">
+    template&lt;class T&gt;
+    void Tranverse(TreeNode&lt;T&gt; * root)//记前序
+    {
+        if (root){
+            Tranverse(root-&gt;Lchild);//很明显的中序遍历阿！
+            if (previous){
+                if (!pHead){//这个if可以不写啊 只是为了记录头结点而已
+                    pHead = previous;
+                }
+                previous-&gt;Rchild = root;//前驱的右指针指向root
+                root-&gt;Lchild = previous;//root的左指针指向前驱
+            }
+            previous = root;//前驱跑到下一个更新
+            Tranverse(root-&gt;Rchild);
+        }
+    }
+</code></pre>
+<p>调用代码,我才懒得写insert代码啊，rootNode从哪里来的我也不管啊</p>
+<pre><code class="c++">
+    Tranverse(rootNode);
+    while (pHead != NULL){
+        cout &lt;&lt; pHead-&gt;data &lt;&lt; endl;
+        pHead = pHead-&gt;Rchild;
+    }
+</code></pre>
+<h1 id="二叉树旋转到二叉平衡树"><a href="#二叉树旋转到二叉平衡树" class="headerlink" title="二叉树旋转到二叉平衡树"></a>二叉树旋转到二叉平衡树</h1>
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/04/28/svm初探/" itemprop="url">
                   svm初探
                 </a>
@@ -338,109 +486,6 @@
           
             <p>待更……</p>
           
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/27/effective java 笔记--创建对象的几个tips/" itemprop="url">
-                  effective java 笔记--创建对象的几个tips
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-27T11:50:01+08:00" content="2016-04-27">
-              2016-04-27
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/27/effective java 笔记--创建对象的几个tips/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/27/effective java 笔记--创建对象的几个tips/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>第一章-创建和销毁对象 的一些 小tips</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/27/effective java 笔记--创建对象的几个tips/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
         
       
     </div>
@@ -549,6 +594,109 @@
 <p>我就纯属蛋疼的。喜欢在办公和休息的地方都写作；或者我一win本<br>一mac 都想写文章。但Hexo的静态部署的原则不像WordPress一样，能关联博客地址，利用数据库进行博客更新。好了，这里就来解决这个问题。┑(￣Д ￣)┍</p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/04/27/hexo多客户端写作/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/27/effective java 笔记--创建对象的几个tips/" itemprop="url">
+                  effective java 笔记--创建对象的几个tips
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-27T11:50:01+08:00" content="2016-04-27">
+              2016-04-27
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/27/effective java 笔记--创建对象的几个tips/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/27/effective java 笔记--创建对象的几个tips/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>第一章-创建和销毁对象 的一些 小tips</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/27/effective java 笔记--创建对象的几个tips/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1907,141 +2055,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/12/28/Android为毛耗电[1]/" itemprop="url">
-                  Android为毛耗电[1]
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-12-28T23:34:25+08:00" content="2015-12-28">
-              2015-12-28
-            </time>
-          </span>
-
-          
-            <span class="post-category">
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/App强推/" itemprop="url" rel="index">
-                    <span itemprop="name">App强推</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/App强推/软文/" itemprop="url" rel="index">
-                    <span itemprop="name">软文</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/12/28/Android为毛耗电[1]/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/28/Android为毛耗电[1]/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><strong><font color="#000000"></font>**</strong><font color="#000000" size="4"><font face="微软雅黑 Light">本文只讨论安卓手机软节电，不负责推荐底包、rom、调频调压方案，<font color="#ff0000">刷机root后果自负。</font></font></font>**</p>
-<font color="#000000" size="4" face="微软雅黑 Light"><strong>纯硬货，只想节电看后文。</strong></font>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/12/28/Android为毛耗电[1]/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2085,7 +2098,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">102</span>
+              <span class="site-state-item-count">103</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
