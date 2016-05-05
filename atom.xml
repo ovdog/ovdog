@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ovjaywang.github.io/"/>
-  <updated>2016-05-03T15:19:57.419Z</updated>
+  <updated>2016-05-05T13:15:18.290Z</updated>
   <id>http://ovjaywang.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://ovjaywang.github.io/2016/05/03/%E6%A0%91%E7%B3%BB%E5%88%97%E7%A0%81%E9%9B%86%E5%90%88-%E6%8C%81%E6%9B%B4/"/>
     <id>http://ovjaywang.github.io/2016/05/03/树系列码集合-持更/</id>
     <published>2016-05-03T15:06:28.000Z</published>
-    <updated>2016-05-03T15:19:57.419Z</updated>
+    <updated>2016-05-05T13:15:18.290Z</updated>
     
     <content type="html">&lt;p&gt;本文持更树操作集合-码狗学习中&lt;/p&gt;
 &lt;h1 id=&quot;二叉查找树转双链表（c-）&quot;&gt;&lt;a href=&quot;#二叉查找树转双链表（c-）&quot; class=&quot;headerlink&quot; title=&quot;二叉查找树转双链表（c++）&quot;&gt;&lt;/a&gt;二叉查找树转双链表（c++）&lt;/h1&gt;&lt;blockquote&gt;
@@ -29,8 +29,7 @@
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;关键代码&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;定义模版类及head pre指针&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;c++&quot;&gt;
-    template&amp;lt;class T&amp;gt;                  //模版结构体
+&lt;pre&gt;&lt;code class=&quot;c++&quot;&gt;    template&amp;lt;class T&amp;gt;                  //模版结构体
     struct TreeNode
     {
         T data;                       //节点的内容
@@ -44,8 +43,7 @@
     TreeNode&amp;lt;int&amp;gt; * previous = NULL;//存放前驱
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;核心转换代码&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;c++&quot;&gt;
-    template&amp;lt;class T&amp;gt;
+&lt;pre&gt;&lt;code class=&quot;c++&quot;&gt;    template&amp;lt;class T&amp;gt;
     void Tranverse(TreeNode&amp;lt;T&amp;gt; * root)//记前序
     {
         if (root){
@@ -63,14 +61,55 @@
     }
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;调用代码,我才懒得写insert代码啊，rootNode从哪里来的我也不管啊&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;c++&quot;&gt;
-    Tranverse(rootNode);
+&lt;pre&gt;&lt;code class=&quot;c+&quot;&gt;    Tranverse(rootNode);
     while (pHead != NULL){
         cout &amp;lt;&amp;lt; pHead-&amp;gt;data &amp;lt;&amp;lt; endl;
         pHead = pHead-&amp;gt;Rchild;
     }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h1 id=&quot;二叉树旋转到二叉平衡树&quot;&gt;&lt;a href=&quot;#二叉树旋转到二叉平衡树&quot; class=&quot;headerlink&quot; title=&quot;二叉树旋转到二叉平衡树&quot;&gt;&lt;/a&gt;二叉树旋转到二叉平衡树&lt;/h1&gt;</content>
+&lt;h1 id=&quot;在二叉查找树里查找范围内数据-c&quot;&gt;&lt;a href=&quot;#在二叉查找树里查找范围内数据-c&quot; class=&quot;headerlink&quot; title=&quot;在二叉查找树里查找范围内数据(c++)&quot;&gt;&lt;/a&gt;在二叉查找树里查找范围内数据(c++)&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;二叉查找树对于范围查找效率比普通线性查找效率高，Point仍旧是中序按序输出。&lt;/p&gt;
+&lt;p&gt;思路：这次换一个c语言方式类typedef定义二叉树模版，以二叉按次序找到下限第一个，然后其后的数据与最大最小值比较，在范围内就输出。因此，在二叉查找树中序输出中中，加两个判断条件&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;进入左子树需要根节点比最小值大  &lt;/li&gt;
+&lt;li&gt;进入右子树需要根节点比最大值小&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;类模版定义&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;c&quot;&gt;typedef int KeyType;
+typedef struct TreeNode
+{
+    KeyType key;          //关键字
+    struct TreeNode * left;   //左孩子指针
+    struct TreeNode * right;  //右孩子指针
+    struct TreeNode * parent; //指向父节点指针
+}TreeNode, *PNode;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;关键代码 以范围搜索&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;c&quot;&gt;    set&amp;lt;KeyType&amp;gt; searchRange(KeyType min, KeyType max, set&amp;lt;KeyType&amp;gt; &amp;amp;vt, TreeNode *root){
+        if (!root) return vt ;//空直接返回范围集
+        //进入左子树
+        if (min &amp;lt; (root)-&amp;gt;key)
+            searchRange(min, max, vt,(root)-&amp;gt;left);
+        //记录在范围内数据
+        if (min &amp;lt;= (root)-&amp;gt;key &amp;amp;&amp;amp; max &amp;gt;= (root)-&amp;gt;key){
+            vt.insert(root-&amp;gt;key);
+        }
+        //进入有字数
+        if (max&amp;gt;(root)-&amp;gt;key)
+            searchRange(min, max, vt,(root)-&amp;gt;right);
+        return vt;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;调用代码&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;c&quot;&gt;    set&amp;lt;int&amp;gt; ss = set&amp;lt;int&amp;gt;();
+    ss = searchRange(0, 3, ss, root);
+    cout &amp;lt;&amp;lt; &amp;quot;vv.size() &amp;quot;&amp;lt;&amp;lt;ss.size()&amp;lt;&amp;lt;endl;
+    for each (int item in ss)
+    {
+        cout &amp;lt;&amp;lt; item&amp;lt;&amp;lt;endl;
+    }
+&lt;/code&gt;&lt;/pre&gt;</content>
     
     <summary type="html">
     
