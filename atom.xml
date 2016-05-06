@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ovjaywang.github.io/"/>
-  <updated>2016-05-05T13:15:18.290Z</updated>
+  <updated>2016-05-06T08:12:31.029Z</updated>
   <id>http://ovjaywang.github.io/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://ovjaywang.github.io/2016/05/03/%E6%A0%91%E7%B3%BB%E5%88%97%E7%A0%81%E9%9B%86%E5%90%88-%E6%8C%81%E6%9B%B4/"/>
     <id>http://ovjaywang.github.io/2016/05/03/树系列码集合-持更/</id>
     <published>2016-05-03T15:06:28.000Z</published>
-    <updated>2016-05-05T13:15:18.290Z</updated>
+    <updated>2016-05-06T08:12:31.029Z</updated>
     
-    <content type="html">&lt;p&gt;本文持更树操作集合-码狗学习中&lt;/p&gt;
+    <content type="html">&lt;p&gt;本文持更树操作集合-码狗学习中&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;二叉查找树转双链表（c-）&quot;&gt;&lt;a href=&quot;#二叉查找树转双链表（c-）&quot; class=&quot;headerlink&quot; title=&quot;二叉查找树转双链表（c++）&quot;&gt;&lt;/a&gt;二叉查找树转双链表（c++）&lt;/h1&gt;&lt;blockquote&gt;
 &lt;p&gt;需求就是一个二叉树查找树 ，要转成按顺序排列的双向链表&lt;/p&gt;
 &lt;p&gt;思路差不多就是：中序可以按顺序输出；左儿子指针指向相邻小的，右儿子指针指向相邻大的；相邻由中序控制,左右儿子改动的时候寄存在pre(前驱)和root(当前)下&lt;/p&gt;
@@ -67,6 +67,7 @@
         pHead = pHead-&amp;gt;Rchild;
     }
 &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;代码见&lt;a href=&quot;https://github.com/ovjaywang/TreeInvolved/tree/master/BSTree2DoubleLinkList&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;  &lt;/p&gt;
 &lt;h1 id=&quot;在二叉查找树里查找范围内数据-c&quot;&gt;&lt;a href=&quot;#在二叉查找树里查找范围内数据-c&quot; class=&quot;headerlink&quot; title=&quot;在二叉查找树里查找范围内数据(c++)&quot;&gt;&lt;/a&gt;在二叉查找树里查找范围内数据(c++)&lt;/h1&gt;&lt;blockquote&gt;
 &lt;p&gt;二叉查找树对于范围查找效率比普通线性查找效率高，Point仍旧是中序按序输出。&lt;/p&gt;
 &lt;p&gt;思路：这次换一个c语言方式类typedef定义二叉树模版，以二叉按次序找到下限第一个，然后其后的数据与最大最小值比较，在范围内就输出。因此，在二叉查找树中序输出中中，加两个判断条件&lt;/p&gt;
@@ -87,34 +88,92 @@ typedef struct TreeNode
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;关键代码 以范围搜索&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;c&quot;&gt;    set&amp;lt;KeyType&amp;gt; searchRange(KeyType min, KeyType max, set&amp;lt;KeyType&amp;gt; &amp;amp;vt, TreeNode *root){
-        if (!root) return vt ;//空直接返回范围集
-        //进入左子树
-        if (min &amp;lt; (root)-&amp;gt;key)
-            searchRange(min, max, vt,(root)-&amp;gt;left);
-        //记录在范围内数据
-        if (min &amp;lt;= (root)-&amp;gt;key &amp;amp;&amp;amp; max &amp;gt;= (root)-&amp;gt;key){
+        if (!root) return vt ;
+        if (min &amp;lt; root-&amp;gt;key)
+            searchRange(min, max, vt,root-&amp;gt;left);
+        if (min &amp;lt;= root-&amp;gt;key &amp;amp;&amp;amp; max &amp;gt;= root-&amp;gt;key){
             vt.insert(root-&amp;gt;key);
         }
-        //进入有字数
-        if (max&amp;gt;(root)-&amp;gt;key)
-            searchRange(min, max, vt,(root)-&amp;gt;right);
+        if (max&amp;gt;root-&amp;gt;key)
+            searchRange(min, max, vt,root-&amp;gt;right);
         return vt;
-}
+    }
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;调用代码&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;c&quot;&gt;    set&amp;lt;int&amp;gt; ss = set&amp;lt;int&amp;gt;();
+    //很多地方都会把set带进函数迭代传递
     ss = searchRange(0, 3, ss, root);
-    cout &amp;lt;&amp;lt; &amp;quot;vv.size() &amp;quot;&amp;lt;&amp;lt;ss.size()&amp;lt;&amp;lt;endl;
+    cout &amp;lt;&amp;lt; &amp;quot;vv.size() &amp;quot;&amp;lt;&amp;lt;ss.size()&amp;lt;&amp;lt;endl&amp;lt;&amp;lt;&amp;quot;范围内包含节点有:&amp;quot;&amp;lt;&amp;lt;endl;
     for each (int item in ss)
     {
-        cout &amp;lt;&amp;lt; item&amp;lt;&amp;lt;endl;
+        cout &amp;lt;&amp;lt; item&amp;lt;&amp;lt;&amp;quot; &amp;quot;;
     }
-&lt;/code&gt;&lt;/pre&gt;</content>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;代码见&lt;a href=&quot;https://github.com/ovjaywang/TreeInvolved/tree/master/FindInBSTree&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;输出-平衡-二叉树所有和为某值的路径&quot;&gt;&lt;a href=&quot;#输出-平衡-二叉树所有和为某值的路径&quot; class=&quot;headerlink&quot; title=&quot;输出(平衡)二叉树所有和为某值的路径&quot;&gt;&lt;/a&gt;输出(平衡)二叉树所有和为某值的路径&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;需求：一条路径就是从根到叶子所有节点，路径数就是叶子数。要输出所有满足路径上所有节点和为某值的路径。&lt;/p&gt;
+&lt;p&gt;思路：为了保证效率，不能每次从头遍历到每个叶子才输出一次。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;使用栈压入根到当前节点的路径所有制，以便求和&lt;/li&gt;
+&lt;li&gt;栈和超过值可以不继续寻找当前路径的儿子&lt;/li&gt;
+&lt;li&gt;找一个儿子就在栈压入一个数值，跳回一个根就弹出一个儿子的值&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;当然，我很无聊，试一试平衡二叉(AVL).平衡二叉防止了直接建立查找二叉时候的随机，保证了时间复杂式始终在log(n).但建立AVL时候的插入删除代价也相对较大。&lt;/p&gt;
+&lt;p&gt;AVL模版类的声明，多了一个height（高度）属性。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;c++&quot;&gt;    template &amp;lt;class T&amp;gt;
+    class AVLTreeNode{
+    public:
+        T key;                // 关键字(键值)
+        int height;         // 高度
+        AVLTreeNode *left;    // 左孩子
+        AVLTreeNode *right;    // 右孩子
+        //构造函数
+        AVLTreeNode(T value, AVLTreeNode *l, AVLTreeNode *r) :
+            key(value), height(0), left(l), right(r) {}
+    };
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;AVLtree类中包含了函数声明和一个&lt;code&gt;AVLTreeNode&amp;lt;T&amp;gt; *mRoot;&lt;/code&gt;作为根节点；一个public的函数&lt;code&gt;void SearchPath(const T value);&lt;/code&gt;给外部调用；一个private的函数&lt;code&gt;void SearchPath(AVLTreeNode&amp;lt;T&amp;gt;* root, T* seq, T top, T sumCount, const T value);&lt;/code&gt;作为自迭代的函数，传入当前节点指针，当前线性表指针，栈顶指针(栈压入的数目)，当前和以及目标值。&lt;/p&gt;
+&lt;p&gt;关键代码，使用的是栈，但其实就是个顺序表，系统自动建立内存空间，每次进栈自增。&lt;br&gt;公有函数&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;c++&quot;&gt;    template&amp;lt;class T&amp;gt;
+    void AVLTree&amp;lt;T&amp;gt;::SearchPath(const T value){
+        T * seq = new int[0];
+        T sumCount = 0;//当前累积值
+        T top = 0;
+        return SearchPath(mRoot, seq, top, sumCount, value);
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;私有函数  &lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;c++&quot;&gt;    //遍历次序无所谓的 反正要遍历所有叶子
+    template&amp;lt;class T&amp;gt;
+    void AVLTree&amp;lt;T&amp;gt;::SearchPath(AVLTreeNode&amp;lt;T&amp;gt;* root, T* seq, T top, T sumCount, const T value)//按值传递回溯不用恢复参数值和栈顶  
+    {
+        seq[top++] = root-&amp;gt;key;//入栈
+        sumCount += root-&amp;gt;key;//累加和
+        //if(sumCount &amp;gt; value) return;//当值为正数时可加上这句话
+        if (root-&amp;gt;left == NULL &amp;amp;&amp;amp; root-&amp;gt;right == NULL){//为叶子节点
+            if (sumCount == value)
+                for (int i = 0; i&amp;lt;top; i++)
+                    cout &amp;lt;&amp;lt; seq[i] &amp;lt;&amp;lt; &amp;quot; &amp;quot;;
+        }
+        else{
+            if (root-&amp;gt;left)
+                SearchPath(root-&amp;gt;left, seq, top, sumCount, value);
+            if (root-&amp;gt;right)
+                SearchPath(root-&amp;gt;right, seq, top, sumCount, value);
+        }
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;调用代码  &lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;c++&quot;&gt;    AVLTree&amp;lt;int&amp;gt;* tree = new AVLTree&amp;lt;int&amp;gt;();
+    int const value = 16;//目标和
+    tree-&amp;gt;SearchPath(value);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;代码见&lt;a href=&quot;https://github.com/ovjaywang/TreeInvolved/tree/master/FindSumEqualNumInAVL&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;</content>
     
     <summary type="html">
     
-      &lt;p&gt;本文持更树操作集合-码狗学习中&lt;/p&gt;
-&lt;h1 id=&quot;二叉查找树转双链表（c-）&quot;&gt;&lt;a href=&quot;#二叉查找树转双链表（c-）&quot; class=&quot;headerlink&quot; title=&quot;二叉查找树转双链表（c++）&quot;&gt;&lt;/a&gt;二叉查找树转双链表（c++）&lt;/h1&gt;&lt;blo
+      &lt;p&gt;本文持更树操作集合-码狗学习中&lt;br&gt;
     
     </summary>
     

@@ -335,99 +335,15 @@
 
       
         
-          
-            <p>本文持更树操作集合-码狗学习中</p>
-<h1 id="二叉查找树转双链表（c-）"><a href="#二叉查找树转双链表（c-）" class="headerlink" title="二叉查找树转双链表（c++）"></a>二叉查找树转双链表（c++）</h1><blockquote>
-<p>需求就是一个二叉树查找树 ，要转成按顺序排列的双向链表</p>
-<p>思路差不多就是：中序可以按顺序输出；左儿子指针指向相邻小的，右儿子指针指向相邻大的；相邻由中序控制,左右儿子改动的时候寄存在pre(前驱)和root(当前)下</p>
-</blockquote>
-<p><strong>关键代码</strong></p>
-<p>定义模版类及head pre指针</p>
-<pre><code class="c++">    template&lt;class T&gt;                  //模版结构体
-    struct TreeNode
-    {
-        T data;                       //节点的内容
-        TreeNode &lt;T&gt; *Lchild, *Rchild,*pParent; //节点的左子树和右子树
-    //可选择参数的默认构造函数
-    TreeNode(T nodeValue = T(), TreeNode&lt;T&gt; *leftNode = NULL, TreeNode&lt;T&gt; *rightNode = NULL, TreeNode&lt;T&gt; *parentNode = NULL)
-    :data(nodeValue),Lchild(leftNode),Rchild(rightNode),pParent(parentNode){}
-    };
-
-    TreeNode&lt;int&gt; * pHead =NULL;//存放头指针
-    TreeNode&lt;int&gt; * previous = NULL;//存放前驱
-</code></pre>
-<p>核心转换代码</p>
-<pre><code class="c++">    template&lt;class T&gt;
-    void Tranverse(TreeNode&lt;T&gt; * root)//记前序
-    {
-        if (root){
-            Tranverse(root-&gt;Lchild);//很明显的中序遍历阿！
-            if (previous){
-                if (!pHead){//这个if可以不写啊 只是为了记录头结点而已
-                    pHead = previous;
-                }
-                previous-&gt;Rchild = root;//前驱的右指针指向root
-                root-&gt;Lchild = previous;//root的左指针指向前驱
-            }
-            previous = root;//前驱跑到下一个更新
-            Tranverse(root-&gt;Rchild);
-        }
-    }
-</code></pre>
-<p>调用代码,我才懒得写insert代码啊，rootNode从哪里来的我也不管啊</p>
-<pre><code class="c+">    Tranverse(rootNode);
-    while (pHead != NULL){
-        cout &lt;&lt; pHead-&gt;data &lt;&lt; endl;
-        pHead = pHead-&gt;Rchild;
-    }
-</code></pre>
-<h1 id="在二叉查找树里查找范围内数据-c"><a href="#在二叉查找树里查找范围内数据-c" class="headerlink" title="在二叉查找树里查找范围内数据(c++)"></a>在二叉查找树里查找范围内数据(c++)</h1><blockquote>
-<p>二叉查找树对于范围查找效率比普通线性查找效率高，Point仍旧是中序按序输出。</p>
-<p>思路：这次换一个c语言方式类typedef定义二叉树模版，以二叉按次序找到下限第一个，然后其后的数据与最大最小值比较，在范围内就输出。因此，在二叉查找树中序输出中中，加两个判断条件</p>
-<ol>
-<li>进入左子树需要根节点比最小值大  </li>
-<li>进入右子树需要根节点比最大值小</li>
-</ol>
-</blockquote>
-<p>类模版定义</p>
-<pre><code class="c">typedef int KeyType;
-typedef struct TreeNode
-{
-    KeyType key;          //关键字
-    struct TreeNode * left;   //左孩子指针
-    struct TreeNode * right;  //右孩子指针
-    struct TreeNode * parent; //指向父节点指针
-}TreeNode, *PNode;
-</code></pre>
-<p>关键代码 以范围搜索</p>
-<pre><code class="c">    set&lt;KeyType&gt; searchRange(KeyType min, KeyType max, set&lt;KeyType&gt; &amp;vt, TreeNode *root){
-        if (!root) return vt ;//空直接返回范围集
-        //进入左子树
-        if (min &lt; (root)-&gt;key)
-            searchRange(min, max, vt,(root)-&gt;left);
-        //记录在范围内数据
-        if (min &lt;= (root)-&gt;key &amp;&amp; max &gt;= (root)-&gt;key){
-            vt.insert(root-&gt;key);
-        }
-        //进入有字数
-        if (max&gt;(root)-&gt;key)
-            searchRange(min, max, vt,(root)-&gt;right);
-        return vt;
-}
-</code></pre>
-<p>调用代码</p>
-<pre><code class="c">    set&lt;int&gt; ss = set&lt;int&gt;();
-    ss = searchRange(0, 3, ss, root);
-    cout &lt;&lt; &quot;vv.size() &quot;&lt;&lt;ss.size()&lt;&lt;endl;
-    for each (int item in ss)
-    {
-        cout &lt;&lt; item&lt;&lt;endl;
-    }
-</code></pre>
-          
+          <p>本文持更树操作集合-码狗学习中<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/05/03/树系列码集合-持更/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
-    </div>
+    </p></div>
     
     <div>
       

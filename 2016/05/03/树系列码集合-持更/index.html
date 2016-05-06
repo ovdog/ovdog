@@ -82,37 +82,16 @@
 
 
 
-<meta name="description" content="本文持更树操作集合-码狗学习中
-二叉查找树转双链表（c++）
-需求就是一个二叉树查找树 ，要转成按顺序排列的双向链表
-思路差不多就是：中序可以按顺序输出；左儿子指针指向相邻小的，右儿子指针指向相邻大的；相邻由中序控制,左右儿子改动的时候寄存在pre(前驱)和root(当前)下
-
-关键代码
-定义模版类及head pre指针
-    template&amp;lt;class T&amp;gt;">
+<meta name="description" content="本文持更树操作集合-码狗学习中">
 <meta property="og:type" content="article">
 <meta property="og:title" content="树系列码集合[持更]">
 <meta property="og:url" content="http://ovjaywang.github.io/2016/05/03/树系列码集合-持更/index.html">
 <meta property="og:site_name" content="ov智商捉急">
-<meta property="og:description" content="本文持更树操作集合-码狗学习中
-二叉查找树转双链表（c++）
-需求就是一个二叉树查找树 ，要转成按顺序排列的双向链表
-思路差不多就是：中序可以按顺序输出；左儿子指针指向相邻小的，右儿子指针指向相邻大的；相邻由中序控制,左右儿子改动的时候寄存在pre(前驱)和root(当前)下
-
-关键代码
-定义模版类及head pre指针
-    template&amp;lt;class T&amp;gt;">
-<meta property="og:updated_time" content="2016-05-05T13:15:18.290Z">
+<meta property="og:description" content="本文持更树操作集合-码狗学习中">
+<meta property="og:updated_time" content="2016-05-06T08:12:31.029Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="树系列码集合[持更]">
-<meta name="twitter:description" content="本文持更树操作集合-码狗学习中
-二叉查找树转双链表（c++）
-需求就是一个二叉树查找树 ，要转成按顺序排列的双向链表
-思路差不多就是：中序可以按顺序输出；左儿子指针指向相邻小的，右儿子指针指向相邻大的；相邻由中序控制,左右儿子改动的时候寄存在pre(前驱)和root(当前)下
-
-关键代码
-定义模版类及head pre指针
-    template&amp;lt;class T&amp;gt;">
+<meta name="twitter:description" content="本文持更树操作集合-码狗学习中">
 
 
 
@@ -358,7 +337,7 @@
       
 
       
-        <p>本文持更树操作集合-码狗学习中</p>
+        <p>本文持更树操作集合-码狗学习中<br><a id="more"></a></p>
 <h1 id="二叉查找树转双链表（c-）"><a href="#二叉查找树转双链表（c-）" class="headerlink" title="二叉查找树转双链表（c++）"></a>二叉查找树转双链表（c++）</h1><blockquote>
 <p>需求就是一个二叉树查找树 ，要转成按顺序排列的双向链表</p>
 <p>思路差不多就是：中序可以按顺序输出；左儿子指针指向相邻小的，右儿子指针指向相邻大的；相邻由中序控制,左右儿子改动的时候寄存在pre(前驱)和root(当前)下</p>
@@ -403,6 +382,7 @@
         pHead = pHead-&gt;Rchild;
     }
 </code></pre>
+<p>代码见<a href="https://github.com/ovjaywang/TreeInvolved/tree/master/BSTree2DoubleLinkList" target="_blank" rel="external">这里</a>  </p>
 <h1 id="在二叉查找树里查找范围内数据-c"><a href="#在二叉查找树里查找范围内数据-c" class="headerlink" title="在二叉查找树里查找范围内数据(c++)"></a>在二叉查找树里查找范围内数据(c++)</h1><blockquote>
 <p>二叉查找树对于范围查找效率比普通线性查找效率高，Point仍旧是中序按序输出。</p>
 <p>思路：这次换一个c语言方式类typedef定义二叉树模版，以二叉按次序找到下限第一个，然后其后的数据与最大最小值比较，在范围内就输出。因此，在二叉查找树中序输出中中，加两个判断条件</p>
@@ -423,29 +403,88 @@ typedef struct TreeNode
 </code></pre>
 <p>关键代码 以范围搜索</p>
 <pre><code class="c">    set&lt;KeyType&gt; searchRange(KeyType min, KeyType max, set&lt;KeyType&gt; &amp;vt, TreeNode *root){
-        if (!root) return vt ;//空直接返回范围集
-        //进入左子树
-        if (min &lt; (root)-&gt;key)
-            searchRange(min, max, vt,(root)-&gt;left);
-        //记录在范围内数据
-        if (min &lt;= (root)-&gt;key &amp;&amp; max &gt;= (root)-&gt;key){
+        if (!root) return vt ;
+        if (min &lt; root-&gt;key)
+            searchRange(min, max, vt,root-&gt;left);
+        if (min &lt;= root-&gt;key &amp;&amp; max &gt;= root-&gt;key){
             vt.insert(root-&gt;key);
         }
-        //进入有字数
-        if (max&gt;(root)-&gt;key)
-            searchRange(min, max, vt,(root)-&gt;right);
+        if (max&gt;root-&gt;key)
+            searchRange(min, max, vt,root-&gt;right);
         return vt;
-}
+    }
 </code></pre>
 <p>调用代码</p>
 <pre><code class="c">    set&lt;int&gt; ss = set&lt;int&gt;();
+    //很多地方都会把set带进函数迭代传递
     ss = searchRange(0, 3, ss, root);
-    cout &lt;&lt; &quot;vv.size() &quot;&lt;&lt;ss.size()&lt;&lt;endl;
+    cout &lt;&lt; &quot;vv.size() &quot;&lt;&lt;ss.size()&lt;&lt;endl&lt;&lt;&quot;范围内包含节点有:&quot;&lt;&lt;endl;
     for each (int item in ss)
     {
-        cout &lt;&lt; item&lt;&lt;endl;
+        cout &lt;&lt; item&lt;&lt;&quot; &quot;;
     }
 </code></pre>
+<p>代码见<a href="https://github.com/ovjaywang/TreeInvolved/tree/master/FindInBSTree" target="_blank" rel="external">这里</a></p>
+<h1 id="输出-平衡-二叉树所有和为某值的路径"><a href="#输出-平衡-二叉树所有和为某值的路径" class="headerlink" title="输出(平衡)二叉树所有和为某值的路径"></a>输出(平衡)二叉树所有和为某值的路径</h1><blockquote>
+<p>需求：一条路径就是从根到叶子所有节点，路径数就是叶子数。要输出所有满足路径上所有节点和为某值的路径。</p>
+<p>思路：为了保证效率，不能每次从头遍历到每个叶子才输出一次。</p>
+<ol>
+<li>使用栈压入根到当前节点的路径所有制，以便求和</li>
+<li>栈和超过值可以不继续寻找当前路径的儿子</li>
+<li>找一个儿子就在栈压入一个数值，跳回一个根就弹出一个儿子的值</li>
+</ol>
+</blockquote>
+<p>当然，我很无聊，试一试平衡二叉(AVL).平衡二叉防止了直接建立查找二叉时候的随机，保证了时间复杂式始终在log(n).但建立AVL时候的插入删除代价也相对较大。</p>
+<p>AVL模版类的声明，多了一个height（高度）属性。</p>
+<pre><code class="c++">    template &lt;class T&gt;
+    class AVLTreeNode{
+    public:
+        T key;                // 关键字(键值)
+        int height;         // 高度
+        AVLTreeNode *left;    // 左孩子
+        AVLTreeNode *right;    // 右孩子
+        //构造函数
+        AVLTreeNode(T value, AVLTreeNode *l, AVLTreeNode *r) :
+            key(value), height(0), left(l), right(r) {}
+    };
+</code></pre>
+<p>AVLtree类中包含了函数声明和一个<code>AVLTreeNode&lt;T&gt; *mRoot;</code>作为根节点；一个public的函数<code>void SearchPath(const T value);</code>给外部调用；一个private的函数<code>void SearchPath(AVLTreeNode&lt;T&gt;* root, T* seq, T top, T sumCount, const T value);</code>作为自迭代的函数，传入当前节点指针，当前线性表指针，栈顶指针(栈压入的数目)，当前和以及目标值。</p>
+<p>关键代码，使用的是栈，但其实就是个顺序表，系统自动建立内存空间，每次进栈自增。<br>公有函数</p>
+<pre><code class="c++">    template&lt;class T&gt;
+    void AVLTree&lt;T&gt;::SearchPath(const T value){
+        T * seq = new int[0];
+        T sumCount = 0;//当前累积值
+        T top = 0;
+        return SearchPath(mRoot, seq, top, sumCount, value);
+    }
+</code></pre>
+<p>私有函数  </p>
+<pre><code class="c++">    //遍历次序无所谓的 反正要遍历所有叶子
+    template&lt;class T&gt;
+    void AVLTree&lt;T&gt;::SearchPath(AVLTreeNode&lt;T&gt;* root, T* seq, T top, T sumCount, const T value)//按值传递回溯不用恢复参数值和栈顶  
+    {
+        seq[top++] = root-&gt;key;//入栈
+        sumCount += root-&gt;key;//累加和
+        //if(sumCount &gt; value) return;//当值为正数时可加上这句话
+        if (root-&gt;left == NULL &amp;&amp; root-&gt;right == NULL){//为叶子节点
+            if (sumCount == value)
+                for (int i = 0; i&lt;top; i++)
+                    cout &lt;&lt; seq[i] &lt;&lt; &quot; &quot;;
+        }
+        else{
+            if (root-&gt;left)
+                SearchPath(root-&gt;left, seq, top, sumCount, value);
+            if (root-&gt;right)
+                SearchPath(root-&gt;right, seq, top, sumCount, value);
+        }
+    }
+</code></pre>
+<p>调用代码  </p>
+<pre><code class="c++">    AVLTree&lt;int&gt;* tree = new AVLTree&lt;int&gt;();
+    int const value = 16;//目标和
+    tree-&gt;SearchPath(value);
+</code></pre>
+<p>代码见<a href="https://github.com/ovjaywang/TreeInvolved/tree/master/FindSumEqualNumInAVL" target="_blank" rel="external">这里</a></p>
       
     </div>
     
@@ -635,7 +674,7 @@ typedef struct TreeNode
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#二叉查找树转双链表（c-）"><span class="nav-number">1.</span> <span class="nav-text">二叉查找树转双链表（c++）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在二叉查找树里查找范围内数据-c"><span class="nav-number">2.</span> <span class="nav-text">在二叉查找树里查找范围内数据(c++)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#二叉查找树转双链表（c-）"><span class="nav-number">1.</span> <span class="nav-text">二叉查找树转双链表（c++）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在二叉查找树里查找范围内数据-c"><span class="nav-number">2.</span> <span class="nav-text">在二叉查找树里查找范围内数据(c++)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#输出-平衡-二叉树所有和为某值的路径"><span class="nav-number">3.</span> <span class="nav-text">输出(平衡)二叉树所有和为某值的路径</span></a></li></ol></div>
             
           </div>
         </section>
