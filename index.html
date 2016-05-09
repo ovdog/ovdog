@@ -285,6 +285,144 @@
             
               
                 
+                <a class="post-title-link" href="/2016/05/10/jQuery的两个坑/" itemprop="url">
+                  jQuery的两个坑
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-10T01:23:30+08:00" content="2016-05-10">
+              2016-05-10
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/代码狗/" itemprop="url" rel="index">
+                    <span itemprop="name">代码狗</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/代码狗/学习log/" itemprop="url" rel="index">
+                    <span itemprop="name">学习log</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/10/jQuery的两个坑/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/10/jQuery的两个坑/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>许久没用jquery，今天碰到两个坑。</p>
+<p>第一个是live()这个函数，在学习很早的资料，表示用来为被选元素附加一个或多个事件处理程序,形式为</p>
+<pre><code class="javascript">$(selector).live(event,data,function)
+</code></pre>
+<p>例如为button绑定一个单击事件，event为事件名，data为可选的传参，function为自定义函数。<br>测了半天没开F12一直以为代码有问题，，后来一看原来jquery1.9+以上不支持live了。先改成了delegate代理，后来又改成on,真特么烦人。  </p>
+<p>应该值得注意到的是，改成on后，触发的事件在容器对象上，而live返回值在事件触发的对象上。<br><a href="http://jquery.com/upgrade-guide/1.9/#live-removed" target="_blank" rel="external">这里</a>是官方解释</p>
+<hr>
+<p>一直以为$(selector)能抓到所有的id啊。。。原来好像dom树的id不能明明一样的。要对类似的组件操作类似的方法，例如对tr表单下的td采用同个样式，a使用类似的连接，可以使用$(.class)的方式获取。</p>
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/05/03/树系列码集合-持更/" itemprop="url">
                   树系列码集合[持更]
                 </a>
@@ -304,6 +442,37 @@
             </time>
           </span>
 
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/代码狗/" itemprop="url" rel="index">
+                    <span itemprop="name">代码狗</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/代码狗/学习log/" itemprop="url" rel="index">
+                    <span itemprop="name">学习log</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
@@ -488,6 +657,109 @@
             
               
                 
+                <a class="post-title-link" href="/2016/04/27/effective java 笔记--创建对象的几个tips/" itemprop="url">
+                  effective java 笔记--创建对象的几个tips
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-27T11:50:01+08:00" content="2016-04-27">
+              2016-04-27
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/27/effective java 笔记--创建对象的几个tips/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/27/effective java 笔记--创建对象的几个tips/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>第一章-创建和销毁对象 的一些 小tips</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/27/effective java 笔记--创建对象的几个tips/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/04/27/hexo多客户端写作/" itemprop="url">
                   Hexo多客户端写作
                 </a>
@@ -549,109 +821,6 @@
 <p>我就纯属蛋疼的。喜欢在办公和休息的地方都写作；或者我一win本<br>一mac 都想写文章。但Hexo的静态部署的原则不像WordPress一样，能关联博客地址，利用数据库进行博客更新。好了，这里就来解决这个问题。┑(￣Д ￣)┍</p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/04/27/hexo多客户端写作/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/27/effective java 笔记--创建对象的几个tips/" itemprop="url">
-                  effective java 笔记--创建对象的几个tips
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-27T11:50:01+08:00" content="2016-04-27">
-              2016-04-27
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/27/effective java 笔记--创建对象的几个tips/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/27/effective java 笔记--创建对象的几个tips/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>第一章-创建和销毁对象 的一些 小tips</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/27/effective java 笔记--创建对象的几个tips/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1873,143 +2042,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/01/01/Android为毛耗电[2]/" itemprop="url">
-                  Android为毛耗电[2]
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-01T23:32:08+08:00" content="2016-01-01">
-              2016-01-01
-            </time>
-          </span>
-
-          
-            <span class="post-category">
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/App强推/" itemprop="url" rel="index">
-                    <span itemprop="name">App强推</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/App强推/软文/" itemprop="url" rel="index">
-                    <span itemprop="name">软文</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/01/01/Android为毛耗电[2]/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/01/Android为毛耗电[2]/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><strong><font size="4" face="华文中宋">本文只讨论安卓手机软节电，不负责推荐底包、rom、调频调压方案，刷机root<font color="#ff0000">后果自负</font>。</font></strong></p>
-<font size="4" face="华文中宋">本小节只讨论干货。在root及xposed框架下。同时兼顾不能肉身翻墙又想用google服务的小狗们。本人的使用情况是正常功能照开，google需要gmail和google photo及部分gcm，黑屏开启手势和解锁，正常收微信、闹钟、短信电话外熄屏一切不开，后台常开应用有snap锁屏、grenntify绿色守护、调音的audio mix、天气插件、BBS、输入法、Nova Launcher。测试的环境为Android L 5.1.1</font>
-
-<font size="4" face="华文中宋">&nbsp;<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/01/01/Android为毛耗电[2]/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </font></div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2053,7 +2085,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">103</span>
+              <span class="site-state-item-count">104</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -2070,7 +2102,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-count">59</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

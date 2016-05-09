@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ovjaywang.github.io/"/>
-  <updated>2016-05-06T08:12:31.029Z</updated>
+  <updated>2016-05-09T17:37:15.137Z</updated>
   <id>http://ovjaywang.github.io/</id>
   
   <author>
@@ -16,11 +16,44 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>jQuery的两个坑</title>
+    <link href="http://ovjaywang.github.io/2016/05/10/jQuery%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%9D%91/"/>
+    <id>http://ovjaywang.github.io/2016/05/10/jQuery的两个坑/</id>
+    <published>2016-05-09T17:23:30.000Z</published>
+    <updated>2016-05-09T17:37:15.137Z</updated>
+    
+    <content type="html">&lt;p&gt;许久没用jquery，今天碰到两个坑。&lt;/p&gt;
+&lt;p&gt;第一个是live()这个函数，在学习很早的资料，表示用来为被选元素附加一个或多个事件处理程序,形式为&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;$(selector).live(event,data,function)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;例如为button绑定一个单击事件，event为事件名，data为可选的传参，function为自定义函数。&lt;br&gt;测了半天没开F12一直以为代码有问题，，后来一看原来jquery1.9+以上不支持live了。先改成了delegate代理，后来又改成on,真特么烦人。  &lt;/p&gt;
+&lt;p&gt;应该值得注意到的是，改成on后，触发的事件在容器对象上，而live返回值在事件触发的对象上。&lt;br&gt;&lt;a href=&quot;http://jquery.com/upgrade-guide/1.9/#live-removed&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;是官方解释&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;一直以为$(selector)能抓到所有的id啊。。。原来好像dom树的id不能明明一样的。要对类似的组件操作类似的方法，例如对tr表单下的td采用同个样式，a使用类似的连接，可以使用$(.class)的方式获取。&lt;/p&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;许久没用jquery，今天碰到两个坑。&lt;/p&gt;
+&lt;p&gt;第一个是live()这个函数，在学习很早的资料，表示用来为被选元素附加一个或多个事件处理程序,形式为&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;$(selector).live(event,da
+    
+    </summary>
+    
+      <category term="代码狗" scheme="http://ovjaywang.github.io/categories/%E4%BB%A3%E7%A0%81%E7%8B%97/"/>
+    
+      <category term="学习log" scheme="http://ovjaywang.github.io/categories/%E4%BB%A3%E7%A0%81%E7%8B%97/%E5%AD%A6%E4%B9%A0log/"/>
+    
+    
+      <category term="jQuery" scheme="http://ovjaywang.github.io/tags/jQuery/"/>
+    
+  </entry>
+  
+  <entry>
     <title>树系列码集合[持更]</title>
     <link href="http://ovjaywang.github.io/2016/05/03/%E6%A0%91%E7%B3%BB%E5%88%97%E7%A0%81%E9%9B%86%E5%90%88-%E6%8C%81%E6%9B%B4/"/>
     <id>http://ovjaywang.github.io/2016/05/03/树系列码集合-持更/</id>
     <published>2016-05-03T15:06:28.000Z</published>
-    <updated>2016-05-06T08:12:31.029Z</updated>
+    <updated>2016-05-09T17:25:08.151Z</updated>
     
     <content type="html">&lt;p&gt;本文持更树操作集合-码狗学习中&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;二叉查找树转双链表（c-）&quot;&gt;&lt;a href=&quot;#二叉查找树转双链表（c-）&quot; class=&quot;headerlink&quot; title=&quot;二叉查找树转双链表（c++）&quot;&gt;&lt;/a&gt;二叉查找树转双链表（c++）&lt;/h1&gt;&lt;blockquote&gt;
@@ -177,6 +210,12 @@ typedef struct TreeNode
     
     </summary>
     
+      <category term="代码狗" scheme="http://ovjaywang.github.io/categories/%E4%BB%A3%E7%A0%81%E7%8B%97/"/>
+    
+      <category term="学习log" scheme="http://ovjaywang.github.io/categories/%E4%BB%A3%E7%A0%81%E7%8B%97/%E5%AD%A6%E4%B9%A0log/"/>
+    
+    
+      <category term="code" scheme="http://ovjaywang.github.io/tags/code/"/>
     
   </entry>
   
@@ -192,131 +231,6 @@ typedef struct TreeNode
     <summary type="html">
     
       &lt;p&gt;待更……&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo多客户端写作</title>
-    <link href="http://ovjaywang.github.io/2016/04/27/hexo%E5%A4%9A%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%86%99%E4%BD%9C/"/>
-    <id>http://ovjaywang.github.io/2016/04/27/hexo多客户端写作/</id>
-    <published>2016-04-27T03:50:01.000Z</published>
-    <updated>2016-04-28T15:29:03.676Z</updated>
-    
-    <content type="html">&lt;blockquote&gt;
-&lt;p&gt;Hexo是很棒的静态博客，简单的安装配置即可专注写作。&lt;br&gt;但是强迫症就是很爱折腾。倘若：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;主机烧了数据备份怎么破？&lt;/li&gt;
-&lt;li&gt;换了系统想继续之前的写作怎么破?&lt;/li&gt;
-&lt;li&gt;纯粹就是想多客户端写作怎么破？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;我就纯属蛋疼的。喜欢在办公和休息的地方都写作；或者我一win本&lt;br&gt;一mac 都想写文章。但Hexo的静态部署的原则不像WordPress一样，能关联博客地址，利用数据库进行博客更新。好了，这里就来解决这个问题。┑(￣Д ￣)┍&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h1 id=&quot;Hexo写作的部署逻辑-amp-其他&quot;&gt;&lt;a href=&quot;#Hexo写作的部署逻辑-amp-其他&quot; class=&quot;headerlink&quot; title=&quot;Hexo写作的部署逻辑&amp;amp;其他&quot;&gt;&lt;/a&gt;Hexo写作的部署逻辑&amp;amp;其他&lt;/h1&gt;&lt;h2 id=&quot;Hexo的写作特点&quot;&gt;&lt;a href=&quot;#Hexo的写作特点&quot; class=&quot;headerlink&quot; title=&quot;Hexo的写作特点&quot;&gt;&lt;/a&gt;Hexo的写作特点&lt;/h2&gt;&lt;p&gt;Hexo最大特点就是静态博客，即部署到服务器的博客内容是静态写好的html（由markdown转义），而不像类似wordpress的数据都存放在服务器端数据库，每次更新即一次读写数据库的操作。所以如果需要更改博客内容、发布新内容，必须&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;更改源文件source文件夹下_post及其他各页面文件夹的md文件&lt;/li&gt;
-&lt;li&gt;通过&lt;code&gt;hexo g&lt;/code&gt;或&lt;code&gt;hexo generate&lt;/code&gt;在public生成静态文件。&lt;/li&gt;
-&lt;li&gt;利用&lt;code&gt;hexo-deployer-git&lt;/code&gt;插件及&lt;code&gt;hexo d&lt;/code&gt;命令将public的文件自动的部署到创建好的&lt;code&gt;user-name.github.io&lt;/code&gt;项目中。&lt;blockquote&gt;
-&lt;p&gt;在github项目中可以看到，自动上传的只有public文件夹中的文件，包括以年份分类的静态页面文件夹、tag、categories及其他辅助css、js、img等，还有域名指引的CNAME和rss sitemap等。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;在博客中看到更新的内容。当然，本地目录中，即存放了md源文件，也包含了生成的public文件。其实，本地并不需要public里的内容，只要有写作的源文件，generate一下就能生成。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&quot;Hexo的缺憾&quot;&gt;&lt;a href=&quot;#Hexo的缺憾&quot; class=&quot;headerlink&quot; title=&quot;Hexo的缺憾&quot;&gt;&lt;/a&gt;Hexo的缺憾&lt;/h2&gt;&lt;p&gt;那么问题来了，如果我在公司和贫民窟都想写作怎么办。总不能在两个本地仓库hexo init都部署到pages项目。在公司更新一篇blog里面全都是公司写的，然后回到地下室又写一篇更新又全是小黑屋的内容。  &lt;/p&gt;
-&lt;p&gt;尽管Hexo让人专注写作，随时随地用md写一篇博，等到来到同步的机器才更新一次也让人很不爽。对于远程仓库只存放静态文件的方案，就想到了两个思路&lt;/p&gt;
-&lt;h3 id=&quot;同步静态文件&quot;&gt;&lt;a href=&quot;#同步静态文件&quot; class=&quot;headerlink&quot; title=&quot;同步静态文件&quot;&gt;&lt;/a&gt;同步静态文件&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;新仓库同步静态文件-&amp;gt;hexo g生成静态文件-&amp;gt;合并静态文件-&amp;gt;hexo d部署&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ol&gt;
-&lt;li&gt;在两地分别hexo init建立hexo博客目录，在_config.yml中都部署到同一个远程仓库，在每次generate时，都先将远程仓库的静态文件同步下来（新建一个单独的folder专门用于同步静态文件）。请勿使用hexo博客中的public文件夹用于同步，每次generate会覆盖同名文件。若另一台主机曾做过修改并提交，这次修改的静态文件将被本地未修改的静态文件覆盖。具体操作：&lt;br&gt;第一次克隆远程hexo主分支：&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre&gt;&lt;code&gt;git clone git@github.com:user-name/user-name.github.io.git
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;之后每次hexo仓库发布首先在静态文件仓库获取远程仓库最新静态文件(无条件merge)&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git pull origin master
-&lt;/code&gt;&lt;/pre&gt;&lt;ol&gt;
-&lt;li&gt;在静态文件同步仓库中，将自上次部署后，本地修改过的静态文件&lt;strong&gt;删掉&lt;/strong&gt;（不记得怪我咯┑(￣Д ￣)┍）；同时在hexo blog仓库中&lt;code&gt;hexo -g&lt;/code&gt;生成本地静态文件。&lt;/li&gt;
-&lt;li&gt;将剔除过期静态文件的public仓库中文件复制到hexo的public中。&lt;/li&gt;
-&lt;li&gt;使用&lt;code&gt;hexo -d&lt;/code&gt;部署&lt;blockquote&gt;
-&lt;p&gt;以上步骤2中的删除操作是为了保证静态文件的数据都是最新的，保证博客内容的一致性。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;同步源文件（大招）&quot;&gt;&lt;a href=&quot;#同步源文件（大招）&quot; class=&quot;headerlink&quot; title=&quot;同步源文件（大招）&quot;&gt;&lt;/a&gt;同步源文件（大招）&lt;/h3&gt;&lt;p&gt;想到上述方式需要进行2步骤的主要原因就是本地的源文件不同步，只能通过生成的静态文件进行合并的方式，为毛不将源文件同步呢？！参考&lt;a href=&quot;http://crazymilk.github.io/2015/12/28/GitHub-Pages-Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这篇文章&lt;/a&gt;的思路，同步源文件就是通过远程仓库对源文件融合统一。&lt;/p&gt;
-&lt;h2 id=&quot;呵呵哒&quot;&gt;&lt;a href=&quot;#呵呵哒&quot; class=&quot;headerlink&quot; title=&quot;呵呵哒&quot;&gt;&lt;/a&gt;呵呵哒&lt;/h2&gt;&lt;p&gt;本文为了完成多客户端的同Hexo博的管理和发布，对ssh、git安装、Hexo安装、配置插件主题管理、域名绑定&lt;strong&gt;不涉及&lt;/strong&gt;。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;系统不限制 &lt;/li&gt;
-&lt;li&gt;是否写过博部署过没差&lt;/li&gt;
-&lt;li&gt;最好Hexo3.X,2.X没试过出事自负&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&quot;真·多客户端&quot;&gt;&lt;a href=&quot;#真·多客户端&quot; class=&quot;headerlink&quot; title=&quot;真·多客户端&quot;&gt;&lt;/a&gt;真·多客户端&lt;/h1&gt;&lt;h2 id=&quot;创建远程仓库&quot;&gt;&lt;a href=&quot;#创建远程仓库&quot; class=&quot;headerlink&quot; title=&quot;创建远程仓库&quot;&gt;&lt;/a&gt;创建远程仓库&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;对于没有进行创作的hexo博客，首先创建同名仓库，再创建一个hexo branch。此时俩分支都是空的  &lt;/li&gt;
-&lt;li&gt;对于已经进行创作的hexo博客，直接创建一个hexo 分支。此时，hexo clone了master的静态文件。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;设置主分支&quot;&gt;&lt;a href=&quot;#设置主分支&quot; class=&quot;headerlink&quot; title=&quot;设置主分支&quot;&gt;&lt;/a&gt;设置主分支&lt;/h2&gt;&lt;p&gt;将hexo branch设为主分支，用于同步源文件；master branch作为静态文件的存放。（由于github pages会检索master分支作为该域名下的部署分支，因此必须把master名字保留）&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/04/27/5720a2a70a238.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;同步远程仓库并初始化&quot;&gt;&lt;a href=&quot;#同步远程仓库并初始化&quot; class=&quot;headerlink&quot; title=&quot;同步远程仓库并初始化&quot;&gt;&lt;/a&gt;同步远程仓库并初始化&lt;/h2&gt;&lt;p&gt;在本地（包含第一次所有源文件的主机）新建一个文件夹（就算已经写过博客的也这么搞）同步远程仓库并初始化&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git clone git@github.com:your-Id/your-Id.github.io.git
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;此时输入&lt;code&gt;git branch&lt;/code&gt;可以看到两个分支，红色分支为主分支。&lt;br&gt;若是非空白博客，同步后需要先删掉里面的静态文件.直接删光，把原博客的文件全部复制过来&lt;strong&gt;（好像没有发现更换远程仓库主分支后本地同步更换的git bash。求解?）&lt;/strong&gt;;若是空白博客，那么需要再令建一个文件夹，（因为hexo init操作会覆盖原.git文件导致与远程仓库失联）在该文件夹git bash执行&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;npm install -g hexo
-hexo init
-npm install
-hexo g
-npm install hexo-deployer-git--save
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;好了，里面该有的差不多都有了。全部复制到源文件仓库。&lt;strong&gt;注意把hello worl删掉啊。&lt;/strong&gt;关键的就是，config.yml里deployer的branch是master，而本地仓库关联的是hexo就对了。&lt;br&gt;然后执行&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git add .
-git commit -m &amp;quot;init&amp;quot;
-git push -u origin hexo
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;值得注意的是，有的时候提示主题的文件夹并未加入同步操作，显示&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;
-Changes not staged for commit
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;即主题文件夹的内容尚未有之前版本，应该加入tracked。应在提交前输入&lt;code&gt;git add themes/themes_name/&lt;/code&gt;.最后那个斜杠别忘了加。&lt;br&gt;这就完成源文件的同步了！(￣▽￣)”” 执行&lt;code&gt;hexo d&lt;/code&gt;操作将本地public静态文件部署。&lt;/p&gt;
-&lt;h1 id=&quot;发博日常&quot;&gt;&lt;a href=&quot;#发博日常&quot; class=&quot;headerlink&quot; title=&quot;发博日常&quot;&gt;&lt;/a&gt;发博日常&lt;/h1&gt;&lt;h2 id=&quot;更博&quot;&gt;&lt;a href=&quot;#更博&quot; class=&quot;headerlink&quot; title=&quot;更博&quot;&gt;&lt;/a&gt;更博&lt;/h2&gt;&lt;p&gt;如果你不能确定是否抽风需要经常换客户端，因此需要每次都要同步本地源文件；如果能忍住，，或者有规律的换客户端，那么平时更新不需要经常同步。&lt;br&gt;写博前操作(&lt;strong&gt;特么狠重要啊&lt;/strong&gt;)：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git pull origin hexo
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;更新操作：(同步源文件到hexo分支)&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git add .
-git commit -m &amp;quot;hehe&amp;quot;
-git push origin hexo
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这样每次更博都需要多几个步骤，嫌麻烦就要忍住不手痒了。在手机、pad写md再同步到电脑也是个不错的习惯。&lt;/p&gt;
-&lt;h2 id=&quot;换客户端&quot;&gt;&lt;a href=&quot;#换客户端&quot; class=&quot;headerlink&quot; title=&quot;换客户端&quot;&gt;&lt;/a&gt;换客户端&lt;/h2&gt;&lt;p&gt;easy.只要远程仓库存在了一份完整的源文件，那同步就很容易了。似上步第一次同步，使用&lt;code&gt;git clone git@github.com:your-Id/your-Id.github.io.git&lt;/code&gt;拷贝仓库。然后执行&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;npm install -g hexo
-npm install
-npm install hexo-deployer-git
-&lt;/code&gt;&lt;/pre&gt;&lt;font color=&quot;red&quot;&gt;&lt;strong&gt;不用hexo init!!!&lt;/strong&gt;&lt;/font&gt;
-
-&lt;h1 id=&quot;后记&quot;&gt;&lt;a href=&quot;#后记&quot; class=&quot;headerlink&quot; title=&quot;后记&quot;&gt;&lt;/a&gt;后记&lt;/h1&gt;&lt;h2 id=&quot;多地部署&quot;&gt;&lt;a href=&quot;#多地部署&quot; class=&quot;headerlink&quot; title=&quot;多地部署&quot;&gt;&lt;/a&gt;多地部署&lt;/h2&gt;&lt;p&gt;pacman的公式和代码支持好差啊~还有需要多地备份的可以尝试coding（page之前免费的现在要钱了 = =）.在站点部署文件中更改deploy：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;markdown&quot;&gt;deploy:
-   type: git
-   repo: 
-      github: https://github.com/{YOUR_ID}/{YOUR_ID}.github.io.git,master
-      coding: https://git.coding.net/{YOUR_ID}/{BLOG　NAME}.git,master
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;同理也能部署到自己的ftp服务器上。&lt;/p&gt;
-&lt;h2 id=&quot;bug1-file-name-too-long&quot;&gt;&lt;a href=&quot;#bug1-file-name-too-long&quot; class=&quot;headerlink&quot; title=&quot;bug1 file-name-too-long&quot;&gt;&lt;/a&gt;&lt;font color=&quot;red&quot;&gt;bug1 file-name-too-long&lt;/font&gt;&lt;/h2&gt;&lt;p&gt;在拷贝原始数据的时候，提交远程仓库时可能会报modules的文件夹无法同步。这个情况在windows下安装msysgit进行git bash会报这一问题。&lt;a href=&quot;https://github.com/msysgit/git/pull/110&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;也提到了这个异常。但这并不是git的问题，而是msysgit的问题。使用其他git方式对文件路径较长的提交就不会报错。实测在github for windows下提交该modules文件就不会报错。&lt;/p&gt;
-&lt;h2 id=&quot;bug2-could-not-read-Username-for-‘https-XXX‘&quot;&gt;&lt;a href=&quot;#bug2-could-not-read-Username-for-‘https-XXX‘&quot; class=&quot;headerlink&quot; title=&quot;bug2 could not read Username for ‘https://XXX‘&quot;&gt;&lt;/a&gt;&lt;font color=&quot;red&quot;&gt;bug2 could not read Username for ‘&lt;a href=&quot;https://XXX&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://XXX&lt;/a&gt;‘&lt;/font&gt;&lt;/h2&gt;&lt;p&gt;当需要推送另一台设备的静态文件时，可能极少情况会碰上这个问题。有的说是bash的版本问题，不识别这种方式的推送。然而我用的同一版本的msysgit..&lt;/p&gt;
-&lt;p&gt;在&lt;a href=&quot;http://stackoverflow.com/questions/20871549/error-when-push-commits-with-github-fatal-could-not-read-username&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;也发现了这个问题，尝试了一下使用在https中加入用户名和密码的方式能够良好的推送。。当然配置文件别泄露了。。更改配置文件的deploy如下：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;markdown&quot;&gt;deploy:
-   type: git
-   repo: 
-      github: https://{YOUR_ID}:{Your_Pwd}@github.com/{YOUR_ID}/{YOUR_ID}.github.io.git,master
-      coding: https://{YOUR_ID}:{Your_Pwd}@git.coding.net/{YOUR_ID}/{BLOG　NAME}.git,master
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Enjoy Hexo!&lt;/p&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;Hexo是很棒的静态博客，简单的安装配置即可专注写作。&lt;br&gt;但是强迫症就是很爱折腾。倘若：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;主机烧了数据备份怎么破？&lt;/li&gt;
-&lt;li&gt;换了系统想继续之前的写作怎么破?&lt;/li&gt;
-&lt;li&gt;纯粹就是想多客户端写作怎么破？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;我就纯属蛋疼的。喜欢在办公和休息的地方都写作；或者我一win本&lt;br&gt;一mac 都想写文章。但Hexo的静态部署的原则不像WordPress一样，能关联博客地址，利用数据库进行博客更新。好了，这里就来解决这个问题。┑(￣Д ￣)┍&lt;/p&gt;
     
     </summary>
     
@@ -467,6 +381,131 @@ public class Client {
     <summary type="html">
     
       &lt;p&gt;第一章-创建和销毁对象 的一些 小tips&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo多客户端写作</title>
+    <link href="http://ovjaywang.github.io/2016/04/27/hexo%E5%A4%9A%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%86%99%E4%BD%9C/"/>
+    <id>http://ovjaywang.github.io/2016/04/27/hexo多客户端写作/</id>
+    <published>2016-04-27T03:50:01.000Z</published>
+    <updated>2016-04-28T15:29:03.676Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;Hexo是很棒的静态博客，简单的安装配置即可专注写作。&lt;br&gt;但是强迫症就是很爱折腾。倘若：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;主机烧了数据备份怎么破？&lt;/li&gt;
+&lt;li&gt;换了系统想继续之前的写作怎么破?&lt;/li&gt;
+&lt;li&gt;纯粹就是想多客户端写作怎么破？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我就纯属蛋疼的。喜欢在办公和休息的地方都写作；或者我一win本&lt;br&gt;一mac 都想写文章。但Hexo的静态部署的原则不像WordPress一样，能关联博客地址，利用数据库进行博客更新。好了，这里就来解决这个问题。┑(￣Д ￣)┍&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h1 id=&quot;Hexo写作的部署逻辑-amp-其他&quot;&gt;&lt;a href=&quot;#Hexo写作的部署逻辑-amp-其他&quot; class=&quot;headerlink&quot; title=&quot;Hexo写作的部署逻辑&amp;amp;其他&quot;&gt;&lt;/a&gt;Hexo写作的部署逻辑&amp;amp;其他&lt;/h1&gt;&lt;h2 id=&quot;Hexo的写作特点&quot;&gt;&lt;a href=&quot;#Hexo的写作特点&quot; class=&quot;headerlink&quot; title=&quot;Hexo的写作特点&quot;&gt;&lt;/a&gt;Hexo的写作特点&lt;/h2&gt;&lt;p&gt;Hexo最大特点就是静态博客，即部署到服务器的博客内容是静态写好的html（由markdown转义），而不像类似wordpress的数据都存放在服务器端数据库，每次更新即一次读写数据库的操作。所以如果需要更改博客内容、发布新内容，必须&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;更改源文件source文件夹下_post及其他各页面文件夹的md文件&lt;/li&gt;
+&lt;li&gt;通过&lt;code&gt;hexo g&lt;/code&gt;或&lt;code&gt;hexo generate&lt;/code&gt;在public生成静态文件。&lt;/li&gt;
+&lt;li&gt;利用&lt;code&gt;hexo-deployer-git&lt;/code&gt;插件及&lt;code&gt;hexo d&lt;/code&gt;命令将public的文件自动的部署到创建好的&lt;code&gt;user-name.github.io&lt;/code&gt;项目中。&lt;blockquote&gt;
+&lt;p&gt;在github项目中可以看到，自动上传的只有public文件夹中的文件，包括以年份分类的静态页面文件夹、tag、categories及其他辅助css、js、img等，还有域名指引的CNAME和rss sitemap等。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;在博客中看到更新的内容。当然，本地目录中，即存放了md源文件，也包含了生成的public文件。其实，本地并不需要public里的内容，只要有写作的源文件，generate一下就能生成。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;Hexo的缺憾&quot;&gt;&lt;a href=&quot;#Hexo的缺憾&quot; class=&quot;headerlink&quot; title=&quot;Hexo的缺憾&quot;&gt;&lt;/a&gt;Hexo的缺憾&lt;/h2&gt;&lt;p&gt;那么问题来了，如果我在公司和贫民窟都想写作怎么办。总不能在两个本地仓库hexo init都部署到pages项目。在公司更新一篇blog里面全都是公司写的，然后回到地下室又写一篇更新又全是小黑屋的内容。  &lt;/p&gt;
+&lt;p&gt;尽管Hexo让人专注写作，随时随地用md写一篇博，等到来到同步的机器才更新一次也让人很不爽。对于远程仓库只存放静态文件的方案，就想到了两个思路&lt;/p&gt;
+&lt;h3 id=&quot;同步静态文件&quot;&gt;&lt;a href=&quot;#同步静态文件&quot; class=&quot;headerlink&quot; title=&quot;同步静态文件&quot;&gt;&lt;/a&gt;同步静态文件&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;新仓库同步静态文件-&amp;gt;hexo g生成静态文件-&amp;gt;合并静态文件-&amp;gt;hexo d部署&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;在两地分别hexo init建立hexo博客目录，在_config.yml中都部署到同一个远程仓库，在每次generate时，都先将远程仓库的静态文件同步下来（新建一个单独的folder专门用于同步静态文件）。请勿使用hexo博客中的public文件夹用于同步，每次generate会覆盖同名文件。若另一台主机曾做过修改并提交，这次修改的静态文件将被本地未修改的静态文件覆盖。具体操作：&lt;br&gt;第一次克隆远程hexo主分支：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;git clone git@github.com:user-name/user-name.github.io.git
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;之后每次hexo仓库发布首先在静态文件仓库获取远程仓库最新静态文件(无条件merge)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git pull origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;ol&gt;
+&lt;li&gt;在静态文件同步仓库中，将自上次部署后，本地修改过的静态文件&lt;strong&gt;删掉&lt;/strong&gt;（不记得怪我咯┑(￣Д ￣)┍）；同时在hexo blog仓库中&lt;code&gt;hexo -g&lt;/code&gt;生成本地静态文件。&lt;/li&gt;
+&lt;li&gt;将剔除过期静态文件的public仓库中文件复制到hexo的public中。&lt;/li&gt;
+&lt;li&gt;使用&lt;code&gt;hexo -d&lt;/code&gt;部署&lt;blockquote&gt;
+&lt;p&gt;以上步骤2中的删除操作是为了保证静态文件的数据都是最新的，保证博客内容的一致性。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;同步源文件（大招）&quot;&gt;&lt;a href=&quot;#同步源文件（大招）&quot; class=&quot;headerlink&quot; title=&quot;同步源文件（大招）&quot;&gt;&lt;/a&gt;同步源文件（大招）&lt;/h3&gt;&lt;p&gt;想到上述方式需要进行2步骤的主要原因就是本地的源文件不同步，只能通过生成的静态文件进行合并的方式，为毛不将源文件同步呢？！参考&lt;a href=&quot;http://crazymilk.github.io/2015/12/28/GitHub-Pages-Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这篇文章&lt;/a&gt;的思路，同步源文件就是通过远程仓库对源文件融合统一。&lt;/p&gt;
+&lt;h2 id=&quot;呵呵哒&quot;&gt;&lt;a href=&quot;#呵呵哒&quot; class=&quot;headerlink&quot; title=&quot;呵呵哒&quot;&gt;&lt;/a&gt;呵呵哒&lt;/h2&gt;&lt;p&gt;本文为了完成多客户端的同Hexo博的管理和发布，对ssh、git安装、Hexo安装、配置插件主题管理、域名绑定&lt;strong&gt;不涉及&lt;/strong&gt;。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;系统不限制 &lt;/li&gt;
+&lt;li&gt;是否写过博部署过没差&lt;/li&gt;
+&lt;li&gt;最好Hexo3.X,2.X没试过出事自负&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;真·多客户端&quot;&gt;&lt;a href=&quot;#真·多客户端&quot; class=&quot;headerlink&quot; title=&quot;真·多客户端&quot;&gt;&lt;/a&gt;真·多客户端&lt;/h1&gt;&lt;h2 id=&quot;创建远程仓库&quot;&gt;&lt;a href=&quot;#创建远程仓库&quot; class=&quot;headerlink&quot; title=&quot;创建远程仓库&quot;&gt;&lt;/a&gt;创建远程仓库&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;对于没有进行创作的hexo博客，首先创建同名仓库，再创建一个hexo branch。此时俩分支都是空的  &lt;/li&gt;
+&lt;li&gt;对于已经进行创作的hexo博客，直接创建一个hexo 分支。此时，hexo clone了master的静态文件。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;设置主分支&quot;&gt;&lt;a href=&quot;#设置主分支&quot; class=&quot;headerlink&quot; title=&quot;设置主分支&quot;&gt;&lt;/a&gt;设置主分支&lt;/h2&gt;&lt;p&gt;将hexo branch设为主分支，用于同步源文件；master branch作为静态文件的存放。（由于github pages会检索master分支作为该域名下的部署分支，因此必须把master名字保留）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/04/27/5720a2a70a238.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;同步远程仓库并初始化&quot;&gt;&lt;a href=&quot;#同步远程仓库并初始化&quot; class=&quot;headerlink&quot; title=&quot;同步远程仓库并初始化&quot;&gt;&lt;/a&gt;同步远程仓库并初始化&lt;/h2&gt;&lt;p&gt;在本地（包含第一次所有源文件的主机）新建一个文件夹（就算已经写过博客的也这么搞）同步远程仓库并初始化&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git clone git@github.com:your-Id/your-Id.github.io.git
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;此时输入&lt;code&gt;git branch&lt;/code&gt;可以看到两个分支，红色分支为主分支。&lt;br&gt;若是非空白博客，同步后需要先删掉里面的静态文件.直接删光，把原博客的文件全部复制过来&lt;strong&gt;（好像没有发现更换远程仓库主分支后本地同步更换的git bash。求解?）&lt;/strong&gt;;若是空白博客，那么需要再令建一个文件夹，（因为hexo init操作会覆盖原.git文件导致与远程仓库失联）在该文件夹git bash执行&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm install -g hexo
+hexo init
+npm install
+hexo g
+npm install hexo-deployer-git--save
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;好了，里面该有的差不多都有了。全部复制到源文件仓库。&lt;strong&gt;注意把hello worl删掉啊。&lt;/strong&gt;关键的就是，config.yml里deployer的branch是master，而本地仓库关联的是hexo就对了。&lt;br&gt;然后执行&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git add .
+git commit -m &amp;quot;init&amp;quot;
+git push -u origin hexo
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;值得注意的是，有的时候提示主题的文件夹并未加入同步操作，显示&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;
+Changes not staged for commit
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;即主题文件夹的内容尚未有之前版本，应该加入tracked。应在提交前输入&lt;code&gt;git add themes/themes_name/&lt;/code&gt;.最后那个斜杠别忘了加。&lt;br&gt;这就完成源文件的同步了！(￣▽￣)”” 执行&lt;code&gt;hexo d&lt;/code&gt;操作将本地public静态文件部署。&lt;/p&gt;
+&lt;h1 id=&quot;发博日常&quot;&gt;&lt;a href=&quot;#发博日常&quot; class=&quot;headerlink&quot; title=&quot;发博日常&quot;&gt;&lt;/a&gt;发博日常&lt;/h1&gt;&lt;h2 id=&quot;更博&quot;&gt;&lt;a href=&quot;#更博&quot; class=&quot;headerlink&quot; title=&quot;更博&quot;&gt;&lt;/a&gt;更博&lt;/h2&gt;&lt;p&gt;如果你不能确定是否抽风需要经常换客户端，因此需要每次都要同步本地源文件；如果能忍住，，或者有规律的换客户端，那么平时更新不需要经常同步。&lt;br&gt;写博前操作(&lt;strong&gt;特么狠重要啊&lt;/strong&gt;)：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git pull origin hexo
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;更新操作：(同步源文件到hexo分支)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git add .
+git commit -m &amp;quot;hehe&amp;quot;
+git push origin hexo
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这样每次更博都需要多几个步骤，嫌麻烦就要忍住不手痒了。在手机、pad写md再同步到电脑也是个不错的习惯。&lt;/p&gt;
+&lt;h2 id=&quot;换客户端&quot;&gt;&lt;a href=&quot;#换客户端&quot; class=&quot;headerlink&quot; title=&quot;换客户端&quot;&gt;&lt;/a&gt;换客户端&lt;/h2&gt;&lt;p&gt;easy.只要远程仓库存在了一份完整的源文件，那同步就很容易了。似上步第一次同步，使用&lt;code&gt;git clone git@github.com:your-Id/your-Id.github.io.git&lt;/code&gt;拷贝仓库。然后执行&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm install -g hexo
+npm install
+npm install hexo-deployer-git
+&lt;/code&gt;&lt;/pre&gt;&lt;font color=&quot;red&quot;&gt;&lt;strong&gt;不用hexo init!!!&lt;/strong&gt;&lt;/font&gt;
+
+&lt;h1 id=&quot;后记&quot;&gt;&lt;a href=&quot;#后记&quot; class=&quot;headerlink&quot; title=&quot;后记&quot;&gt;&lt;/a&gt;后记&lt;/h1&gt;&lt;h2 id=&quot;多地部署&quot;&gt;&lt;a href=&quot;#多地部署&quot; class=&quot;headerlink&quot; title=&quot;多地部署&quot;&gt;&lt;/a&gt;多地部署&lt;/h2&gt;&lt;p&gt;pacman的公式和代码支持好差啊~还有需要多地备份的可以尝试coding（page之前免费的现在要钱了 = =）.在站点部署文件中更改deploy：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;markdown&quot;&gt;deploy:
+   type: git
+   repo: 
+      github: https://github.com/{YOUR_ID}/{YOUR_ID}.github.io.git,master
+      coding: https://git.coding.net/{YOUR_ID}/{BLOG　NAME}.git,master
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;同理也能部署到自己的ftp服务器上。&lt;/p&gt;
+&lt;h2 id=&quot;bug1-file-name-too-long&quot;&gt;&lt;a href=&quot;#bug1-file-name-too-long&quot; class=&quot;headerlink&quot; title=&quot;bug1 file-name-too-long&quot;&gt;&lt;/a&gt;&lt;font color=&quot;red&quot;&gt;bug1 file-name-too-long&lt;/font&gt;&lt;/h2&gt;&lt;p&gt;在拷贝原始数据的时候，提交远程仓库时可能会报modules的文件夹无法同步。这个情况在windows下安装msysgit进行git bash会报这一问题。&lt;a href=&quot;https://github.com/msysgit/git/pull/110&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;也提到了这个异常。但这并不是git的问题，而是msysgit的问题。使用其他git方式对文件路径较长的提交就不会报错。实测在github for windows下提交该modules文件就不会报错。&lt;/p&gt;
+&lt;h2 id=&quot;bug2-could-not-read-Username-for-‘https-XXX‘&quot;&gt;&lt;a href=&quot;#bug2-could-not-read-Username-for-‘https-XXX‘&quot; class=&quot;headerlink&quot; title=&quot;bug2 could not read Username for ‘https://XXX‘&quot;&gt;&lt;/a&gt;&lt;font color=&quot;red&quot;&gt;bug2 could not read Username for ‘&lt;a href=&quot;https://XXX&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://XXX&lt;/a&gt;‘&lt;/font&gt;&lt;/h2&gt;&lt;p&gt;当需要推送另一台设备的静态文件时，可能极少情况会碰上这个问题。有的说是bash的版本问题，不识别这种方式的推送。然而我用的同一版本的msysgit..&lt;/p&gt;
+&lt;p&gt;在&lt;a href=&quot;http://stackoverflow.com/questions/20871549/error-when-push-commits-with-github-fatal-could-not-read-username&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;也发现了这个问题，尝试了一下使用在https中加入用户名和密码的方式能够良好的推送。。当然配置文件别泄露了。。更改配置文件的deploy如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;markdown&quot;&gt;deploy:
+   type: git
+   repo: 
+      github: https://{YOUR_ID}:{Your_Pwd}@github.com/{YOUR_ID}/{YOUR_ID}.github.io.git,master
+      coding: https://{YOUR_ID}:{Your_Pwd}@git.coding.net/{YOUR_ID}/{BLOG　NAME}.git,master
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Enjoy Hexo!&lt;/p&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;Hexo是很棒的静态博客，简单的安装配置即可专注写作。&lt;br&gt;但是强迫症就是很爱折腾。倘若：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;主机烧了数据备份怎么破？&lt;/li&gt;
+&lt;li&gt;换了系统想继续之前的写作怎么破?&lt;/li&gt;
+&lt;li&gt;纯粹就是想多客户端写作怎么破？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我就纯属蛋疼的。喜欢在办公和休息的地方都写作；或者我一win本&lt;br&gt;一mac 都想写文章。但Hexo的静态部署的原则不像WordPress一样，能关联博客地址，利用数据库进行博客更新。好了，这里就来解决这个问题。┑(￣Д ￣)┍&lt;/p&gt;
     
     </summary>
     
@@ -1595,9 +1634,9 @@ boolean isScreenOn = pm.isScreenOn();
       <category term="学习log" scheme="http://ovjaywang.github.io/categories/%E4%BB%80%E4%B9%88%E9%83%BD%E5%AD%A6%E4%B8%80%E4%B8%8B/%E5%AD%A6%E4%B9%A0log/"/>
     
     
-      <category term="后方交会" scheme="http://ovjaywang.github.io/tags/%E5%90%8E%E6%96%B9%E4%BA%A4%E4%BC%9A/"/>
-    
       <category term="检校" scheme="http://ovjaywang.github.io/tags/%E6%A3%80%E6%A0%A1/"/>
+    
+      <category term="后方交会" scheme="http://ovjaywang.github.io/tags/%E5%90%8E%E6%96%B9%E4%BA%A4%E4%BC%9A/"/>
     
       <category term="精度" scheme="http://ovjaywang.github.io/tags/%E7%B2%BE%E5%BA%A6/"/>
     
@@ -1670,158 +1709,6 @@ boolean isScreenOn = pm.isScreenOn();
     
     
       <category term="航空摄影测量" scheme="http://ovjaywang.github.io/tags/%E8%88%AA%E7%A9%BA%E6%91%84%E5%BD%B1%E6%B5%8B%E9%87%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>后方交会检校(6)--后方交会的补充及DLT和角锥体法</title>
-    <link href="http://ovjaywang.github.io/2015/11/04/%E5%90%8E%E6%96%B9%E4%BA%A4%E4%BC%9A%E6%A3%80%E6%A0%A1(6)--%E5%90%8E%E6%96%B9%E4%BA%A4%E4%BC%9A%E7%9A%84%E8%A1%A5%E5%85%85%E5%8F%8ADLT%E5%92%8C%E8%A7%92%E9%94%A5%E4%BD%93%E6%B3%95/"/>
-    <id>http://ovjaywang.github.io/2015/11/04/后方交会检校(6)--后方交会的补充及DLT和角锥体法/</id>
-    <published>2015-11-04T07:29:32.000Z</published>
-    <updated>2016-04-11T14:09:45.581Z</updated>
-    
-    <content type="html">&lt;p&gt;除了后方交会之外，常用的进行内外参数检校的方法还有DLT和角锥体法。&lt;/p&gt;
-&lt;p&gt;写在前面：DLT可在&lt;font color=&quot;#FF0000&quot;&gt;未提供初值&lt;/font&gt;的情况下推导内外方位元素，同时&lt;font color=&quot;#FF0000&quot;&gt;不需要迭代&lt;/font&gt;，但精度相比后方交会较低；&lt;font color=&quot;#FF0000&quot;&gt;DLT与后方交会等价&lt;/font&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&lt;font color=&quot;#FF0000&quot; size=&quot;5&quot;&gt;内容提要&lt;/font&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;#DLT基本原理与公式&quot;&gt;DLT基本原理与公式&lt;/a&gt;&amp;nbsp; &lt;a href=&quot;#其中&quot;&gt;L的基本形式&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;a href=&quot;#根据求得的li计算各参数&quot;&gt;用Li表示内外参数&lt;/a&gt;&amp;nbsp;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;#非正交与比例尺不一致因素&quot;&gt;非正交与比例尺不一致因素&lt;/a&gt;&amp;nbsp; &lt;a href=&quot;#DLT的真正一般形式&quot;&gt;DLT的真正一般形式&lt;/a&gt;&amp;nbsp; &lt;a href=&quot;#包含2项因素的Li表达内外参数&quot;&gt;包含2项因素的Li表达内外参数&lt;/a&gt;&amp;nbsp;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;#包含畸变参数校正的DLT&quot;&gt;包含畸变参数校正的DLT&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a name=&quot;DLT基本原理与公式&quot;&gt;DLT基本原理与公式&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;基本原理：将物方点坐标（X,Y,Z）和(x,y)看做是空间中的某种线性变换，可以互为函数。一般地，将x,y用X,Y,Z表示。&lt;/p&gt;
-&lt;p&gt;基本公式：&lt;/p&gt;
-&lt;p&gt;$$!\left{\begin{matrix}x+\frac{L&lt;em&gt;{1}X+L&lt;/em&gt;{2}Y+L&lt;em&gt;{3}Z+L&lt;/em&gt;{4}}{L&lt;em&gt;{9}X+L&lt;/em&gt;{10}Y+L&lt;em&gt;{11}Z+1}=0\y+\frac{L&lt;/em&gt;{5}X+L&lt;em&gt;{6}Y+L&lt;/em&gt;{7}Z+L&lt;em&gt;{8}}{L&lt;/em&gt;{9}X+L&lt;em&gt;{10}Y+L&lt;/em&gt;{11}Z+1}=0\end{matrix}\right.$$&lt;/p&gt;
-&lt;p&gt;DLT误差方程：&lt;/p&gt;
-&lt;font color=&quot;#FF0000&quot;&gt;$$!\begin{pmatrix}v&lt;em&gt;{x}\v&lt;/em&gt;{y}\end{pmatrix}=\begin{pmatrix}X&amp;amp;Y&amp;amp;Z&amp;amp;1&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;xX&amp;amp;xY&amp;amp;xZ\0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;X&amp;amp;Y&amp;amp;Z&amp;amp;1&amp;amp;yX&amp;amp;yY&amp;amp;yZ\end{pmatrix}\begin{pmatrix}L&lt;em&gt;{1}\L&lt;/em&gt;{2}\L&lt;em&gt;{3}\L&lt;/em&gt;{4}\L&lt;em&gt;{5}\L&lt;/em&gt;{6}\L&lt;em&gt;{7}\L&lt;/em&gt;{8}\L&lt;em&gt;{9}\L&lt;/em&gt;{10}\L&lt;em&gt;{11}\end{pmatrix}+\begin{pmatrix}l&lt;/em&gt;{x}\l_{y}\end{pmatrix}$$&lt;/font&gt;
-
-&lt;p&gt;与后方交会一样，若有n个控制点，则A矩阵有2n行。还是利用求改正数的公式求取。&lt;/p&gt;
-&lt;p&gt;DLT推导过程如下：&lt;/p&gt;
-&lt;p&gt;根据共线方程的后方交会形式：&lt;/p&gt;
-&lt;p&gt;$$!x-x&lt;em&gt;{0}+f&lt;/em&gt;{x}\frac{a&lt;em&gt;{1}(X-X&lt;/em&gt;{s})+b&lt;em&gt;{1}(Y-Y&lt;/em&gt;{s})+c&lt;em&gt;{1}(Z-Z&lt;/em&gt;{s})}{a&lt;em&gt;{3}(X-X&lt;/em&gt;{s})+b&lt;em&gt;{3}(Y-Y&lt;/em&gt;{s})+c&lt;em&gt;{3}(Z-Z&lt;/em&gt;{s})}=0$$&lt;/p&gt;
-&lt;p&gt;$$!y-y&lt;em&gt;{0}+f&lt;/em&gt;{y}\frac{a&lt;em&gt;{2}(X-X&lt;/em&gt;{s})+b&lt;em&gt;{2}(Y-Y&lt;/em&gt;{s})+c&lt;em&gt;{2}(Z-Z&lt;/em&gt;{s})}{a&lt;em&gt;{3}(X-X&lt;/em&gt;{s})+b&lt;em&gt;{3}(Y-Y&lt;/em&gt;{s})+c&lt;em&gt;{3}(Z-Z&lt;/em&gt;{s})}=0$$&lt;/p&gt;
-&lt;p&gt;这里，f分为fx和fy，即主距在像空系中这两个分量的投影。因为有的单个ccd xy方向上的大小不一致，即不是正方形。&lt;/p&gt;
-&lt;p&gt;将X，Y，Z和Xs，Ys，Zs分离，将之看作是摄影中心的变换坐标。&lt;/p&gt;
-&lt;font color=&quot;#FF0000&quot;&gt;$$!\left{\begin{matrix}r&lt;em&gt;{1}=-(a&lt;/em&gt;{1}X&lt;em&gt;{s}+b&lt;/em&gt;{1}Y&lt;em&gt;{s}+c&lt;/em&gt;{1}Z&lt;em&gt;{s})\r&lt;/em&gt;{2}=-(a&lt;em&gt;{2}X&lt;/em&gt;{s}+b&lt;em&gt;{2}Y&lt;/em&gt;{s}+c&lt;em&gt;{2}Z&lt;/em&gt;{s})\r&lt;em&gt;{3}=-(a&lt;/em&gt;{3}X&lt;em&gt;{s}+b&lt;/em&gt;{3}Y&lt;em&gt;{s}+c&lt;/em&gt;{3}Z_{s})\end{matrix}\right.$$&lt;/font&gt;
-
-&lt;p&gt;化简可得&lt;/p&gt;
-&lt;p&gt;$$!x-x&lt;em&gt;{0}+f&lt;/em&gt;{x}\frac{a&lt;em&gt;{1}X+b&lt;/em&gt;{1}Y+c&lt;em&gt;{1}Z+r&lt;/em&gt;{1}}{a&lt;em&gt;{3}X+b&lt;/em&gt;{3}Y+c&lt;em&gt;{3}Z+r&lt;/em&gt;{3}}=0$$&lt;/p&gt;
-&lt;p&gt;$$!y-y&lt;em&gt;{0}+f&lt;/em&gt;{y}\frac{a&lt;em&gt;{2}X+b&lt;/em&gt;{2}Y+c&lt;em&gt;{2}Z+r&lt;/em&gt;{1}}{a&lt;em&gt;{3}X+b&lt;/em&gt;{3}Y+c&lt;em&gt;{3}Z+r&lt;/em&gt;{3}}=0$$&lt;/p&gt;
-&lt;p&gt;将x0，y0通分。&lt;/p&gt;
-&lt;p&gt;$$!x+\frac{(a&lt;em&gt;{1}f&lt;/em&gt;{x}-a&lt;em&gt;{3}x&lt;/em&gt;{0})X+(b&lt;em&gt;{1}f&lt;/em&gt;{x}-b&lt;em&gt;{3}x&lt;/em&gt;{0})Y+(c&lt;em&gt;{1}f&lt;/em&gt;{x}-c&lt;em&gt;{3}x&lt;/em&gt;{0})Z+(r&lt;em&gt;{1}f&lt;/em&gt;{x}-r&lt;em&gt;{3}x&lt;/em&gt;{0})}{a&lt;em&gt;{3}X+b&lt;/em&gt;{3}Y+c&lt;em&gt;{3}Z+r&lt;/em&gt;{3}}=0$$&lt;/p&gt;
-&lt;p&gt;$$!y+\frac{(a&lt;em&gt;{2}f&lt;/em&gt;{y}-a&lt;em&gt;{3}y&lt;/em&gt;{0})X+(b&lt;em&gt;{2}f&lt;/em&gt;{y}-b&lt;em&gt;{3}y&lt;/em&gt;{0})Y+(c&lt;em&gt;{2}f&lt;/em&gt;{y}-c&lt;em&gt;{3}y&lt;/em&gt;{0})Z+(r&lt;em&gt;{2}f&lt;/em&gt;{y}-r&lt;em&gt;{3}y&lt;/em&gt;{0})}{a&lt;em&gt;{3}X+b&lt;/em&gt;{3}Y+c&lt;em&gt;{3}Z+r&lt;/em&gt;{3}}=0$$&lt;/p&gt;
-&lt;p&gt;将X、Y、Z的系数简化为L，即&lt;/p&gt;
-&lt;p&gt;$$!x+\frac{L&lt;em&gt;{1}X+L&lt;/em&gt;{2}Y+L&lt;em&gt;{3}Z+L&lt;/em&gt;{4}}{L&lt;em&gt;{9}X+L&lt;/em&gt;{10}Y+L_{11}Z+1}=0$$&lt;/p&gt;
-&lt;p&gt;$$!y+\frac{L&lt;em&gt;{5}X+L&lt;/em&gt;{6}Y+L&lt;em&gt;{7}Z+L&lt;/em&gt;{8}}{L&lt;em&gt;{9}X+L&lt;/em&gt;{10}Y+L_{11}Z+1}=0$$&lt;/p&gt;
-&lt;p&gt;&lt;a name=&quot;其中&quot;&gt;其中，L为：&lt;/a&gt;&lt;/p&gt;
-&lt;font color=&quot;#FF0000&quot;&gt;$$!L=\begin{bmatrix}L&lt;em&gt;{1}&amp;amp;L&lt;/em&gt;{2}&amp;amp;L&lt;em&gt;{3}&amp;amp;L&lt;/em&gt;{4}\L&lt;em&gt;{5}&amp;amp;L&lt;/em&gt;{6}&amp;amp;L&lt;em&gt;{7}&amp;amp;L&lt;/em&gt;{8}\L&lt;em&gt;{9}&amp;amp;L&lt;/em&gt;{10}&amp;amp;L&lt;em&gt;{11}&amp;amp;L&lt;/em&gt;{12}\end{bmatrix}$$&lt;/font&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://www.dooby.me/wp-content/uploads/2015/11/151C86750F1FFF17ECE621971610488CBAE13A81.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;该公式表示像点测量坐标与物方点坐标直接的变化，无需内方位元素。从另一个角度看，L矩阵其实是二维坐标通过三次矩阵变换得到的三维坐标，即：&lt;/p&gt;
-&lt;p&gt;$$!L=\frac{1}{r&lt;em&gt;{3}}\begin{bmatrix}f&lt;/em&gt;{x}&amp;amp;0&amp;amp;-x&lt;em&gt;{0}\0&amp;amp;f&lt;/em&gt;{y}&amp;amp;-y&lt;em&gt;{0}\0&amp;amp;0&amp;amp;1\end{bmatrix}\begin{bmatrix}a&lt;/em&gt;{1}&amp;amp;b&lt;em&gt;{1}&amp;amp;c&lt;/em&gt;{1}\a&lt;em&gt;{2}&amp;amp;b&lt;/em&gt;{2}&amp;amp;c&lt;em&gt;{2}\a&lt;/em&gt;{3}&amp;amp;b&lt;em&gt;{3}&amp;amp;c&lt;/em&gt;{3}\end{bmatrix}\begin{bmatrix}1&amp;amp;0&amp;amp;0&amp;amp;X&lt;em&gt;{s}\0&amp;amp;1&amp;amp;0&amp;amp;Y&lt;/em&gt;{s}\0&amp;amp;0&amp;amp;1&amp;amp;Z&lt;em&gt;{s}\end{bmatrix}=\frac{1}{r&lt;/em&gt;{3}}\begin{bmatrix}f&lt;em&gt;{x}&amp;amp;0&amp;amp;-x&lt;/em&gt;{0}\0&amp;amp;f&lt;em&gt;{y}&amp;amp;-y&lt;/em&gt;{0}\0&amp;amp;0&amp;amp;1\end{bmatrix}\begin{bmatrix}R&amp;amp;t\0^{T}&amp;amp;1\end{bmatrix}$$&lt;/p&gt;
-&lt;p&gt;第一个矩阵由内方位元素组成，是辅助坐标和像平面坐标的平移和比例关系；第二个矩阵是外方位元素的角元素，表达物方系和地辅系的坐标旋转关系；第三个矩阵是外方位线元素，表达物方坐标和地辅系坐标的原点平移关系。&lt;/p&gt;
-&lt;p&gt;由于计算机视觉中使用齐次坐标，即如下形式&lt;/p&gt;
-&lt;p&gt;$$!\begin{pmatrix}x\y\1\end{pmatrix}=L\begin{pmatrix}X\Y\Z\1\end{pmatrix}=\begin{bmatrix}L&lt;em&gt;{1}&amp;amp;L&lt;/em&gt;{2}&amp;amp;L&lt;em&gt;{3}&amp;amp;L&lt;/em&gt;{4}\L&lt;em&gt;{5}&amp;amp;L&lt;/em&gt;{6}&amp;amp;L&lt;em&gt;{7}&amp;amp;L&lt;/em&gt;{8}\L&lt;em&gt;{9}&amp;amp;L&lt;/em&gt;{10}&amp;amp;L&lt;em&gt;{11}&amp;amp;L&lt;/em&gt;{12}\end{bmatrix}\begin{pmatrix}X\Y\Z\1\end{pmatrix}$$因此形成了上红色式子。&lt;/p&gt;
-&lt;p&gt;&lt;a name=&quot;根据求得的li计算各参数&quot;&gt;根据求得的li计算各参数&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;重要参数的求解：&lt;/p&gt;
-&lt;p&gt;$$!r&lt;em&gt;{3}=\frac{1}{(L&lt;/em&gt;{9}^{2}+L&lt;em&gt;{10}^{2}+L&lt;/em&gt;{11}^{2})^{1/2}}$$&lt;/p&gt;
-&lt;p&gt;(1)内方位元素&lt;/p&gt;
-&lt;p&gt;$$!x&lt;em&gt;{0}=-(L&lt;/em&gt;{1}L&lt;em&gt;{9}+L&lt;/em&gt;{2}L&lt;em&gt;{10}+L&lt;/em&gt;{3}L&lt;em&gt;{11})/(L&lt;/em&gt;{9}^{2}+&lt;em&gt;{10}^{2}+L&lt;/em&gt;{11}^{2})$$&lt;/p&gt;
-&lt;p&gt;$$!y&lt;em&gt;{0}=-(L&lt;/em&gt;{5}L&lt;em&gt;{9}+L&lt;/em&gt;{6}L&lt;em&gt;{10}+L&lt;/em&gt;{7}L&lt;em&gt;{11})/(L&lt;/em&gt;{9}^{2}+&lt;em&gt;{10}^{2}+L&lt;/em&gt;{11}^{2})$$&lt;/p&gt;
-&lt;p&gt;$$!f&lt;em&gt;{x}^{2}=-x&lt;/em&gt;{0}^{2}+(L&lt;em&gt;{1}^{2}+L&lt;/em&gt;{2}^{2}+L&lt;em&gt;{3}^{2})/(L&lt;/em&gt;{9}^{2}+&lt;em&gt;{10}^{2}+L&lt;/em&gt;{11}^{2})$$&lt;/p&gt;
-&lt;p&gt;$$!f&lt;em&gt;{y}^{2}=-y&lt;/em&gt;{0}^{2}+(L&lt;em&gt;{4}^{2}+L&lt;/em&gt;{5}^{2}+L&lt;em&gt;{6}^{2})/(L&lt;/em&gt;{9}^{2}+&lt;em&gt;{10}^{2}+L&lt;/em&gt;{11}^{2})$$&lt;/p&gt;
-&lt;p&gt;$$!f=\frac{1}{2}(f&lt;em&gt;{x}+f&lt;/em&gt;{y})$$&lt;/p&gt;
-&lt;p&gt;(2)外方位角元素&lt;/p&gt;
-&lt;p&gt;$$!\begin{bmatrix}a&lt;em&gt;{1}&amp;amp;b&lt;/em&gt;{1}&amp;amp;c&lt;em&gt;{1}\end{bmatrix}=\frac{1}{f&lt;/em&gt;{x}}\begin{bmatrix}\frac{L&lt;em&gt;{1}}{(L&lt;/em&gt;{9}^{2}+L&lt;em&gt;{10}^{2}+L&lt;/em&gt;{11}^{2})^{1/2}}+a&lt;em&gt;{3}x&lt;/em&gt;{0}\frac{L&lt;em&gt;{2}}{(L&lt;/em&gt;{9}^{2}+L&lt;em&gt;{10}^{2}+L&lt;/em&gt;{11}^{2})^{1/2}}+b&lt;em&gt;{3}x&lt;/em&gt;{0}\frac{L&lt;em&gt;{3}}{(L&lt;/em&gt;{9}^{2}+L&lt;em&gt;{10}^{2}+L&lt;/em&gt;{11}^{2})^{1/2}}+c&lt;em&gt;{3}x&lt;/em&gt;{0}\end{bmatrix}$$&lt;/p&gt;
-&lt;p&gt;$$!\begin{bmatrix}a&lt;em&gt;{2}&amp;amp;b&lt;/em&gt;{2}&amp;amp;c&lt;em&gt;{2}\end{bmatrix}=\frac{1}{f&lt;/em&gt;{y}}\begin{bmatrix}\frac{L&lt;em&gt;{5}}{(L&lt;/em&gt;{9}^{2}+L&lt;em&gt;{10}^{2}+L&lt;/em&gt;{11}^{2})^{1/2}}+a&lt;em&gt;{3}y&lt;/em&gt;{0}\frac{L&lt;em&gt;{6}}{(L&lt;/em&gt;{9}^{2}+L&lt;em&gt;{10}^{2}+L&lt;/em&gt;{11}^{2})^{1/2}}+b&lt;em&gt;{3}y&lt;/em&gt;{0}\frac{L&lt;em&gt;{7}}{(L&lt;/em&gt;{9}^{2}+L&lt;em&gt;{10}^{2}+L&lt;/em&gt;{11}^{2})^{1/2}}+c&lt;em&gt;{3}y&lt;/em&gt;{0}\end{bmatrix}$$&lt;/p&gt;
-&lt;p&gt;$$!\begin{bmatrix}a&lt;em&gt;{3}&amp;amp;b&lt;/em&gt;{3}&amp;amp;c&lt;em&gt;{3}\end{bmatrix}=\frac{1}{(L&lt;/em&gt;{9}^{2}+L&lt;em&gt;{10^{2}}+L&lt;/em&gt;{11}^{2})^{1/2}}\begin{bmatrix}L&lt;em&gt;{9}&amp;amp;L&lt;/em&gt;{10}&amp;amp;L_{11}\end{bmatrix}$$&lt;/p&gt;
-&lt;p&gt;可以注意到的是，DLT解求内外方位元素是有次序的，因为外方位元素解求的公式中包含有所有的内方位元素。&lt;/p&gt;
-&lt;p&gt;$$!\left{\begin{matrix}\varphi =arctan(\frac{a&lt;em&gt;{3}}{c&lt;/em&gt;{3}})=arctan(\frac{l&lt;em&gt;{9}}{l&lt;/em&gt;{11}})\\omega =arcsin(-b&lt;em&gt;{3})=arcsin(-\frac{l&lt;/em&gt;{10}}{l&lt;em&gt;{9}^2+l&lt;/em&gt;{10}^{2}+l&lt;em&gt;{11}^{2}})\\kappa =arctan(\frac{b&lt;/em&gt;{1}}{b&lt;em&gt;{2}})=arctan(\frac{f&lt;/em&gt;{y}[x&lt;em&gt;{0}\frac{L&lt;/em&gt;{2}}{(L&lt;em&gt;{9}^{2}+L&lt;/em&gt;{10}^{2}+L&lt;em&gt;{11}^{2})^{1/2}}+b&lt;/em&gt;{3}]}{f&lt;em&gt;{x}[y&lt;/em&gt;{0}\frac{L&lt;em&gt;{6}}{(L&lt;/em&gt;{9}^{2}+L&lt;em&gt;{10}^{2}+L&lt;/em&gt;{11}^{2})^{1/2}}+b_{3}]})\end{matrix}\right.$$&lt;/p&gt;
-&lt;p&gt;(3)外方位线元素&lt;br&gt; 则需要根据如下方程解出&lt;/p&gt;
-&lt;p&gt;$$!a&lt;em&gt;{3}X&lt;/em&gt;{s}+b&lt;em&gt;{3}Y&lt;/em&gt;{s}+c&lt;em&gt;{3}Z&lt;/em&gt;{s}+r_{3}$$&lt;/p&gt;
-&lt;p&gt;$$!\frac{a&lt;em&gt;{1}f&lt;/em&gt;{x}-a&lt;em&gt;{3}x&lt;/em&gt;{0}}{r&lt;em&gt;{3}}X&lt;/em&gt;{s}+\frac{b&lt;em&gt;{1}f&lt;/em&gt;{x}-b&lt;em&gt;{3}x&lt;/em&gt;{0}}{r&lt;em&gt;{3}}Y&lt;/em&gt;{s}+\frac{c&lt;em&gt;{1}f&lt;/em&gt;{x}-c&lt;em&gt;{3}x&lt;/em&gt;{0}}{r&lt;em&gt;{3}}+L&lt;/em&gt;{4}=0$$&lt;/p&gt;
-&lt;p&gt;$$!\frac{a&lt;em&gt;{2}f&lt;/em&gt;{y}-a&lt;em&gt;{3}y&lt;/em&gt;{0}}{r&lt;em&gt;{3}}X&lt;/em&gt;{s}+\frac{b&lt;em&gt;{2}f&lt;/em&gt;{y}-b&lt;em&gt;{3}y&lt;/em&gt;{0}}{r&lt;em&gt;{3}}Y&lt;/em&gt;{s}+\frac{c&lt;em&gt;{2}f&lt;/em&gt;{y}-c&lt;em&gt;{3}y&lt;/em&gt;{0}}{r&lt;em&gt;{3}}+L&lt;/em&gt;{8}=0$$&lt;/p&gt;
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;
-&lt;p&gt;DLT实质上与共线方程等价，Li之间的相关性，因为2个条件=11个参数-必要观测个数&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;以上是只解求内外方位元素的时候，Li与各参数的关系，如果加上光学畸变、非正交比例、比例尺不一致等误差，光学畸变在前文中提到。&lt;/p&gt;
-&lt;p&gt;x轴方向上比例系数为1，y轴方向比例系数为(1+ds).则&lt;/p&gt;
-&lt;p&gt;x轴方向上的主距为fx，y轴方向上的主距为fy=fx/(1+ds).&lt;/p&gt;
-&lt;p&gt;对数字相机，比例尺不一致可认为是襄垣x、y方向长度不等引起的；而不正交性误差可认为是像元x、y方向排列不垂直引起的。&lt;/p&gt;
-&lt;p&gt;&lt;a name=&quot;非正交与比例尺不一致因素&quot;&gt;如图展现了以上两种误差的原因。&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://www.dooby.me/wp-content/uploads/2015/11/C99CDEAA218715286FA9FE07A8E69B343C345FAA.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;以下表述中，小括号代表坐标系，中括号代表坐标值。&lt;/p&gt;
-&lt;p&gt;$$!(\overline{x},\overline{y})[on&lt;em&gt;{2},on&lt;/em&gt;{1}]$$——以像主点为原点（像平面坐标系的原点），不包含线性误差的&lt;font color=&quot;#FF0000&quot;&gt;某像点p的坐标&lt;/font&gt;&lt;/p&gt;
-&lt;p&gt;$$!(x,y)[om&lt;em&gt;{2},0m&lt;/em&gt;{1}]$$——以像主点为原点，不包含正交性dβ误差的像点p坐标。&lt;/p&gt;
-&lt;p&gt;$$!(x,y)[om&lt;em&gt;{2},om&lt;/em&gt;{1}^{‘}]$$——以像主点为原点，不包括正交性dβ误差及比例尺不一致误差ds的像点坐标p&lt;/p&gt;
-&lt;p&gt;则从图中可知，$$!\delta x=on&lt;em&gt;{2}-om&lt;/em&gt;{2}=m&lt;em&gt;{2}p\cdot sin d\beta=om&lt;/em&gt;{1}\cdot sin d\beta=(1+ds)(y-y&lt;em&gt;{0})sind\beta\approx (y-y&lt;/em&gt;{0})sind\beta$$&lt;/p&gt;
-&lt;p&gt;$$!\delta y=on&lt;em&gt;{1}-om&lt;/em&gt;{1}^{‘}=om&lt;em&gt;{1}\cdot cosd\beta -om&lt;/em&gt;{1}^{‘}=(1+ds)(y-y&lt;em&gt;{0})\cdot cosd\beta-(y-y&lt;/em&gt;{0})=&lt;a href=&quot;y-y_{0}&quot;&gt;(1+ds)\cdot cosd\beta -1&lt;/a&gt;\approx (y-y_{0})\cdot ds$$&lt;/p&gt;
-&lt;p&gt;将上式2值带入线性方程&lt;font color=&quot;#FF0000&quot;&gt;有线性误差的形式&lt;/font&gt;：式中有11个独立参数，3个内方位x0,yo,fx6个外方位Xs，Ys，Zs，φ，ω，k，比例尺不一致系数ds，xy轴不正交系数dβ。&lt;/p&gt;
-&lt;p&gt;$$!\left{\begin{matrix}x-x&lt;em&gt;{0}+(1+ds)(y-y&lt;/em&gt;{0})\cdot sind\beta +f&lt;em&gt;{x}\frac{a&lt;/em&gt;{1}(X-X&lt;em&gt;{s}+b&lt;/em&gt;{1}(Y-Y&lt;em&gt;{s})+c&lt;/em&gt;{1}(Z-Z&lt;em&gt;{s})}{a&lt;/em&gt;{3}(X-X&lt;em&gt;{s})+b&lt;/em&gt;{3}(Y-Y&lt;em&gt;{s})+c&lt;/em&gt;{3}(Z-Z&lt;em&gt;{s})}=0\y-y&lt;/em&gt;{0}+[(1+ds)\cdot cosd\beta-1] (y-y&lt;em&gt;{0})+f&lt;/em&gt;{x}\frac{a&lt;em&gt;{1}(X-X&lt;/em&gt;{s}+b&lt;em&gt;{1}(Y-Y&lt;/em&gt;{s})+c&lt;em&gt;{1}(Z-Z&lt;/em&gt;{s})}{a&lt;em&gt;{3}(X-X&lt;/em&gt;{s})+b&lt;em&gt;{3}(Y-Y&lt;/em&gt;{s})+c&lt;em&gt;{3}(Z-Z&lt;/em&gt;{s})}=0\end{matrix}\right.$$&lt;/p&gt;
-&lt;p&gt;通过一系列的化简，如前面介绍不带线性误差一样，提取出r1，r2，r3，&lt;a name=&quot;DLT的真正一般形式&quot;&gt;得到：&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;$$!x+\frac{\frac{1}{r&lt;em&gt;{3}}(a&lt;/em&gt;{1}f&lt;em&gt;{x}-a&lt;/em&gt;{2}f&lt;em&gt;{x}tand\beta -a&lt;/em&gt;{3}x&lt;em&gt;{0})}{\frac{a&lt;/em&gt;{3}}{r&lt;em&gt;{3}}X+\frac{b&lt;/em&gt;{3}}{r&lt;em&gt;{3}}Y+\frac{c&lt;/em&gt;{3}}{r&lt;em&gt;{3}}Z+1}\cdot X+\frac{\frac{1}{r&lt;/em&gt;{3}}(b&lt;em&gt;{1}f&lt;/em&gt;{x}-b&lt;em&gt;{2}f&lt;/em&gt;{x}tand\beta -b&lt;em&gt;{3}x&lt;/em&gt;{0})}{\frac{a&lt;em&gt;{3}}{r&lt;/em&gt;{3}}X+\frac{b&lt;em&gt;{3}}{r&lt;/em&gt;{3}}Y+\frac{c&lt;em&gt;{3}}{r&lt;/em&gt;{3}}Z+1}\cdot Y+\frac{\frac{1}{r&lt;em&gt;{3}}(c&lt;/em&gt;{1}f&lt;em&gt;{x}-c&lt;/em&gt;{2}f&lt;em&gt;{x}tand\beta -c&lt;/em&gt;{3}x&lt;em&gt;{0})}{\frac{a&lt;/em&gt;{3}}{r&lt;em&gt;{3}}X+\frac{b&lt;/em&gt;{3}}{r&lt;em&gt;{3}}Y+\frac{c&lt;/em&gt;{3}}{r&lt;em&gt;{3}}Z+1}\cdot Z+\frac{\frac{1}{r&lt;/em&gt;{3}}(r&lt;em&gt;{1}f&lt;/em&gt;{x}-r&lt;em&gt;{2}f&lt;/em&gt;{x}tand\beta -r&lt;em&gt;{3}x&lt;/em&gt;{0})}{\frac{a&lt;em&gt;{3}}{r&lt;/em&gt;{3}}X+\frac{b&lt;em&gt;{3}}{r&lt;/em&gt;{3}}Y+\frac{c&lt;em&gt;{3}}{r&lt;/em&gt;{3}}Z+1}=0$$&lt;/p&gt;
-&lt;p&gt;$$!y+\frac{\frac{1}{r&lt;em&gt;{3}}[\frac{a&lt;/em&gt;{2}f&lt;em&gt;{x}}{(1+ds)cosd\beta }-a&lt;/em&gt;{3}\cdot y&lt;em&gt;{0}]}{\frac{a&lt;/em&gt;{3}}{r&lt;em&gt;{3}}X+\frac{b&lt;/em&gt;{3}}{r&lt;em&gt;{3}}Y+\frac{c&lt;/em&gt;{3}}{r&lt;em&gt;{3}}Z+1}\cdot X+\frac{\frac{1}{r&lt;/em&gt;{3}}[\frac{b&lt;em&gt;{2}f&lt;/em&gt;{x}}{(1+ds)cosd\beta }-b&lt;em&gt;{3}\cdot y&lt;/em&gt;{0}]}{\frac{a&lt;em&gt;{3}}{r&lt;/em&gt;{3}}X+\frac{b&lt;em&gt;{3}}{r&lt;/em&gt;{3}}Y+\frac{c&lt;em&gt;{3}}{r&lt;/em&gt;{3}}Z+1}\cdot Y+\frac{\frac{1}{r&lt;em&gt;{3}}[\frac{c&lt;/em&gt;{2}f}{(1+ds)cosd\beta }-c&lt;em&gt;{3}\cdot y&lt;/em&gt;{0}]}{\frac{a&lt;em&gt;{3}}{r&lt;/em&gt;{3}}X+\frac{b&lt;em&gt;{3}}{r&lt;/em&gt;{3}}Y+\frac{c&lt;em&gt;{3}}{r&lt;/em&gt;{3}}Z+1}\cdot Z+\frac{\frac{1}{r&lt;em&gt;{3}}[\frac{r&lt;/em&gt;{2}f&lt;em&gt;{x}}{(1+ds)cosd\beta }-r&lt;/em&gt;{3}\cdot y&lt;em&gt;{0}]}{\frac{a&lt;/em&gt;{3}}{r&lt;em&gt;{3}}X+\frac{b&lt;/em&gt;{3}}{r&lt;em&gt;{3}}Y+\frac{c&lt;/em&gt;{3}}{r_{3}}Z+1}=0$$&lt;/p&gt;
-&lt;p&gt;则上式即可化为基本式：&lt;/p&gt;
-&lt;p&gt;$$!x+\frac{l&lt;em&gt;{1}X+l&lt;/em&gt;{2}Y+l&lt;em&gt;{3}Z+l&lt;/em&gt;{4}}{l&lt;em&gt;{9}X+l&lt;/em&gt;{10}Y+l_{11}Z+1}=0$$&lt;/p&gt;
-&lt;p&gt;$$!y+\frac{l&lt;em&gt;{5}X+l&lt;/em&gt;{6}Y+l&lt;em&gt;{7}Z+l&lt;/em&gt;{8}}{l&lt;em&gt;{9}X+l&lt;/em&gt;{10}Y+l_{11}Z+1}=0$$&lt;/p&gt;
-&lt;p&gt;其中，l4、l8可化简：&lt;/p&gt;
-&lt;p&gt;$$!l&lt;em&gt;{8}=\frac{1}{r&lt;/em&gt;{3}}[\frac{r&lt;em&gt;{2}f&lt;/em&gt;{x}}{(1+ds)\cdot d\beta}-r&lt;em&gt;{3}\cdot y&lt;/em&gt;{0}]=\frac{1}{r&lt;em&gt;{3}}[\frac{-(a&lt;/em&gt;{2}Xs+b&lt;em&gt;{2}Y&lt;/em&gt;{s}+c&lt;em&gt;{2}Z&lt;/em&gt;{s})f&lt;em&gt;{x}}{(1+ds)\cdot cosd\beta }+(a&lt;/em&gt;{3}X&lt;em&gt;{s}+b&lt;/em&gt;{3}Y&lt;em&gt;{s}+c&lt;/em&gt;{3}Z&lt;em&gt;{s})\cdot y&lt;/em&gt;{0}]=-\frac{1}{r&lt;em&gt;{3}}[(\frac{a&lt;/em&gt;{2}f&lt;em&gt;{x}}{(1+ds)\cdot cosd\beta }-a&lt;/em&gt;{3}y&lt;em&gt;{0})X&lt;/em&gt;{s}+(\frac{b&lt;em&gt;{2}f&lt;/em&gt;{x}}{(1+ds)\cdot cosd\beta }-b&lt;em&gt;{3}y&lt;/em&gt;{0})Y&lt;em&gt;{s}+(\frac{c&lt;/em&gt;{2}f&lt;em&gt;{x}}{(1+ds)\cdot cosd\beta }-c&lt;/em&gt;{3}y&lt;em&gt;{0})Z&lt;/em&gt;{s}]=-(l&lt;em&gt;{5}X&lt;/em&gt;{s}+l&lt;em&gt;{6}Y&lt;/em&gt;{s}+l&lt;em&gt;{7}Z&lt;/em&gt;{s})$$&lt;/p&gt;
-&lt;p&gt;$$!l&lt;em&gt;{4}=\frac{1}{r&lt;/em&gt;{3}}(r&lt;em&gt;{1}f&lt;/em&gt;{x}-r&lt;em&gt;{2}f&lt;/em&gt;{x}tand\beta -r&lt;em&gt;{3}x&lt;/em&gt;{0})=-(l&lt;em&gt;{1}X&lt;/em&gt;{s}+l&lt;em&gt;{2}Y&lt;/em&gt;{s}+l&lt;em&gt;{3}Z&lt;/em&gt;{s})$$&lt;/p&gt;
-&lt;p&gt;由于未知数是11个，因此最少需要布置6个控制点。&lt;/p&gt;
-&lt;p&gt;值得一提的是，像主点的求解公式与没有畸变参与&lt;a name=&quot;包含2项因素的Li表达内外参数&quot;&gt;相同&lt;/a&gt;，&lt;/p&gt;
-&lt;p&gt;$$!x&lt;em&gt;{0}=-(L&lt;/em&gt;{1}L&lt;em&gt;{9}+L&lt;/em&gt;{2}L&lt;em&gt;{10}+L&lt;/em&gt;{3}L&lt;em&gt;{11})/(L&lt;/em&gt;{9}^{2}+&lt;em&gt;{10}^{2}+L&lt;/em&gt;{11}^{2})$$&lt;/p&gt;
-&lt;p&gt;$$!y&lt;em&gt;{0}=-(L&lt;/em&gt;{5}L&lt;em&gt;{9}+L&lt;/em&gt;{6}L&lt;em&gt;{10}+L&lt;/em&gt;{7}L&lt;em&gt;{11})/(L&lt;/em&gt;{9}^{2}+&lt;em&gt;{10}^{2}+L&lt;/em&gt;{11}^{2})$$&lt;/p&gt;
-&lt;p&gt;最重要的ds和dβ，设：&lt;/p&gt;
-&lt;p&gt;$$!\overline{A}=r&lt;em&gt;{3}^{2}(l&lt;/em&gt;{1}^{2}+l&lt;em&gt;{2}^{2}+l&lt;/em&gt;{3}^{2})-x&lt;em&gt;{0}^{2}=\frac{f&lt;/em&gt;{x}^{2}}{cos^{2}d\beta }$$&lt;/p&gt;
-&lt;p&gt;$$!B=r&lt;em&gt;{3}^{2}(l&lt;/em&gt;{5}^{2}+l&lt;em&gt;{6}^{2}+l&lt;/em&gt;{7}^{2})-y&lt;em&gt;{0}^{2}=\frac{f&lt;/em&gt;{x}^{2}}{(1+ds)^{2}cos^{2}d\beta }$$&lt;/p&gt;
-&lt;p&gt;$$!C=r&lt;em&gt;{3}^{2}(l&lt;/em&gt;{1}l&lt;em&gt;{5}+l&lt;/em&gt;{2}l&lt;em&gt;{6}+l&lt;/em&gt;{3}l&lt;em&gt;{7})-x&lt;/em&gt;{0}y&lt;em&gt;{0}=\frac{-f&lt;/em&gt;{x}^{2}sind\beta }{(1+ds)cos^{2}d\beta }$$&lt;/p&gt;
-&lt;p&gt;$$!ds=\sqrt{\frac{\overline{A}}{B}-1}$$&lt;/p&gt;
-&lt;p&gt;$$!sind\beta =\pm \sqrt{\frac{C^{2}}{\overline{A}B}}$$&lt;/p&gt;
-&lt;p&gt;而主距的公式变为：&lt;/p&gt;
-&lt;p&gt;$$!f_{x}=\sqrt{\overline{A}}cosd\beta $$&lt;/p&gt;
-&lt;p&gt;$$!f&lt;em&gt;{y}=\frac{f&lt;/em&gt;{x}}{1+ds}$$&lt;/p&gt;
-&lt;p&gt;外方位角元素：&lt;/p&gt;
-&lt;p&gt;$$!tan\varphi =\frac{a&lt;em&gt;{3}}{c&lt;/em&gt;{3}}$$&lt;/p&gt;
-&lt;p&gt;$$!sin\omega =-b_{3}$$&lt;/p&gt;
-&lt;p&gt;$$!tan\kappa =\frac{b&lt;em&gt;{1}}{b&lt;/em&gt;{2}}$$&lt;/p&gt;
-&lt;p&gt;其中，$$a&lt;em&gt;{3}=r&lt;/em&gt;{3}l&lt;em&gt;{9},b&lt;/em&gt;{3}=r&lt;em&gt;{3}l&lt;/em&gt;{10},c&lt;em&gt;{3}=r&lt;/em&gt;{3}l_{11}$$&lt;/p&gt;
-&lt;p&gt;而外方位线元素由以下三个式子构成：&lt;/p&gt;
-&lt;p&gt;$$!l&lt;em&gt;{1}X&lt;/em&gt;{s}+l&lt;em&gt;{2}Y&lt;/em&gt;{s}+l&lt;em&gt;{3}Z&lt;/em&gt;{s}=-l_{4}$$&lt;/p&gt;
-&lt;p&gt;$$!l&lt;em&gt;{5}X&lt;/em&gt;{s}+l&lt;em&gt;{6}Y&lt;/em&gt;{s}+l&lt;em&gt;{7}Z&lt;/em&gt;{s}=-l_{8}$$&lt;/p&gt;
-&lt;p&gt;$$!l&lt;em&gt;{9}X&lt;/em&gt;{s}+l&lt;em&gt;{10}Y&lt;/em&gt;{s}+l&lt;em&gt;{11}Z&lt;/em&gt;{s}=\frac{a&lt;em&gt;{3}}{r&lt;/em&gt;{3}}X&lt;em&gt;{s}+\frac{b&lt;/em&gt;{3}}{r&lt;em&gt;{3}}Y&lt;/em&gt;{s}+\frac{c&lt;em&gt;{3}}{r&lt;/em&gt;{3}}Z&lt;em&gt;{s}=-\frac{a&lt;/em&gt;{3}Xs+b&lt;em&gt;{3}Y&lt;/em&gt;{s}+c&lt;em&gt;{3}Z&lt;/em&gt;{s}}{a&lt;em&gt;{3}Xs+b&lt;/em&gt;{3}Y&lt;em&gt;{s}+c&lt;/em&gt;{3}Z_{s}}=-1$$&lt;/p&gt;
-&lt;p&gt;到这里，能解求出包含非正交比例和xy不一致比例，但缺乏了对镜头畸变的改正。若将镜头畸变写入DLT方程式，则变为：&lt;/p&gt;
-&lt;p&gt;$$!x+v&lt;em&gt;{x}+\Delta x+\frac{l&lt;/em&gt;{1}X+l&lt;em&gt;{2}Y+l&lt;/em&gt;{3}Z+l&lt;em&gt;{4}}{l&lt;/em&gt;{9}X+l&lt;em&gt;{10}Y+l&lt;/em&gt;{11}Z+1}=0$$&lt;/p&gt;
-&lt;p&gt;$$!y+v&lt;em&gt;{y}+\Delta y+\frac{l&lt;/em&gt;{5}X+l&lt;em&gt;{6}Y+l&lt;/em&gt;{7}Z+l&lt;em&gt;{8}}{l&lt;/em&gt;{9}X+l&lt;em&gt;{10}Y+l&lt;/em&gt;{11}Z+1}=0$$&lt;/p&gt;
-&lt;p&gt;其中，vx vy是残差，△x △y是畸变的改正数，若忽略切向畸变且只去一项径向畸变的参数作为例子，&lt;/p&gt;
-&lt;p&gt;$$!\left{\begin{matrix}\Delta x=(x-x&lt;em&gt;{0})r^{2}k&lt;/em&gt;{1}\\Delta y=(y-y&lt;em&gt;{0})r^{2}k&lt;/em&gt;{1}\end{matrix}\right.$$&lt;/p&gt;
-&lt;p&gt;再令$$A=l&lt;em&gt;{9}X+l&lt;/em&gt;{10}Y+l_{11}Z+1$$&lt;/p&gt;
-&lt;p&gt;以li为未知数，列误差方程，则DLT&lt;a name=&quot;包含畸变参数校正的DLT&quot;&gt;公式可化简为&lt;/a&gt;：&lt;/p&gt;
-&lt;p&gt;$$!v&lt;em&gt;{x}=-\frac{1}{A}[Xl&lt;/em&gt;{1}+Yl&lt;em&gt;{2}+Zl&lt;/em&gt;{3}+l&lt;em&gt;{4}+xXl&lt;/em&gt;{9}+xYl&lt;em&gt;{10}+xZl&lt;/em&gt;{11}+A(x-x&lt;em&gt;{0}^{2})r^{2}k&lt;/em&gt;{1}+x]$$&lt;/p&gt;
-&lt;p&gt;$$!v&lt;em&gt;{y}=-\frac{1}{A}[Xl&lt;/em&gt;{5}+Yl&lt;em&gt;{6}+Zl&lt;/em&gt;{7}+l&lt;em&gt;{8}+yXl&lt;/em&gt;{9}+yYl&lt;em&gt;{10}+yZl&lt;/em&gt;{11}+A(y-y&lt;em&gt;{0}^{2})r^{2}k&lt;/em&gt;{1}+x]$$&lt;/p&gt;
-&lt;p&gt;矩阵的形式则可写为（以物方坐标表示像点坐标）：&lt;/p&gt;
-&lt;font color=&quot;#FF0000&quot;&gt;$$!\begin{bmatrix}v&lt;em&gt;{x}\v&lt;/em&gt;{y}\end{bmatrix}=\begin{bmatrix}\frac{X}{A}&amp;amp;\frac{Y}{A}&amp;amp;\frac{Z}{A}&amp;amp;\frac{1}{A}&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;\frac{xX}{A}&amp;amp;\frac{xY}{A}&amp;amp;\frac{xZ}{A}&amp;amp;(x-x&lt;em&gt;{0})r^{2}\0&amp;amp;0&amp;amp;0&amp;amp;0&amp;amp;\frac{X}{A}&amp;amp;\frac{Y}{A}&amp;amp;\frac{Z}{A}&amp;amp;\frac{1}{A}&amp;amp;\frac{yX}{A}&amp;amp;\frac{yY}{A}&amp;amp;\frac{yZ}{A}&amp;amp;(y-y&lt;/em&gt;{0})r^{2}\end{bmatrix}\begin{bmatrix}l&lt;em&gt;{1}\l&lt;/em&gt;{2}\l&lt;em&gt;{3}\l&lt;/em&gt;{4}\l&lt;em&gt;{5}\l&lt;/em&gt;{6}\l&lt;em&gt;{7}\l&lt;/em&gt;{8}\l&lt;em&gt;{9}\l&lt;/em&gt;{10}\l&lt;em&gt;{11}\k&lt;/em&gt;{1}\end{bmatrix}-\begin{bmatrix}\frac{x}{A}\\frac{y}{A}\end{bmatrix}$$&lt;/font&gt;
-
-&lt;p&gt;可简写为:&lt;/p&gt;
-&lt;p&gt;$$!V=AL+BX-W$$&lt;/p&gt;
-&lt;p&gt;其中L是11个（二维DLT是可能是8个）li参数，X是单独提出来计算的畸变系数，在后交时通常加载改正数值里，当学要加入更多畸变参数时，需要确定更多的B矩阵中的形式。W一般是x/A,y/A.&lt;/p&gt;
-&lt;p&gt;A和B的求取也是迭代计算，每次迭代A的值计算是通过控制点求得的。对不同控制点像点坐标列误差方程，A的值也不同。&lt;/p&gt;
-&lt;p&gt;简单提一下以像方坐标表示物放坐标的DLT公式：&lt;/p&gt;
-&lt;p&gt;$$!(l&lt;em&gt;{1}+\overline{x}l&lt;/em&gt;{9})X+(l&lt;em&gt;{2}+\overline{x}l&lt;/em&gt;{10})Y+(l&lt;em&gt;{3}+\overline{x}l&lt;/em&gt;{11})Z+(l_{4}+\overline{x})=0$$&lt;/p&gt;
-&lt;p&gt;$$!(l&lt;em&gt;{5}+\overline{y}l&lt;/em&gt;{9})X+(l&lt;em&gt;{6}+\overline{y}l&lt;/em&gt;{10})Y+(l&lt;em&gt;{7}+\overline{y}l&lt;/em&gt;{11})Z+(l_{8}+\overline{y})=0$$&lt;/p&gt;
-&lt;p&gt;直接线性变换的精度：可提供1/5000摄影距离精度的测量成果。影响DLT解法精度的是：控制点分布数量质量、像点坐标的测量精度、两张相片主光轴的交会角、像片张数、非线性畸变误差的改正数。&lt;/p&gt;
-&lt;div class=&quot;PoweredByWebStory&quot; style=&quot;margin-top:15px;margin-bottom:10px&quot;&gt;&lt;a href=&quot;http://sns.juziyue.com/webinvite.php?u=94887&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;/a&gt;&amp;nbsp;今天你&lt;a href=&quot;http://sns.juziyue.com/webinvite.php?u=94887&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;菊子曰&lt;/a&gt;了么？&lt;/div&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;除了后方交会之外，常用的进行内外参数检校的方法还有DLT和角锥体法。&lt;/p&gt;
-&lt;p&gt;写在前面：DLT可在&lt;font color=&quot;#FF0000&quot;&gt;未提供初值&lt;/font&gt;的情况下推导内外方位元素，同时&lt;font color=&quot;#FF0000&quot;&gt;不需要迭代&lt;/font&gt;，但
-    
-    </summary>
-    
-      <category term="什么都学一下" scheme="http://ovjaywang.github.io/categories/%E4%BB%80%E4%B9%88%E9%83%BD%E5%AD%A6%E4%B8%80%E4%B8%8B/"/>
-    
-      <category term="学习log" scheme="http://ovjaywang.github.io/categories/%E4%BB%80%E4%B9%88%E9%83%BD%E5%AD%A6%E4%B8%80%E4%B8%8B/%E5%AD%A6%E4%B9%A0log/"/>
-    
-    
-      <category term="检校" scheme="http://ovjaywang.github.io/tags/%E6%A3%80%E6%A0%A1/"/>
     
   </entry>
   
