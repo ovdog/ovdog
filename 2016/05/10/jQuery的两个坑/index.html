@@ -82,28 +82,16 @@
 
 
 
-<meta name="description" content="许久没用jquery，今天碰到两个坑。
-第一个是live()这个函数，在学习很早的资料，表示用来为被选元素附加一个或多个事件处理程序,形式为
-$(selector).live(event,data,function)
-
-例如为button绑定一个单击事件，event为事件名，data为可选的传参，function为自定义函数。测了半天没开F12一直以为代码有问题，，后来一看原来jquery1.9+">
+<meta name="description" content="许久没用jquery，今天碰到三个坑。小记一下">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jQuery的两个坑">
+<meta property="og:title" content="jQuery的三个坑">
 <meta property="og:url" content="http://ovjaywang.github.io/2016/05/10/jQuery的两个坑/index.html">
 <meta property="og:site_name" content="ov智商捉急">
-<meta property="og:description" content="许久没用jquery，今天碰到两个坑。
-第一个是live()这个函数，在学习很早的资料，表示用来为被选元素附加一个或多个事件处理程序,形式为
-$(selector).live(event,data,function)
-
-例如为button绑定一个单击事件，event为事件名，data为可选的传参，function为自定义函数。测了半天没开F12一直以为代码有问题，，后来一看原来jquery1.9+">
-<meta property="og:updated_time" content="2016-05-09T17:37:15.137Z">
+<meta property="og:description" content="许久没用jquery，今天碰到三个坑。小记一下">
+<meta property="og:updated_time" content="2016-05-12T03:13:22.340Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jQuery的两个坑">
-<meta name="twitter:description" content="许久没用jquery，今天碰到两个坑。
-第一个是live()这个函数，在学习很早的资料，表示用来为被选元素附加一个或多个事件处理程序,形式为
-$(selector).live(event,data,function)
-
-例如为button绑定一个单击事件，event为事件名，data为可选的传参，function为自定义函数。测了半天没开F12一直以为代码有问题，，后来一看原来jquery1.9+">
+<meta name="twitter:title" content="jQuery的三个坑">
+<meta name="twitter:description" content="许久没用jquery，今天碰到三个坑。小记一下">
 
 
 
@@ -121,7 +109,7 @@ $(selector).live(event,data,function)
   };
 </script>
 
-  <title> jQuery的两个坑 | ov智商捉急 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> jQuery的三个坑 | ov智商捉急 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -229,6 +217,16 @@ $(selector).live(event,data,function)
           </a>
         </li>
       
+        
+        <li class="menu-item menu-item-pic-movie">
+          <a href="/a-pic-a-movie" rel="section">
+            
+              <i class="menu-item-icon fa fa-film fa-fw"></i> <br>
+            
+            一影一图
+          </a>
+        </li>
+      
 
       
         <li class="menu-item menu-item-search">
@@ -297,7 +295,7 @@ $(selector).live(event,data,function)
             
             
               
-                jQuery的两个坑
+                jQuery的三个坑
               
             
           </h1>
@@ -380,14 +378,20 @@ $(selector).live(event,data,function)
       
 
       
-        <p>许久没用jquery，今天碰到两个坑。</p>
-<p>第一个是live()这个函数，在学习很早的资料，表示用来为被选元素附加一个或多个事件处理程序,形式为</p>
+        <p>许久没用jquery，今天碰到三个坑。小记一下<br><a id="more"></a><br>第一个是live()这个函数，在学习很早的资料，表示用来为被选元素附加一个或多个事件处理程序,形式为</p>
 <pre><code class="javascript">$(selector).live(event,data,function)
 </code></pre>
 <p>例如为button绑定一个单击事件，event为事件名，data为可选的传参，function为自定义函数。<br>测了半天没开F12一直以为代码有问题，，后来一看原来jquery1.9+以上不支持live了。先改成了delegate代理，后来又改成on,真特么烦人。  </p>
 <p>应该值得注意到的是，改成on后，触发的事件在容器对象上，而live返回值在事件触发的对象上。<br><a href="http://jquery.com/upgrade-guide/1.9/#live-removed" target="_blank" rel="external">这里</a>是官方解释</p>
 <hr>
-<p>一直以为$(selector)能抓到所有的id啊。。。原来好像dom树的id不能明明一样的。要对类似的组件操作类似的方法，例如对tr表单下的td采用同个样式，a使用类似的连接，可以使用$(.class)的方式获取。</p>
+<p>一直以为<code>$(selector)</code>能抓到所有的id啊。。。原来好像dom树的id不能明明一样的。（但在1.4-版本测试是可以的，不知道是改进了对id选择器的定义和方法加载，明确了id唯一这个特征）<br>要对类似的组件操作类似的方法，例如对tr表单下的td采用同个样式，a使用类似的连接，可以使用<code>$(.class)</code>的方式获取。</p>
+<hr>
+<p>jquery1.9+以后不支持.attr属性的设置了，改成了.prop .妈蛋啊怎么改这么多好烦啊简直排错都不知道什么bug<br>炸裂看看1.9+的<a href="http://www.ppblog.cn/jquery1-9live.html" target="_blank" rel="external">更新</a>  </p>
+<ol>
+<li>true false两个选项的属性用prop</li>
+<li>添加属性名称该属性就生效用prop</li>
+<li>其他可以用attr</li>
+</ol>
       
     </div>
     
@@ -424,6 +428,10 @@ $(selector).live(event,data,function)
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2016/05/12/位运算各种/" rel="prev" title="位运算各种">
+                位运算各种 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -437,7 +445,7 @@ $(selector).live(event,data,function)
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/05/10/jQuery的两个坑/" data-title="jQuery的两个坑" data-content="" data-url="http://ovjaywang.github.io/2016/05/10/jQuery的两个坑/">
+        <div class="ds-share flat" data-thread-key="2016/05/10/jQuery的两个坑/" data-title="jQuery的三个坑" data-content="" data-url="http://ovjaywang.github.io/2016/05/10/jQuery的两个坑/">
   <div class="ds-share-inline">
     <ul class="ds-share-icons-16">
 
@@ -467,7 +475,7 @@ $(selector).live(event,data,function)
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/05/10/jQuery的两个坑/" data-title="jQuery的两个坑" data-url="http://ovjaywang.github.io/2016/05/10/jQuery的两个坑/">
+      <div class="ds-thread" data-thread-key="2016/05/10/jQuery的两个坑/" data-title="jQuery的三个坑" data-url="http://ovjaywang.github.io/2016/05/10/jQuery的两个坑/">
       </div>
     
   </div>
@@ -510,7 +518,7 @@ $(selector).live(event,data,function)
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">104</span>
+              <span class="site-state-item-count">105</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -527,7 +535,7 @@ $(selector).live(event,data,function)
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-count">60</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

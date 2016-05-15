@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ovjaywang.github.io/"/>
-  <updated>2016-05-09T17:37:15.137Z</updated>
+  <updated>2016-05-13T07:03:01.274Z</updated>
   <id>http://ovjaywang.github.io/</id>
   
   <author>
@@ -16,26 +16,70 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>jQuery的两个坑</title>
+    <title>位运算各种</title>
+    <link href="http://ovjaywang.github.io/2016/05/12/%E4%BD%8D%E8%BF%90%E7%AE%97%E5%90%84%E7%A7%8D/"/>
+    <id>http://ovjaywang.github.io/2016/05/12/位运算各种/</id>
+    <published>2016-05-12T03:12:00.000Z</published>
+    <updated>2016-05-13T07:03:01.274Z</updated>
+    
+    <content type="html">&lt;p&gt;最近发现位运算在很多场合有很多运用啊。大概有以下几个方面:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;涉及二进制及其2^n进制的运算&lt;/li&gt;
+&lt;li&gt;很少字段的struct class的改写例如棋盘记录和模式比较&lt;/li&gt;
+&lt;li&gt;逼格&amp;amp;效率比较高的小心机&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;几个运算符&quot;&gt;&lt;a href=&quot;#几个运算符&quot; class=&quot;headerlink&quot; title=&quot;几个运算符&quot;&gt;&lt;/a&gt;几个运算符&lt;/h1&gt;&lt;h1 id=&quot;使用位亦或-节约空间的数据交换&quot;&gt;&lt;a href=&quot;#使用位亦或-节约空间的数据交换&quot; class=&quot;headerlink&quot; title=&quot;使用位亦或(^)节约空间的数据交换&quot;&gt;&lt;/a&gt;使用位亦或(^)节约空间的数据交换&lt;/h1&gt;&lt;p&gt;原理：a亦或b=c，b亦或a=c，也就是亦或满足交换律；位亦或的逆运算，也就是&lt;code&gt;(a^b)^b=a&lt;/code&gt;等于它自己。所以，只需三个亦或运算即可交换数据。看代码。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    a ^= b;
+    b ^= a;
+    a ^= b;
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近发现位运算在很多场合有很多运用啊。大概有以下几个方面:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;涉及二进制及其2^n进制的运算&lt;/li&gt;
+&lt;li&gt;很少字段的struct class的改写例如棋盘记录和模式比较&lt;/li&gt;
+&lt;li&gt;逼格&amp;amp;效率比较高的小心机&lt;/li&gt;
+&lt;/ul&gt;
+
+    
+    </summary>
+    
+      <category term="代码狗" scheme="http://ovjaywang.github.io/categories/%E4%BB%A3%E7%A0%81%E7%8B%97/"/>
+    
+      <category term="学习log" scheme="http://ovjaywang.github.io/categories/%E4%BB%A3%E7%A0%81%E7%8B%97/%E5%AD%A6%E4%B9%A0log/"/>
+    
+    
+      <category term="BitManipulattion" scheme="http://ovjaywang.github.io/tags/BitManipulattion/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>jQuery的三个坑</title>
     <link href="http://ovjaywang.github.io/2016/05/10/jQuery%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%9D%91/"/>
     <id>http://ovjaywang.github.io/2016/05/10/jQuery的两个坑/</id>
     <published>2016-05-09T17:23:30.000Z</published>
-    <updated>2016-05-09T17:37:15.137Z</updated>
+    <updated>2016-05-12T03:13:22.340Z</updated>
     
-    <content type="html">&lt;p&gt;许久没用jquery，今天碰到两个坑。&lt;/p&gt;
-&lt;p&gt;第一个是live()这个函数，在学习很早的资料，表示用来为被选元素附加一个或多个事件处理程序,形式为&lt;/p&gt;
+    <content type="html">&lt;p&gt;许久没用jquery，今天碰到三个坑。小记一下&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;第一个是live()这个函数，在学习很早的资料，表示用来为被选元素附加一个或多个事件处理程序,形式为&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;$(selector).live(event,data,function)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;例如为button绑定一个单击事件，event为事件名，data为可选的传参，function为自定义函数。&lt;br&gt;测了半天没开F12一直以为代码有问题，，后来一看原来jquery1.9+以上不支持live了。先改成了delegate代理，后来又改成on,真特么烦人。  &lt;/p&gt;
 &lt;p&gt;应该值得注意到的是，改成on后，触发的事件在容器对象上，而live返回值在事件触发的对象上。&lt;br&gt;&lt;a href=&quot;http://jquery.com/upgrade-guide/1.9/#live-removed&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;是官方解释&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;一直以为$(selector)能抓到所有的id啊。。。原来好像dom树的id不能明明一样的。要对类似的组件操作类似的方法，例如对tr表单下的td采用同个样式，a使用类似的连接，可以使用$(.class)的方式获取。&lt;/p&gt;</content>
+&lt;p&gt;一直以为&lt;code&gt;$(selector)&lt;/code&gt;能抓到所有的id啊。。。原来好像dom树的id不能明明一样的。（但在1.4-版本测试是可以的，不知道是改进了对id选择器的定义和方法加载，明确了id唯一这个特征）&lt;br&gt;要对类似的组件操作类似的方法，例如对tr表单下的td采用同个样式，a使用类似的连接，可以使用&lt;code&gt;$(.class)&lt;/code&gt;的方式获取。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;jquery1.9+以后不支持.attr属性的设置了，改成了.prop .妈蛋啊怎么改这么多好烦啊简直排错都不知道什么bug&lt;br&gt;炸裂看看1.9+的&lt;a href=&quot;http://www.ppblog.cn/jquery1-9live.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;更新&lt;/a&gt;  &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;true false两个选项的属性用prop&lt;/li&gt;
+&lt;li&gt;添加属性名称该属性就生效用prop&lt;/li&gt;
+&lt;li&gt;其他可以用attr&lt;/li&gt;
+&lt;/ol&gt;</content>
     
     <summary type="html">
     
-      &lt;p&gt;许久没用jquery，今天碰到两个坑。&lt;/p&gt;
-&lt;p&gt;第一个是live()这个函数，在学习很早的资料，表示用来为被选元素附加一个或多个事件处理程序,形式为&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;$(selector).live(event,da
+      &lt;p&gt;许久没用jquery，今天碰到三个坑。小记一下&lt;br&gt;
     
     </summary>
     
@@ -238,6 +282,131 @@ typedef struct TreeNode
   </entry>
   
   <entry>
+    <title>Hexo多客户端写作</title>
+    <link href="http://ovjaywang.github.io/2016/04/27/hexo%E5%A4%9A%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%86%99%E4%BD%9C/"/>
+    <id>http://ovjaywang.github.io/2016/04/27/hexo多客户端写作/</id>
+    <published>2016-04-27T03:50:01.000Z</published>
+    <updated>2016-04-28T15:29:03.676Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;Hexo是很棒的静态博客，简单的安装配置即可专注写作。&lt;br&gt;但是强迫症就是很爱折腾。倘若：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;主机烧了数据备份怎么破？&lt;/li&gt;
+&lt;li&gt;换了系统想继续之前的写作怎么破?&lt;/li&gt;
+&lt;li&gt;纯粹就是想多客户端写作怎么破？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我就纯属蛋疼的。喜欢在办公和休息的地方都写作；或者我一win本&lt;br&gt;一mac 都想写文章。但Hexo的静态部署的原则不像WordPress一样，能关联博客地址，利用数据库进行博客更新。好了，这里就来解决这个问题。┑(￣Д ￣)┍&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h1 id=&quot;Hexo写作的部署逻辑-amp-其他&quot;&gt;&lt;a href=&quot;#Hexo写作的部署逻辑-amp-其他&quot; class=&quot;headerlink&quot; title=&quot;Hexo写作的部署逻辑&amp;amp;其他&quot;&gt;&lt;/a&gt;Hexo写作的部署逻辑&amp;amp;其他&lt;/h1&gt;&lt;h2 id=&quot;Hexo的写作特点&quot;&gt;&lt;a href=&quot;#Hexo的写作特点&quot; class=&quot;headerlink&quot; title=&quot;Hexo的写作特点&quot;&gt;&lt;/a&gt;Hexo的写作特点&lt;/h2&gt;&lt;p&gt;Hexo最大特点就是静态博客，即部署到服务器的博客内容是静态写好的html（由markdown转义），而不像类似wordpress的数据都存放在服务器端数据库，每次更新即一次读写数据库的操作。所以如果需要更改博客内容、发布新内容，必须&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;更改源文件source文件夹下_post及其他各页面文件夹的md文件&lt;/li&gt;
+&lt;li&gt;通过&lt;code&gt;hexo g&lt;/code&gt;或&lt;code&gt;hexo generate&lt;/code&gt;在public生成静态文件。&lt;/li&gt;
+&lt;li&gt;利用&lt;code&gt;hexo-deployer-git&lt;/code&gt;插件及&lt;code&gt;hexo d&lt;/code&gt;命令将public的文件自动的部署到创建好的&lt;code&gt;user-name.github.io&lt;/code&gt;项目中。&lt;blockquote&gt;
+&lt;p&gt;在github项目中可以看到，自动上传的只有public文件夹中的文件，包括以年份分类的静态页面文件夹、tag、categories及其他辅助css、js、img等，还有域名指引的CNAME和rss sitemap等。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;在博客中看到更新的内容。当然，本地目录中，即存放了md源文件，也包含了生成的public文件。其实，本地并不需要public里的内容，只要有写作的源文件，generate一下就能生成。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;Hexo的缺憾&quot;&gt;&lt;a href=&quot;#Hexo的缺憾&quot; class=&quot;headerlink&quot; title=&quot;Hexo的缺憾&quot;&gt;&lt;/a&gt;Hexo的缺憾&lt;/h2&gt;&lt;p&gt;那么问题来了，如果我在公司和贫民窟都想写作怎么办。总不能在两个本地仓库hexo init都部署到pages项目。在公司更新一篇blog里面全都是公司写的，然后回到地下室又写一篇更新又全是小黑屋的内容。  &lt;/p&gt;
+&lt;p&gt;尽管Hexo让人专注写作，随时随地用md写一篇博，等到来到同步的机器才更新一次也让人很不爽。对于远程仓库只存放静态文件的方案，就想到了两个思路&lt;/p&gt;
+&lt;h3 id=&quot;同步静态文件&quot;&gt;&lt;a href=&quot;#同步静态文件&quot; class=&quot;headerlink&quot; title=&quot;同步静态文件&quot;&gt;&lt;/a&gt;同步静态文件&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;新仓库同步静态文件-&amp;gt;hexo g生成静态文件-&amp;gt;合并静态文件-&amp;gt;hexo d部署&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;在两地分别hexo init建立hexo博客目录，在_config.yml中都部署到同一个远程仓库，在每次generate时，都先将远程仓库的静态文件同步下来（新建一个单独的folder专门用于同步静态文件）。请勿使用hexo博客中的public文件夹用于同步，每次generate会覆盖同名文件。若另一台主机曾做过修改并提交，这次修改的静态文件将被本地未修改的静态文件覆盖。具体操作：&lt;br&gt;第一次克隆远程hexo主分支：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;git clone git@github.com:user-name/user-name.github.io.git
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;之后每次hexo仓库发布首先在静态文件仓库获取远程仓库最新静态文件(无条件merge)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git pull origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;ol&gt;
+&lt;li&gt;在静态文件同步仓库中，将自上次部署后，本地修改过的静态文件&lt;strong&gt;删掉&lt;/strong&gt;（不记得怪我咯┑(￣Д ￣)┍）；同时在hexo blog仓库中&lt;code&gt;hexo -g&lt;/code&gt;生成本地静态文件。&lt;/li&gt;
+&lt;li&gt;将剔除过期静态文件的public仓库中文件复制到hexo的public中。&lt;/li&gt;
+&lt;li&gt;使用&lt;code&gt;hexo -d&lt;/code&gt;部署&lt;blockquote&gt;
+&lt;p&gt;以上步骤2中的删除操作是为了保证静态文件的数据都是最新的，保证博客内容的一致性。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;同步源文件（大招）&quot;&gt;&lt;a href=&quot;#同步源文件（大招）&quot; class=&quot;headerlink&quot; title=&quot;同步源文件（大招）&quot;&gt;&lt;/a&gt;同步源文件（大招）&lt;/h3&gt;&lt;p&gt;想到上述方式需要进行2步骤的主要原因就是本地的源文件不同步，只能通过生成的静态文件进行合并的方式，为毛不将源文件同步呢？！参考&lt;a href=&quot;http://crazymilk.github.io/2015/12/28/GitHub-Pages-Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这篇文章&lt;/a&gt;的思路，同步源文件就是通过远程仓库对源文件融合统一。&lt;/p&gt;
+&lt;h2 id=&quot;呵呵哒&quot;&gt;&lt;a href=&quot;#呵呵哒&quot; class=&quot;headerlink&quot; title=&quot;呵呵哒&quot;&gt;&lt;/a&gt;呵呵哒&lt;/h2&gt;&lt;p&gt;本文为了完成多客户端的同Hexo博的管理和发布，对ssh、git安装、Hexo安装、配置插件主题管理、域名绑定&lt;strong&gt;不涉及&lt;/strong&gt;。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;系统不限制 &lt;/li&gt;
+&lt;li&gt;是否写过博部署过没差&lt;/li&gt;
+&lt;li&gt;最好Hexo3.X,2.X没试过出事自负&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;真·多客户端&quot;&gt;&lt;a href=&quot;#真·多客户端&quot; class=&quot;headerlink&quot; title=&quot;真·多客户端&quot;&gt;&lt;/a&gt;真·多客户端&lt;/h1&gt;&lt;h2 id=&quot;创建远程仓库&quot;&gt;&lt;a href=&quot;#创建远程仓库&quot; class=&quot;headerlink&quot; title=&quot;创建远程仓库&quot;&gt;&lt;/a&gt;创建远程仓库&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;对于没有进行创作的hexo博客，首先创建同名仓库，再创建一个hexo branch。此时俩分支都是空的  &lt;/li&gt;
+&lt;li&gt;对于已经进行创作的hexo博客，直接创建一个hexo 分支。此时，hexo clone了master的静态文件。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;设置主分支&quot;&gt;&lt;a href=&quot;#设置主分支&quot; class=&quot;headerlink&quot; title=&quot;设置主分支&quot;&gt;&lt;/a&gt;设置主分支&lt;/h2&gt;&lt;p&gt;将hexo branch设为主分支，用于同步源文件；master branch作为静态文件的存放。（由于github pages会检索master分支作为该域名下的部署分支，因此必须把master名字保留）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/04/27/5720a2a70a238.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;同步远程仓库并初始化&quot;&gt;&lt;a href=&quot;#同步远程仓库并初始化&quot; class=&quot;headerlink&quot; title=&quot;同步远程仓库并初始化&quot;&gt;&lt;/a&gt;同步远程仓库并初始化&lt;/h2&gt;&lt;p&gt;在本地（包含第一次所有源文件的主机）新建一个文件夹（就算已经写过博客的也这么搞）同步远程仓库并初始化&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git clone git@github.com:your-Id/your-Id.github.io.git
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;此时输入&lt;code&gt;git branch&lt;/code&gt;可以看到两个分支，红色分支为主分支。&lt;br&gt;若是非空白博客，同步后需要先删掉里面的静态文件.直接删光，把原博客的文件全部复制过来&lt;strong&gt;（好像没有发现更换远程仓库主分支后本地同步更换的git bash。求解?）&lt;/strong&gt;;若是空白博客，那么需要再令建一个文件夹，（因为hexo init操作会覆盖原.git文件导致与远程仓库失联）在该文件夹git bash执行&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm install -g hexo
+hexo init
+npm install
+hexo g
+npm install hexo-deployer-git--save
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;好了，里面该有的差不多都有了。全部复制到源文件仓库。&lt;strong&gt;注意把hello worl删掉啊。&lt;/strong&gt;关键的就是，config.yml里deployer的branch是master，而本地仓库关联的是hexo就对了。&lt;br&gt;然后执行&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git add .
+git commit -m &amp;quot;init&amp;quot;
+git push -u origin hexo
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;值得注意的是，有的时候提示主题的文件夹并未加入同步操作，显示&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;
+Changes not staged for commit
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;即主题文件夹的内容尚未有之前版本，应该加入tracked。应在提交前输入&lt;code&gt;git add themes/themes_name/&lt;/code&gt;.最后那个斜杠别忘了加。&lt;br&gt;这就完成源文件的同步了！(￣▽￣)”” 执行&lt;code&gt;hexo d&lt;/code&gt;操作将本地public静态文件部署。&lt;/p&gt;
+&lt;h1 id=&quot;发博日常&quot;&gt;&lt;a href=&quot;#发博日常&quot; class=&quot;headerlink&quot; title=&quot;发博日常&quot;&gt;&lt;/a&gt;发博日常&lt;/h1&gt;&lt;h2 id=&quot;更博&quot;&gt;&lt;a href=&quot;#更博&quot; class=&quot;headerlink&quot; title=&quot;更博&quot;&gt;&lt;/a&gt;更博&lt;/h2&gt;&lt;p&gt;如果你不能确定是否抽风需要经常换客户端，因此需要每次都要同步本地源文件；如果能忍住，，或者有规律的换客户端，那么平时更新不需要经常同步。&lt;br&gt;写博前操作(&lt;strong&gt;特么狠重要啊&lt;/strong&gt;)：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git pull origin hexo
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;更新操作：(同步源文件到hexo分支)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git add .
+git commit -m &amp;quot;hehe&amp;quot;
+git push origin hexo
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这样每次更博都需要多几个步骤，嫌麻烦就要忍住不手痒了。在手机、pad写md再同步到电脑也是个不错的习惯。&lt;/p&gt;
+&lt;h2 id=&quot;换客户端&quot;&gt;&lt;a href=&quot;#换客户端&quot; class=&quot;headerlink&quot; title=&quot;换客户端&quot;&gt;&lt;/a&gt;换客户端&lt;/h2&gt;&lt;p&gt;easy.只要远程仓库存在了一份完整的源文件，那同步就很容易了。似上步第一次同步，使用&lt;code&gt;git clone git@github.com:your-Id/your-Id.github.io.git&lt;/code&gt;拷贝仓库。然后执行&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm install -g hexo
+npm install
+npm install hexo-deployer-git
+&lt;/code&gt;&lt;/pre&gt;&lt;font color=&quot;red&quot;&gt;&lt;strong&gt;不用hexo init!!!&lt;/strong&gt;&lt;/font&gt;
+
+&lt;h1 id=&quot;后记&quot;&gt;&lt;a href=&quot;#后记&quot; class=&quot;headerlink&quot; title=&quot;后记&quot;&gt;&lt;/a&gt;后记&lt;/h1&gt;&lt;h2 id=&quot;多地部署&quot;&gt;&lt;a href=&quot;#多地部署&quot; class=&quot;headerlink&quot; title=&quot;多地部署&quot;&gt;&lt;/a&gt;多地部署&lt;/h2&gt;&lt;p&gt;pacman的公式和代码支持好差啊~还有需要多地备份的可以尝试coding（page之前免费的现在要钱了 = =）.在站点部署文件中更改deploy：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;markdown&quot;&gt;deploy:
+   type: git
+   repo: 
+      github: https://github.com/{YOUR_ID}/{YOUR_ID}.github.io.git,master
+      coding: https://git.coding.net/{YOUR_ID}/{BLOG　NAME}.git,master
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;同理也能部署到自己的ftp服务器上。&lt;/p&gt;
+&lt;h2 id=&quot;bug1-file-name-too-long&quot;&gt;&lt;a href=&quot;#bug1-file-name-too-long&quot; class=&quot;headerlink&quot; title=&quot;bug1 file-name-too-long&quot;&gt;&lt;/a&gt;&lt;font color=&quot;red&quot;&gt;bug1 file-name-too-long&lt;/font&gt;&lt;/h2&gt;&lt;p&gt;在拷贝原始数据的时候，提交远程仓库时可能会报modules的文件夹无法同步。这个情况在windows下安装msysgit进行git bash会报这一问题。&lt;a href=&quot;https://github.com/msysgit/git/pull/110&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;也提到了这个异常。但这并不是git的问题，而是msysgit的问题。使用其他git方式对文件路径较长的提交就不会报错。实测在github for windows下提交该modules文件就不会报错。&lt;/p&gt;
+&lt;h2 id=&quot;bug2-could-not-read-Username-for-‘https-XXX‘&quot;&gt;&lt;a href=&quot;#bug2-could-not-read-Username-for-‘https-XXX‘&quot; class=&quot;headerlink&quot; title=&quot;bug2 could not read Username for ‘https://XXX‘&quot;&gt;&lt;/a&gt;&lt;font color=&quot;red&quot;&gt;bug2 could not read Username for ‘&lt;a href=&quot;https://XXX&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://XXX&lt;/a&gt;‘&lt;/font&gt;&lt;/h2&gt;&lt;p&gt;当需要推送另一台设备的静态文件时，可能极少情况会碰上这个问题。有的说是bash的版本问题，不识别这种方式的推送。然而我用的同一版本的msysgit..&lt;/p&gt;
+&lt;p&gt;在&lt;a href=&quot;http://stackoverflow.com/questions/20871549/error-when-push-commits-with-github-fatal-could-not-read-username&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;也发现了这个问题，尝试了一下使用在https中加入用户名和密码的方式能够良好的推送。。当然配置文件别泄露了。。更改配置文件的deploy如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;markdown&quot;&gt;deploy:
+   type: git
+   repo: 
+      github: https://{YOUR_ID}:{Your_Pwd}@github.com/{YOUR_ID}/{YOUR_ID}.github.io.git,master
+      coding: https://{YOUR_ID}:{Your_Pwd}@git.coding.net/{YOUR_ID}/{BLOG　NAME}.git,master
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Enjoy Hexo!&lt;/p&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;Hexo是很棒的静态博客，简单的安装配置即可专注写作。&lt;br&gt;但是强迫症就是很爱折腾。倘若：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;主机烧了数据备份怎么破？&lt;/li&gt;
+&lt;li&gt;换了系统想继续之前的写作怎么破?&lt;/li&gt;
+&lt;li&gt;纯粹就是想多客户端写作怎么破？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我就纯属蛋疼的。喜欢在办公和休息的地方都写作；或者我一win本&lt;br&gt;一mac 都想写文章。但Hexo的静态部署的原则不像WordPress一样，能关联博客地址，利用数据库进行博客更新。好了，这里就来解决这个问题。┑(￣Д ￣)┍&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>effective java 笔记--创建对象的几个tips</title>
     <link href="http://ovjaywang.github.io/2016/04/27/effective%20java%20%E7%AC%94%E8%AE%B0--%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%87%A0%E4%B8%AAtips/"/>
     <id>http://ovjaywang.github.io/2016/04/27/effective java 笔记--创建对象的几个tips/</id>
@@ -381,131 +550,6 @@ public class Client {
     <summary type="html">
     
       &lt;p&gt;第一章-创建和销毁对象 的一些 小tips&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo多客户端写作</title>
-    <link href="http://ovjaywang.github.io/2016/04/27/hexo%E5%A4%9A%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%86%99%E4%BD%9C/"/>
-    <id>http://ovjaywang.github.io/2016/04/27/hexo多客户端写作/</id>
-    <published>2016-04-27T03:50:01.000Z</published>
-    <updated>2016-04-28T15:29:03.676Z</updated>
-    
-    <content type="html">&lt;blockquote&gt;
-&lt;p&gt;Hexo是很棒的静态博客，简单的安装配置即可专注写作。&lt;br&gt;但是强迫症就是很爱折腾。倘若：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;主机烧了数据备份怎么破？&lt;/li&gt;
-&lt;li&gt;换了系统想继续之前的写作怎么破?&lt;/li&gt;
-&lt;li&gt;纯粹就是想多客户端写作怎么破？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;我就纯属蛋疼的。喜欢在办公和休息的地方都写作；或者我一win本&lt;br&gt;一mac 都想写文章。但Hexo的静态部署的原则不像WordPress一样，能关联博客地址，利用数据库进行博客更新。好了，这里就来解决这个问题。┑(￣Д ￣)┍&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h1 id=&quot;Hexo写作的部署逻辑-amp-其他&quot;&gt;&lt;a href=&quot;#Hexo写作的部署逻辑-amp-其他&quot; class=&quot;headerlink&quot; title=&quot;Hexo写作的部署逻辑&amp;amp;其他&quot;&gt;&lt;/a&gt;Hexo写作的部署逻辑&amp;amp;其他&lt;/h1&gt;&lt;h2 id=&quot;Hexo的写作特点&quot;&gt;&lt;a href=&quot;#Hexo的写作特点&quot; class=&quot;headerlink&quot; title=&quot;Hexo的写作特点&quot;&gt;&lt;/a&gt;Hexo的写作特点&lt;/h2&gt;&lt;p&gt;Hexo最大特点就是静态博客，即部署到服务器的博客内容是静态写好的html（由markdown转义），而不像类似wordpress的数据都存放在服务器端数据库，每次更新即一次读写数据库的操作。所以如果需要更改博客内容、发布新内容，必须&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;更改源文件source文件夹下_post及其他各页面文件夹的md文件&lt;/li&gt;
-&lt;li&gt;通过&lt;code&gt;hexo g&lt;/code&gt;或&lt;code&gt;hexo generate&lt;/code&gt;在public生成静态文件。&lt;/li&gt;
-&lt;li&gt;利用&lt;code&gt;hexo-deployer-git&lt;/code&gt;插件及&lt;code&gt;hexo d&lt;/code&gt;命令将public的文件自动的部署到创建好的&lt;code&gt;user-name.github.io&lt;/code&gt;项目中。&lt;blockquote&gt;
-&lt;p&gt;在github项目中可以看到，自动上传的只有public文件夹中的文件，包括以年份分类的静态页面文件夹、tag、categories及其他辅助css、js、img等，还有域名指引的CNAME和rss sitemap等。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;在博客中看到更新的内容。当然，本地目录中，即存放了md源文件，也包含了生成的public文件。其实，本地并不需要public里的内容，只要有写作的源文件，generate一下就能生成。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&quot;Hexo的缺憾&quot;&gt;&lt;a href=&quot;#Hexo的缺憾&quot; class=&quot;headerlink&quot; title=&quot;Hexo的缺憾&quot;&gt;&lt;/a&gt;Hexo的缺憾&lt;/h2&gt;&lt;p&gt;那么问题来了，如果我在公司和贫民窟都想写作怎么办。总不能在两个本地仓库hexo init都部署到pages项目。在公司更新一篇blog里面全都是公司写的，然后回到地下室又写一篇更新又全是小黑屋的内容。  &lt;/p&gt;
-&lt;p&gt;尽管Hexo让人专注写作，随时随地用md写一篇博，等到来到同步的机器才更新一次也让人很不爽。对于远程仓库只存放静态文件的方案，就想到了两个思路&lt;/p&gt;
-&lt;h3 id=&quot;同步静态文件&quot;&gt;&lt;a href=&quot;#同步静态文件&quot; class=&quot;headerlink&quot; title=&quot;同步静态文件&quot;&gt;&lt;/a&gt;同步静态文件&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;新仓库同步静态文件-&amp;gt;hexo g生成静态文件-&amp;gt;合并静态文件-&amp;gt;hexo d部署&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ol&gt;
-&lt;li&gt;在两地分别hexo init建立hexo博客目录，在_config.yml中都部署到同一个远程仓库，在每次generate时，都先将远程仓库的静态文件同步下来（新建一个单独的folder专门用于同步静态文件）。请勿使用hexo博客中的public文件夹用于同步，每次generate会覆盖同名文件。若另一台主机曾做过修改并提交，这次修改的静态文件将被本地未修改的静态文件覆盖。具体操作：&lt;br&gt;第一次克隆远程hexo主分支：&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre&gt;&lt;code&gt;git clone git@github.com:user-name/user-name.github.io.git
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;之后每次hexo仓库发布首先在静态文件仓库获取远程仓库最新静态文件(无条件merge)&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git pull origin master
-&lt;/code&gt;&lt;/pre&gt;&lt;ol&gt;
-&lt;li&gt;在静态文件同步仓库中，将自上次部署后，本地修改过的静态文件&lt;strong&gt;删掉&lt;/strong&gt;（不记得怪我咯┑(￣Д ￣)┍）；同时在hexo blog仓库中&lt;code&gt;hexo -g&lt;/code&gt;生成本地静态文件。&lt;/li&gt;
-&lt;li&gt;将剔除过期静态文件的public仓库中文件复制到hexo的public中。&lt;/li&gt;
-&lt;li&gt;使用&lt;code&gt;hexo -d&lt;/code&gt;部署&lt;blockquote&gt;
-&lt;p&gt;以上步骤2中的删除操作是为了保证静态文件的数据都是最新的，保证博客内容的一致性。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;同步源文件（大招）&quot;&gt;&lt;a href=&quot;#同步源文件（大招）&quot; class=&quot;headerlink&quot; title=&quot;同步源文件（大招）&quot;&gt;&lt;/a&gt;同步源文件（大招）&lt;/h3&gt;&lt;p&gt;想到上述方式需要进行2步骤的主要原因就是本地的源文件不同步，只能通过生成的静态文件进行合并的方式，为毛不将源文件同步呢？！参考&lt;a href=&quot;http://crazymilk.github.io/2015/12/28/GitHub-Pages-Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这篇文章&lt;/a&gt;的思路，同步源文件就是通过远程仓库对源文件融合统一。&lt;/p&gt;
-&lt;h2 id=&quot;呵呵哒&quot;&gt;&lt;a href=&quot;#呵呵哒&quot; class=&quot;headerlink&quot; title=&quot;呵呵哒&quot;&gt;&lt;/a&gt;呵呵哒&lt;/h2&gt;&lt;p&gt;本文为了完成多客户端的同Hexo博的管理和发布，对ssh、git安装、Hexo安装、配置插件主题管理、域名绑定&lt;strong&gt;不涉及&lt;/strong&gt;。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;系统不限制 &lt;/li&gt;
-&lt;li&gt;是否写过博部署过没差&lt;/li&gt;
-&lt;li&gt;最好Hexo3.X,2.X没试过出事自负&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&quot;真·多客户端&quot;&gt;&lt;a href=&quot;#真·多客户端&quot; class=&quot;headerlink&quot; title=&quot;真·多客户端&quot;&gt;&lt;/a&gt;真·多客户端&lt;/h1&gt;&lt;h2 id=&quot;创建远程仓库&quot;&gt;&lt;a href=&quot;#创建远程仓库&quot; class=&quot;headerlink&quot; title=&quot;创建远程仓库&quot;&gt;&lt;/a&gt;创建远程仓库&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;对于没有进行创作的hexo博客，首先创建同名仓库，再创建一个hexo branch。此时俩分支都是空的  &lt;/li&gt;
-&lt;li&gt;对于已经进行创作的hexo博客，直接创建一个hexo 分支。此时，hexo clone了master的静态文件。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;设置主分支&quot;&gt;&lt;a href=&quot;#设置主分支&quot; class=&quot;headerlink&quot; title=&quot;设置主分支&quot;&gt;&lt;/a&gt;设置主分支&lt;/h2&gt;&lt;p&gt;将hexo branch设为主分支，用于同步源文件；master branch作为静态文件的存放。（由于github pages会检索master分支作为该域名下的部署分支，因此必须把master名字保留）&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/04/27/5720a2a70a238.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;同步远程仓库并初始化&quot;&gt;&lt;a href=&quot;#同步远程仓库并初始化&quot; class=&quot;headerlink&quot; title=&quot;同步远程仓库并初始化&quot;&gt;&lt;/a&gt;同步远程仓库并初始化&lt;/h2&gt;&lt;p&gt;在本地（包含第一次所有源文件的主机）新建一个文件夹（就算已经写过博客的也这么搞）同步远程仓库并初始化&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git clone git@github.com:your-Id/your-Id.github.io.git
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;此时输入&lt;code&gt;git branch&lt;/code&gt;可以看到两个分支，红色分支为主分支。&lt;br&gt;若是非空白博客，同步后需要先删掉里面的静态文件.直接删光，把原博客的文件全部复制过来&lt;strong&gt;（好像没有发现更换远程仓库主分支后本地同步更换的git bash。求解?）&lt;/strong&gt;;若是空白博客，那么需要再令建一个文件夹，（因为hexo init操作会覆盖原.git文件导致与远程仓库失联）在该文件夹git bash执行&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;npm install -g hexo
-hexo init
-npm install
-hexo g
-npm install hexo-deployer-git--save
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;好了，里面该有的差不多都有了。全部复制到源文件仓库。&lt;strong&gt;注意把hello worl删掉啊。&lt;/strong&gt;关键的就是，config.yml里deployer的branch是master，而本地仓库关联的是hexo就对了。&lt;br&gt;然后执行&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git add .
-git commit -m &amp;quot;init&amp;quot;
-git push -u origin hexo
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;值得注意的是，有的时候提示主题的文件夹并未加入同步操作，显示&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;
-Changes not staged for commit
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;即主题文件夹的内容尚未有之前版本，应该加入tracked。应在提交前输入&lt;code&gt;git add themes/themes_name/&lt;/code&gt;.最后那个斜杠别忘了加。&lt;br&gt;这就完成源文件的同步了！(￣▽￣)”” 执行&lt;code&gt;hexo d&lt;/code&gt;操作将本地public静态文件部署。&lt;/p&gt;
-&lt;h1 id=&quot;发博日常&quot;&gt;&lt;a href=&quot;#发博日常&quot; class=&quot;headerlink&quot; title=&quot;发博日常&quot;&gt;&lt;/a&gt;发博日常&lt;/h1&gt;&lt;h2 id=&quot;更博&quot;&gt;&lt;a href=&quot;#更博&quot; class=&quot;headerlink&quot; title=&quot;更博&quot;&gt;&lt;/a&gt;更博&lt;/h2&gt;&lt;p&gt;如果你不能确定是否抽风需要经常换客户端，因此需要每次都要同步本地源文件；如果能忍住，，或者有规律的换客户端，那么平时更新不需要经常同步。&lt;br&gt;写博前操作(&lt;strong&gt;特么狠重要啊&lt;/strong&gt;)：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git pull origin hexo
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;更新操作：(同步源文件到hexo分支)&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git add .
-git commit -m &amp;quot;hehe&amp;quot;
-git push origin hexo
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这样每次更博都需要多几个步骤，嫌麻烦就要忍住不手痒了。在手机、pad写md再同步到电脑也是个不错的习惯。&lt;/p&gt;
-&lt;h2 id=&quot;换客户端&quot;&gt;&lt;a href=&quot;#换客户端&quot; class=&quot;headerlink&quot; title=&quot;换客户端&quot;&gt;&lt;/a&gt;换客户端&lt;/h2&gt;&lt;p&gt;easy.只要远程仓库存在了一份完整的源文件，那同步就很容易了。似上步第一次同步，使用&lt;code&gt;git clone git@github.com:your-Id/your-Id.github.io.git&lt;/code&gt;拷贝仓库。然后执行&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;npm install -g hexo
-npm install
-npm install hexo-deployer-git
-&lt;/code&gt;&lt;/pre&gt;&lt;font color=&quot;red&quot;&gt;&lt;strong&gt;不用hexo init!!!&lt;/strong&gt;&lt;/font&gt;
-
-&lt;h1 id=&quot;后记&quot;&gt;&lt;a href=&quot;#后记&quot; class=&quot;headerlink&quot; title=&quot;后记&quot;&gt;&lt;/a&gt;后记&lt;/h1&gt;&lt;h2 id=&quot;多地部署&quot;&gt;&lt;a href=&quot;#多地部署&quot; class=&quot;headerlink&quot; title=&quot;多地部署&quot;&gt;&lt;/a&gt;多地部署&lt;/h2&gt;&lt;p&gt;pacman的公式和代码支持好差啊~还有需要多地备份的可以尝试coding（page之前免费的现在要钱了 = =）.在站点部署文件中更改deploy：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;markdown&quot;&gt;deploy:
-   type: git
-   repo: 
-      github: https://github.com/{YOUR_ID}/{YOUR_ID}.github.io.git,master
-      coding: https://git.coding.net/{YOUR_ID}/{BLOG　NAME}.git,master
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;同理也能部署到自己的ftp服务器上。&lt;/p&gt;
-&lt;h2 id=&quot;bug1-file-name-too-long&quot;&gt;&lt;a href=&quot;#bug1-file-name-too-long&quot; class=&quot;headerlink&quot; title=&quot;bug1 file-name-too-long&quot;&gt;&lt;/a&gt;&lt;font color=&quot;red&quot;&gt;bug1 file-name-too-long&lt;/font&gt;&lt;/h2&gt;&lt;p&gt;在拷贝原始数据的时候，提交远程仓库时可能会报modules的文件夹无法同步。这个情况在windows下安装msysgit进行git bash会报这一问题。&lt;a href=&quot;https://github.com/msysgit/git/pull/110&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;也提到了这个异常。但这并不是git的问题，而是msysgit的问题。使用其他git方式对文件路径较长的提交就不会报错。实测在github for windows下提交该modules文件就不会报错。&lt;/p&gt;
-&lt;h2 id=&quot;bug2-could-not-read-Username-for-‘https-XXX‘&quot;&gt;&lt;a href=&quot;#bug2-could-not-read-Username-for-‘https-XXX‘&quot; class=&quot;headerlink&quot; title=&quot;bug2 could not read Username for ‘https://XXX‘&quot;&gt;&lt;/a&gt;&lt;font color=&quot;red&quot;&gt;bug2 could not read Username for ‘&lt;a href=&quot;https://XXX&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://XXX&lt;/a&gt;‘&lt;/font&gt;&lt;/h2&gt;&lt;p&gt;当需要推送另一台设备的静态文件时，可能极少情况会碰上这个问题。有的说是bash的版本问题，不识别这种方式的推送。然而我用的同一版本的msysgit..&lt;/p&gt;
-&lt;p&gt;在&lt;a href=&quot;http://stackoverflow.com/questions/20871549/error-when-push-commits-with-github-fatal-could-not-read-username&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;也发现了这个问题，尝试了一下使用在https中加入用户名和密码的方式能够良好的推送。。当然配置文件别泄露了。。更改配置文件的deploy如下：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;markdown&quot;&gt;deploy:
-   type: git
-   repo: 
-      github: https://{YOUR_ID}:{Your_Pwd}@github.com/{YOUR_ID}/{YOUR_ID}.github.io.git,master
-      coding: https://{YOUR_ID}:{Your_Pwd}@git.coding.net/{YOUR_ID}/{BLOG　NAME}.git,master
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Enjoy Hexo!&lt;/p&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;Hexo是很棒的静态博客，简单的安装配置即可专注写作。&lt;br&gt;但是强迫症就是很爱折腾。倘若：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;主机烧了数据备份怎么破？&lt;/li&gt;
-&lt;li&gt;换了系统想继续之前的写作怎么破?&lt;/li&gt;
-&lt;li&gt;纯粹就是想多客户端写作怎么破？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;我就纯属蛋疼的。喜欢在办公和休息的地方都写作；或者我一win本&lt;br&gt;一mac 都想写文章。但Hexo的静态部署的原则不像WordPress一样，能关联博客地址，利用数据库进行博客更新。好了，这里就来解决这个问题。┑(￣Д ￣)┍&lt;/p&gt;
     
     </summary>
     
@@ -1634,9 +1678,9 @@ boolean isScreenOn = pm.isScreenOn();
       <category term="学习log" scheme="http://ovjaywang.github.io/categories/%E4%BB%80%E4%B9%88%E9%83%BD%E5%AD%A6%E4%B8%80%E4%B8%8B/%E5%AD%A6%E4%B9%A0log/"/>
     
     
-      <category term="检校" scheme="http://ovjaywang.github.io/tags/%E6%A3%80%E6%A0%A1/"/>
-    
       <category term="后方交会" scheme="http://ovjaywang.github.io/tags/%E5%90%8E%E6%96%B9%E4%BA%A4%E4%BC%9A/"/>
+    
+      <category term="检校" scheme="http://ovjaywang.github.io/tags/%E6%A3%80%E6%A0%A1/"/>
     
       <category term="精度" scheme="http://ovjaywang.github.io/tags/%E7%B2%BE%E5%BA%A6/"/>
     
@@ -1676,39 +1720,6 @@ boolean isScreenOn = pm.isScreenOn();
       <category term="Android" scheme="http://ovjaywang.github.io/tags/Android/"/>
     
       <category term="gms" scheme="http://ovjaywang.github.io/tags/gms/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>无人机影像相关--拍摄、校正、平差、拼接</title>
-    <link href="http://ovjaywang.github.io/2015/11/04/uac-involved/"/>
-    <id>http://ovjaywang.github.io/2015/11/04/uac-involved/</id>
-    <published>2015-11-04T13:12:46.000Z</published>
-    <updated>2016-04-11T14:09:45.581Z</updated>
-    
-    <content type="html">&lt;p&gt;无人机在近地拍摄全色或者多光谱数据，进行近景摄影测量，成图为后期的制图反演批处理提供数据来源。一般对像片各项操作，都需要知道像片的&lt;font color=&quot;#FF0000&quot;&gt;空中姿态及其位置&lt;/font&gt;。然而，无人机自身系统受外界干扰较大，飞行姿态难以准确控制，同时缺乏监测飞机姿态的设备，处理无人机数据不能完全采用传统航摄流程进行作业。&lt;/p&gt;
-&lt;p&gt;关于摄影平台——无人机或带着单数码相机或组合相机，或带着遥感平台。常用的大面阵数码航摄相机，有DMC和UC（UCD UCX UCXp UCE）。DMC由4个全色4个多光谱镜头组成，4个中心投影拼接合成一副具有虚拟投影中心固定虚拟焦距的投影合成影像。UC4个全色波段对应3*3矩阵排列的9个CCD面阵，分别为&lt;font color=&quot;#FF0000&quot;&gt;4221&lt;/font&gt;（分别对应二行左二（东南东北西南西北），二行左一（正南正北），二行左三（正东正西），二行左四（中心））.如下图所示，UC革新的将四个角的镜头设为主镜头（master cone）其他三个为从属镜头（slave cone）为的是控制相机区域，尽量覆盖完整视场角，其他3个镜头的影响依据它进行精确配准保证输出的影响具有强健刚性的严格中心投影。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/large/68eb7c93gw1exq55pwc5xj20l30cyjt1.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;几个全色影像CCD之间存在重叠（航向258旁向262），通过重叠部分&lt;font color=&quot;#FF0000&quot;&gt;影像精确配准&lt;/font&gt;，消除曝光时间带来的误差影响，生成一个完整的中心投影影像。图为四个镜头在不同时刻曝光，最后生成虚拟影像。值得一提的是，UC系统四个镜头虽然在不同时刻曝光拍摄，但是&lt;font color=&quot;#FF0000&quot;&gt;&lt;strong&gt;选取了合适了速度并沿着第二行相机方向飞行&lt;/strong&gt;&lt;/font&gt;时，每个曝光的相机都几乎在同一时空位置，因此得到的是一个完整的中心投影大幅面全色影像。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://ww1.sinaimg.cn/large/68eb7c93gw1exq5bny66wj21180koag8.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;关于数码航摄仪——若采用多相机进行拍摄，扩大VOF（view of field），或采取张大仰角或采取移轴摄影，都需要对多相机进行合成，&lt;font color=&quot;#FF0000&quot;&gt;组成一张虚拟影像&lt;/font&gt;，来达到对后面平差拼接做前期准备，因此精度相当重要。&lt;/p&gt;
-&lt;p&gt;关于图像拼接——无人机搭载的数码相机虽然提高了影像的分辨率，但焦距有限视野较小，获得整个飞行区域的完整影像设计&lt;font color=&quot;#FF0000&quot;&gt;像片的拼接问题&lt;/font&gt;。影像拼接涉及匀光匀色等色彩处理、对误差较大的图像进行粗提取、采用某些算计对影像提取特征点或者利用空间位置进行拼接等步骤。&lt;/p&gt;
-&lt;p&gt;这里可以参考的文献有，&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://www.cnki.net/KCMS/detail/detail.aspx?QueryID=2&amp;amp;CurRec=1&amp;amp;recid=&amp;amp;filename=TJDZ201205018&amp;amp;dbname=CJFD2012&amp;amp;dbcode=CJFQ&amp;amp;pr=&amp;amp;urlid=&amp;amp;yx=&amp;amp;uid=WEEvREcwSlJHSldRa1FhalpDTFRFYlpBY0d5OVdscE1hTndUdWJEd0ZyRGtESXlzS2lQZ1pVUkVRNVNOL1VwNmlRPT0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4IQMovwHtwkF4VYPoHbKxJw!!&amp;amp;v=MTk3OTZVTDdKTVNmUGRMRzRIOVBNcW85RWJJUjhlWDFMdXhZUzdEaDFUM3FUcldNMUZyQ1VSTCtlWnVackZDam4=&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;基于光束法自由网平差的无人机影像严格拼接&lt;/a&gt;&amp;nbsp;主要总结了航摄基本方法（空三方式利用野外控制点加密测出大量控制点、通过灭点建立影像直线段与方位元素的关系、自检校光束区域平差利用定向参数解求外方位元素、量测直线段长度确定外方位元素、区域平差及SIFT+一定数量控制点针对不同尺度三维影像进行拼接、光束法区域平差+秩亏可以解决缺少控制信息的像片）&lt;/p&gt;
-&lt;div class=&quot;PoweredByWebStory&quot; style=&quot;margin-top:15px;margin-bottom:10px&quot;&gt;&lt;a href=&quot;http://sns.juziyue.com/webinvite.php?u=94887&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;/a&gt;&amp;nbsp;今天你&lt;a href=&quot;http://sns.juziyue.com/webinvite.php?u=94887&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;菊子曰&lt;/a&gt;了么？&lt;/div&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;无人机在近地拍摄全色或者多光谱数据，进行近景摄影测量，成图为后期的制图反演批处理提供数据来源。一般对像片各项操作，都需要知道像片的&lt;font color=&quot;#FF0000&quot;&gt;空中姿态及其位置&lt;/font&gt;。然而，无人机自身系统受外界干扰较大，飞行姿态难以准确控制，同时缺乏监
-    
-    </summary>
-    
-      <category term="什么都学一下" scheme="http://ovjaywang.github.io/categories/%E4%BB%80%E4%B9%88%E9%83%BD%E5%AD%A6%E4%B8%80%E4%B8%8B/"/>
-    
-      <category term="学习log" scheme="http://ovjaywang.github.io/categories/%E4%BB%80%E4%B9%88%E9%83%BD%E5%AD%A6%E4%B8%80%E4%B8%8B/%E5%AD%A6%E4%B9%A0log/"/>
-    
-    
-      <category term="航空摄影测量" scheme="http://ovjaywang.github.io/tags/%E8%88%AA%E7%A9%BA%E6%91%84%E5%BD%B1%E6%B5%8B%E9%87%8F/"/>
     
   </entry>
   
