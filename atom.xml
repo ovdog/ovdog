@@ -561,7 +561,7 @@ public class Client {
     <link href="http://ovjaywang.github.io/2016/04/22/effective%20java--builer%E6%9E%84%E9%80%A0%E5%99%A8/"/>
     <id>http://ovjaywang.github.io/2016/04/22/effective java--builer构造器/</id>
     <published>2016-04-22T09:10:48.000Z</published>
-    <updated>2016-04-26T07:00:08.123Z</updated>
+    <updated>2016-05-16T13:18:24.708Z</updated>
     
     <content type="html">&lt;p&gt;一个实体类往往有不同的属性 属性有的用于构造器 视为构造时的必需参数 而有的可有可无 类似json和xml一般，有多少个属性，每个属性有多少个赋值都不确定 。e.g.动物 名称string name和是否有尾巴istail是必须的，是否吃草iseatgrass 多重weight 交配手段sexmethod 科目等为非必须字段。解决这一构造问题一般有三种方式。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;ol&gt;
@@ -573,8 +573,7 @@ public class Client {
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;最丑的长字段实体类原本是这么写的&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;
-class Animal{
+&lt;pre&gt;&lt;code&gt;class Animal{
     private string name;//必须参数
     private bool isTail;//必须参数
     private bool isEatGrass;//可选参数
@@ -609,14 +608,12 @@ class Animal{
     }
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在某处调用就可能是这样&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;
-Animal animal = new Animal(&amp;quot;caonima&amp;quot;,true,true,-1,3);
+&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;Animal animal = new Animal(&amp;quot;caonima&amp;quot;,true,true,-1,3);
 //由于我并不想知道体重，但又因为构造函数的关系不得不加上。
 //所以相当繁琐。当字段达到几十个时，调用构造函数都分不清参数是否对应上。
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;​将上文的动物实体类以builder的方式写出来，大概是这样的&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;
-class Animal{
+&lt;pre&gt;&lt;code&gt;class Animal{
     private final string name;
     private final bool isTail;
     private final bool isEatGrass;
@@ -653,7 +650,6 @@ class Animal{
             return new Animal(this);
         }
     }
-
     //当然 在animal类的最后 也需要把builder的参数取出来
     private Animal(Builder builder){
         name = builder.name;
@@ -664,11 +660,9 @@ class Animal{
     }
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在某处构造该类对象时，即可像下面一样声明&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;
-    Animal dog = new Animal.Builder(&amp;quot;旺财&amp;quot;,true).setIsEatGrass(false).setSexMethod(3).setWeight(20.0)
+&lt;pre&gt;&lt;code&gt;    Animal dog = new Animal.Builder(&amp;quot;旺财&amp;quot;,true).setIsEatGrass(false).setSexMethod(3).setWeight(20.0)
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;builder类似一个抽象工厂 客户端可以将这样一个builder传给方法，在方法中生成需要数量的对象。1.5+版本可以使用泛型定义。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;
-public interface Builder{
+&lt;pre&gt;&lt;code&gt;public interface Builder{
     public T build();
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在类似生成二叉树，kd树的时候，往往用户只需要将数据push进入，然后调用一个builder整棵树就构造好了。这种方式往往类似于带限制通配符类型的builder.&lt;/p&gt;
@@ -733,7 +727,7 @@ public interface Builder{
     <link href="http://ovjaywang.github.io/2016/04/13/effective%20java--%E9%9D%99%E6%80%81%E5%B7%A5%E5%8E%82/"/>
     <id>http://ovjaywang.github.io/2016/04/13/effective java--静态工厂/</id>
     <published>2016-04-13T07:15:14.000Z</published>
-    <updated>2016-04-29T10:10:50.732Z</updated>
+    <updated>2016-05-16T15:06:18.096Z</updated>
     
     <content type="html">&lt;h1 id=&quot;静态工厂&quot;&gt;&lt;a href=&quot;#静态工厂&quot; class=&quot;headerlink&quot; title=&quot;静态工厂&quot;&gt;&lt;/a&gt;静态工厂&lt;/h1&gt;&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;    public static Boolean valueOf (boolean b){
         return b?Boolean.True:Boolean.False;
@@ -757,31 +751,88 @@ public interface Builder{
     }
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&quot;注册方式-Service-Provider-Framework&quot;&gt;&lt;a href=&quot;#注册方式-Service-Provider-Framework&quot; class=&quot;headerlink&quot; title=&quot;注册方式(Service Provider Framework)&quot;&gt;&lt;/a&gt;注册方式(Service Provider Framework)&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;注册需要(服务提供者编写的)服务接口、(服务提供者创建服务的实例)而提供的接口(可选)、(服务提供者)注册API、(使用者编写的)服务访问API&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;最常见的实例就是JDBC(Java DataBase Connection)。下面这段最常见的连接mysql的标准函数就很好的体现了注册的方式。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;    public synchronized static Connection getCon() 
-        throws ClassNotFoundException, SQLException
-    {
-        //服务提供者接口
-          String DRIVERNAME = &amp;quot;com.mysql.jdbc.Driver&amp;quot;;
-          //java.sql.Driver.class这个是服务提供者接口，服务提供者可以使mysql
-          //那就使用&amp;quot;com.mysql.jdbc.Driver&amp;quot;；
-          //如果是sql server，那就使用&amp;quot;com.microsoft.sqlserver.jdbc.SQLServerDriver&amp;quot;;
-          //如果是Oracle，那就要用&amp;quot;oracle.jdbc.driver.OracleDriver&amp;quot;...
-          String URL = &amp;quot;jdbc:mysql://URL/DataBase_Names&amp;quot;;
-          String USER = &amp;quot;USER&amp;quot;;
-          String PWD = &amp;quot;PWD&amp;quot;; 
-          Connection connection = null;//接口 由服务提供者提供并实现具体服务 
-          Class.forName(DRIVERNAME);//这里映射通过DriverManager判断获取的是哪个服务
-          connection = (Connection) DriverManager.getConnection(URL, USER,PWD);
-          //链接数据库  mysql已经在驱动管理注册了API(本机装mysql的时候)
-          //这里使用者编写的服务访问getConnection这个API，
-          if(connection!=null){return connection;}
-          else{return null;}//具体的数据库操作逻辑   
-    }
+&lt;p&gt;注册方式需要&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;服务具体实现类(由服务提供商实现)&lt;/li&gt;
+&lt;li&gt;服务提供者实现类，1为2的实例，(由服务提供商实现)&lt;/li&gt;
+&lt;li&gt;服务定义接口，定义服务内容，不包含实现。&lt;/li&gt;
+&lt;li&gt;服务提供者接口，3为4的实例，定义获取提供者的方式，不包含实现。&lt;/li&gt;
+&lt;li&gt;服务提供者注册类&lt;br&gt;最常见的实例就是JDBC(Java DataBase Connection)。下面这段最常见的连接mysql的标准函数就很好的体现了注册的方式。&lt;pre&gt;&lt;code class=&quot;java&quot;&gt; public synchronized static Connection getCon() 
+     throws ClassNotFoundException, SQLException
+ {
+     //服务提供者接口
+       String DRIVERNAME = &amp;quot;com.mysql.jdbc.Driver&amp;quot;;
+       //java.sql.Driver.class这个是服务提供者接口，
+       //服务提供者若使mysql，那就使用&amp;quot;com.mysql.jdbc.Driver&amp;quot;；
+       //如果是sql server，那就使用&amp;quot;com.microsoft.sqlserver.jdbc.SQLServerDriver&amp;quot;;
+       //如果是Oracle，那就要用&amp;quot;oracle.jdbc.driver.OracleDriver&amp;quot;...
+       String URL = &amp;quot;jdbc:mysql://URL/DataBase_Names&amp;quot;;
+       String USER = &amp;quot;USER&amp;quot;;
+       String PWD = &amp;quot;PWD&amp;quot;; 
+       Connection connection = null;//接口 由服务提供者提供并实现具体服务 
+       Class.forName(DRIVERNAME);
+       //这里映射通过DriverManager判断获取的是哪个服务
+       connection = (Connection) DriverManager.getConnection(URL, USER,PWD);
+       //链接数据库  mysql已经在驱动管理注册了API(本机装mysql的时候)
+       //这里使用者编写的服务访问getConnection这个API，
+       if(connection!=null){return connection;}
+       else{return null;}//具体的数据库操作逻辑   
+ }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&quot;这种方式已经不推荐-工厂模式&quot;&gt;&lt;a href=&quot;#这种方式已经不推荐-工厂模式&quot; class=&quot;headerlink&quot; title=&quot;这种方式已经不推荐-工厂模式&quot;&gt;&lt;/a&gt;这种方式已经不推荐-工厂模式&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;工厂方法&lt;/a&gt;  &lt;a href=&quot;https://zh.wikipedia.org/wiki/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;抽象工厂&lt;/a&gt;&lt;/p&gt;
+上式的意义就是，使用&lt;strong&gt;Java&lt;/strong&gt;连接上&lt;strong&gt;数据库&lt;/strong&gt;。注意，不是某种数据库，是数据库。数据库的提供商按照定义的接口（Java提供的,增删改查等数据库操作），都可以顺利的连接上它们的数据库。  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Class.forName(&amp;quot;...&amp;quot;)&lt;/code&gt;这句实例化一个mysql等数据库提供商的&lt;font color=&quot;red&quot;&gt;服务提供者实现类&lt;/font&gt;，并将这个类的实例注册到DriverManager即&lt;font color=&quot;red&quot;&gt;服务提供者注册类&lt;/font&gt;。&lt;/li&gt;
+&lt;li&gt;通过URL指明连接的地址和端口，判断所连接的数据库类别，在利用USERNAME PWD参数连接到数据库获取操作数据库的一个连接Connection。&lt;/li&gt;
+&lt;li&gt;Connection作为一个实现类，客户端的程序得到了这个实例就可以操作各种数据库，但其内部的原理对客户端不可见的，这就是所谓的面向接口编程。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这里举一个炸裂的例子。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;具体服务接口定义了live和die，然后实现类实现了具体的方法&lt;/li&gt;
+&lt;li&gt;服务提供者接口定义了获取服务实例的函数，然后服务提供者实现类实现了注册方式获取实例&lt;/li&gt;
+&lt;li&gt;注册类则对ClassName和服务提供者接口进行绑定。相当于，对不同的服务提供商通过名字进行映射&lt;/li&gt;
+&lt;li&gt;调用类则通过常规步骤，调用具体服务。&lt;pre&gt;&lt;code&gt;package com.gua.com;
+public interface HaInterface {
+    public void Live();
+    public void Die();
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;package com.gua.com;
+public class HaClass implements HaInterface{
+    @Override
+    public void Live() {
+        System.out.println(&quot;给你们一些人生经验&quot;);
+    }
+    @Override
+    public void Die() {
+        System.out.println(&quot;又想搞大新闻!&quot;);
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;package com.gua.com;
+public interface Xuyimiao {
+    public HaInterface HahaGo();
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;package com.gua.com;
+public class WoyaoXuyimiao implements  Xuyimiao{
+    static{
+        MingwangManager.registerProvider(&quot;辣妹子辣&quot;, new WoyaoXuyimiao());  
+    }
+    @Override
+    public HaInterface HahaGo() {
+        return new HaClass(); 
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;package com.gua.com; 
+public class TestHa {  
+    public static void main(String[] args) throws ClassNotFoundException {      
+        Class.forName(&quot;com.gua.com.WoyaoXuyimiao&quot;);  
+        HaInterface hi = MingwangManager.getService(&quot;辣妹子辣&quot;);  
+        hi.Live();  
+        hi.Die();  
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;这种方式已经不推荐-工厂模式&quot;&gt;&lt;a href=&quot;#这种方式已经不推荐-工厂模式&quot; class=&quot;headerlink&quot; title=&quot;这种方式已经不推荐-工厂模式&quot;&gt;&lt;/a&gt;这种方式已经不推荐-工厂模式&lt;/h2&gt;&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;工厂方法&lt;/a&gt;  &lt;a href=&quot;https://zh.wikipedia.org/wiki/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;抽象工厂&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;参考文章:&lt;a href=&quot;(http://liwenshui322.iteye.com/blog/1267202)&quot;&gt;JAVA 服务提供者框架介绍&lt;/a&gt;、&lt;a href=&quot;(http://blog.csdn.net/csdn0123/article/details/7388445)&quot;&gt;构造器和静态方法&lt;/a&gt;&lt;/p&gt;
 &lt;script src=&quot;../../../../js/highlight.min.js&quot;&gt;&lt;/script&gt;
 &lt;link href=&quot;../../../../css/monokai_sublime.min.css&quot; rel=&quot;stylesheet&quot;&gt;

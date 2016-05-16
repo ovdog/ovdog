@@ -4,6 +4,52 @@
 
     
   <url>
+    <loc>http://ovjaywang.github.io/2016/04/13/effective%20java--%E9%9D%99%E6%80%81%E5%B7%A5%E5%8E%82/</loc>
+    <lastmod>2016-05-16T15:06:18.096Z</lastmod>
+    <data>
+        <display>
+        <title>effective java笔记--静态工厂和Builder模式</title>
+        <pubTime>2016-04-13T07:15:14.000Z</pubTime>
+        
+        <tag>test</tag>
+         
+         
+           
+             
+              <breadCrumb title="代码狗" url="http://ovjaywang.github.io/categories/%E4%BB%A3%E7%A0%81%E7%8B%97/"/>
+          
+             
+              <breadCrumb title="学习log" url="http://ovjaywang.github.io/categories/%E4%BB%A3%E7%A0%81%E7%8B%97/%E5%AD%A6%E4%B9%A0log/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ovjaywang.github.io/2016/04/22/effective%20java--builer%E6%9E%84%E9%80%A0%E5%99%A8/</loc>
+    <lastmod>2016-05-16T13:18:24.708Z</lastmod>
+    <data>
+        <display>
+        <title>effective java--builer构造器</title>
+        <pubTime>2016-04-22T09:10:48.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+         
+           
+             
+              <breadCrumb title="代码狗" url="http://ovjaywang.github.io/categories/%E4%BB%A3%E7%A0%81%E7%8B%97/"/>
+          
+             
+              <breadCrumb title="学习log" url="http://ovjaywang.github.io/categories/%E4%BB%A3%E7%A0%81%E7%8B%97/%E5%AD%A6%E4%B9%A0log/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://ovjaywang.github.io/2016/04/10/Hello-Hexo/</loc>
     <lastmod>2016-05-16T05:33:28.615Z</lastmod>
     <data>
@@ -79,29 +125,6 @@
         <pubTime>2016-05-03T15:06:28.000Z</pubTime>
         
         <tag>code</tag>
-         
-         
-           
-             
-              <breadCrumb title="代码狗" url="http://ovjaywang.github.io/categories/%E4%BB%A3%E7%A0%81%E7%8B%97/"/>
-          
-             
-              <breadCrumb title="学习log" url="http://ovjaywang.github.io/categories/%E4%BB%A3%E7%A0%81%E7%8B%97/%E5%AD%A6%E4%B9%A0log/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ovjaywang.github.io/2016/04/13/effective%20java--%E9%9D%99%E6%80%81%E5%B7%A5%E5%8E%82/</loc>
-    <lastmod>2016-04-29T10:10:50.732Z</lastmod>
-    <data>
-        <display>
-        <title>effective java笔记--静态工厂和Builder模式</title>
-        <pubTime>2016-04-13T07:15:14.000Z</pubTime>
-        
-        <tag>test</tag>
          
          
            
@@ -271,29 +294,6 @@
     </url>
 
     
-    
-  <url>
-    <loc>http://ovjaywang.github.io/2016/04/22/effective%20java--builer%E6%9E%84%E9%80%A0%E5%99%A8/</loc>
-    <lastmod>2016-04-26T07:00:08.123Z</lastmod>
-    <data>
-        <display>
-        <title>effective java--builer构造器</title>
-        <pubTime>2016-04-22T09:10:48.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-         
-           
-             
-              <breadCrumb title="代码狗" url="http://ovjaywang.github.io/categories/%E4%BB%A3%E7%A0%81%E7%8B%97/"/>
-          
-             
-              <breadCrumb title="学习log" url="http://ovjaywang.github.io/categories/%E4%BB%A3%E7%A0%81%E7%8B%97/%E5%AD%A6%E4%B9%A0log/"/>
-          
-        </display>
-    </data>
-    </url>
-
     
     
   <url>
