@@ -727,7 +727,7 @@ public class Client {
     <link href="http://ovjaywang.github.io/2016/04/13/effective%20java--%E9%9D%99%E6%80%81%E5%B7%A5%E5%8E%82/"/>
     <id>http://ovjaywang.github.io/2016/04/13/effective java--静态工厂/</id>
     <published>2016-04-13T07:15:14.000Z</published>
-    <updated>2016-05-16T15:06:18.096Z</updated>
+    <updated>2016-05-16T15:16:51.585Z</updated>
     
     <content type="html">&lt;h1 id=&quot;静态工厂&quot;&gt;&lt;a href=&quot;#静态工厂&quot; class=&quot;headerlink&quot; title=&quot;静态工厂&quot;&gt;&lt;/a&gt;静态工厂&lt;/h1&gt;&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;    public static Boolean valueOf (boolean b){
         return b?Boolean.True:Boolean.False;
@@ -792,12 +792,13 @@ public class Client {
 &lt;li&gt;具体服务接口定义了live和die，然后实现类实现了具体的方法&lt;/li&gt;
 &lt;li&gt;服务提供者接口定义了获取服务实例的函数，然后服务提供者实现类实现了注册方式获取实例&lt;/li&gt;
 &lt;li&gt;注册类则对ClassName和服务提供者接口进行绑定。相当于，对不同的服务提供商通过名字进行映射&lt;/li&gt;
-&lt;li&gt;调用类则通过常规步骤，调用具体服务。&lt;pre&gt;&lt;code&gt;package com.gua.com;
+&lt;li&gt;调用类则通过常规步骤，调用具体服务。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;HaInterface.java&lt;br&gt;&lt;pre&gt;&lt;code&gt;package com.gua.com;
 public interface HaInterface {
     public void Live();
     public void Die();
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;package com.gua.com;
+}&lt;/code&gt;&lt;/pre&gt;&lt;br&gt;HaClass.java&lt;br&gt;&lt;pre&gt;&lt;code&gt;package com.gua.com;
 public class HaClass implements HaInterface{
     @Override
     public void Live() {
@@ -807,12 +808,10 @@ public class HaClass implements HaInterface{
     public void Die() {
         System.out.println(&quot;又想搞大新闻!&quot;);
     }
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;package com.gua.com;
+}&lt;/code&gt;&lt;/pre&gt;&lt;br&gt;Xuyimiao.java&lt;br&gt;&lt;pre&gt;&lt;code&gt;package com.gua.com;
 public interface Xuyimiao {
     public HaInterface HahaGo();
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;package com.gua.com;
+}&lt;/code&gt;&lt;/pre&gt;&lt;br&gt;WoyaoXuyimiao.java&lt;br&gt;&lt;pre&gt;&lt;code&gt;package com.gua.com;
 public class WoyaoXuyimiao implements  Xuyimiao{
     static{
         MingwangManager.registerProvider(&quot;辣妹子辣&quot;, new WoyaoXuyimiao());  
@@ -821,18 +820,17 @@ public class WoyaoXuyimiao implements  Xuyimiao{
     public HaInterface HahaGo() {
         return new HaClass(); 
     }
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;package com.gua.com; 
+}&lt;/code&gt;&lt;/pre&gt;  &lt;/p&gt;
+&lt;p&gt;TestHa.java&lt;br&gt;&lt;pre&gt;&lt;code&gt;package com.gua.com; 
 public class TestHa {  
-    public static void main(String[] args) throws ClassNotFoundException {      
+    public static void main(String[] args) throws ClassNotFoundException {
         Class.forName(&quot;com.gua.com.WoyaoXuyimiao&quot;);  
         HaInterface hi = MingwangManager.getService(&quot;辣妹子辣&quot;);  
         hi.Live();  
         hi.Die();  
     }
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&quot;这种方式已经不推荐-工厂模式&quot;&gt;&lt;a href=&quot;#这种方式已经不推荐-工厂模式&quot; class=&quot;headerlink&quot; title=&quot;这种方式已经不推荐-工厂模式&quot;&gt;&lt;/a&gt;这种方式已经不推荐-工厂模式&lt;/h2&gt;&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;工厂方法&lt;/a&gt;  &lt;a href=&quot;https://zh.wikipedia.org/wiki/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;抽象工厂&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;h2 id=&quot;这种方式已经不推荐-工厂模式&quot;&gt;&lt;a href=&quot;#这种方式已经不推荐-工厂模式&quot; class=&quot;headerlink&quot; title=&quot;这种方式已经不推荐-工厂模式&quot;&gt;&lt;/a&gt;这种方式已经不推荐-工厂模式&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;工厂方法&lt;/a&gt;  &lt;a href=&quot;https://zh.wikipedia.org/wiki/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;抽象工厂&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;参考文章:&lt;a href=&quot;(http://liwenshui322.iteye.com/blog/1267202)&quot;&gt;JAVA 服务提供者框架介绍&lt;/a&gt;、&lt;a href=&quot;(http://blog.csdn.net/csdn0123/article/details/7388445)&quot;&gt;构造器和静态方法&lt;/a&gt;&lt;/p&gt;
 &lt;script src=&quot;../../../../js/highlight.min.js&quot;&gt;&lt;/script&gt;
 &lt;link href=&quot;../../../../css/monokai_sublime.min.css&quot; rel=&quot;stylesheet&quot;&gt;

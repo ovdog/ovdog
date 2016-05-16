@@ -96,7 +96,7 @@
     }
 
 静态工厂以其名字显见，以[类名.方法名]的方式调用，其静态函数主要返回其类的对象，一般是引用值。返回什么东西，由参数决定，这个工厂给你产出来。其在API开发中使用广泛。">
-<meta property="og:updated_time" content="2016-05-16T15:06:18.096Z">
+<meta property="og:updated_time" content="2016-05-16T15:16:51.585Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="effective java笔记--静态工厂和Builder模式">
 <meta name="twitter:description" content="静态工厂    public static Boolean valueOf (boolean b){
@@ -453,12 +453,13 @@
 <li>具体服务接口定义了live和die，然后实现类实现了具体的方法</li>
 <li>服务提供者接口定义了获取服务实例的函数，然后服务提供者实现类实现了注册方式获取实例</li>
 <li>注册类则对ClassName和服务提供者接口进行绑定。相当于，对不同的服务提供商通过名字进行映射</li>
-<li>调用类则通过常规步骤，调用具体服务。<pre><code>package com.gua.com;
+<li>调用类则通过常规步骤，调用具体服务。</li>
+</ol>
+<p>HaInterface.java<br><pre><code>package com.gua.com;
 public interface HaInterface {
     public void Live();
     public void Die();
-}</code></pre>
-<pre><code>package com.gua.com;
+}</code></pre><br>HaClass.java<br><pre><code>package com.gua.com;
 public class HaClass implements HaInterface{
     @Override
     public void Live() {
@@ -468,12 +469,10 @@ public class HaClass implements HaInterface{
     public void Die() {
         System.out.println("又想搞大新闻!");
     }
-}</code></pre>
-<pre><code>package com.gua.com;
+}</code></pre><br>Xuyimiao.java<br><pre><code>package com.gua.com;
 public interface Xuyimiao {
     public HaInterface HahaGo();
-}</code></pre>
-<pre><code>package com.gua.com;
+}</code></pre><br>WoyaoXuyimiao.java<br><pre><code>package com.gua.com;
 public class WoyaoXuyimiao implements  Xuyimiao{
     static{
         MingwangManager.registerProvider("辣妹子辣", new WoyaoXuyimiao());  
@@ -482,18 +481,17 @@ public class WoyaoXuyimiao implements  Xuyimiao{
     public HaInterface HahaGo() {
         return new HaClass(); 
     }
-}</code></pre>
-<pre><code>package com.gua.com; 
+}</code></pre>  </p>
+<p>TestHa.java<br><pre><code>package com.gua.com; 
 public class TestHa {  
-    public static void main(String[] args) throws ClassNotFoundException {      
+    public static void main(String[] args) throws ClassNotFoundException {
         Class.forName("com.gua.com.WoyaoXuyimiao");  
         HaInterface hi = MingwangManager.getService("辣妹子辣");  
         hi.Live();  
         hi.Die();  
     }
-}</code></pre>
-<h2 id="这种方式已经不推荐-工厂模式"><a href="#这种方式已经不推荐-工厂模式" class="headerlink" title="这种方式已经不推荐-工厂模式"></a>这种方式已经不推荐-工厂模式</h2><a href="https://zh.wikipedia.org/wiki/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95" target="_blank" rel="external">工厂方法</a>  <a href="https://zh.wikipedia.org/wiki/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82" target="_blank" rel="external">抽象工厂</a></li>
-</ol>
+}</code></pre></p>
+<h2 id="这种方式已经不推荐-工厂模式"><a href="#这种方式已经不推荐-工厂模式" class="headerlink" title="这种方式已经不推荐-工厂模式"></a>这种方式已经不推荐-工厂模式</h2><p><a href="https://zh.wikipedia.org/wiki/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95" target="_blank" rel="external">工厂方法</a>  <a href="https://zh.wikipedia.org/wiki/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82" target="_blank" rel="external">抽象工厂</a></p>
 <p>参考文章:<a href="(http://liwenshui322.iteye.com/blog/1267202)">JAVA 服务提供者框架介绍</a>、<a href="(http://blog.csdn.net/csdn0123/article/details/7388445)">构造器和静态方法</a></p>
 <script src="../../../../js/highlight.min.js"></script>
 <link href="../../../../css/monokai_sublime.min.css" rel="stylesheet">
