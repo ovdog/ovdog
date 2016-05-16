@@ -811,7 +811,7 @@ public interface Builder{
     <link href="http://ovjaywang.github.io/2016/04/10/Hello-Hexo/"/>
     <id>http://ovjaywang.github.io/2016/04/10/Hello-Hexo/</id>
     <published>2016-04-10T14:51:49.000Z</published>
-    <updated>2016-05-16T03:40:05.598Z</updated>
+    <updated>2016-05-16T05:31:47.858Z</updated>
     
     <content type="html">&lt;p&gt;感谢&lt;a href=&quot;http://zipperary.com/2013/05/28/hexo-guide-2/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这个教程&lt;/a&gt;&lt;br&gt;还有&lt;a href=&quot;http://ibruce.info/2013/11/22/hexo-your-blog/?utm_source=tuicool&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这个&lt;/a&gt;&lt;br&gt;解决了好多bugs的&lt;a href=&quot;http://www.jianshu.com/p/35e197cb1273&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这个&lt;/a&gt;&lt;br&gt;优化cdn图床缓冲的&lt;a href=&quot;http://lukang.me/2015/optimization-of-hexo-2.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这个&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.dute.me/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这个&lt;/a&gt;让我找到了便宜的狗爹优惠码&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;从一开始的阵地wp搬到这里来了。后会有期了dooby.me 再见了WordPress  
@@ -846,8 +846,7 @@ public interface Builder{
     }&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;alert(&#39;Hello World!&#39;);&lt;/code&gt;&lt;/pre&gt;
 &lt;blockquote class=&quot;pullquote [class]&quot;&gt;&lt;p&gt;blah blah blah&lt;/p&gt;&lt;/blockquote&gt;
-&lt;iframe src=&quot;http://www.tudou.com/albumplay/Y0h15MtBFlc/4vR4XdWiMJo.html?resourceId=0_06_02_99&quot; width=&quot;800&quot; height=&quot;600&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;p&gt;2016.04.11&lt;/p&gt;</content>
+&lt;p&gt;&lt;embed src=&quot;http://www.tudou.com/a/Y0h15MtBFlc/&amp;iid=132812518&amp;resourceId=0_05_02_99/v.swf&quot; type=&quot;application/x-shockwave-flash&quot; allowscriptaccess=&quot;always&quot; allowfullscreen=&quot;true&quot; wmode=&quot;opaque&quot; width=&quot;480&quot; height=&quot;400&quot;&gt;&lt;br&gt;2016.04.11&lt;/p&gt;</content>
     
     <summary type="html">
     
