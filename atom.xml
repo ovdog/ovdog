@@ -727,7 +727,7 @@ public class Client {
     <link href="http://ovjaywang.github.io/2016/04/13/effective%20java--%E9%9D%99%E6%80%81%E5%B7%A5%E5%8E%82/"/>
     <id>http://ovjaywang.github.io/2016/04/13/effective java--静态工厂/</id>
     <published>2016-04-13T07:15:14.000Z</published>
-    <updated>2016-05-16T15:16:51.585Z</updated>
+    <updated>2016-05-16T15:21:17.911Z</updated>
     
     <content type="html">&lt;h1 id=&quot;静态工厂&quot;&gt;&lt;a href=&quot;#静态工厂&quot; class=&quot;headerlink&quot; title=&quot;静态工厂&quot;&gt;&lt;/a&gt;静态工厂&lt;/h1&gt;&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;    public static Boolean valueOf (boolean b){
         return b?Boolean.True:Boolean.False;
@@ -820,8 +820,26 @@ public class WoyaoXuyimiao implements  Xuyimiao{
     public HaInterface HahaGo() {
         return new HaClass(); 
     }
-}&lt;/code&gt;&lt;/pre&gt;  &lt;/p&gt;
-&lt;p&gt;TestHa.java&lt;br&gt;&lt;pre&gt;&lt;code&gt;package com.gua.com; 
+}&lt;/code&gt;&lt;/pre&gt;&lt;br&gt;MingwangManager.java&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;package com.gua.com;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+public class MingwangManager {
+    public MingwangManager(){};
+    private static final Map&amp;lt;String, Xuyimiao&amp;gt; providers = new ConcurrentHashMap&amp;lt;String, Xuyimiao&amp;gt;();  
+    public static void registerProvider(String name, Xuyimiao p) {
+            providers.put(name, p);  
+        }  
+    public static HaInterface getService(String name) {       
+            Xuyimiao p = providers.get(name);  
+            if (p == null) {  
+                throw new IllegalArgumentException(  
+                        &amp;quot;No provider registered with name:&amp;quot; + name);  
+            } 
+            return p.HahaGo();
+        }  
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;TestHa.java&lt;br&gt;&lt;pre&gt;&lt;code&gt;package com.gua.com; 
 public class TestHa {  
     public static void main(String[] args) throws ClassNotFoundException {
         Class.forName(&quot;com.gua.com.WoyaoXuyimiao&quot;);  

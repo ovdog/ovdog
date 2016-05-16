@@ -96,7 +96,7 @@
     }
 
 静态工厂以其名字显见，以[类名.方法名]的方式调用，其静态函数主要返回其类的对象，一般是引用值。返回什么东西，由参数决定，这个工厂给你产出来。其在API开发中使用广泛。">
-<meta property="og:updated_time" content="2016-05-16T15:16:51.585Z">
+<meta property="og:updated_time" content="2016-05-16T15:21:17.911Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="effective java笔记--静态工厂和Builder模式">
 <meta name="twitter:description" content="静态工厂    public static Boolean valueOf (boolean b){
@@ -481,8 +481,26 @@ public class WoyaoXuyimiao implements  Xuyimiao{
     public HaInterface HahaGo() {
         return new HaClass(); 
     }
-}</code></pre>  </p>
-<p>TestHa.java<br><pre><code>package com.gua.com; 
+}</code></pre><br>MingwangManager.java</p>
+<pre><code>package com.gua.com;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+public class MingwangManager {
+    public MingwangManager(){};
+    private static final Map&lt;String, Xuyimiao&gt; providers = new ConcurrentHashMap&lt;String, Xuyimiao&gt;();  
+    public static void registerProvider(String name, Xuyimiao p) {
+            providers.put(name, p);  
+        }  
+    public static HaInterface getService(String name) {       
+            Xuyimiao p = providers.get(name);  
+            if (p == null) {  
+                throw new IllegalArgumentException(  
+                        &quot;No provider registered with name:&quot; + name);  
+            } 
+            return p.HahaGo();
+        }  
+}
+</code></pre><p>TestHa.java<br><pre><code>package com.gua.com; 
 public class TestHa {  
     public static void main(String[] args) throws ClassNotFoundException {
         Class.forName("com.gua.com.WoyaoXuyimiao");  
