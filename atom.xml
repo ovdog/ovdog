@@ -811,7 +811,7 @@ public interface Builder{
     <link href="http://ovjaywang.github.io/2016/04/10/Hello-Hexo/"/>
     <id>http://ovjaywang.github.io/2016/04/10/Hello-Hexo/</id>
     <published>2016-04-10T14:51:49.000Z</published>
-    <updated>2016-05-02T15:40:03.205Z</updated>
+    <updated>2016-05-16T03:40:05.598Z</updated>
     
     <content type="html">&lt;p&gt;感谢&lt;a href=&quot;http://zipperary.com/2013/05/28/hexo-guide-2/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这个教程&lt;/a&gt;&lt;br&gt;还有&lt;a href=&quot;http://ibruce.info/2013/11/22/hexo-your-blog/?utm_source=tuicool&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这个&lt;/a&gt;&lt;br&gt;解决了好多bugs的&lt;a href=&quot;http://www.jianshu.com/p/35e197cb1273&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这个&lt;/a&gt;&lt;br&gt;优化cdn图床缓冲的&lt;a href=&quot;http://lukang.me/2015/optimization-of-hexo-2.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这个&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.dute.me/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这个&lt;/a&gt;让我找到了便宜的狗爹优惠码&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;从一开始的阵地wp搬到这里来了。后会有期了dooby.me 再见了WordPress  
@@ -835,6 +835,18 @@ public interface Builder{
 &lt;h1 id=&quot;SEO是极好的&quot;&gt;&lt;a href=&quot;#SEO是极好的&quot; class=&quot;headerlink&quot; title=&quot;SEO是极好的&quot;&gt;&lt;/a&gt;SEO是极好的&lt;/h1&gt;&lt;p&gt;切莫贪杯 google就好 但是 切记！标题不要带有‘&amp;amp;’。年少无知，这个符号不能正常解析出xml会报错&lt;/p&gt;
 &lt;h1 id=&quot;域名绑定&quot;&gt;&lt;a href=&quot;#域名绑定&quot; class=&quot;headerlink&quot; title=&quot;域名绑定&quot;&gt;&lt;/a&gt;域名绑定&lt;/h1&gt;&lt;p&gt;切记@解析的是{YOUR_ID}.github.io的地址而不是github.com的 CNAME需要放在source下才能被generate。dnspod被企鹅注资后ui变得相当土了&lt;/p&gt;
 &lt;h1 id=&quot;专注写作&quot;&gt;&lt;a href=&quot;#专注写作&quot; class=&quot;headerlink&quot; title=&quot;专注写作&quot;&gt;&lt;/a&gt;专注写作&lt;/h1&gt;&lt;p&gt;放弃各种挂饰 插件 统计吧 seo和评论就足够了。多写作多讨论 当然很想适时的学一发nodejs因为折腾了好久ig的照片还是没能get进来。&lt;/p&gt;
+&lt;script src=&quot;//gist.github.com/86cc40065a691b7c4534e483249583dd.js?file=transValue.java&quot;&gt;&lt;/script&gt;
+&lt;blockquote&gt;&lt;p&gt;NEW: DevDocs now comes with syntax highlighting. &lt;a href=&quot;http://devdocs.io&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://devdocs.io&lt;/a&gt;&lt;/p&gt;&lt;footer&gt;&lt;strong&gt;@DevDocs&lt;/strong&gt;&lt;cite&gt;&lt;a href=&quot;https://twitter.com/devdocs/status/356095192085962752&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;twitter.com/devdocs/status/356095192085962752&lt;/a&gt;&lt;/cite&gt;&lt;/footer&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;&lt;p&gt;Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.&lt;/p&gt;&lt;footer&gt;&lt;strong&gt;David Levithan&lt;/strong&gt;&lt;cite&gt;Wide Awake&lt;/cite&gt;&lt;/footer&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;&lt;p&gt;Every interaction is both precious and an opportunity to delight.&lt;/p&gt;&lt;footer&gt;&lt;strong&gt;Seth Godin&lt;/strong&gt;&lt;cite&gt;&lt;a href=&quot;http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Welcome to Island Marketing&lt;/a&gt;&lt;/cite&gt;&lt;/footer&gt;&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;void transValue(int a,int b){
+        a ^= b;
+        b ^= a;
+        a ^=b;
+    }&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;alert(&#39;Hello World!&#39;);&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote class=&quot;pullquote [class]&quot;&gt;&lt;p&gt;blah blah blah&lt;/p&gt;&lt;/blockquote&gt;
+&lt;iframe src=&quot;http://www.tudou.com/albumplay/Y0h15MtBFlc/4vR4XdWiMJo.html?resourceId=0_06_02_99&quot; width=&quot;800&quot; height=&quot;600&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
 &lt;p&gt;2016.04.11&lt;/p&gt;</content>
     
     <summary type="html">
