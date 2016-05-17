@@ -97,7 +97,7 @@
     <link href="http://ovjaywang.github.io/2016/05/03/%E6%A0%91%E7%B3%BB%E5%88%97%E7%A0%81%E9%9B%86%E5%90%88-%E6%8C%81%E6%9B%B4/"/>
     <id>http://ovjaywang.github.io/2016/05/03/树系列码集合-持更/</id>
     <published>2016-05-03T15:06:28.000Z</published>
-    <updated>2016-05-09T17:25:08.151Z</updated>
+    <updated>2016-05-17T03:57:18.747Z</updated>
     
     <content type="html">&lt;p&gt;本文持更树操作集合-码狗学习中&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;二叉查找树转双链表（c-）&quot;&gt;&lt;a href=&quot;#二叉查找树转双链表（c-）&quot; class=&quot;headerlink&quot; title=&quot;二叉查找树转双链表（c++）&quot;&gt;&lt;/a&gt;二叉查找树转双链表（c++）&lt;/h1&gt;&lt;blockquote&gt;
@@ -246,7 +246,64 @@ typedef struct TreeNode
     int const value = 16;//目标和
     tree-&amp;gt;SearchPath(value);
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;代码见&lt;a href=&quot;https://github.com/ovjaywang/TreeInvolved/tree/master/FindSumEqualNumInAVL&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;</content>
+&lt;p&gt;代码见&lt;a href=&quot;https://github.com/ovjaywang/TreeInvolved/tree/master/FindSumEqualNumInAVL&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;求树高三种方式&quot;&gt;&lt;a href=&quot;#求树高三种方式&quot; class=&quot;headerlink&quot; title=&quot;求树高三种方式&quot;&gt;&lt;/a&gt;求树高三种方式&lt;/h1&gt;&lt;p&gt;首先定义一波树结构属性名字&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;c++&quot;&gt;    typedef struct TreeNode{
+        char data;
+        struct TreeNode *lchild, *rchild;
+    }TreeNode, *BiTree;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;后序遍历，栈求高，最大栈长度为树高&quot;&gt;&lt;a href=&quot;#后序遍历，栈求高，最大栈长度为树高&quot; class=&quot;headerlink&quot; title=&quot;后序遍历，栈求高，最大栈长度为树高&quot;&gt;&lt;/a&gt;后序遍历，栈求高，最大栈长度为树高&lt;/h2&gt;&lt;pre&gt;&lt;code class=&quot;c++&quot;&gt;    int BT_high(BiTree T)
+    {
+        BiTree p = T, r = NULL;
+        int max = 0;    //树高  
+        stack&amp;lt;BiTree&amp;gt; s;//声明一个堆 存放树根节点
+        while (p || !s.empty()){//节点非空且堆栈非空
+            if (p != NULL){
+                s.push(p);//入栈
+                p = p-&amp;gt;lchild;
+            }
+            else
+            {
+                p = s.top();
+                if (p-&amp;gt;rchild != NULL &amp;amp;&amp;amp; p-&amp;gt;rchild != r)
+                //判断是否从右子树返回根
+                    p = p-&amp;gt;rchild;
+                else//左右子树都算完了 比较一下
+                {
+                    if (s.size()&amp;gt;max) max = s.size();//最大层次即为高度  
+                    r = p;
+                    s.pop();//出栈
+                    p = NULL;
+                }
+            }
+        }
+        return max;
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;层次遍历-层高即树高&quot;&gt;&lt;a href=&quot;#层次遍历-层高即树高&quot; class=&quot;headerlink&quot; title=&quot;层次遍历 层高即树高&quot;&gt;&lt;/a&gt;层次遍历 层高即树高&lt;/h2&gt;&lt;p&gt;层次遍历服用队列效果更佳！&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;c++&quot;&gt;int BT_level_depth(BiTree T)
+{
+    if (!T)  return 0;
+    BiTree p = T, Q[100];//队列
+    int front = -1, rear = -1, last = 0, level = 0;
+    //定义首 尾 层级
+    Q[++rear] = p;//入队列
+    while (front&amp;lt;rear){
+        p = Q[++front];
+        if (p-&amp;gt;lchild)
+            Q[++rear] = p-&amp;gt;lchild;
+        if (p-&amp;gt;rchild)
+            Q[++rear] = p-&amp;gt;rchild;
+        if (front == last)
+        {
+            last = rear;
+            level++;               //层次+1  
+        }
+    }
+    return level;
+}
+&lt;/code&gt;&lt;/pre&gt;</content>
     
     <summary type="html">
     
