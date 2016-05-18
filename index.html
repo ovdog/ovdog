@@ -464,7 +464,6 @@ int d = ~c;//输出d为-51 2的ascii为50(十进制) 32(十六进制)
 <blockquote>
 <p>[一个数组里除了一个数值出现一次，其他都出现了两次。找出这个数值。]<br>将这个数组全部亦或一遍，则出现两次的都可以按照交换律结合律化为0，</p>
 </blockquote>
-<p>同样的，对于二进制数的某一位，若想对它取反，可以让整个数与000……1……000亦或。</p>
 <h2 id="数组内只存在两个奇数次出现的数，其他都出现了偶数次，找出这两个数"><a href="#数组内只存在两个奇数次出现的数，其他都出现了偶数次，找出这两个数" class="headerlink" title="数组内只存在两个奇数次出现的数，其他都出现了偶数次，找出这两个数"></a>数组内只存在两个奇数次出现的数，其他都出现了偶数次，找出这两个数</h2><blockquote>
 <p>思路：这就是上面实例的改进，因为知道了其他数字都出现了偶数次，全体亦或的结果就是<code>x=a^b</code> 其中a b分别是所要找的这两个数。由于a b不同，则x必然不为零，也必然存在为1的位（可以取从右第一次出现1的位置）。同时由于是亦或操作，这个1必然是a和b相异造成的。这样，把这一位为1的分一组，这一位为0的分一组，出现偶数次的依然会被分到一组通过亦或自己消除。</p>
 </blockquote>
@@ -529,6 +528,55 @@ int d = ~c;//输出d为-51 2的ascii为50(十进制) 32(十六进制)
         (in6_addr_a1[1] ^ in6_addr_a2[1]) |
         (in6_addr_a1[2] ^ in6_addr_a2[2]) |
         (in6_addr_a1[3] ^ in6_addr_a2[3])) == 0);
+    }
+</code></pre><h1 id="关于按位与"><a href="#关于按位与" class="headerlink" title="关于按位与"></a>关于按位与</h1><p>按位与操作一般是与1配合 判断奇偶，或者判断某位是否为1；或保留下某位位数字(与位移结合)</p>
+<pre><code>a&amp;1 == 0    偶数
+a&amp;1 == 1    奇数
+</code></pre><h1 id="关于按位与-1"><a href="#关于按位与-1" class="headerlink" title="关于按位与"></a>关于按位与</h1><p>按位或操作一般与0配合 </p>
+<h1 id="按位左右移"><a href="#按位左右移" class="headerlink" title="按位左右移"></a>按位左右移</h1><p>左右移本质上就是以bit为单元进行二进制的操作，而二进制左右移n位在十进制就意味着乘以2^n或除以2^n.按位操作可以大大提升效率<br>港真，很多面试都有求幂的题目。很棒，刷题狗就喜欢做这种题，然而第一次碰到这题我懵逼的采用了树。傻缺了。</p>
+<p>将二进制数绕圈循环，取往左(右)第k个为头。很多题目里面有啊</p>
+<pre><code class="java">int a = a&lt;&lt;k | a &gt;&gt; (Integer.SIZE-k); //左数第k个当头
+int b = b&gt;&gt;k | b &gt;&gt; (Integer.SIZE-k); //右数第k个当头
+</code></pre>
+<p>第k位置1</p>
+<pre><code class="java">    a|(1&lt;&lt;k);
+</code></pre>
+<p>第k位置0</p>
+<pre><code>    a&amp;(~(1&lt;&lt;k));
+</code></pre><p>取第k位的数值</p>
+<pre><code>    a&gt;&gt;k&amp;1;
+</code></pre><p>后k位为0，其余为1</p>
+<pre><code>    (~0)&amp;(1&lt;&lt;(k+1));
+</code></pre><p>后k位为1，其余为0</p>
+<pre><code>    ~((~0)&lt;&lt;k);
+</code></pre><h2 id="左右移应用-二分求幂"><a href="#左右移应用-二分求幂" class="headerlink" title="左右移应用-二分求幂"></a>左右移应用-二分求幂</h2><font>Caution！这个思想很重要!</font>
+
+<pre><code class="java">    public static int Power(int a, int n){
+        int ans = 1;
+        while (n &gt; 0) {
+           if ((n &amp; 1)!=0) {//末位不为零
+                ans *= a;
+                n--;
+            } 
+            else {
+                a *= a;
+                n &gt;&gt;= 1;
+            }
+        }
+        return ans;
+    }
+</code></pre>
+<p>递归版本</p>
+<pre><code class="java">    public static int power(int a,int n)  
+    {  
+        if(n==1) return a;  
+        if(n&amp;1)  
+          return power(a,n-1) * a;  
+        else  
+        {  
+            int t=power(a,n&gt;&gt;1);  
+            return t*t;  
+        }  
     }
 </code></pre>
           

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ovjaywang.github.io/"/>
-  <updated>2016-05-18T09:09:42.560Z</updated>
+  <updated>2016-05-18T13:13:18.644Z</updated>
   <id>http://ovjaywang.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://ovjaywang.github.io/2016/05/12/%E4%BD%8D%E8%BF%90%E7%AE%97%E5%90%84%E7%A7%8D/"/>
     <id>http://ovjaywang.github.io/2016/05/12/位运算各种/</id>
     <published>2016-05-12T03:12:00.000Z</published>
-    <updated>2016-05-18T09:09:42.560Z</updated>
+    <updated>2016-05-18T13:13:18.644Z</updated>
     
     <content type="html">&lt;p&gt;最近发现位运算在很多场合有很多运用啊。大概有以下几个方面:&lt;/p&gt;
 &lt;ul&gt;
@@ -109,7 +109,6 @@ int d = ~c;//输出d为-51 2的ascii为50(十进制) 32(十六进制)
 &lt;blockquote&gt;
 &lt;p&gt;[一个数组里除了一个数值出现一次，其他都出现了两次。找出这个数值。]&lt;br&gt;将这个数组全部亦或一遍，则出现两次的都可以按照交换律结合律化为0，&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;同样的，对于二进制数的某一位，若想对它取反，可以让整个数与000……1……000亦或。&lt;/p&gt;
 &lt;h2 id=&quot;数组内只存在两个奇数次出现的数，其他都出现了偶数次，找出这两个数&quot;&gt;&lt;a href=&quot;#数组内只存在两个奇数次出现的数，其他都出现了偶数次，找出这两个数&quot; class=&quot;headerlink&quot; title=&quot;数组内只存在两个奇数次出现的数，其他都出现了偶数次，找出这两个数&quot;&gt;&lt;/a&gt;数组内只存在两个奇数次出现的数，其他都出现了偶数次，找出这两个数&lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;思路：这就是上面实例的改进，因为知道了其他数字都出现了偶数次，全体亦或的结果就是&lt;code&gt;x=a^b&lt;/code&gt; 其中a b分别是所要找的这两个数。由于a b不同，则x必然不为零，也必然存在为1的位（可以取从右第一次出现1的位置）。同时由于是亦或操作，这个1必然是a和b相异造成的。这样，把这一位为1的分一组，这一位为0的分一组，出现偶数次的依然会被分到一组通过亦或自己消除。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -174,6 +173,55 @@ int d = ~c;//输出d为-51 2的ascii为50(十进制) 32(十六进制)
         (in6_addr_a1[1] ^ in6_addr_a2[1]) |
         (in6_addr_a1[2] ^ in6_addr_a2[2]) |
         (in6_addr_a1[3] ^ in6_addr_a2[3])) == 0);
+    }
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;关于按位与&quot;&gt;&lt;a href=&quot;#关于按位与&quot; class=&quot;headerlink&quot; title=&quot;关于按位与&quot;&gt;&lt;/a&gt;关于按位与&lt;/h1&gt;&lt;p&gt;按位与操作一般是与1配合 判断奇偶，或者判断某位是否为1；或保留下某位位数字(与位移结合)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;a&amp;amp;1 == 0    偶数
+a&amp;amp;1 == 1    奇数
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;关于按位与-1&quot;&gt;&lt;a href=&quot;#关于按位与-1&quot; class=&quot;headerlink&quot; title=&quot;关于按位与&quot;&gt;&lt;/a&gt;关于按位与&lt;/h1&gt;&lt;p&gt;按位或操作一般与0配合 &lt;/p&gt;
+&lt;h1 id=&quot;按位左右移&quot;&gt;&lt;a href=&quot;#按位左右移&quot; class=&quot;headerlink&quot; title=&quot;按位左右移&quot;&gt;&lt;/a&gt;按位左右移&lt;/h1&gt;&lt;p&gt;左右移本质上就是以bit为单元进行二进制的操作，而二进制左右移n位在十进制就意味着乘以2^n或除以2^n.按位操作可以大大提升效率&lt;br&gt;港真，很多面试都有求幂的题目。很棒，刷题狗就喜欢做这种题，然而第一次碰到这题我懵逼的采用了树。傻缺了。&lt;/p&gt;
+&lt;p&gt;将二进制数绕圈循环，取往左(右)第k个为头。很多题目里面有啊&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;int a = a&amp;lt;&amp;lt;k | a &amp;gt;&amp;gt; (Integer.SIZE-k); //左数第k个当头
+int b = b&amp;gt;&amp;gt;k | b &amp;gt;&amp;gt; (Integer.SIZE-k); //右数第k个当头
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;第k位置1&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;    a|(1&amp;lt;&amp;lt;k);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;第k位置0&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    a&amp;amp;(~(1&amp;lt;&amp;lt;k));
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;取第k位的数值&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    a&amp;gt;&amp;gt;k&amp;amp;1;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;后k位为0，其余为1&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    (~0)&amp;amp;(1&amp;lt;&amp;lt;(k+1));
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;后k位为1，其余为0&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    ~((~0)&amp;lt;&amp;lt;k);
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;左右移应用-二分求幂&quot;&gt;&lt;a href=&quot;#左右移应用-二分求幂&quot; class=&quot;headerlink&quot; title=&quot;左右移应用-二分求幂&quot;&gt;&lt;/a&gt;左右移应用-二分求幂&lt;/h2&gt;&lt;font&gt;Caution！这个思想很重要!&lt;/font&gt;
+
+&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;    public static int Power(int a, int n){
+        int ans = 1;
+        while (n &amp;gt; 0) {
+           if ((n &amp;amp; 1)!=0) {//末位不为零
+                ans *= a;
+                n--;
+            } 
+            else {
+                a *= a;
+                n &amp;gt;&amp;gt;= 1;
+            }
+        }
+        return ans;
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;递归版本&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;    public static int power(int a,int n)  
+    {  
+        if(n==1) return a;  
+        if(n&amp;amp;1)  
+          return power(a,n-1) * a;  
+        else  
+        {  
+            int t=power(a,n&amp;gt;&amp;gt;1);  
+            return t*t;  
+        }  
     }
 &lt;/code&gt;&lt;/pre&gt;</content>
     
