@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ovjaywang.github.io/"/>
-  <updated>2016-05-13T07:03:01.274Z</updated>
+  <updated>2016-05-18T06:35:38.348Z</updated>
   <id>http://ovjaywang.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://ovjaywang.github.io/2016/05/12/%E4%BD%8D%E8%BF%90%E7%AE%97%E5%90%84%E7%A7%8D/"/>
     <id>http://ovjaywang.github.io/2016/05/12/位运算各种/</id>
     <published>2016-05-12T03:12:00.000Z</published>
-    <updated>2016-05-13T07:03:01.274Z</updated>
+    <updated>2016-05-18T06:35:38.348Z</updated>
     
     <content type="html">&lt;p&gt;最近发现位运算在很多场合有很多运用啊。大概有以下几个方面:&lt;/p&gt;
 &lt;ul&gt;
@@ -28,10 +28,95 @@
 &lt;li&gt;很少字段的struct class的改写例如棋盘记录和模式比较&lt;/li&gt;
 &lt;li&gt;逼格&amp;amp;效率比较高的小心机&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&quot;几个运算符&quot;&gt;&lt;a href=&quot;#几个运算符&quot; class=&quot;headerlink&quot; title=&quot;几个运算符&quot;&gt;&lt;/a&gt;几个运算符&lt;/h1&gt;&lt;h1 id=&quot;使用位亦或-节约空间的数据交换&quot;&gt;&lt;a href=&quot;#使用位亦或-节约空间的数据交换&quot; class=&quot;headerlink&quot; title=&quot;使用位亦或(^)节约空间的数据交换&quot;&gt;&lt;/a&gt;使用位亦或(^)节约空间的数据交换&lt;/h1&gt;&lt;p&gt;原理：a亦或b=c，b亦或a=c，也就是亦或满足交换律；位亦或的逆运算，也就是&lt;code&gt;(a^b)^b=a&lt;/code&gt;等于它自己。所以，只需三个亦或运算即可交换数据。看代码。&lt;/p&gt;
+&lt;h1 id=&quot;几个运算符&quot;&gt;&lt;a href=&quot;#几个运算符&quot; class=&quot;headerlink&quot; title=&quot;几个运算符&quot;&gt;&lt;/a&gt;几个运算符&lt;/h1&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;符号&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;名称&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;含义&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;code&gt;^&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;按位亦或&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;同为0，异为1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;``&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;``&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;按位或&lt;/td&gt;
+&lt;td&gt;有1则1，双0为0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;code&gt;&amp;amp;&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;按位与&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;有0则0，双为1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;code&gt;~&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;按位取反&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;变1为0，变0为1（包含符号位）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;按位左移（包括符号）&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;对应二进制每移一位乘二&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;按位右移（包括符号）&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;对应二进制每移一位除二&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;code&gt;`&amp;gt;&amp;gt;&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;按位无符号右移&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;对应二进制全指定的位数&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;以上均是按位操作，要区分逻辑运算&lt;code&gt;&amp;amp;&amp;amp; ||&lt;/code&gt;和位运算符&lt;code&gt;&amp;amp; |&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id=&quot;关于取反&quot;&gt;&lt;a href=&quot;#关于取反&quot; class=&quot;headerlink&quot; title=&quot;关于取反&quot;&gt;&lt;/a&gt;关于取反&lt;/h1&gt;&lt;p&gt;普通的Integer char等按位操作都是直接按照它们的二进制补码操作，int直接使用该数字的补码，char则先按照ascii转换成二进制在进行操作。&lt;br&gt;e.g.&lt;code&gt;char a = &amp;#39;a&amp;#39;&lt;/code&gt;a的ascii码十进制为097，二进制原码为1100001，这里注意，作为char，它在java中是一个&lt;font color=&quot;red&quot;&gt;无符号16位的整数&lt;/font&gt;，所以补齐它的&lt;br&gt;二进制原码 补码 反码（非负数原码 补码 反码相同）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;000000000 1100001&lt;br&gt;取反后的补码&lt;br&gt;111111111 0011110&lt;br&gt;取反后的反码&lt;br&gt;111111111 0011101&lt;br&gt;取反后的源码&lt;br&gt;100000000 1100010&lt;br&gt;十进制即为 &lt;strong&gt;-98&lt;/strong&gt;。&lt;br&gt;同理的，byte如果存储字符型也是按照先转成ascii码进行操作，即便是字符型的数字也一样。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;byte a = 2;
+int b = ~a;//输出b为-3
+byte c = &amp;#39;2&amp;#39;;
+int d = ~c;//输出d为-51 2的ascii为50(十进制) 32(十六进制)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&quot;关于亦或&quot;&gt;&lt;a href=&quot;#关于亦或&quot; class=&quot;headerlink&quot; title=&quot;关于亦或&quot;&gt;&lt;/a&gt;关于亦或&lt;/h1&gt;&lt;p&gt;亦或相当的特别同时阴森啊，有几个性质&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a^a = 0 也就是亦或自己为0，因为每位都是相同的。&lt;/li&gt;
+&lt;li&gt;a^a^a = a^0 = 0^a  = a&lt;/li&gt;
+&lt;li&gt;a^b = b^a 符合交换律&lt;/li&gt;
+&lt;li&gt;(a^b)^c = a^(b^c) 符合结合律&lt;/li&gt;
+&lt;li&gt;e = a^b^c^d &amp;lt;-&amp;gt; e^a = b^c^d &amp;lt;-&amp;gt; e^a^b= c^d &amp;lt;-&amp;gt; e^a^b^c=d&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;既然满足交换律结合律，则如果出现这么一种情况，&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[一个数组里除了一个数值出现一次，其他都出现了两次。找出这个数值。]&lt;br&gt;将这个数组全部亦或一遍，则出现两次的都可以按照交换律结合律化为0，&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;同样的，对于二进制数的某一位，若想对它取反，可以让整个数与000……1……000亦或。&lt;/p&gt;
+&lt;h2 id=&quot;使用位亦或-节约空间的数据交换&quot;&gt;&lt;a href=&quot;#使用位亦或-节约空间的数据交换&quot; class=&quot;headerlink&quot; title=&quot;使用位亦或(^)节约空间的数据交换&quot;&gt;&lt;/a&gt;使用位亦或(^)节约空间的数据交换&lt;/h2&gt;&lt;p&gt;原理：a亦或b=c，b亦或a=c，也就是亦或满足交换律；位亦或的逆运算，也就是&lt;code&gt;(a^b)^b=a&lt;/code&gt;等于它自己。所以，只需三个亦或运算即可交换数据。看代码。&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;    a ^= b;
     b ^= a;
     a ^= b;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;使用亦或加密&quot;&gt;&lt;a href=&quot;#使用亦或加密&quot; class=&quot;headerlink&quot; title=&quot;使用亦或加密&quot;&gt;&lt;/a&gt;使用亦或加密&lt;/h2&gt;&lt;p&gt;中文配合亦或加密再加上其他的一些加密算法可以很好的掩护原文。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;char  a1=&amp;#39;晚&amp;#39; ,  a2=&amp;#39;上&amp;#39; ,  a3=&amp;#39;来&amp;#39; ,  a4=&amp;#39;我&amp;#39;,  a5=&amp;#39;家&amp;#39; ; 
+          char secret=&amp;#39;8&amp;#39; ; 
+          a1=(char) (a1^secret); 
+          a2=(char) (a2^secret); 
+          a3=(char) (a3^secret); 
+          a4=(char) (a4^secret); 
+          a5=(char) (a5^secret); 
+          System.out.println(&amp;quot;密文:&amp;quot;+a1+a2+a3+a4+a5); 
+          a1=(char) (a1^secret); 
+          a2=(char) (a2^secret); 
+          a3=(char) (a3^secret); 
+          a4=(char) (a4^secret); 
+          a5=(char) (a5^secret); 
+          System.out.println(&amp;quot;原文:&amp;quot;+a1+a2+a3+a4+a5);
 &lt;/code&gt;&lt;/pre&gt;</content>
     
     <summary type="html">
