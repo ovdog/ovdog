@@ -484,7 +484,8 @@ int d = ~c;//输出d为-51 2的ascii为50(十进制) 32(十六进制)
         a4=(char) (a4^secret); 
         a5=(char) (a5^secret); 
         System.out.println(&quot;原文:&quot;+a1+a2+a3+a4+a5);
-</code></pre><h2 id="亦或判别IP地址是否相等"><a href="#亦或判别IP地址是否相等" class="headerlink" title="亦或判别IP地址是否相等"></a>亦或判别IP地址是否相等</h2><pre><code>    static int ipv6_addr_equal(int[] in6_addr_a1, int in6_addr_a2)
+</code></pre><h2 id="亦或判别IP地址是否相等"><a href="#亦或判别IP地址是否相等" class="headerlink" title="亦或判别IP地址是否相等"></a>亦或判别IP地址是否相等</h2><p>使用亦或在加上按位与的方式比==加&amp;&amp;的方式效率高。</p>
+<pre><code>    static int ipv6_addr_equal(int[] in6_addr_a1, int[] in6_addr_a2)
     {
     return (((in6_addr_a1[0] ^ in6_addr_a2[0]) |
         (in6_addr_a1[1] ^ in6_addr_a2[1]) |

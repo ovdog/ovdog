@@ -154,7 +154,7 @@
 ~
 按位取反
 变1为0，变0为1（包含符">
-<meta property="og:updated_time" content="2016-05-18T07:47:05.779Z">
+<meta property="og:updated_time" content="2016-05-18T07:50:22.442Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="位运算各种">
 <meta name="twitter:description" content="最近发现位运算在很多场合有很多运用啊。大概有以下几个方面:
@@ -584,7 +584,8 @@ int d = ~c;//输出d为-51 2的ascii为50(十进制) 32(十六进制)
         a4=(char) (a4^secret); 
         a5=(char) (a5^secret); 
         System.out.println(&quot;原文:&quot;+a1+a2+a3+a4+a5);
-</code></pre><h2 id="亦或判别IP地址是否相等"><a href="#亦或判别IP地址是否相等" class="headerlink" title="亦或判别IP地址是否相等"></a>亦或判别IP地址是否相等</h2><pre><code>    static int ipv6_addr_equal(int[] in6_addr_a1, int in6_addr_a2)
+</code></pre><h2 id="亦或判别IP地址是否相等"><a href="#亦或判别IP地址是否相等" class="headerlink" title="亦或判别IP地址是否相等"></a>亦或判别IP地址是否相等</h2><p>使用亦或在加上按位与的方式比==加&amp;&amp;的方式效率高。</p>
+<pre><code>    static int ipv6_addr_equal(int[] in6_addr_a1, int[] in6_addr_a2)
     {
     return (((in6_addr_a1[0] ^ in6_addr_a2[0]) |
         (in6_addr_a1[1] ^ in6_addr_a2[1]) |
