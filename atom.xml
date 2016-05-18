@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ovjaywang.github.io/"/>
-  <updated>2016-05-18T07:50:22.442Z</updated>
+  <updated>2016-05-18T09:09:42.560Z</updated>
   <id>http://ovjaywang.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://ovjaywang.github.io/2016/05/12/%E4%BD%8D%E8%BF%90%E7%AE%97%E5%90%84%E7%A7%8D/"/>
     <id>http://ovjaywang.github.io/2016/05/12/位运算各种/</id>
     <published>2016-05-12T03:12:00.000Z</published>
-    <updated>2016-05-18T07:50:22.442Z</updated>
+    <updated>2016-05-18T09:09:42.560Z</updated>
     
     <content type="html">&lt;p&gt;最近发现位运算在很多场合有很多运用啊。大概有以下几个方面:&lt;/p&gt;
 &lt;ul&gt;
@@ -110,6 +110,44 @@ int d = ~c;//输出d为-51 2的ascii为50(十进制) 32(十六进制)
 &lt;p&gt;[一个数组里除了一个数值出现一次，其他都出现了两次。找出这个数值。]&lt;br&gt;将这个数组全部亦或一遍，则出现两次的都可以按照交换律结合律化为0，&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;同样的，对于二进制数的某一位，若想对它取反，可以让整个数与000……1……000亦或。&lt;/p&gt;
+&lt;h2 id=&quot;数组内只存在两个奇数次出现的数，其他都出现了偶数次，找出这两个数&quot;&gt;&lt;a href=&quot;#数组内只存在两个奇数次出现的数，其他都出现了偶数次，找出这两个数&quot; class=&quot;headerlink&quot; title=&quot;数组内只存在两个奇数次出现的数，其他都出现了偶数次，找出这两个数&quot;&gt;&lt;/a&gt;数组内只存在两个奇数次出现的数，其他都出现了偶数次，找出这两个数&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;思路：这就是上面实例的改进，因为知道了其他数字都出现了偶数次，全体亦或的结果就是&lt;code&gt;x=a^b&lt;/code&gt; 其中a b分别是所要找的这两个数。由于a b不同，则x必然不为零，也必然存在为1的位（可以取从右第一次出现1的位置）。同时由于是亦或操作，这个1必然是a和b相异造成的。这样，把这一位为1的分一组，这一位为0的分一组，出现偶数次的依然会被分到一组通过亦或自己消除。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;    //从右寻找补码中1第一次出现的位置
+    public static int getFirst1(int num){
+        int index = 0;
+        while(index&amp;lt;32){
+            if(((num&amp;amp;(1&amp;lt;&amp;lt;index))^(1&amp;lt;&amp;lt;index))==0)
+                return index+1;
+            else
+                index++;
+        }
+        return -1;
+    }
+
+    //判断这个数这一位是否为1
+    public static boolean is1AtPos(int num,int pos){    
+        return ((num&amp;gt;&amp;gt;(pos-1))&amp;amp;1)==1;
+    }
+
+    //寻找这两个数
+    public static int[] get2Num(int[] a){
+        int [] find2Num = new int[2];
+        //默认初始化0
+        int rs = 0;
+        for (int i : a) {
+            rs ^= i;//亦或全体求x
+        int pos=getFirst1(rs);//寻找第一个出现1的位
+        for (int j : a) {
+            if(is1AtPos(j,pos))//按这位是否位1分组
+                find2Num[0] ^= j;
+            else
+                find2Num[1] ^= j;           
+        }
+        System.out.println(find2Num[0]+&amp;quot; &amp;quot;+find2Num[1]);
+        return find2Num;
+    }
+&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&quot;使用位亦或-节约空间的数据交换&quot;&gt;&lt;a href=&quot;#使用位亦或-节约空间的数据交换&quot; class=&quot;headerlink&quot; title=&quot;使用位亦或(^)节约空间的数据交换&quot;&gt;&lt;/a&gt;使用位亦或(^)节约空间的数据交换&lt;/h2&gt;&lt;p&gt;原理：a亦或b=c，b亦或a=c，也就是亦或满足交换律；位亦或的逆运算，也就是&lt;code&gt;(a^b)^b=a&lt;/code&gt;等于它自己。所以，只需三个亦或运算即可交换数据。看代码。&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;    a ^= b;
     b ^= a;

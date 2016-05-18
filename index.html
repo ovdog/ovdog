@@ -465,6 +465,44 @@ int d = ~c;//输出d为-51 2的ascii为50(十进制) 32(十六进制)
 <p>[一个数组里除了一个数值出现一次，其他都出现了两次。找出这个数值。]<br>将这个数组全部亦或一遍，则出现两次的都可以按照交换律结合律化为0，</p>
 </blockquote>
 <p>同样的，对于二进制数的某一位，若想对它取反，可以让整个数与000……1……000亦或。</p>
+<h2 id="数组内只存在两个奇数次出现的数，其他都出现了偶数次，找出这两个数"><a href="#数组内只存在两个奇数次出现的数，其他都出现了偶数次，找出这两个数" class="headerlink" title="数组内只存在两个奇数次出现的数，其他都出现了偶数次，找出这两个数"></a>数组内只存在两个奇数次出现的数，其他都出现了偶数次，找出这两个数</h2><blockquote>
+<p>思路：这就是上面实例的改进，因为知道了其他数字都出现了偶数次，全体亦或的结果就是<code>x=a^b</code> 其中a b分别是所要找的这两个数。由于a b不同，则x必然不为零，也必然存在为1的位（可以取从右第一次出现1的位置）。同时由于是亦或操作，这个1必然是a和b相异造成的。这样，把这一位为1的分一组，这一位为0的分一组，出现偶数次的依然会被分到一组通过亦或自己消除。</p>
+</blockquote>
+<pre><code class="java">    //从右寻找补码中1第一次出现的位置
+    public static int getFirst1(int num){
+        int index = 0;
+        while(index&lt;32){
+            if(((num&amp;(1&lt;&lt;index))^(1&lt;&lt;index))==0)
+                return index+1;
+            else
+                index++;
+        }
+        return -1;
+    }
+
+    //判断这个数这一位是否为1
+    public static boolean is1AtPos(int num,int pos){    
+        return ((num&gt;&gt;(pos-1))&amp;1)==1;
+    }
+
+    //寻找这两个数
+    public static int[] get2Num(int[] a){
+        int [] find2Num = new int[2];
+        //默认初始化0
+        int rs = 0;
+        for (int i : a) {
+            rs ^= i;//亦或全体求x
+        int pos=getFirst1(rs);//寻找第一个出现1的位
+        for (int j : a) {
+            if(is1AtPos(j,pos))//按这位是否位1分组
+                find2Num[0] ^= j;
+            else
+                find2Num[1] ^= j;           
+        }
+        System.out.println(find2Num[0]+&quot; &quot;+find2Num[1]);
+        return find2Num;
+    }
+</code></pre>
 <h2 id="使用位亦或-节约空间的数据交换"><a href="#使用位亦或-节约空间的数据交换" class="headerlink" title="使用位亦或(^)节约空间的数据交换"></a>使用位亦或(^)节约空间的数据交换</h2><p>原理：a亦或b=c，b亦或a=c，也就是亦或满足交换律；位亦或的逆运算，也就是<code>(a^b)^b=a</code>等于它自己。所以，只需三个亦或运算即可交换数据。看代码。</p>
 <pre><code>    a ^= b;
     b ^= a;
