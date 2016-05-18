@@ -88,7 +88,7 @@
 <meta property="og:url" content="http://ovjaywang.github.io/2016/05/03/树系列码集合-持更/index.html">
 <meta property="og:site_name" content="ov智商捉急">
 <meta property="og:description" content="本文持更树操作集合-码狗学习中">
-<meta property="og:updated_time" content="2016-05-17T14:10:51.690Z">
+<meta property="og:updated_time" content="2016-05-18T02:26:24.567Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="树系列码集合[持更20160517]">
 <meta name="twitter:description" content="本文持更树操作集合-码狗学习中">
@@ -533,7 +533,7 @@ typedef struct TreeNode
     }TreeNode, *BiTree;
 </code></pre>
 <h2 id="后序遍历，栈求高，最大栈长度为树高"><a href="#后序遍历，栈求高，最大栈长度为树高" class="headerlink" title="后序遍历，栈求高，最大栈长度为树高"></a>后序遍历，栈求高，最大栈长度为树高</h2><blockquote>
-<p>思路：进左右子则入栈，返回根节点则出栈。每次入栈就检查一次栈长度是否大于最大高度</p>
+<p>思路：进左右子则入栈，返回根节点则出栈。每次左右子树检查完毕就比较一次栈长度是否大于最大高度</p>
 </blockquote>
 <pre><code class="c++">    int BT_high(BiTree T){
         BiTree p = T, r = NULL;
@@ -610,7 +610,7 @@ typedef struct TreeNode
     return max;
 }
 </code></pre>
-<h2 id="递归求树高"><a href="#递归求树高" class="headerlink" title="递归求树高"></a>递归求树高</h2><blockquote>
+<h2 id="递归求树高"><a href="#递归求树高" class="headerlink" title="递归求树高"></a>递归求树高</h2><h3 id="后序递归带深度求高"><a href="#后序递归带深度求高" class="headerlink" title="后序递归带深度求高"></a>后序递归带深度求高</h3><blockquote>
 <p>思路:后序遍历所有节点，递归调用并检查当前节点是否为最大值。</p>
 </blockquote>
 <pre><code class="c++">int max1 = 0;//树高  
@@ -628,7 +628,9 @@ int BT_depth1(BiTree T, int depth)
     return depth;
 }
 </code></pre>
-<h2 id="递归求树高2"><a href="#递归求树高2" class="headerlink" title="递归求树高2"></a>递归求树高2</h2><p>思路： 求左右子树的高度，分别又把左右子树当做根求他们的子树。每次迭代返回当前左右子树高的那一个。</p>
+<h3 id="左右子树递归求树高"><a href="#左右子树递归求树高" class="headerlink" title="左右子树递归求树高"></a>左右子树递归求树高</h3><blockquote>
+<p>思路： 求左右子树的高度，分别又把左右子树当做根求他们的子树。每次迭代返回当前左右子树高的那一个。</p>
+</blockquote>
 <pre><code>int Height(BiTree T)
 {
     if (T == NULL) return 0;
@@ -639,7 +641,7 @@ int BT_depth1(BiTree T, int depth)
         return (m &gt; n) ? (m + 1) : (n + 1);
     }
 }
-</code></pre>
+</code></pre><p>代码见<a href="https://github.com/ovjaywang/TreeInvolved/tree/master/GetMaxDepth" target="_blank" rel="external">这里</a></p>
       
     </div>
     
@@ -866,7 +868,7 @@ int BT_depth1(BiTree T, int depth)
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#二叉查找树转双链表（c-）"><span class="nav-number">1.</span> <span class="nav-text">二叉查找树转双链表（c++）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在二叉查找树里查找范围内数据-c"><span class="nav-number">2.</span> <span class="nav-text">在二叉查找树里查找范围内数据(c++)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#输出-平衡-二叉树所有和为某值的路径"><span class="nav-number">3.</span> <span class="nav-text">输出(平衡)二叉树所有和为某值的路径</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#求树高的几种方式"><span class="nav-number">4.</span> <span class="nav-text">求树高的几种方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#后序遍历，栈求高，最大栈长度为树高"><span class="nav-number">4.1.</span> <span class="nav-text">后序遍历，栈求高，最大栈长度为树高</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#层次遍历-层高即树高"><span class="nav-number">4.2.</span> <span class="nav-text">层次遍历 层高即树高</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#层次遍历-单数组"><span class="nav-number">4.2.1.</span> <span class="nav-text">层次遍历-单数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#层次遍历-双端队列"><span class="nav-number">4.2.2.</span> <span class="nav-text">层次遍历-双端队列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归求树高"><span class="nav-number">4.3.</span> <span class="nav-text">递归求树高</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归求树高2"><span class="nav-number">4.4.</span> <span class="nav-text">递归求树高2</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#二叉查找树转双链表（c-）"><span class="nav-number">1.</span> <span class="nav-text">二叉查找树转双链表（c++）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在二叉查找树里查找范围内数据-c"><span class="nav-number">2.</span> <span class="nav-text">在二叉查找树里查找范围内数据(c++)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#输出-平衡-二叉树所有和为某值的路径"><span class="nav-number">3.</span> <span class="nav-text">输出(平衡)二叉树所有和为某值的路径</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#求树高的几种方式"><span class="nav-number">4.</span> <span class="nav-text">求树高的几种方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#后序遍历，栈求高，最大栈长度为树高"><span class="nav-number">4.1.</span> <span class="nav-text">后序遍历，栈求高，最大栈长度为树高</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#层次遍历-层高即树高"><span class="nav-number">4.2.</span> <span class="nav-text">层次遍历 层高即树高</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#层次遍历-单数组"><span class="nav-number">4.2.1.</span> <span class="nav-text">层次遍历-单数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#层次遍历-双端队列"><span class="nav-number">4.2.2.</span> <span class="nav-text">层次遍历-双端队列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归求树高"><span class="nav-number">4.3.</span> <span class="nav-text">递归求树高</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#后序递归带深度求高"><span class="nav-number">4.3.1.</span> <span class="nav-text">后序递归带深度求高</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#左右子树递归求树高"><span class="nav-number">4.3.2.</span> <span class="nav-text">左右子树递归求树高</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>

@@ -97,7 +97,7 @@
     <link href="http://ovjaywang.github.io/2016/05/03/%E6%A0%91%E7%B3%BB%E5%88%97%E7%A0%81%E9%9B%86%E5%90%88-%E6%8C%81%E6%9B%B4/"/>
     <id>http://ovjaywang.github.io/2016/05/03/树系列码集合-持更/</id>
     <published>2016-05-03T15:06:28.000Z</published>
-    <updated>2016-05-17T14:10:51.690Z</updated>
+    <updated>2016-05-18T02:26:24.567Z</updated>
     
     <content type="html">&lt;p&gt;本文持更树操作集合-码狗学习中&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;二叉查找树转双链表（c-）&quot;&gt;&lt;a href=&quot;#二叉查找树转双链表（c-）&quot; class=&quot;headerlink&quot; title=&quot;二叉查找树转双链表（c++）&quot;&gt;&lt;/a&gt;二叉查找树转双链表（c++）&lt;/h1&gt;&lt;blockquote&gt;
@@ -254,7 +254,7 @@ typedef struct TreeNode
     }TreeNode, *BiTree;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&quot;后序遍历，栈求高，最大栈长度为树高&quot;&gt;&lt;a href=&quot;#后序遍历，栈求高，最大栈长度为树高&quot; class=&quot;headerlink&quot; title=&quot;后序遍历，栈求高，最大栈长度为树高&quot;&gt;&lt;/a&gt;后序遍历，栈求高，最大栈长度为树高&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;思路：进左右子则入栈，返回根节点则出栈。每次入栈就检查一次栈长度是否大于最大高度&lt;/p&gt;
+&lt;p&gt;思路：进左右子则入栈，返回根节点则出栈。每次左右子树检查完毕就比较一次栈长度是否大于最大高度&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;pre&gt;&lt;code class=&quot;c++&quot;&gt;    int BT_high(BiTree T){
         BiTree p = T, r = NULL;
@@ -331,7 +331,7 @@ typedef struct TreeNode
     return max;
 }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&quot;递归求树高&quot;&gt;&lt;a href=&quot;#递归求树高&quot; class=&quot;headerlink&quot; title=&quot;递归求树高&quot;&gt;&lt;/a&gt;递归求树高&lt;/h2&gt;&lt;blockquote&gt;
+&lt;h2 id=&quot;递归求树高&quot;&gt;&lt;a href=&quot;#递归求树高&quot; class=&quot;headerlink&quot; title=&quot;递归求树高&quot;&gt;&lt;/a&gt;递归求树高&lt;/h2&gt;&lt;h3 id=&quot;后序递归带深度求高&quot;&gt;&lt;a href=&quot;#后序递归带深度求高&quot; class=&quot;headerlink&quot; title=&quot;后序递归带深度求高&quot;&gt;&lt;/a&gt;后序递归带深度求高&lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;思路:后序遍历所有节点，递归调用并检查当前节点是否为最大值。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;pre&gt;&lt;code class=&quot;c++&quot;&gt;int max1 = 0;//树高  
@@ -349,7 +349,9 @@ int BT_depth1(BiTree T, int depth)
     return depth;
 }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&quot;递归求树高2&quot;&gt;&lt;a href=&quot;#递归求树高2&quot; class=&quot;headerlink&quot; title=&quot;递归求树高2&quot;&gt;&lt;/a&gt;递归求树高2&lt;/h2&gt;&lt;p&gt;思路： 求左右子树的高度，分别又把左右子树当做根求他们的子树。每次迭代返回当前左右子树高的那一个。&lt;/p&gt;
+&lt;h3 id=&quot;左右子树递归求树高&quot;&gt;&lt;a href=&quot;#左右子树递归求树高&quot; class=&quot;headerlink&quot; title=&quot;左右子树递归求树高&quot;&gt;&lt;/a&gt;左右子树递归求树高&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;思路： 求左右子树的高度，分别又把左右子树当做根求他们的子树。每次迭代返回当前左右子树高的那一个。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;pre&gt;&lt;code&gt;int Height(BiTree T)
 {
     if (T == NULL) return 0;
@@ -360,7 +362,7 @@ int BT_depth1(BiTree T, int depth)
         return (m &amp;gt; n) ? (m + 1) : (n + 1);
     }
 }
-&lt;/code&gt;&lt;/pre&gt;</content>
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;代码见&lt;a href=&quot;https://github.com/ovjaywang/TreeInvolved/tree/master/GetMaxDepth&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;</content>
     
     <summary type="html">
     
