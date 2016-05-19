@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ovjaywang.github.io/"/>
-  <updated>2016-05-19T04:50:39.744Z</updated>
+  <updated>2016-05-19T11:16:45.288Z</updated>
   <id>http://ovjaywang.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://ovjaywang.github.io/2016/05/12/%E4%BD%8D%E8%BF%90%E7%AE%97%E5%90%84%E7%A7%8D/"/>
     <id>http://ovjaywang.github.io/2016/05/12/位运算各种/</id>
     <published>2016-05-12T03:12:00.000Z</published>
-    <updated>2016-05-19T04:50:39.744Z</updated>
+    <updated>2016-05-19T11:16:45.288Z</updated>
     
     <content type="html">&lt;p&gt;最近发现位运算在很多场合有很多运用啊。大概有以下几个方面:&lt;/p&gt;
 &lt;ul&gt;
@@ -115,7 +115,7 @@ int d = ~c;//输出d为-51 2的ascii为50(十进制) 32(十六进制)
 &lt;pre&gt;&lt;code class=&quot;java&quot;&gt;    //从右寻找补码中1第一次出现的位置
     public static int getFirst1(int num){
         int index = 0;
-        while(index&amp;lt;32){
+        while(index&amp;lt;32){//Integer有32位
             if(((num&amp;amp;(1&amp;lt;&amp;lt;index))^(1&amp;lt;&amp;lt;index))==0)
                 return index+1;
             else
@@ -235,6 +235,84 @@ int b = b&amp;gt;&amp;gt;k | b &amp;gt;&amp;gt; (Integer.SIZE-k); //右数第k�
             return t*t;  
         }  
     }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;下面还有更&lt;strong&gt;炸裂&lt;/strong&gt;的&lt;/p&gt;
+&lt;h2 id=&quot;利用位移求二进制里1的奇偶&quot;&gt;&lt;a href=&quot;#利用位移求二进制里1的奇偶&quot; class=&quot;headerlink&quot; title=&quot;利用位移求二进制里1的奇偶&quot;&gt;&lt;/a&gt;利用位移求二进制里1的奇偶&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;一般的思路就是，一位一位截末位，为1则亦或一下，为0则不管。对于Integer需要循环32次，对byte需要循环8次。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;1数量为奇则返回1，为偶数则返回0。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;    public static int get11Count(int x){
+            int i=0;
+            for(int j =0 ;j&amp;lt;32;j++){
+                if((x&amp;amp;1)==1)
+                    i ^= x&amp;amp;1;  
+                x &amp;gt;&amp;gt;= 1;
+            }
+            return i;
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;但四，这个方式没有体现位移的优越性。通过分治的思想，由于结果只求1或0，那么通过1位表达2位的信息，通过2位表达4位的信息，通过4位表达8位的信息，通过8位表达16位的信息，通过16位表达32位的信息。通过五次&lt;strong&gt;表达&lt;/strong&gt;，就可以求出结果。&lt;br&gt;先看代码&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;    public static int get1Count(int x){
+    //返回二进制数有偶数还是奇数个1 偶数返回0 奇数返回1
+            x = x ^ (x &amp;gt;&amp;gt; 1);
+            x = x ^ (x &amp;gt;&amp;gt; 2);
+            x = x ^ (x &amp;gt;&amp;gt; 4);
+            x = x ^ (x &amp;gt;&amp;gt; 8);
+            x = x ^ (x &amp;gt;&amp;gt; 16);
+        return x&amp;amp;1;
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;解析一下。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;计算二进制1的个数&quot;&gt;&lt;a href=&quot;#计算二进制1的个数&quot; class=&quot;headerlink&quot; title=&quot;计算二进制1的个数&quot;&gt;&lt;/a&gt;计算二进制1的个数&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;iostream&amp;gt;
+
+using namespace std;
+
+int main(int argc, char *argv[]) {
+    int x;
+    while (cin &amp;gt;&amp;gt; x) {
+        x = (x &amp;amp; 0x55555555) + ((x &amp;gt;&amp;gt; 1) &amp;amp; 0x55555555);
+        x = (x &amp;amp; 0x33333333) + ((x &amp;gt;&amp;gt; 2) &amp;amp; 0x33333333);
+        x = (x &amp;amp; 0x0F0F0F0F) + ((x &amp;gt;&amp;gt; 4) &amp;amp; 0x0F0F0F0F);
+        x = (x &amp;amp; 0x00FF00FF) + ((x &amp;gt;&amp;gt; 8) &amp;amp; 0x00FF00FF);
+        x = (x &amp;amp; 0x0000FFFF) + ((x &amp;gt;&amp;gt; 16) &amp;amp; 0x0000FFFF);
+        cout &amp;lt;&amp;lt; x &amp;lt;&amp;lt; endl;
+    }
+    return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;求二进制最高位前0的个数&quot;&gt;&lt;a href=&quot;#求二进制最高位前0的个数&quot; class=&quot;headerlink&quot; title=&quot;求二进制最高位前0的个数&quot;&gt;&lt;/a&gt;求二进制最高位前0的个数&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;int nlz(unsigned x)
+{
+   int n;
+
+   if (x == 0) return(32);
+   n = 1;
+   if ((x &amp;gt;&amp;gt; 16) == 0) {n += 16; x &amp;lt;&amp;lt;= 16;}
+   if ((x &amp;gt;&amp;gt; 24) == 0) {n += 8; x &amp;lt;&amp;lt;= 8;}
+   if ((x &amp;gt;&amp;gt; 28) == 0) {n += 4; x &amp;lt;&amp;lt;= 4;}
+   if ((x &amp;gt;&amp;gt; 30) == 0) {n += 2; x &amp;lt;&amp;lt;= 2;}
+   n = n - (x &amp;gt;&amp;gt; 31);
+   return n;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;二进制逆序&quot;&gt;&lt;a href=&quot;#二进制逆序&quot; class=&quot;headerlink&quot; title=&quot;二进制逆序&quot;&gt;&lt;/a&gt;二进制逆序&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;int change(int x)
+{
+    x = (x &amp;amp; 0x55555555) &amp;lt;&amp;lt; 1 | (x &amp;amp; 0xAAAAAAAA) &amp;gt;&amp;gt; 1;
+    x = (x &amp;amp; 0x33333333) &amp;lt;&amp;lt; 2 | (x &amp;amp; 0xCCCCCCCC) &amp;gt;&amp;gt; 2;
+    x = (x &amp;amp; 0x0F0F0F0F) &amp;lt;&amp;lt; 4 | (x &amp;amp; 0xF0F0F0F0) &amp;gt;&amp;gt; 4;
+    x = (x &amp;amp; 0x00FF00FF) &amp;lt;&amp;lt; 8 | (x &amp;amp; 0xFF00FF00) &amp;gt;&amp;gt; 8;
+    x = (x &amp;amp; 0x0000FFFF) &amp;lt;&amp;lt; 16 | (x &amp;amp; 0xFFFF0000) &amp;gt;&amp;gt; 16;
+    return x;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;位移求绝对值&quot;&gt;&lt;a href=&quot;#位移求绝对值&quot; class=&quot;headerlink&quot; title=&quot;位移求绝对值&quot;&gt;&lt;/a&gt;位移求绝对值&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;x xor (not (x shr 31) + 1) + x shr 31
+x = x ^ ((~(x&amp;gt;&amp;gt;31))+1) + x&amp;gt;&amp;gt;31;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;交换二进制高16位和低16位&quot;&gt;&lt;a href=&quot;#交换二进制高16位和低16位&quot; class=&quot;headerlink&quot; title=&quot;交换二进制高16位和低16位&quot;&gt;&lt;/a&gt;交换二进制高16位和低16位&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;int change(int x)
+{
+   return (x &amp;gt;&amp;gt; 16) | (x &amp;lt;&amp;lt; 16);
+   //byte可写成(x &amp;gt;&amp;gt; 4) | (x &amp;lt;&amp;lt; 4);
+}
 &lt;/code&gt;&lt;/pre&gt;</content>
     
     <summary type="html">
