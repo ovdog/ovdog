@@ -1717,8 +1717,8 @@ public class TestHa {
   
   <entry>
     <title>[汇总]pc Android iOS传输文件</title>
-    <link href="http://ovjaywang.github.io/2016/01/04/%5B%E6%B1%87%E6%80%BB%5D%5B2015.1.3%5D%E7%94%B5%E8%84%91%E7%AB%AF%E4%B8%8EAndroid%20iOS%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6/"/>
-    <id>http://ovjaywang.github.io/2016/01/04/[汇总][2015.1.3]电脑端与Android iOS传输文件/</id>
+    <link href="http://ovjaywang.github.io/2016/01/04/pc-phone-communication/"/>
+    <id>http://ovjaywang.github.io/2016/01/04/pc-phone-communication/</id>
     <published>2016-01-03T16:35:49.000Z</published>
     <updated>2016-04-29T09:13:23.590Z</updated>
     
@@ -2083,8 +2083,8 @@ boolean isScreenOn = pm.isScreenOn();
   
   <entry>
     <title>后方交会检校(8)--光束法区域平差 bundle block adjustment</title>
-    <link href="http://ovjaywang.github.io/2015/11/18/%E5%90%8E%E6%96%B9%E4%BA%A4%E4%BC%9A%E6%A3%80%E6%A0%A1(8)--%E5%85%89%E6%9D%9F%E6%B3%95%E5%8C%BA%E5%9F%9F%E5%B9%B3%E5%B7%AE%20bundle%20block%20adjustment/"/>
-    <id>http://ovjaywang.github.io/2015/11/18/后方交会检校(8)--光束法区域平差 bundle block adjustment/</id>
+    <link href="http://ovjaywang.github.io/2015/11/18/%E5%90%8E%E6%96%B9%E4%BA%A4%E4%BC%9A%E6%A3%80%E6%A0%A1(8)/"/>
+    <id>http://ovjaywang.github.io/2015/11/18/后方交会检校(8)/</id>
     <published>2015-11-18T15:17:39.000Z</published>
     <updated>2016-04-11T14:09:45.581Z</updated>
     
@@ -2125,8 +2125,8 @@ boolean isScreenOn = pm.isScreenOn();
   
   <entry>
     <title>后方交会检校(7)--后方检校精度的检验</title>
-    <link href="http://ovjaywang.github.io/2015/11/09/%E5%90%8E%E6%96%B9%E4%BA%A4%E4%BC%9A%E6%A3%80%E6%A0%A1(7)--%E5%90%8E%E6%96%B9%E6%A3%80%E6%A0%A1%E7%B2%BE%E5%BA%A6%E7%9A%84%E6%A3%80%E9%AA%8C/"/>
-    <id>http://ovjaywang.github.io/2015/11/09/后方交会检校(7)--后方检校精度的检验/</id>
+    <link href="http://ovjaywang.github.io/2015/11/09/%E5%90%8E%E6%96%B9%E4%BA%A4%E4%BC%9A%E6%A3%80%E6%A0%A1(7)/"/>
+    <id>http://ovjaywang.github.io/2015/11/09/后方交会检校(7)/</id>
     <published>2015-11-09T09:39:06.000Z</published>
     <updated>2016-04-11T14:09:45.581Z</updated>
     

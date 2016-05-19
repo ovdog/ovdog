@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="检校,">
+  <meta name="keywords" content="后方交会,检校,精度,">
 
 
 
@@ -82,28 +82,28 @@
 
 
 
-<meta name="description" content="航空摄影最终的目标都是，将某一波段的图像（传感器接收的某一宽度波长的电磁波），在一定范围（地理空间范畴）内融合在一起。原因有：①拍摄的每幅图像幅宽有限（高的分辨率不够低了拍的面积不够多）
-
-②需要研究的区域相对一张或几张照片来说，太太太大了，没有或难以测量地面的标识，就只能靠拼接（然而飞机需要飞行，飞行需要时间，时间就带来光照、镜头本身、飞行姿态等各种变化）
-
-③除了高端的飞机带有精度极高的POS">
+<meta name="description" content="后方交会得到的结果，除了使用平差误差表达式来计算之外，还可以通过以下方式进行检验和矫正。
+①利用旋转矩阵，使用物放三维数据，反算二维坐标点，比较二者之差。
+&amp;nbsp;
+②利用多片空间前方交会，通过未参与空间后方交会计算的控制点像点坐标反算理论空间坐标，得出空间坐标的误差。
+使用条件：至少2张相片的内方位元素、外方位元素、畸变因子。把待定点的像点坐标作为观测值，逐点求解待定点物方空间坐标的过程。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="后方交会检校(8)--光束法区域平差 bundle block adjustment">
-<meta property="og:url" content="http://ovjaywang.github.io/2015/11/18/后方交会检校(8)--光束法区域平差 bundle block adjustment/index.html">
+<meta property="og:title" content="后方交会检校(7)--后方检校精度的检验">
+<meta property="og:url" content="http://ovjaywang.github.io/2015/11/09/后方交会检校(7)/index.html">
 <meta property="og:site_name" content="ov智商捉急">
-<meta property="og:description" content="航空摄影最终的目标都是，将某一波段的图像（传感器接收的某一宽度波长的电磁波），在一定范围（地理空间范畴）内融合在一起。原因有：①拍摄的每幅图像幅宽有限（高的分辨率不够低了拍的面积不够多）
-
-②需要研究的区域相对一张或几张照片来说，太太太大了，没有或难以测量地面的标识，就只能靠拼接（然而飞机需要飞行，飞行需要时间，时间就带来光照、镜头本身、飞行姿态等各种变化）
-
-③除了高端的飞机带有精度极高的POS">
+<meta property="og:description" content="后方交会得到的结果，除了使用平差误差表达式来计算之外，还可以通过以下方式进行检验和矫正。
+①利用旋转矩阵，使用物放三维数据，反算二维坐标点，比较二者之差。
+&amp;nbsp;
+②利用多片空间前方交会，通过未参与空间后方交会计算的控制点像点坐标反算理论空间坐标，得出空间坐标的误差。
+使用条件：至少2张相片的内方位元素、外方位元素、畸变因子。把待定点的像点坐标作为观测值，逐点求解待定点物方空间坐标的过程。">
 <meta property="og:updated_time" content="2016-04-11T14:09:45.581Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="后方交会检校(8)--光束法区域平差 bundle block adjustment">
-<meta name="twitter:description" content="航空摄影最终的目标都是，将某一波段的图像（传感器接收的某一宽度波长的电磁波），在一定范围（地理空间范畴）内融合在一起。原因有：①拍摄的每幅图像幅宽有限（高的分辨率不够低了拍的面积不够多）
-
-②需要研究的区域相对一张或几张照片来说，太太太大了，没有或难以测量地面的标识，就只能靠拼接（然而飞机需要飞行，飞行需要时间，时间就带来光照、镜头本身、飞行姿态等各种变化）
-
-③除了高端的飞机带有精度极高的POS">
+<meta name="twitter:title" content="后方交会检校(7)--后方检校精度的检验">
+<meta name="twitter:description" content="后方交会得到的结果，除了使用平差误差表达式来计算之外，还可以通过以下方式进行检验和矫正。
+①利用旋转矩阵，使用物放三维数据，反算二维坐标点，比较二者之差。
+&amp;nbsp;
+②利用多片空间前方交会，通过未参与空间后方交会计算的控制点像点坐标反算理论空间坐标，得出空间坐标的误差。
+使用条件：至少2张相片的内方位元素、外方位元素、畸变因子。把待定点的像点坐标作为观测值，逐点求解待定点物方空间坐标的过程。">
 
 
 
@@ -121,7 +121,7 @@
   };
 </script>
 
-  <title> 后方交会检校(8)--光束法区域平差 bundle block adjustment | ov智商捉急 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> 后方交会检校(7)--后方检校精度的检验 | ov智商捉急 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -307,7 +307,7 @@
             
             
               
-                后方交会检校(8)--光束法区域平差 bundle block adjustment
+                后方交会检校(7)--后方检校精度的检验
               
             
           </h1>
@@ -319,8 +319,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-11-18T23:17:39+08:00" content="2015-11-18">
-              2015-11-18
+            <time itemprop="dateCreated" datetime="2015-11-09T17:39:06+08:00" content="2015-11-09">
+              2015-11-09
             </time>
           </span>
 
@@ -361,8 +361,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/11/18/后方交会检校(8)--光束法区域平差 bundle block adjustment/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/18/后方交会检校(8)--光束法区域平差 bundle block adjustment/" itemprop="commentsCount"></span>
+                <a href="/2015/11/09/后方交会检校(7)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/09/后方交会检校(7)/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -390,25 +390,14 @@
       
 
       
-        <font size="3">航空摄影最终的目标都是，将某一波段的图像（传感器接收的某一宽度波长的电磁波），在一定范围（地理空间范畴）内融合在一起。原因有：</font><br><br><font size="3">①拍摄的每幅图像幅宽有限（高的分辨率不够低了拍的面积不够多）</font>
-
-<font size="3">②需要研究的区域相对一张或几张照片来说，太太太大了，没有或难以测量地面的标识，就只能靠拼接（然而飞机需要飞行，飞行需要时间，时间就带来光照、镜头本身、飞行姿态等各种变化）</font>
-
-<font size="3">③除了高端的飞机带有精度极高的POS（position &amp; orientation system）能够实时记录飞行的姿态，即飞机的朝向、飞机的地理位置等明确告诉我该用哪个位置的点拼起来的，其他只能依赖，连续两张图片的相关性来拼（这里讲的就是，同名点即tie point）</font>
-
-<p>——航摄大致思路？完成这一工作，最主要的工作是法一：利用地面其他物体的三维坐标（灰机、相机的某一时刻姿态也可以）点确定相邻两幅图像的地理位置（三维的，依赖地理空间的）——&gt;解算相对位置；法二，利用同名点（两幅图像都拍到的点，二维的，不依赖地理空间的），找到某个投影变换（即一个投影矩阵），直接解求两幅相邻图像的相对位置。</p>
+        <p>后方交会得到的结果，除了使用平差误差表达式来计算之外，还可以通过以下方式进行检验和矫正。</p>
+<p>①利用旋转矩阵，使用物放三维数据，反算二维坐标点，比较二者之差。</p>
 <p>&nbsp;</p>
-<font size="3">航摄中常用的三种用于加密控制点的方法有<span style="color: #ff0000">航带法、独立模型法、光束法</span>。其中航带法精度较低，不能用于高精度的测量。独立模型法较前者精度略高，光束法则是精度最高同时计算量最大的模型，适用于高精度航摄。</font>
-
-<font size="3">——用来做啥?不同时刻的航摄图片，对绝对位置或相对坐标进行确认，为拼接准备。</font>
-
-<font size="3"><font color="#ff0000">自检较光束</font>则是最广泛应用的做法，尽管<font size="3">粗差（奇葩的大误差）对于精度的影响极大</font>。其基本思想是选用一个由若干个参数组成的系统误差模型，将这些附加参数作为未知数与区域网的其他参数一起解求，从而达到在平差过程中自动消除系统误差的目的。其缺点是①<span style="color: #ff0000">附加参数人为选择</span>，选择不当会导致迭代结果不收敛恶化计算结果。②附加参数与区域网参数一起解求，会使<span style="color: #ff0000">计算量明显上升</span>。</font>
-
-<font size="3"></font>&nbsp;<br><br><font size="3">光束法平差以单个像片作为平差单元（意思就是一个观测值是一个像片，主要包含像片的内外方位元素，它们作为一个整体，就如测量一个高程的值 一个坐标的值一样&nbsp; 在整个区域进行一边计算一边排错 进行平差处理 解算出每张相片的外方位元素 然后按照前方交会计算加密点（不同像片的拍下的重复点 tie point）坐标。</font>
-
-<div class="PoweredByWebStory" style="margin-bottom: 10px; margin-top: 15px"><font size="3">&nbsp;</font></div>
-
-<font size="3"></font>
+<p>②利用多片空间前方交会，通过未参与空间后方交会计算的控制点像点坐标反算理论空间坐标，得出空间坐标的误差。</p>
+<p>使用条件：至少2张相片的内方位元素、外方位元素、畸变因子。把待定点的像点坐标作为观测值，逐点求解待定点物方空间坐标的过程。</p>
+<p>其步骤与多片空间前方交会也类似，给定初值后，进行逐次迭代运算。误差方程为</p>
+<p>&nbsp;</p>
+<div class="PoweredByWebStory" style="margin-top:15px;margin-bottom:10px"><a href="http://sns.juziyue.com/webinvite.php?u=94887" target="_blank" rel="external"></a>&nbsp;今天你<a href="http://sns.juziyue.com/webinvite.php?u=94887" target="_blank" rel="external">菊子曰</a>了么？</div>
       
     </div>
     
@@ -428,7 +417,11 @@
       
         <div class="post-tags">
           
+            <a href="/tags/后方交会/" rel="tag">#后方交会</a>
+          
             <a href="/tags/检校/" rel="tag">#检校</a>
+          
+            <a href="/tags/精度/" rel="tag">#精度</a>
           
         </div>
       
@@ -437,16 +430,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/11/09/后方交会检校(7)--后方检校精度的检验/" rel="next" title="后方交会检校(7)--后方检校精度的检验">
-                <i class="fa fa-chevron-left"></i> 后方交会检校(7)--后方检校精度的检验
+              <a href="/2015/11/08/2015.11.08安装google 框架 service 一系列/" rel="next" title="[2015.11.08]安装google 框架 service 一系列">
+                <i class="fa fa-chevron-left"></i> [2015.11.08]安装google 框架 service 一系列
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/12/28/Android为毛耗电[1]/" rel="prev" title="Android为毛耗电[1]">
-                Android为毛耗电[1] <i class="fa fa-chevron-right"></i>
+              <a href="/2015/11/18/后方交会检校(8)/" rel="prev" title="后方交会检校(8)--光束法区域平差 bundle block adjustment">
+                后方交会检校(8)--光束法区域平差 bundle block adjustment <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -462,7 +455,7 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2015/11/18/后方交会检校(8)--光束法区域平差 bundle block adjustment/" data-title="后方交会检校(8)--光束法区域平差 bundle block adjustment" data-content="" data-url="http://ovjaywang.github.io/2015/11/18/后方交会检校(8)--光束法区域平差 bundle block adjustment/">
+        <div class="ds-share flat" data-thread-key="2015/11/09/后方交会检校(7)/" data-title="后方交会检校(7)--后方检校精度的检验" data-content="" data-url="http://ovjaywang.github.io/2015/11/09/后方交会检校(7)/">
   <div class="ds-share-inline">
     <ul class="ds-share-icons-16">
 
@@ -492,7 +485,7 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/11/18/后方交会检校(8)--光束法区域平差 bundle block adjustment/" data-title="后方交会检校(8)--光束法区域平差 bundle block adjustment" data-url="http://ovjaywang.github.io/2015/11/18/后方交会检校(8)--光束法区域平差 bundle block adjustment/">
+      <div class="ds-thread" data-thread-key="2015/11/09/后方交会检校(7)/" data-title="后方交会检校(7)--后方检校精度的检验" data-url="http://ovjaywang.github.io/2015/11/09/后方交会检校(7)/">
       </div>
     
   </div>
@@ -535,7 +528,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">105</span>
+              <span class="site-state-item-count">106</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
