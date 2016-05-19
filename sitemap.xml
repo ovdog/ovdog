@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ovjaywang.github.io/2013/08/12/update-efficient/</loc>
+    
+    <lastmod>2016-05-19T11:33:31.521Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ovjaywang.github.io/2015/11/04/%E5%90%8E%E6%96%B9%E4%BA%A4%E4%BC%9A%E6%A3%80%E6%A0%A1(5)--%E5%A4%9A%E7%89%87%E5%90%8E%E6%96%B9%E4%BA%A4%E4%BC%9A%20%E7%9B%B8%E5%AF%B9%E7%BB%9D%E5%AF%B9%E5%AE%9A%E5%90%91/</loc>
+    
+    <lastmod>2016-05-19T11:33:13.001Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ovjaywang.github.io/2015/05/12/harris-python-to-exe/</loc>
+    
+    <lastmod>2016-05-19T11:32:43.306Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ovjaywang.github.io/2016/04/10/Hello-Hexo/</loc>
+    
+    <lastmod>2016-05-19T11:31:50.251Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ovjaywang.github.io/2016/05/12/%E4%BD%8D%E8%BF%90%E7%AE%97%E5%90%84%E7%A7%8D/</loc>
     
     <lastmod>2016-05-19T11:16:45.288Z</lastmod>
@@ -40,13 +68,6 @@
     <loc>http://ovjaywang.github.io/2016/04/22/effective%20java--builer%E6%9E%84%E9%80%A0%E5%99%A8/</loc>
     
     <lastmod>2016-05-16T13:18:24.708Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ovjaywang.github.io/2016/04/10/Hello-Hexo/</loc>
-    
-    <lastmod>2016-05-16T05:33:28.615Z</lastmod>
     
   </url>
   
@@ -240,119 +261,7 @@
   </url>
   
   <url>
-    <loc>http://ovjaywang.github.io/2015/05/12/harris-python-to-exe/</loc>
-    
-    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ovjaywang.github.io/2014/11/12/hadoop2.2+wordcount/</loc>
-    
-    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ovjaywang.github.io/2015/05/07/MFC%E4%B8%AD%E6%B7%BB%E5%8A%A0%E6%8E%A7%E5%88%B6%E5%8F%B0%E8%B0%83%E8%AF%95/</loc>
-    
-    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ovjaywang.github.io/2015/11/08/2015.11.08%E5%AE%89%E8%A3%85google%20%E6%A1%86%E6%9E%B6%20service%20%E4%B8%80%E7%B3%BB%E5%88%97/</loc>
-    
-    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ovjaywang.github.io/2014/05/15/%E7%8C%9C%E5%9C%B0%E5%9D%80%E6%B8%B8%E6%88%8F/</loc>
-    
-    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ovjaywang.github.io/2014/12/06/Android%20adt%20zip%E5%8C%85%E4%B8%8B%E8%BD%BD/</loc>
-    
-    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ovjaywang.github.io/2015/05/30/%E6%9C%80%E8%BF%91%E5%90%AC%E7%9A%84%E9%9F%B3%E4%B9%90/</loc>
-    
-    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ovjaywang.github.io/2014/05/25/%E8%A6%81%E6%9C%89%E8%BF%BD%E6%B1%82%E5%95%8A/</loc>
-    
-    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://ovjaywang.github.io/2014/12/15/SublimeText%E6%B7%BB%E5%8A%A0%E4%B8%AD%E6%96%87%E7%BC%96%E7%A0%81/</loc>
-    
-    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ovjaywang.github.io/2015/05/12/sift-with-python/</loc>
-    
-    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ovjaywang.github.io/2015/10/09/%E7%BA%A2%E5%8C%85%E5%9C%A8%E5%93%AA%E9%87%8C/</loc>
-    
-    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ovjaywang.github.io/2014/12/12/Hadoop2.2.0%20Mapreduce%20Log%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90%E5%B0%8F%E4%BE%8B/</loc>
-    
-    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ovjaywang.github.io/2014/10/12/erdas9.2+lps%E5%AE%89%E8%A3%85/</loc>
-    
-    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ovjaywang.github.io/2015/05/05/%5B%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B%E5%B0%8F%E7%BB%93%5D%5B110%5D/</loc>
-    
-    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ovjaywang.github.io/2015/11/18/%E5%90%8E%E6%96%B9%E4%BA%A4%E4%BC%9A%E6%A3%80%E6%A0%A1(8)--%E5%85%89%E6%9D%9F%E6%B3%95%E5%8C%BA%E5%9F%9F%E5%B9%B3%E5%B7%AE%20bundle%20block%20adjustment/</loc>
-    
-    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ovjaywang.github.io/2015/11/09/%E5%90%8E%E6%96%B9%E4%BA%A4%E4%BC%9A%E6%A3%80%E6%A0%A1(7)--%E5%90%8E%E6%96%B9%E6%A3%80%E6%A0%A1%E7%B2%BE%E5%BA%A6%E7%9A%84%E6%A3%80%E9%AA%8C/</loc>
-    
-    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ovjaywang.github.io/2014/05/09/trans-between-pc-and-phone/</loc>
     
     <lastmod>2016-04-11T14:09:45.581Z</lastmod>
     
@@ -373,7 +282,7 @@
   </url>
   
   <url>
-    <loc>http://ovjaywang.github.io/2015/11/04/%E5%90%8E%E6%96%B9%E4%BA%A4%E4%BC%9A%E6%A3%80%E6%A0%A1(6)--%E5%90%8E%E6%96%B9%E4%BA%A4%E4%BC%9A%E7%9A%84%E8%A1%A5%E5%85%85%E5%8F%8ADLT%E5%92%8C%E8%A7%92%E9%94%A5%E4%BD%93%E6%B3%95/</loc>
+    <loc>http://ovjaywang.github.io/2015/11/08/2015.11.08%E5%AE%89%E8%A3%85google%20%E6%A1%86%E6%9E%B6%20service%20%E4%B8%80%E7%B3%BB%E5%88%97/</loc>
     
     <lastmod>2016-04-11T14:09:45.581Z</lastmod>
     
@@ -387,27 +296,6 @@
   </url>
   
   <url>
-    <loc>http://ovjaywang.github.io/2015/10/28/%E5%90%8E%E6%96%B9%E4%BA%A4%E4%BC%9A%E6%A3%80%E6%A0%A1(4)--%E7%95%B8%E5%8F%98%E5%B7%AE%E7%9F%AB%E6%AD%A3/</loc>
-    
-    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ovjaywang.github.io/2015/10/28/%E5%90%8E%E6%96%B9%E4%BA%A4%E4%BC%9A%E6%A3%80%E6%A0%A1(3)--%E8%A7%92%E5%BA%A6%E3%80%81%E5%9D%90%E6%A0%87%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/</loc>
-    
-    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ovjaywang.github.io/2015/11/04/%E5%90%8E%E6%96%B9%E4%BA%A4%E4%BC%9A%E6%A3%80%E6%A0%A1(5)--%E5%A4%9A%E7%89%87%E5%90%8E%E6%96%B9%E4%BA%A4%E4%BC%9A%20%E7%9B%B8%E5%AF%B9%E7%BB%9D%E5%AF%B9%E5%AE%9A%E5%90%91/</loc>
-    
-    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://ovjaywang.github.io/2015/03/03/%E3%80%90%E7%94%B5%E5%BD%B1%E3%80%91%E3%80%902015%E3%80%91%20%E3%80%87%E4%BA%8C%E6%AC%A1%E7%82%B9%E8%AF%84/</loc>
     
     <lastmod>2016-04-11T14:09:45.581Z</lastmod>
@@ -415,7 +303,7 @@
   </url>
   
   <url>
-    <loc>http://ovjaywang.github.io/2015/02/01/%E3%80%90%E7%94%B5%E5%BD%B1%E3%80%91%E3%80%902015%E3%80%91%E3%80%87%E4%B8%80%E6%AC%A1%E7%82%B9%E8%AF%84/</loc>
+    <loc>http://ovjaywang.github.io/2015/05/07/MFC%E4%B8%AD%E6%B7%BB%E5%8A%A0%E6%8E%A7%E5%88%B6%E5%8F%B0%E8%B0%83%E8%AF%95/</loc>
     
     <lastmod>2016-04-11T14:09:45.581Z</lastmod>
     
@@ -429,7 +317,14 @@
   </url>
   
   <url>
-    <loc>http://ovjaywang.github.io/2014/05/08/goagent-chrome/</loc>
+    <loc>http://ovjaywang.github.io/2014/12/12/Hadoop2.2.0%20Mapreduce%20Log%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90%E5%B0%8F%E4%BE%8B/</loc>
+    
+    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ovjaywang.github.io/2015/05/12/sift-with-python/</loc>
     
     <lastmod>2016-04-11T14:09:45.581Z</lastmod>
     
@@ -443,14 +338,119 @@
   </url>
   
   <url>
-    <loc>http://ovjaywang.github.io/2013/07/12/%E6%9C%AC%E4%BD%93%E7%9A%84%E4%BB%8B%E7%BB%8D/</loc>
+    <loc>http://ovjaywang.github.io/2014/12/06/Android%20adt%20zip%E5%8C%85%E4%B8%8B%E8%BD%BD/</loc>
     
-    <lastmod>2016-04-11T14:09:45.580Z</lastmod>
+    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://ovjaywang.github.io/2013/12/31/2013%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%8C%EF%BC%8C%E7%8E%A9%E4%B8%8D%E5%8A%A8/</loc>
+    <loc>http://ovjaywang.github.io/2014/05/25/%E8%A6%81%E6%9C%89%E8%BF%BD%E6%B1%82%E5%95%8A/</loc>
+    
+    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ovjaywang.github.io/2015/10/28/%E5%90%8E%E6%96%B9%E4%BA%A4%E4%BC%9A%E6%A3%80%E6%A0%A1(3)--%E8%A7%92%E5%BA%A6%E3%80%81%E5%9D%90%E6%A0%87%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/</loc>
+    
+    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ovjaywang.github.io/2015/10/28/%E5%90%8E%E6%96%B9%E4%BA%A4%E4%BC%9A%E6%A3%80%E6%A0%A1(4)--%E7%95%B8%E5%8F%98%E5%B7%AE%E7%9F%AB%E6%AD%A3/</loc>
+    
+    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ovjaywang.github.io/2015/11/04/%E5%90%8E%E6%96%B9%E4%BA%A4%E4%BC%9A%E6%A3%80%E6%A0%A1(6)--%E5%90%8E%E6%96%B9%E4%BA%A4%E4%BC%9A%E7%9A%84%E8%A1%A5%E5%85%85%E5%8F%8ADLT%E5%92%8C%E8%A7%92%E9%94%A5%E4%BD%93%E6%B3%95/</loc>
+    
+    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ovjaywang.github.io/2015/11/09/%E5%90%8E%E6%96%B9%E4%BA%A4%E4%BC%9A%E6%A3%80%E6%A0%A1(7)--%E5%90%8E%E6%96%B9%E6%A3%80%E6%A0%A1%E7%B2%BE%E5%BA%A6%E7%9A%84%E6%A3%80%E9%AA%8C/</loc>
+    
+    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ovjaywang.github.io/2015/11/18/%E5%90%8E%E6%96%B9%E4%BA%A4%E4%BC%9A%E6%A3%80%E6%A0%A1(8)--%E5%85%89%E6%9D%9F%E6%B3%95%E5%8C%BA%E5%9F%9F%E5%B9%B3%E5%B7%AE%20bundle%20block%20adjustment/</loc>
+    
+    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ovjaywang.github.io/2014/11/12/hadoop2.2+wordcount/</loc>
+    
+    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ovjaywang.github.io/2014/05/08/goagent-chrome/</loc>
+    
+    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ovjaywang.github.io/2014/05/09/trans-between-pc-and-phone/</loc>
+    
+    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ovjaywang.github.io/2014/10/12/erdas9.2+lps%E5%AE%89%E8%A3%85/</loc>
+    
+    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ovjaywang.github.io/2015/05/30/%E6%9C%80%E8%BF%91%E5%90%AC%E7%9A%84%E9%9F%B3%E4%B9%90/</loc>
+    
+    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ovjaywang.github.io/2015/10/09/%E7%BA%A2%E5%8C%85%E5%9C%A8%E5%93%AA%E9%87%8C/</loc>
+    
+    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ovjaywang.github.io/2015/05/05/%5B%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B%E5%B0%8F%E7%BB%93%5D%5B110%5D/</loc>
+    
+    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ovjaywang.github.io/2014/05/15/%E7%8C%9C%E5%9C%B0%E5%9D%80%E6%B8%B8%E6%88%8F/</loc>
+    
+    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ovjaywang.github.io/2015/02/01/%E3%80%90%E7%94%B5%E5%BD%B1%E3%80%91%E3%80%902015%E3%80%91%E3%80%87%E4%B8%80%E6%AC%A1%E7%82%B9%E8%AF%84/</loc>
+    
+    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ovjaywang.github.io/2013/05/26/android-listview-initpics-and-update/</loc>
     
     <lastmod>2016-04-11T14:09:45.580Z</lastmod>
     
@@ -464,77 +464,14 @@
   </url>
   
   <url>
-    <loc>http://ovjaywang.github.io/2013/05/14/%E5%86%85%E5%9C%B0%E7%A0%94%E7%A9%B6%E7%94%9F%E7%9A%84%E6%89%80%E4%B8%BA%E7%A7%91%E7%A0%94%E5%92%8C%E8%87%AA%E6%88%91%E5%85%BB%E6%88%90/</loc>
+    <loc>http://ovjaywang.github.io/2013/12/31/2013%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%8C%EF%BC%8C%E7%8E%A9%E4%B8%8D%E5%8A%A8/</loc>
     
     <lastmod>2016-04-11T14:09:45.580Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://ovjaywang.github.io/2013/06/02/android-listview-push-update/</loc>
-    
-    <lastmod>2016-04-11T14:09:45.580Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ovjaywang.github.io/2013/07/11/%E4%B8%BB%E9%A2%98%E6%9B%B4%E6%96%B0%E4%BC%A4%E4%B8%8D%E8%B5%B7/</loc>
-    
-    <lastmod>2016-04-11T14:09:45.580Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ovjaywang.github.io/2013/12/17/%E4%B8%8D%E4%BA%88%E7%BD%AE%E8%AF%84%E3%80%82/</loc>
-    
-    <lastmod>2016-04-11T14:09:45.580Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ovjaywang.github.io/2013/08/29/xiaomi-360-story/</loc>
-    
-    <lastmod>2016-04-11T14:09:45.580Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ovjaywang.github.io/2013/09/12/defy%20miui3.9.6%E5%8D%87%E7%BA%A7%E8%AE%B0%E5%BD%95/</loc>
-    
-    <lastmod>2016-04-11T14:09:45.580Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ovjaywang.github.io/2013/05/17/win8%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%83%AD%E7%82%B9%E5%88%9B%E5%BB%BA/</loc>
-    
-    <lastmod>2016-04-11T14:09:45.580Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ovjaywang.github.io/2013/08/12/update-efficient/</loc>
-    
-    <lastmod>2016-04-11T14:09:45.580Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ovjaywang.github.io/2013/08/11/top-10-reasons-to-root-your-android-phone/</loc>
-    
-    <lastmod>2016-04-11T14:09:45.580Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ovjaywang.github.io/2013/11/29/the-miss-next-life/</loc>
-    
-    <lastmod>2016-04-11T14:09:45.580Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ovjaywang.github.io/2013/06/09/%E5%9B%BD%E5%86%85%E4%B8%BB%E8%A6%81%E7%A7%91%E6%8A%80%E5%8D%9A%E5%AE%A2%E7%B1%BB%E5%9E%8B%E8%A1%A8/</loc>
+    <loc>http://ovjaywang.github.io/2014/01/03/%E8%80%83%E7%A0%94%E7%9B%AE%E6%A0%87%E3%80%82%E3%80%82%E3%80%82/</loc>
     
     <lastmod>2016-04-11T14:09:45.580Z</lastmod>
     
@@ -548,14 +485,42 @@
   </url>
   
   <url>
-    <loc>http://ovjaywang.github.io/2014/03/15/%E9%80%BC%E6%A0%BC%E4%B8%8D%E8%83%BD%E9%9A%8F%E4%BE%BF%E8%A3%85/</loc>
+    <loc>http://ovjaywang.github.io/2013/11/29/the-miss-next-life/</loc>
     
     <lastmod>2016-04-11T14:09:45.580Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://ovjaywang.github.io/2013/07/18/%E5%B0%8F%E7%9B%AE%E6%A0%87/</loc>
+    <loc>http://ovjaywang.github.io/2013/08/11/top-10-reasons-to-root-your-android-phone/</loc>
+    
+    <lastmod>2016-04-11T14:09:45.580Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ovjaywang.github.io/2013/09/12/defy%20miui3.9.6%E5%8D%87%E7%BA%A7%E8%AE%B0%E5%BD%95/</loc>
+    
+    <lastmod>2016-04-11T14:09:45.580Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ovjaywang.github.io/2013/07/21/OWL%E7%9A%84%E8%AF%AD%E4%B9%89%E8%AF%AD%E6%B3%95%E5%8F%8AJena%E5%88%9D%E6%AD%A5/</loc>
+    
+    <lastmod>2016-04-11T14:09:45.580Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ovjaywang.github.io/2013/06/11/listactivity-84onlistitemclick-nowork/</loc>
+    
+    <lastmod>2016-04-11T14:09:45.580Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ovjaywang.github.io/2013/07/24/owl%20jena%20owls%20ontology%E8%B5%84%E6%96%99%E9%9B%86%E5%90%88/</loc>
     
     <lastmod>2016-04-11T14:09:45.580Z</lastmod>
     
@@ -569,7 +534,42 @@
   </url>
   
   <url>
-    <loc>http://ovjaywang.github.io/2013/07/15/Ontology%E6%9C%AC%E4%BD%93%E7%9A%84%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/</loc>
+    <loc>http://ovjaywang.github.io/2013/06/09/%E5%9B%BD%E5%86%85%E4%B8%BB%E8%A6%81%E7%A7%91%E6%8A%80%E5%8D%9A%E5%AE%A2%E7%B1%BB%E5%9E%8B%E8%A1%A8/</loc>
+    
+    <lastmod>2016-04-11T14:09:45.580Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ovjaywang.github.io/2013/05/17/win8%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%83%AD%E7%82%B9%E5%88%9B%E5%BB%BA/</loc>
+    
+    <lastmod>2016-04-11T14:09:45.580Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ovjaywang.github.io/2013/08/10/%E8%80%83%E7%A0%94%E8%A7%86%E9%A2%91%E9%A9%AC%E5%85%8B/</loc>
+    
+    <lastmod>2016-04-11T14:09:45.580Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ovjaywang.github.io/2013/07/18/%E5%B0%8F%E7%9B%AE%E6%A0%87/</loc>
+    
+    <lastmod>2016-04-11T14:09:45.580Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ovjaywang.github.io/2013/08/29/xiaomi-360-story/</loc>
+    
+    <lastmod>2016-04-11T14:09:45.580Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ovjaywang.github.io/2013/06/02/android-listview-push-update/</loc>
     
     <lastmod>2016-04-11T14:09:45.580Z</lastmod>
     
@@ -590,7 +590,7 @@
   </url>
   
   <url>
-    <loc>http://ovjaywang.github.io/2013/07/24/owl%20jena%20owls%20ontology%E8%B5%84%E6%96%99%E9%9B%86%E5%90%88/</loc>
+    <loc>http://ovjaywang.github.io/2013/07/15/Ontology%E6%9C%AC%E4%BD%93%E7%9A%84%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/</loc>
     
     <lastmod>2016-04-11T14:09:45.580Z</lastmod>
     
@@ -604,7 +604,7 @@
   </url>
   
   <url>
-    <loc>http://ovjaywang.github.io/2013/05/26/android-listview-initpics-and-update/</loc>
+    <loc>http://ovjaywang.github.io/2013/07/12/%E6%9C%AC%E4%BD%93%E7%9A%84%E4%BB%8B%E7%BB%8D/</loc>
     
     <lastmod>2016-04-11T14:09:45.580Z</lastmod>
     
@@ -625,21 +625,21 @@
   </url>
   
   <url>
-    <loc>http://ovjaywang.github.io/2013/08/10/%E8%80%83%E7%A0%94%E8%A7%86%E9%A2%91%E9%A9%AC%E5%85%8B/</loc>
+    <loc>http://ovjaywang.github.io/2014/03/15/%E9%80%BC%E6%A0%BC%E4%B8%8D%E8%83%BD%E9%9A%8F%E4%BE%BF%E8%A3%85/</loc>
     
     <lastmod>2016-04-11T14:09:45.580Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://ovjaywang.github.io/2013/06/11/listactivity-84onlistitemclick-nowork/</loc>
+    <loc>http://ovjaywang.github.io/2013/12/17/%E4%B8%8D%E4%BA%88%E7%BD%AE%E8%AF%84%E3%80%82/</loc>
     
     <lastmod>2016-04-11T14:09:45.580Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://ovjaywang.github.io/2014/01/03/%E8%80%83%E7%A0%94%E6%94%BF%E6%B2%BB%E9%A2%84%E6%B5%8B/</loc>
+    <loc>http://ovjaywang.github.io/2013/07/11/%E4%B8%BB%E9%A2%98%E6%9B%B4%E6%96%B0%E4%BC%A4%E4%B8%8D%E8%B5%B7/</loc>
     
     <lastmod>2016-04-11T14:09:45.580Z</lastmod>
     
@@ -653,7 +653,7 @@
   </url>
   
   <url>
-    <loc>http://ovjaywang.github.io/2014/01/03/%E8%80%83%E7%A0%94%E7%9B%AE%E6%A0%87%E3%80%82%E3%80%82%E3%80%82/</loc>
+    <loc>http://ovjaywang.github.io/2014/01/03/%E8%80%83%E7%A0%94%E6%94%BF%E6%B2%BB%E9%A2%84%E6%B5%8B/</loc>
     
     <lastmod>2016-04-11T14:09:45.580Z</lastmod>
     
@@ -674,14 +674,28 @@
   </url>
   
   <url>
-    <loc>http://ovjaywang.github.io/2013/07/21/OWL%E7%9A%84%E8%AF%AD%E4%B9%89%E8%AF%AD%E6%B3%95%E5%8F%8AJena%E5%88%9D%E6%AD%A5/</loc>
+    <loc>http://ovjaywang.github.io/2013/05/14/%E5%86%85%E5%9C%B0%E7%A0%94%E7%A9%B6%E7%94%9F%E7%9A%84%E6%89%80%E4%B8%BA%E7%A7%91%E7%A0%94%E5%92%8C%E8%87%AA%E6%88%91%E5%85%BB%E6%88%90/</loc>
     
     <lastmod>2016-04-11T14:09:45.580Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://ovjaywang.github.io/2013/11/23/so-be-better-man/</loc>
+    <loc>http://ovjaywang.github.io/2013/05/05/%E7%A0%B4%E5%A4%84%E7%AF%87...%E5%A5%BD%E5%90%A7/</loc>
+    
+    <lastmod>2016-04-11T14:09:45.579Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ovjaywang.github.io/2013/05/08/%E6%B1%82%E8%A7%A3%E9%87%8A..%E5%B8%83%E5%90%89%E5%B2%9B/</loc>
+    
+    <lastmod>2016-04-11T14:09:45.579Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ovjaywang.github.io/2013/05/07/%E5%88%B7%E5%B1%8F%E6%B5%8B%E8%AF%95%E3%80%82%E3%80%82/</loc>
     
     <lastmod>2016-04-11T14:09:45.579Z</lastmod>
     
@@ -689,6 +703,13 @@
   
   <url>
     <loc>http://ovjaywang.github.io/2013/05/08/%E4%BB%8A%E6%97%A5%E5%90%90%E6%A7%BD/</loc>
+    
+    <lastmod>2016-04-11T14:09:45.579Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ovjaywang.github.io/2013/05/09/wuha/</loc>
     
     <lastmod>2016-04-11T14:09:45.579Z</lastmod>
     
@@ -709,7 +730,7 @@
   </url>
   
   <url>
-    <loc>http://ovjaywang.github.io/2013/05/08/%E6%B1%82%E8%A7%A3%E9%87%8A..%E5%B8%83%E5%90%89%E5%B2%9B/</loc>
+    <loc>http://ovjaywang.github.io/2013/11/23/so-be-better-man/</loc>
     
     <lastmod>2016-04-11T14:09:45.579Z</lastmod>
     
@@ -723,28 +744,7 @@
   </url>
   
   <url>
-    <loc>http://ovjaywang.github.io/2013/05/05/%E7%A0%B4%E5%A4%84%E7%AF%87...%E5%A5%BD%E5%90%A7/</loc>
-    
-    <lastmod>2016-04-11T14:09:45.579Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://ovjaywang.github.io/2013/11/08/targets-by-07-2014/</loc>
-    
-    <lastmod>2016-04-11T14:09:45.579Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ovjaywang.github.io/2013/05/09/wuha/</loc>
-    
-    <lastmod>2016-04-11T14:09:45.579Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ovjaywang.github.io/2013/05/07/%E5%88%B7%E5%B1%8F%E6%B5%8B%E8%AF%95%E3%80%82%E3%80%82/</loc>
     
     <lastmod>2016-04-11T14:09:45.579Z</lastmod>
     
