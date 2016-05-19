@@ -154,7 +154,7 @@
 ~
 按位取反
 变1为0，变0为1（包含符">
-<meta property="og:updated_time" content="2016-05-19T04:29:29.709Z">
+<meta property="og:updated_time" content="2016-05-19T04:44:53.296Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="位运算各种">
 <meta name="twitter:description" content="最近发现位运算在很多场合有很多运用啊。大概有以下几个方面:
@@ -660,26 +660,26 @@ int b = b&gt;&gt;k | b &gt;&gt; (Integer.SIZE-k); //右数第k个当头
 <li>第四次求 $a_4=a^{16}=a^{8*2}={a_3}^2$</li>
 <li>第五次求 $a_5=a^{32}=a^{16*2}={a_4}^2$</li>
 </ol>
-<p>如果是通过迭代幂的次数，需要32次才能达到，然而通过分治的方式，只需要5次就能解算32次幂。那如果不是2的整数幂次方呢，很好办，通过将该整数分解成各个2的整数次幂的和，例如求取$a^23$,又$23=16+4+2=1$，所以原式可化为$a^{2^4+2^2+2^1+2^0}$,通过二分的方式，变形为$a^{16}<em>a^4</em>a^1*a^0$.<br>显然！上式就是二进制和十进制转换的过程，通过4+2+1=7次计算就可解出，而非单循环的23次。<br>其实，解算$a^{16}$中，即可用到$(({a^4})^2)^2$,即计算$a^{16}$只需用到2步，总共2+2+1=5次迭代就可计算完毕。<br>因而解决a^b次幂的步骤是  </p>
+<p>如果是通过迭代幂的次数，需要32次才能达到，然而通过分治的方式，只需要5次就能解算32次幂。那如果不是2的整数幂次方呢，很好办，通过将该整数分解成各个2的整数次幂的和，例如求取a的23次方,又$23=16+4+2=1$，所以原式可化为$a^{2^4+2^2+2^1+2^0}$,通过二分的方式，变形为$$(a^{16})<em>(a^4)</em>(a^1)*(a^0)$$.<br>显然！上式就是二进制和十进制转换的过程，通过4+2+1=7次计算就可解出，而非单循环的23次。<br>其实，解算a的16次方中，即可用到$$(({a^4})^2)^2$$,即计算$a^{16}$只需用到2步，总共2+2+1=5次迭代就可计算完毕。<br>因而解决a^b次幂的步骤是  </p>
 <ul>
 <li>将幂次化为2进制  </li>
 <li>从低位遍历，为1则乘以当前幂次，为0则计算当前幂次，然后跳过，直接移至下一位  </li>
-<li>当幂指数的二进制推到最高位  <pre><code class="java">  public static long Power(int a, int n){
-      long ans = 1;
-      //System.out.println(Integer.SIZE);
-      System.out.println(&quot;幂指数二进制：&quot;+Integer.toBinaryString(n));
-      while (n &gt; 0) {
-          if ((n &amp; 1)!=0) {//末位不为零
-              ans *= a;
-          } 
-          a *= a;//计算当前幂次
-          n &gt;&gt;= 1;//迭代每次推一位
-      }
-      return ans;
-  }
-</code></pre>
-递归版本可能更清晰</li>
+<li>当幂指数的二进制推到最高位  </li>
 </ul>
+<pre><code class="java">    public static long Power(int a, int n){
+        long ans = 1;
+        System.out.println(&quot;幂指数二进制：&quot;+Integer.toBinaryString(n));
+        while (n &gt; 0) {
+            if ((n &amp; 1)!=0) {//末位不为零
+                ans *= a;
+            } 
+            a *= a;//计算当前幂次
+            n &gt;&gt;= 1;//迭代每次推一位
+        }
+        return ans;
+    }
+</code></pre>
+<p>递归版本可能更清晰</p>
 <pre><code class="java">    public static int power(int a,int n)  {  
         if(n==1) return a;  
         if(n&amp;1)  
