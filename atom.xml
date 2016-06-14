@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ovjaywang.github.io/"/>
-  <updated>2016-06-14T14:59:35.075Z</updated>
+  <updated>2016-06-14T15:13:37.902Z</updated>
   <id>http://ovjaywang.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://ovjaywang.github.io/2016/06/14/git%E7%9A%84%E5%B0%8Ftips/"/>
     <id>http://ovjaywang.github.io/2016/06/14/git的小tips/</id>
     <published>2016-06-14T12:59:12.000Z</published>
-    <updated>2016-06-14T14:59:35.075Z</updated>
+    <updated>2016-06-14T15:13:37.902Z</updated>
     
     <content type="html">&lt;p&gt;Git是当下最流行最舒适的版本控制系统。这里大致把git容易忘记的事情做小结。&lt;/p&gt;
 &lt;h1 id=&quot;Git-Tips&quot;&gt;&lt;a href=&quot;#Git-Tips&quot; class=&quot;headerlink&quot; title=&quot;Git Tips&quot;&gt;&lt;/a&gt;Git Tips&lt;/h1&gt;&lt;hr&gt;
@@ -71,7 +71,7 @@ git tag -a [tag_name] [commit_code] #给忘记添加标记的提交起个标签
 e.g. 
 git log --pretty=format:&amp;quot;%h - %an, %ar : %s&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;上式以一个很优美的显示方案：哈希字符串、对象、时间、提交的说明 一行一个提交显示。&lt;br&gt;| 选项        | 说明           |&lt;br&gt;| :————-:|:————-:|&lt;br&gt;| -p  |  按补丁格式显示每个更新之间的差异。|&lt;br&gt;| –word-diff |  按 word diff 格式显示差异。|&lt;br&gt;|–stat  |显示每次更新的文件修改统计信息。|&lt;br&gt;|–shortstat    | 只显示 –stat 中最后的行数修改添加移除统计。|&lt;br&gt;|–name-only   |  仅在提交信息后显示已修改的文件清单。|&lt;br&gt;|–name-status  | 显示新增、修改、删除的文件清单。|&lt;br&gt;|–abbrev-commit  |   仅显示 SHA-1 的前几个字符，而非所有的 40 个字符。|&lt;br&gt;|–relative-date   |  使用较短的相对时间显示（比如，“2 weeks ago”）。|&lt;br&gt;|–graph  |   显示 ASCII 图形表示的分支合并历史。|&lt;br&gt;|–pretty  |  使用其他格式显示历史提交信息。可用的选项包括oneline，short，full，fuller 和 format（后跟指定格式）。|&lt;br&gt;|–oneline |  –pretty=oneline –abbrev-commit 的简化用法。|&lt;br&gt;| zebra stripes | are neat      |&lt;/p&gt;
+&lt;p&gt;上式以一个很优美的显示方案：哈希字符串、对象、时间、提交的说明 一行一个提交显示。&lt;br&gt;|     选项       | 说明           |&lt;br&gt;| :————-:|:————-:|&lt;br&gt;| -p             |  按补丁格式显示每个更新之间的差异。|&lt;br&gt;| –word-diff    |  按 word diff 格式显示差异。|&lt;br&gt;| –stat  |显示每次更新的文件修改统计信息。|&lt;br&gt;| –shortstat    | 只显示 –stat 中最后的行数修改添加移除统计。|&lt;br&gt;| –name-only   |  仅在提交信息后显示已修改的文件清单。|&lt;br&gt;| –name-status  | 显示新增、修改、删除的文件清单。|&lt;br&gt;| –abbrev-commit  |   仅显示 SHA-1 的前几个字符，而非所有的 40 个字符。|&lt;br&gt;| –relative-date   |  使用较短的相对时间显示（比如，“2 weeks ago”）。|&lt;br&gt;| –graph  |   显示 ASCII 图形表示的分支合并历史。|&lt;br&gt;| –pretty  |使用其他格式显示历史提交信息。可用的选项包括oneline，short，full，fuller 和 format（后跟指定格式）。|&lt;br&gt;|–oneline |  –pretty=oneline –abbrev-commit 的简化用法。| &lt;/p&gt;
 &lt;h2 id=&quot;自动补全-命令别名&quot;&gt;&lt;a href=&quot;#自动补全-命令别名&quot; class=&quot;headerlink&quot; title=&quot;自动补全-命令别名&quot;&gt;&lt;/a&gt;自动补全-命令别名&lt;/h2&gt;&lt;p&gt;直接看&lt;a href=&quot;http://www.fenby.com/courses/sections/ji-qiao-he-qiao-men/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;</content>
     
     <summary type="html">
