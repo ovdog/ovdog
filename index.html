@@ -295,6 +295,156 @@
             
               
                 
+                <a class="post-title-link" href="/2016/06/14/git的小tips/" itemprop="url">
+                  Git的小tips
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-14T20:59:12+08:00" content="2016-06-14">
+              2016-06-14
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/14/git的小tips/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/14/git的小tips/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Git是当下最流行最舒适的版本控制系统。这里大致把git容易忘记的事情做小结。</p>
+<h1 id="Git-Tips"><a href="#Git-Tips" class="headerlink" title="Git Tips"></a>Git Tips</h1><hr>
+<h2 id="Git的机制"><a href="#Git的机制" class="headerlink" title="Git的机制"></a>Git的机制</h2><p>记录每次commit的快照及镜像，而非版本增量。完全的分布式及提倡多分支非线性开发。</p>
+<ul>
+<li>类似CVS Subversion记录次提交时更新的文件及更新了哪些内容。</li>
+<li>Git则将快照记录在微型文件系统中，并使用指针(索引)指向当前快照以区别版本。</li>
+</ul>
+<p>Git每次提交不必联网 大部分操作在本地完成 只在完成一部分功能或需要共享时提交远程仓库 节约了流量 提升了效率 无网络状态亦可提交更新及浏览历史。</p>
+<h2 id="Git的四个状态"><a href="#Git的四个状态" class="headerlink" title="Git的四个状态"></a>Git的四个状态</h2><p><a href="!http://ooo.0o0.ooo/2016/06/14/57600bfe92c91.png">Git的四个状态</a> </p>
+<ul>
+<li>未追逐 新添加之前未有版本信息的文件 将未追踪的添加到版本管理使用<strong>add</strong>命令</li>
+<li>已追踪有三类（已修改 未修改 已暂存）</li>
+<li>未修改 一个时间点做了快照之后未修改的就是未修改 只要做出任意改动就会变成</li>
+<li>已修改 此时若修正好 需要把文件添加到暂缓存区 同样使用<strong>add</strong> 命令</li>
+<li>已暂存 此时暂时存储在内存中 需要把它永久的存在硬盘的git本地系统中 使用<strong>commit</strong>提交命令</li>
+</ul>
+<p>使用下命令显示本目录下的文件跟踪情况</p>
+<pre><code class="shell">git status
+</code></pre>
+<p>使用下命令查看修改和比较两个版本差异</p>
+<pre><code class="shell">git diff
+</code></pre>
+<h2 id="跟踪一个有趣的远程仓库"><a href="#跟踪一个有趣的远程仓库" class="headerlink" title="跟踪一个有趣的远程仓库"></a>跟踪一个有趣的远程仓库</h2><p>其实要做的只是 copy下来；过一段时间、知道它有更新的时候就pull一下，拉取下来</p>
+<pre><code class="shell">git clone git://github.com/[user_name]/[project_name].git
+..
+git pull origin project_name
+## 或者
+git fetch origin project_name
+git merge
+</code></pre>
+<p>键入</p>
+<pre><code class="shell">git remote show origin
+</code></pre>
+<p>可以查看到以下几个关键的东西</p>
+<ul>
+<li>local branch pushed with ‘git push’ 缺省推送分支</li>
+<li>caching 那些远端分支还未同步到本地</li>
+<li>stale tracking branches那些分支已经在远端被删除</li>
+<li>Remote branch merged with ‘git pull’ while on branch  git pull时自动合并那些分支</li>
+</ul>
+<h2 id="小逼格"><a href="#小逼格" class="headerlink" title="小逼格"></a>小逼格</h2><h3 id="加标签"><a href="#加标签" class="headerlink" title="加标签"></a>加标签</h3><pre><code class="shell">git tag [tag_name] #写入tag
+git tag #显示所有tag
+git show [tag_name] -lw #显示某个tag名字的提交
+git tag -a [tag_name] [commit_code] #给忘记添加标记的提交起个标签
+</code></pre>
+<h3 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h3><pre><code class="shell">git log 
+e.g. 
+git log --pretty=format:&quot;%h - %an, %ar : %s&quot;
+</code></pre>
+<p>上式以一个很优美的显示方案：哈希字符串、对象、时间、提交的说明 一行一个提交显示。<br>| 选项        | 说明           |<br>| :————-:|:————-:|<br>| -p  |  按补丁格式显示每个更新之间的差异。|<br>| –word-diff |  按 word diff 格式显示差异。|<br>|–stat  |显示每次更新的文件修改统计信息。|<br>|–shortstat    | 只显示 –stat 中最后的行数修改添加移除统计。|<br>|–name-only   |  仅在提交信息后显示已修改的文件清单。|<br>|–name-status  | 显示新增、修改、删除的文件清单。|<br>|–abbrev-commit  |   仅显示 SHA-1 的前几个字符，而非所有的 40 个字符。|<br>|–relative-date   |  使用较短的相对时间显示（比如，“2 weeks ago”）。|<br>|–graph  |   显示 ASCII 图形表示的分支合并历史。|<br>|–pretty  |  使用其他格式显示历史提交信息。可用的选项包括oneline，short，full，fuller 和 format（后跟指定格式）。|<br>|–oneline |  –pretty=oneline –abbrev-commit 的简化用法。|<br>| zebra stripes | are neat      |</p>
+<h2 id="自动补全-命令别名"><a href="#自动补全-命令别名" class="headerlink" title="自动补全-命令别名"></a>自动补全-命令别名</h2><p>直接看<a href="http://www.fenby.com/courses/sections/ji-qiao-he-qiao-men/" target="_blank" rel="external">这里</a></p>
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/05/12/位运算各种/" itemprop="url">
                   位运算各种
                 </a>
@@ -398,7 +548,7 @@
 <td style="text-align:center">同为0，异为1</td>
 </tr>
 <tr>
-<td style="text-align:center">竖线(打不了)</td>
+<td style="text-align:center">$\mid $</td>
 <td style="text-align:center">按位或</td>
 <td style="text-align:center">有1则1，双0为0</td>
 </tr>
@@ -415,12 +565,12 @@
 <tr>
 <td style="text-align:center"><code>&lt;&lt;</code></td>
 <td style="text-align:center">按位左移（包括符号）</td>
-<td style="text-align:center">对应二进制每移一位乘二</td>
+<td style="text-align:center">二进制每移一位乘二,最右补零</td>
 </tr>
 <tr>
 <td style="text-align:center"><code>&gt;&gt;</code></td>
 <td style="text-align:center">按位右移（包括符号）</td>
-<td style="text-align:center">对应二进制每移一位除二</td>
+<td style="text-align:center">二进制每移一位除二,无符号最左补零，有符号补符号位</td>
 </tr>
 <tr>
 <td style="text-align:center"><code>`&gt;&gt;&gt;</code></td>
@@ -502,7 +652,7 @@ int d = ~c;//输出d为-51 2的ascii为50(十进制) 32(十六进制)
         return find2Num;
     }
 </code></pre>
-<h2 id="使用位亦或-节约空间的数据交换"><a href="#使用位亦或-节约空间的数据交换" class="headerlink" title="使用位亦或(^)节约空间的数据交换"></a>使用位亦或(^)节约空间的数据交换</h2><p>原理：a亦或b=c，b亦或a=c，也就是亦或满足交换律；位亦或的逆运算，也就是<code>(a^b)^b=a</code>等于它自己。所以，只需三个亦或运算即可交换数据。看代码。</p>
+<h2 id="使用位亦或-节约空间的数据交换"><a href="#使用位亦或-节约空间的数据交换" class="headerlink" title="使用位亦或^节约空间的数据交换"></a>使用位亦或^节约空间的数据交换</h2><p>原理：a亦或b=c，b亦或a=c，也就是亦或满足交换律；位亦或的逆运算，也就是<code>(a^b)^b=a</code>等于它自己。所以，只需三个亦或运算即可交换数据。看代码。</p>
 <pre><code>    a ^= b;
     b ^= a;
     a ^= b;
@@ -607,8 +757,9 @@ int b = b&gt;&gt;k | b &gt;&gt; (Integer.SIZE-k); //右数第k个当头
     }
 </code></pre>
 <blockquote>
-<p>但四，这个方式没有体现位移的优越性。通过分治的思想，由于结果只求1或0，那么通过1位表达2位的信息，通过2位表达4位的信息，通过4位表达8位的信息，通过8位表达16位的信息，通过16位表达32位的信息。通过五次<strong>表达</strong>，就可以求出结果。<br>先看代码</p>
+<p>但四，这个方式没有体现位移的优越性。通过分治的思想，由于结果只求1或0，那么通过1位表达2位的信息，通过2位表达4位的信息，通过4位表达8位的信息，通过8位表达16位的信息，通过16位表达32位的信息。通过五次<strong>表达</strong>，就可以求出结果。<br>最关心的，其实只是<font color="red">最后一位</font></p>
 </blockquote>
+<p>先看代码</p>
 <pre><code class="java">    public static int get1Count(int x){
     //返回二进制数有偶数还是奇数个1 偶数返回0 奇数返回1
             x = x ^ (x &gt;&gt; 1);
@@ -620,24 +771,162 @@ int b = b&gt;&gt;k | b &gt;&gt; (Integer.SIZE-k); //右数第k个当头
     }
 </code></pre>
 <blockquote>
-<p>解析一下。</p>
+<p>解析一下。先拿byte举个栗子。因为byte是1个字节8个bit，所以表达-128~127即$-2^7\sim 2^7$.按照上面的方式，只需右移三次.举个例子88，二进制为$2^6+2^4+2^3=1011000$</p>
 </blockquote>
-<h2 id="计算二进制1的个数"><a href="#计算二进制1的个数" class="headerlink" title="计算二进制1的个数"></a>计算二进制1的个数</h2><pre><code>#include &lt;stdio.h&gt;
-#include &lt;iostream&gt;
-
-using namespace std;
-
-int main(int argc, char *argv[]) {
-    int x;
-    while (cin &gt;&gt; x) {
-        x = (x &amp; 0x55555555) + ((x &gt;&gt; 1) &amp; 0x55555555);
-        x = (x &amp; 0x33333333) + ((x &gt;&gt; 2) &amp; 0x33333333);
-        x = (x &amp; 0x0F0F0F0F) + ((x &gt;&gt; 4) &amp; 0x0F0F0F0F);
-        x = (x &amp; 0x00FF00FF) + ((x &gt;&gt; 8) &amp; 0x00FF00FF);
-        x = (x &amp; 0x0000FFFF) + ((x &gt;&gt; 16) &amp; 0x0000FFFF);
-        cout &lt;&lt; x &lt;&lt; endl;
+<p>第一次</p>
+<pre><code>        01011000
+        00101100
+    xor --------
+        01110100  -&gt;这个是结果！
+</code></pre><p>结果的数值含义是，将原式中，这一位i与该位的上一位(即第i+1位)做了一次亦或，<font color="red">结果式中每出现一个1，则代表原式中必然邻位相异。</font>其实，由于最终结果只需要表述奇偶，因此两个1为0，等同于抵消的含义。</p>
+<p>第二次亦或</p>
+<pre><code>        01110100
+        00011101
+    xor --------
+        01101001 —&gt;第二次的结果
+</code></pre><p>结果的含义是，每一个数字1表示##原式##中，每一位与其前3位二进制数值中1的个数为奇数；每一个数字0表示##原式##中，每一位与其前3位二进制数值中1的个数为0.</p>
+<p>第三次亦或</p>
+<pre><code>
+        01101001
+        00000110
+    xor --------
+        01101111 -&gt;第三次结果
+</code></pre><p>显而易见，每个1的出现表示与其前7个数字1出现奇数次。<br>最后取最后一位<code>x&amp;1</code>,得到1，即原式中有奇数次1.结果正确。</p>
+<h2 id="进阶-计算二进制1的个数"><a href="#进阶-计算二进制1的个数" class="headerlink" title="进阶-计算二进制1的个数"></a>进阶-计算二进制1的个数</h2><h3 id="最原始的方式"><a href="#最原始的方式" class="headerlink" title="最原始的方式"></a>最原始的方式</h3><pre><code>    int BitCount(unsigned int n)
+    {
+        unsigned int c =0 ; // 计数器
+        while (n &gt;0)
+        {
+            if((n &amp;1) ==1) // 当前位是1
+                ++c ; // 计数器加1
+            n &gt;&gt;=1 ; // 移位
+        }
+        return c ;
     }
-    return 0;
+</code></pre><h3 id="原始方式的改进"><a href="#原始方式的改进" class="headerlink" title="原始方式的改进"></a>原始方式的改进</h3><pre><code>    int BitCount1(unsigned int n)
+    {
+        unsigned int c =0 ; // 计数器
+        for (c =0; n; n &gt;&gt;=1) // 循环移位
+            c += n &amp;1 ; // 如果当前位是1，则计数器加1
+        return c ;
+    }
+</code></pre><h3 id="亦或清1法"><a href="#亦或清1法" class="headerlink" title="亦或清1法"></a>亦或清1法</h3><pre><code>int BitCount2(unsigned int n)
+{
+    unsigned int c =0 ;
+    for (c =0; n; ++c)
+    {
+        n &amp;= (n -1) ; // 清除最低位的1
+    }
+    return c ;
+}
+</code></pre><h3 id="查表法1："><a href="#查表法1：" class="headerlink" title="查表法1："></a>查表法1：</h3><pre><code>int BitCount3(unsigned int n) 
+{ 
+    // 建表
+    unsigned char BitsSetTable256[256] = {0} ; 
+
+    // 初始化表 
+    for (int i =0; i &lt;256; i++) 
+    { 
+        BitsSetTable256[i] = (i &amp;1) + BitsSetTable256[i /2]; 
+    } 
+
+    unsigned int c =0 ; 
+
+    // 查表
+    unsigned char* p = (unsigned char*) &amp;n ; 
+
+    c = BitsSetTable256[p[0]] + 
+        BitsSetTable256[p[1]] + 
+        BitsSetTable256[p[2]] + 
+        BitsSetTable256[p[3]]; 
+
+    return c ; 
+}
+</code></pre><h3 id="查表法2：4bit查表"><a href="#查表法2：4bit查表" class="headerlink" title="查表法2：4bit查表"></a>查表法2：4bit查表</h3><pre><code>int BitCount4(unsigned int n)
+{
+    unsigned int table[16] = 
+    {
+        0, 1, 1, 2, 
+        1, 2, 2, 3, 
+        1, 2, 2, 3, 
+        2, 3, 3, 4
+    } ;
+
+    unsigned int count =0 ;
+    while (n)
+    {
+        count += table[n &amp;0xf] ;
+        n &gt;&gt;=4 ;
+    }
+    return count ;
+}
+</code></pre><h3 id="查表法3：8bit查表"><a href="#查表法3：8bit查表" class="headerlink" title="查表法3：8bit查表"></a>查表法3：8bit查表</h3><pre><code>int BitCount7(unsigned int n)
+{ 
+    unsigned int table[256] = 
+    { 
+        0, 1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4, 
+        1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5, 
+        1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5, 
+        2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 
+        1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5, 
+        2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 
+        2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 
+        3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7, 
+        1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5, 
+        2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 
+        2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 
+        3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7, 
+        2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 
+        3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7, 
+        3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7, 
+        4, 5, 5, 6, 5, 6, 6, 7, 5, 6, 6, 7, 6, 7, 7, 8, 
+    }; 
+
+    return table[n &amp;0xff] +
+        table[(n &gt;&gt;8) &amp;0xff] +
+        table[(n &gt;&gt;16) &amp;0xff] +
+        table[(n &gt;&gt;24) &amp;0xff] ;
+}
+</code></pre><p>###炸裂的平行算法<br>邻位相加，重复这一过程，直到只剩一位。</p>
+<pre><code>    #include &lt;stdio.h&gt;
+    #include &lt;iostream&gt;
+
+    using namespace std;
+
+    int main(int argc, char *argv[]) {
+        int x;
+        while (cin &gt;&gt; x) {
+            x = (x &amp; 0x55555555) + ((x &gt;&gt; 1) &amp; 0x55555555);
+            x = (x &amp; 0x33333333) + ((x &gt;&gt; 2) &amp; 0x33333333);
+            x = (x &amp; 0x0F0F0F0F) + ((x &gt;&gt; 4) &amp; 0x0F0F0F0F);
+            x = (x &amp; 0x00FF00FF) + ((x &gt;&gt; 8) &amp; 0x00FF00FF);
+            x = (x &amp; 0x0000FFFF) + ((x &gt;&gt; 16) &amp; 0x0000FFFF);
+            cout &lt;&lt; x &lt;&lt; endl;
+        }
+        return 0;
+    }
+</code></pre><p>###终极大招</p>
+<pre><code>int BitCount5(unsigned int n) 
+{
+    unsigned int tmp = n - ((n &gt;&gt;1) &amp;033333333333) - ((n &gt;&gt;2) &amp;011111111111);
+    return ((tmp + (tmp &gt;&gt;3)) &amp;030707070707) %63;
+}
+</code></pre><h3 id="补充：位标志法"><a href="#补充：位标志法" class="headerlink" title="补充：位标志法"></a>补充：位标志法</h3><pre><code>struct _byte 
+{ 
+    unsigned a:1; 
+    unsigned b:1; 
+    unsigned c:1; 
+    unsigned d:1; 
+    unsigned e:1; 
+    unsigned f:1; 
+    unsigned g:1; 
+    unsigned h:1; 
+}; 
+
+long get_bit_count( unsigned char b ) 
+{
+    struct _byte *by = (struct _byte*)&amp;b; 
+    return (by-&gt;a+by-&gt;b+by-&gt;c+by-&gt;d+by-&gt;e+by-&gt;f+by-&gt;g+by-&gt;h); 
 }
 </code></pre><h2 id="求二进制最高位前0的个数"><a href="#求二进制最高位前0的个数" class="headerlink" title="求二进制最高位前0的个数"></a>求二进制最高位前0的个数</h2><pre><code>int nlz(unsigned x)
 {
@@ -668,7 +957,11 @@ x = x ^ ((~(x&gt;&gt;31))+1) + x&gt;&gt;31;
    return (x &gt;&gt; 16) | (x &lt;&lt; 16);
    //byte可写成(x &gt;&gt; 4) | (x &lt;&lt; 4);
 }
-</code></pre>
+</code></pre><p>参考链接：  </p>
+<ol>
+<li><a href="https://www.lijinma.com/blog/2014/05/29/amazing-xor/" target="_blank" rel="external">https://www.lijinma.com/blog/2014/05/29/amazing-xor/</a>  </li>
+<li><a href="http://www.cnblogs.com/graphics/archive/2010/06/21/1752421.html" target="_blank" rel="external">http://www.cnblogs.com/graphics/archive/2010/06/21/1752421.html</a></li>
+</ol>
           
         
       
@@ -2213,128 +2506,6 @@ x = x ^ ((~(x&gt;&gt;31))+1) + x&gt;&gt;31;
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/01/18/社交app的2015/" itemprop="url">
-                  社交App的2015
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-18T11:45:06+08:00" content="2016-01-18">
-              2016-01-18
-            </time>
-          </span>
-
-          
-            <span class="post-category">
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/槽/" itemprop="url" rel="index">
-                    <span itemprop="name">槽</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/01/18/社交app的2015/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/18/社交app的2015/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>手机和网络重度使用患者也该是总结自己的时候了。庆幸的是各大app都热推了自己的2015数据流。把去年的数据库做个直白的excel统计。好吧。。我除了听歌看电影买买买也没别的(性)生活了。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/01/18/社交app的2015/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </p></div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2378,7 +2549,7 @@ x = x ^ ((~(x&gt;&gt;31))+1) + x&gt;&gt;31;
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">105</span>
+              <span class="site-state-item-count">106</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -2395,7 +2566,7 @@ x = x ^ ((~(x&gt;&gt;31))+1) + x&gt;&gt;31;
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">60</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

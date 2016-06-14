@@ -103,7 +103,7 @@
 同为0，异为1
 
 
-竖线(打不了)
+$\mid $
 按位或
 有1则1，双0为0
 
@@ -141,7 +141,7 @@
 同为0，异为1
 
 
-竖线(打不了)
+$\mid $
 按位或
 有1则1，双0为0
 
@@ -154,7 +154,7 @@
 ~
 按位取反
 变1为0，变0为1（包含符">
-<meta property="og:updated_time" content="2016-05-19T11:16:45.288Z">
+<meta property="og:updated_time" content="2016-05-31T06:34:17.728Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="位运算各种">
 <meta name="twitter:description" content="最近发现位运算在很多场合有很多运用啊。大概有以下几个方面:
@@ -178,7 +178,7 @@
 同为0，异为1
 
 
-竖线(打不了)
+$\mid $
 按位或
 有1则1，双0为0
 
@@ -498,7 +498,7 @@
 <td style="text-align:center">同为0，异为1</td>
 </tr>
 <tr>
-<td style="text-align:center">竖线(打不了)</td>
+<td style="text-align:center">$\mid $</td>
 <td style="text-align:center">按位或</td>
 <td style="text-align:center">有1则1，双0为0</td>
 </tr>
@@ -515,12 +515,12 @@
 <tr>
 <td style="text-align:center"><code>&lt;&lt;</code></td>
 <td style="text-align:center">按位左移（包括符号）</td>
-<td style="text-align:center">对应二进制每移一位乘二</td>
+<td style="text-align:center">二进制每移一位乘二,最右补零</td>
 </tr>
 <tr>
 <td style="text-align:center"><code>&gt;&gt;</code></td>
 <td style="text-align:center">按位右移（包括符号）</td>
-<td style="text-align:center">对应二进制每移一位除二</td>
+<td style="text-align:center">二进制每移一位除二,无符号最左补零，有符号补符号位</td>
 </tr>
 <tr>
 <td style="text-align:center"><code>`&gt;&gt;&gt;</code></td>
@@ -602,7 +602,7 @@ int d = ~c;//输出d为-51 2的ascii为50(十进制) 32(十六进制)
         return find2Num;
     }
 </code></pre>
-<h2 id="使用位亦或-节约空间的数据交换"><a href="#使用位亦或-节约空间的数据交换" class="headerlink" title="使用位亦或(^)节约空间的数据交换"></a>使用位亦或(^)节约空间的数据交换</h2><p>原理：a亦或b=c，b亦或a=c，也就是亦或满足交换律；位亦或的逆运算，也就是<code>(a^b)^b=a</code>等于它自己。所以，只需三个亦或运算即可交换数据。看代码。</p>
+<h2 id="使用位亦或-节约空间的数据交换"><a href="#使用位亦或-节约空间的数据交换" class="headerlink" title="使用位亦或^节约空间的数据交换"></a>使用位亦或^节约空间的数据交换</h2><p>原理：a亦或b=c，b亦或a=c，也就是亦或满足交换律；位亦或的逆运算，也就是<code>(a^b)^b=a</code>等于它自己。所以，只需三个亦或运算即可交换数据。看代码。</p>
 <pre><code>    a ^= b;
     b ^= a;
     a ^= b;
@@ -707,8 +707,9 @@ int b = b&gt;&gt;k | b &gt;&gt; (Integer.SIZE-k); //右数第k个当头
     }
 </code></pre>
 <blockquote>
-<p>但四，这个方式没有体现位移的优越性。通过分治的思想，由于结果只求1或0，那么通过1位表达2位的信息，通过2位表达4位的信息，通过4位表达8位的信息，通过8位表达16位的信息，通过16位表达32位的信息。通过五次<strong>表达</strong>，就可以求出结果。<br>先看代码</p>
+<p>但四，这个方式没有体现位移的优越性。通过分治的思想，由于结果只求1或0，那么通过1位表达2位的信息，通过2位表达4位的信息，通过4位表达8位的信息，通过8位表达16位的信息，通过16位表达32位的信息。通过五次<strong>表达</strong>，就可以求出结果。<br>最关心的，其实只是<font color="red">最后一位</font></p>
 </blockquote>
+<p>先看代码</p>
 <pre><code class="java">    public static int get1Count(int x){
     //返回二进制数有偶数还是奇数个1 偶数返回0 奇数返回1
             x = x ^ (x &gt;&gt; 1);
@@ -720,24 +721,162 @@ int b = b&gt;&gt;k | b &gt;&gt; (Integer.SIZE-k); //右数第k个当头
     }
 </code></pre>
 <blockquote>
-<p>解析一下。</p>
+<p>解析一下。先拿byte举个栗子。因为byte是1个字节8个bit，所以表达-128~127即$-2^7\sim 2^7$.按照上面的方式，只需右移三次.举个例子88，二进制为$2^6+2^4+2^3=1011000$</p>
 </blockquote>
-<h2 id="计算二进制1的个数"><a href="#计算二进制1的个数" class="headerlink" title="计算二进制1的个数"></a>计算二进制1的个数</h2><pre><code>#include &lt;stdio.h&gt;
-#include &lt;iostream&gt;
-
-using namespace std;
-
-int main(int argc, char *argv[]) {
-    int x;
-    while (cin &gt;&gt; x) {
-        x = (x &amp; 0x55555555) + ((x &gt;&gt; 1) &amp; 0x55555555);
-        x = (x &amp; 0x33333333) + ((x &gt;&gt; 2) &amp; 0x33333333);
-        x = (x &amp; 0x0F0F0F0F) + ((x &gt;&gt; 4) &amp; 0x0F0F0F0F);
-        x = (x &amp; 0x00FF00FF) + ((x &gt;&gt; 8) &amp; 0x00FF00FF);
-        x = (x &amp; 0x0000FFFF) + ((x &gt;&gt; 16) &amp; 0x0000FFFF);
-        cout &lt;&lt; x &lt;&lt; endl;
+<p>第一次</p>
+<pre><code>        01011000
+        00101100
+    xor --------
+        01110100  -&gt;这个是结果！
+</code></pre><p>结果的数值含义是，将原式中，这一位i与该位的上一位(即第i+1位)做了一次亦或，<font color="red">结果式中每出现一个1，则代表原式中必然邻位相异。</font>其实，由于最终结果只需要表述奇偶，因此两个1为0，等同于抵消的含义。</p>
+<p>第二次亦或</p>
+<pre><code>        01110100
+        00011101
+    xor --------
+        01101001 —&gt;第二次的结果
+</code></pre><p>结果的含义是，每一个数字1表示##原式##中，每一位与其前3位二进制数值中1的个数为奇数；每一个数字0表示##原式##中，每一位与其前3位二进制数值中1的个数为0.</p>
+<p>第三次亦或</p>
+<pre><code>
+        01101001
+        00000110
+    xor --------
+        01101111 -&gt;第三次结果
+</code></pre><p>显而易见，每个1的出现表示与其前7个数字1出现奇数次。<br>最后取最后一位<code>x&amp;1</code>,得到1，即原式中有奇数次1.结果正确。</p>
+<h2 id="进阶-计算二进制1的个数"><a href="#进阶-计算二进制1的个数" class="headerlink" title="进阶-计算二进制1的个数"></a>进阶-计算二进制1的个数</h2><h3 id="最原始的方式"><a href="#最原始的方式" class="headerlink" title="最原始的方式"></a>最原始的方式</h3><pre><code>    int BitCount(unsigned int n)
+    {
+        unsigned int c =0 ; // 计数器
+        while (n &gt;0)
+        {
+            if((n &amp;1) ==1) // 当前位是1
+                ++c ; // 计数器加1
+            n &gt;&gt;=1 ; // 移位
+        }
+        return c ;
     }
-    return 0;
+</code></pre><h3 id="原始方式的改进"><a href="#原始方式的改进" class="headerlink" title="原始方式的改进"></a>原始方式的改进</h3><pre><code>    int BitCount1(unsigned int n)
+    {
+        unsigned int c =0 ; // 计数器
+        for (c =0; n; n &gt;&gt;=1) // 循环移位
+            c += n &amp;1 ; // 如果当前位是1，则计数器加1
+        return c ;
+    }
+</code></pre><h3 id="亦或清1法"><a href="#亦或清1法" class="headerlink" title="亦或清1法"></a>亦或清1法</h3><pre><code>int BitCount2(unsigned int n)
+{
+    unsigned int c =0 ;
+    for (c =0; n; ++c)
+    {
+        n &amp;= (n -1) ; // 清除最低位的1
+    }
+    return c ;
+}
+</code></pre><h3 id="查表法1："><a href="#查表法1：" class="headerlink" title="查表法1："></a>查表法1：</h3><pre><code>int BitCount3(unsigned int n) 
+{ 
+    // 建表
+    unsigned char BitsSetTable256[256] = {0} ; 
+
+    // 初始化表 
+    for (int i =0; i &lt;256; i++) 
+    { 
+        BitsSetTable256[i] = (i &amp;1) + BitsSetTable256[i /2]; 
+    } 
+
+    unsigned int c =0 ; 
+
+    // 查表
+    unsigned char* p = (unsigned char*) &amp;n ; 
+
+    c = BitsSetTable256[p[0]] + 
+        BitsSetTable256[p[1]] + 
+        BitsSetTable256[p[2]] + 
+        BitsSetTable256[p[3]]; 
+
+    return c ; 
+}
+</code></pre><h3 id="查表法2：4bit查表"><a href="#查表法2：4bit查表" class="headerlink" title="查表法2：4bit查表"></a>查表法2：4bit查表</h3><pre><code>int BitCount4(unsigned int n)
+{
+    unsigned int table[16] = 
+    {
+        0, 1, 1, 2, 
+        1, 2, 2, 3, 
+        1, 2, 2, 3, 
+        2, 3, 3, 4
+    } ;
+
+    unsigned int count =0 ;
+    while (n)
+    {
+        count += table[n &amp;0xf] ;
+        n &gt;&gt;=4 ;
+    }
+    return count ;
+}
+</code></pre><h3 id="查表法3：8bit查表"><a href="#查表法3：8bit查表" class="headerlink" title="查表法3：8bit查表"></a>查表法3：8bit查表</h3><pre><code>int BitCount7(unsigned int n)
+{ 
+    unsigned int table[256] = 
+    { 
+        0, 1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4, 
+        1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5, 
+        1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5, 
+        2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 
+        1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5, 
+        2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 
+        2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 
+        3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7, 
+        1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5, 
+        2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 
+        2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 
+        3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7, 
+        2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 
+        3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7, 
+        3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7, 
+        4, 5, 5, 6, 5, 6, 6, 7, 5, 6, 6, 7, 6, 7, 7, 8, 
+    }; 
+
+    return table[n &amp;0xff] +
+        table[(n &gt;&gt;8) &amp;0xff] +
+        table[(n &gt;&gt;16) &amp;0xff] +
+        table[(n &gt;&gt;24) &amp;0xff] ;
+}
+</code></pre><p>###炸裂的平行算法<br>邻位相加，重复这一过程，直到只剩一位。</p>
+<pre><code>    #include &lt;stdio.h&gt;
+    #include &lt;iostream&gt;
+
+    using namespace std;
+
+    int main(int argc, char *argv[]) {
+        int x;
+        while (cin &gt;&gt; x) {
+            x = (x &amp; 0x55555555) + ((x &gt;&gt; 1) &amp; 0x55555555);
+            x = (x &amp; 0x33333333) + ((x &gt;&gt; 2) &amp; 0x33333333);
+            x = (x &amp; 0x0F0F0F0F) + ((x &gt;&gt; 4) &amp; 0x0F0F0F0F);
+            x = (x &amp; 0x00FF00FF) + ((x &gt;&gt; 8) &amp; 0x00FF00FF);
+            x = (x &amp; 0x0000FFFF) + ((x &gt;&gt; 16) &amp; 0x0000FFFF);
+            cout &lt;&lt; x &lt;&lt; endl;
+        }
+        return 0;
+    }
+</code></pre><p>###终极大招</p>
+<pre><code>int BitCount5(unsigned int n) 
+{
+    unsigned int tmp = n - ((n &gt;&gt;1) &amp;033333333333) - ((n &gt;&gt;2) &amp;011111111111);
+    return ((tmp + (tmp &gt;&gt;3)) &amp;030707070707) %63;
+}
+</code></pre><h3 id="补充：位标志法"><a href="#补充：位标志法" class="headerlink" title="补充：位标志法"></a>补充：位标志法</h3><pre><code>struct _byte 
+{ 
+    unsigned a:1; 
+    unsigned b:1; 
+    unsigned c:1; 
+    unsigned d:1; 
+    unsigned e:1; 
+    unsigned f:1; 
+    unsigned g:1; 
+    unsigned h:1; 
+}; 
+
+long get_bit_count( unsigned char b ) 
+{
+    struct _byte *by = (struct _byte*)&amp;b; 
+    return (by-&gt;a+by-&gt;b+by-&gt;c+by-&gt;d+by-&gt;e+by-&gt;f+by-&gt;g+by-&gt;h); 
 }
 </code></pre><h2 id="求二进制最高位前0的个数"><a href="#求二进制最高位前0的个数" class="headerlink" title="求二进制最高位前0的个数"></a>求二进制最高位前0的个数</h2><pre><code>int nlz(unsigned x)
 {
@@ -768,7 +907,11 @@ x = x ^ ((~(x&gt;&gt;31))+1) + x&gt;&gt;31;
    return (x &gt;&gt; 16) | (x &lt;&lt; 16);
    //byte可写成(x &gt;&gt; 4) | (x &lt;&lt; 4);
 }
-</code></pre>
+</code></pre><p>参考链接：  </p>
+<ol>
+<li><a href="https://www.lijinma.com/blog/2014/05/29/amazing-xor/" target="_blank" rel="external">https://www.lijinma.com/blog/2014/05/29/amazing-xor/</a>  </li>
+<li><a href="http://www.cnblogs.com/graphics/archive/2010/06/21/1752421.html" target="_blank" rel="external">http://www.cnblogs.com/graphics/archive/2010/06/21/1752421.html</a></li>
+</ol>
       
     </div>
     
@@ -804,6 +947,10 @@ x = x ^ ((~(x&gt;&gt;31))+1) + x&gt;&gt;31;
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/14/git的小tips/" rel="prev" title="Git的小tips">
+                Git的小tips <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -891,7 +1038,7 @@ x = x ^ ((~(x&gt;&gt;31))+1) + x&gt;&gt;31;
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">105</span>
+              <span class="site-state-item-count">106</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -908,7 +1055,7 @@ x = x ^ ((~(x&gt;&gt;31))+1) + x&gt;&gt;31;
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">60</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -991,7 +1138,7 @@ x = x ^ ((~(x&gt;&gt;31))+1) + x&gt;&gt;31;
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#几个运算符"><span class="nav-number">1.</span> <span class="nav-text">几个运算符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于取反"><span class="nav-number">2.</span> <span class="nav-text">关于取反</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于亦或"><span class="nav-number">3.</span> <span class="nav-text">关于亦或</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数组内只存在两个奇数次出现的数，其他都出现了偶数次，找出这两个数"><span class="nav-number">3.1.</span> <span class="nav-text">数组内只存在两个奇数次出现的数，其他都出现了偶数次，找出这两个数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用位亦或-节约空间的数据交换"><span class="nav-number">3.2.</span> <span class="nav-text">使用位亦或(^)节约空间的数据交换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用亦或加密"><span class="nav-number">3.3.</span> <span class="nav-text">使用亦或加密</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#亦或判别IP地址是否相等"><span class="nav-number">3.4.</span> <span class="nav-text">亦或判别IP地址是否相等</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于按位与"><span class="nav-number">4.</span> <span class="nav-text">关于按位与</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于按位与-1"><span class="nav-number">5.</span> <span class="nav-text">关于按位与</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#按位左右移"><span class="nav-number">6.</span> <span class="nav-text">按位左右移</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#左右移应用-二分求幂"><span class="nav-number">6.1.</span> <span class="nav-text">左右移应用-二分求幂</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用位移求二进制里1的奇偶"><span class="nav-number">6.2.</span> <span class="nav-text">利用位移求二进制里1的奇偶</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算二进制1的个数"><span class="nav-number">6.3.</span> <span class="nav-text">计算二进制1的个数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#求二进制最高位前0的个数"><span class="nav-number">6.4.</span> <span class="nav-text">求二进制最高位前0的个数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二进制逆序"><span class="nav-number">6.5.</span> <span class="nav-text">二进制逆序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#位移求绝对值"><span class="nav-number">6.6.</span> <span class="nav-text">位移求绝对值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#交换二进制高16位和低16位"><span class="nav-number">6.7.</span> <span class="nav-text">交换二进制高16位和低16位</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#几个运算符"><span class="nav-number">1.</span> <span class="nav-text">几个运算符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于取反"><span class="nav-number">2.</span> <span class="nav-text">关于取反</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于亦或"><span class="nav-number">3.</span> <span class="nav-text">关于亦或</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数组内只存在两个奇数次出现的数，其他都出现了偶数次，找出这两个数"><span class="nav-number">3.1.</span> <span class="nav-text">数组内只存在两个奇数次出现的数，其他都出现了偶数次，找出这两个数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用位亦或-节约空间的数据交换"><span class="nav-number">3.2.</span> <span class="nav-text">使用位亦或^节约空间的数据交换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用亦或加密"><span class="nav-number">3.3.</span> <span class="nav-text">使用亦或加密</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#亦或判别IP地址是否相等"><span class="nav-number">3.4.</span> <span class="nav-text">亦或判别IP地址是否相等</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于按位与"><span class="nav-number">4.</span> <span class="nav-text">关于按位与</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于按位与-1"><span class="nav-number">5.</span> <span class="nav-text">关于按位与</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#按位左右移"><span class="nav-number">6.</span> <span class="nav-text">按位左右移</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#左右移应用-二分求幂"><span class="nav-number">6.1.</span> <span class="nav-text">左右移应用-二分求幂</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用位移求二进制里1的奇偶"><span class="nav-number">6.2.</span> <span class="nav-text">利用位移求二进制里1的奇偶</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进阶-计算二进制1的个数"><span class="nav-number">6.3.</span> <span class="nav-text">进阶-计算二进制1的个数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#最原始的方式"><span class="nav-number">6.3.1.</span> <span class="nav-text">最原始的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原始方式的改进"><span class="nav-number">6.3.2.</span> <span class="nav-text">原始方式的改进</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#亦或清1法"><span class="nav-number">6.3.3.</span> <span class="nav-text">亦或清1法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查表法1："><span class="nav-number">6.3.4.</span> <span class="nav-text">查表法1：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查表法2：4bit查表"><span class="nav-number">6.3.5.</span> <span class="nav-text">查表法2：4bit查表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查表法3：8bit查表"><span class="nav-number">6.3.6.</span> <span class="nav-text">查表法3：8bit查表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#补充：位标志法"><span class="nav-number">6.3.7.</span> <span class="nav-text">补充：位标志法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#求二进制最高位前0的个数"><span class="nav-number">6.4.</span> <span class="nav-text">求二进制最高位前0的个数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二进制逆序"><span class="nav-number">6.5.</span> <span class="nav-text">二进制逆序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#位移求绝对值"><span class="nav-number">6.6.</span> <span class="nav-text">位移求绝对值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#交换二进制高16位和低16位"><span class="nav-number">6.7.</span> <span class="nav-text">交换二进制高16位和低16位</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

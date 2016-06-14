@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ovjaywang.github.io/"/>
-  <updated>2016-05-19T11:16:45.288Z</updated>
+  <updated>2016-06-14T14:59:35.075Z</updated>
   <id>http://ovjaywang.github.io/</id>
   
   <author>
@@ -16,11 +16,82 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Git的小tips</title>
+    <link href="http://ovjaywang.github.io/2016/06/14/git%E7%9A%84%E5%B0%8Ftips/"/>
+    <id>http://ovjaywang.github.io/2016/06/14/git的小tips/</id>
+    <published>2016-06-14T12:59:12.000Z</published>
+    <updated>2016-06-14T14:59:35.075Z</updated>
+    
+    <content type="html">&lt;p&gt;Git是当下最流行最舒适的版本控制系统。这里大致把git容易忘记的事情做小结。&lt;/p&gt;
+&lt;h1 id=&quot;Git-Tips&quot;&gt;&lt;a href=&quot;#Git-Tips&quot; class=&quot;headerlink&quot; title=&quot;Git Tips&quot;&gt;&lt;/a&gt;Git Tips&lt;/h1&gt;&lt;hr&gt;
+&lt;h2 id=&quot;Git的机制&quot;&gt;&lt;a href=&quot;#Git的机制&quot; class=&quot;headerlink&quot; title=&quot;Git的机制&quot;&gt;&lt;/a&gt;Git的机制&lt;/h2&gt;&lt;p&gt;记录每次commit的快照及镜像，而非版本增量。完全的分布式及提倡多分支非线性开发。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;类似CVS Subversion记录次提交时更新的文件及更新了哪些内容。&lt;/li&gt;
+&lt;li&gt;Git则将快照记录在微型文件系统中，并使用指针(索引)指向当前快照以区别版本。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Git每次提交不必联网 大部分操作在本地完成 只在完成一部分功能或需要共享时提交远程仓库 节约了流量 提升了效率 无网络状态亦可提交更新及浏览历史。&lt;/p&gt;
+&lt;h2 id=&quot;Git的四个状态&quot;&gt;&lt;a href=&quot;#Git的四个状态&quot; class=&quot;headerlink&quot; title=&quot;Git的四个状态&quot;&gt;&lt;/a&gt;Git的四个状态&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;!http://ooo.0o0.ooo/2016/06/14/57600bfe92c91.png&quot;&gt;Git的四个状态&lt;/a&gt; &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;未追逐 新添加之前未有版本信息的文件 将未追踪的添加到版本管理使用&lt;strong&gt;add&lt;/strong&gt;命令&lt;/li&gt;
+&lt;li&gt;已追踪有三类（已修改 未修改 已暂存）&lt;/li&gt;
+&lt;li&gt;未修改 一个时间点做了快照之后未修改的就是未修改 只要做出任意改动就会变成&lt;/li&gt;
+&lt;li&gt;已修改 此时若修正好 需要把文件添加到暂缓存区 同样使用&lt;strong&gt;add&lt;/strong&gt; 命令&lt;/li&gt;
+&lt;li&gt;已暂存 此时暂时存储在内存中 需要把它永久的存在硬盘的git本地系统中 使用&lt;strong&gt;commit&lt;/strong&gt;提交命令&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;使用下命令显示本目录下的文件跟踪情况&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;git status
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;使用下命令查看修改和比较两个版本差异&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;git diff
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;跟踪一个有趣的远程仓库&quot;&gt;&lt;a href=&quot;#跟踪一个有趣的远程仓库&quot; class=&quot;headerlink&quot; title=&quot;跟踪一个有趣的远程仓库&quot;&gt;&lt;/a&gt;跟踪一个有趣的远程仓库&lt;/h2&gt;&lt;p&gt;其实要做的只是 copy下来；过一段时间、知道它有更新的时候就pull一下，拉取下来&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;git clone git://github.com/[user_name]/[project_name].git
+..
+git pull origin project_name
+## 或者
+git fetch origin project_name
+git merge
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;键入&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;git remote show origin
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;可以查看到以下几个关键的东西&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;local branch pushed with ‘git push’ 缺省推送分支&lt;/li&gt;
+&lt;li&gt;caching 那些远端分支还未同步到本地&lt;/li&gt;
+&lt;li&gt;stale tracking branches那些分支已经在远端被删除&lt;/li&gt;
+&lt;li&gt;Remote branch merged with ‘git pull’ while on branch  git pull时自动合并那些分支&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;小逼格&quot;&gt;&lt;a href=&quot;#小逼格&quot; class=&quot;headerlink&quot; title=&quot;小逼格&quot;&gt;&lt;/a&gt;小逼格&lt;/h2&gt;&lt;h3 id=&quot;加标签&quot;&gt;&lt;a href=&quot;#加标签&quot; class=&quot;headerlink&quot; title=&quot;加标签&quot;&gt;&lt;/a&gt;加标签&lt;/h3&gt;&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;git tag [tag_name] #写入tag
+git tag #显示所有tag
+git show [tag_name] -lw #显示某个tag名字的提交
+git tag -a [tag_name] [commit_code] #给忘记添加标记的提交起个标签
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;查看日志&quot;&gt;&lt;a href=&quot;#查看日志&quot; class=&quot;headerlink&quot; title=&quot;查看日志&quot;&gt;&lt;/a&gt;查看日志&lt;/h3&gt;&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;git log 
+e.g. 
+git log --pretty=format:&amp;quot;%h - %an, %ar : %s&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;上式以一个很优美的显示方案：哈希字符串、对象、时间、提交的说明 一行一个提交显示。&lt;br&gt;| 选项        | 说明           |&lt;br&gt;| :————-:|:————-:|&lt;br&gt;| -p  |  按补丁格式显示每个更新之间的差异。|&lt;br&gt;| –word-diff |  按 word diff 格式显示差异。|&lt;br&gt;|–stat  |显示每次更新的文件修改统计信息。|&lt;br&gt;|–shortstat    | 只显示 –stat 中最后的行数修改添加移除统计。|&lt;br&gt;|–name-only   |  仅在提交信息后显示已修改的文件清单。|&lt;br&gt;|–name-status  | 显示新增、修改、删除的文件清单。|&lt;br&gt;|–abbrev-commit  |   仅显示 SHA-1 的前几个字符，而非所有的 40 个字符。|&lt;br&gt;|–relative-date   |  使用较短的相对时间显示（比如，“2 weeks ago”）。|&lt;br&gt;|–graph  |   显示 ASCII 图形表示的分支合并历史。|&lt;br&gt;|–pretty  |  使用其他格式显示历史提交信息。可用的选项包括oneline，short，full，fuller 和 format（后跟指定格式）。|&lt;br&gt;|–oneline |  –pretty=oneline –abbrev-commit 的简化用法。|&lt;br&gt;| zebra stripes | are neat      |&lt;/p&gt;
+&lt;h2 id=&quot;自动补全-命令别名&quot;&gt;&lt;a href=&quot;#自动补全-命令别名&quot; class=&quot;headerlink&quot; title=&quot;自动补全-命令别名&quot;&gt;&lt;/a&gt;自动补全-命令别名&lt;/h2&gt;&lt;p&gt;直接看&lt;a href=&quot;http://www.fenby.com/courses/sections/ji-qiao-he-qiao-men/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Git是当下最流行最舒适的版本控制系统。这里大致把git容易忘记的事情做小结。&lt;/p&gt;
+&lt;h1 id=&quot;Git-Tips&quot;&gt;&lt;a href=&quot;#Git-Tips&quot; class=&quot;headerlink&quot; title=&quot;Git Tips&quot;&gt;&lt;/a&gt;Git Tips&lt;/h1&gt;&lt;h
+    
+    </summary>
+    
+    
+      <category term="git" scheme="http://ovjaywang.github.io/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
     <title>位运算各种</title>
     <link href="http://ovjaywang.github.io/2016/05/12/%E4%BD%8D%E8%BF%90%E7%AE%97%E5%90%84%E7%A7%8D/"/>
     <id>http://ovjaywang.github.io/2016/05/12/位运算各种/</id>
     <published>2016-05-12T03:12:00.000Z</published>
-    <updated>2016-05-19T11:16:45.288Z</updated>
+    <updated>2016-05-31T06:34:17.728Z</updated>
     
     <content type="html">&lt;p&gt;最近发现位运算在很多场合有很多运用啊。大概有以下几个方面:&lt;/p&gt;
 &lt;ul&gt;
@@ -43,7 +114,7 @@
 &lt;td style=&quot;text-align:center&quot;&gt;同为0，异为1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;竖线(打不了)&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;$\mid $&lt;/td&gt;
 &lt;td style=&quot;text-align:center&quot;&gt;按位或&lt;/td&gt;
 &lt;td style=&quot;text-align:center&quot;&gt;有1则1，双0为0&lt;/td&gt;
 &lt;/tr&gt;
@@ -60,12 +131,12 @@
 &lt;tr&gt;
 &lt;td style=&quot;text-align:center&quot;&gt;&lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&quot;text-align:center&quot;&gt;按位左移（包括符号）&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;对应二进制每移一位乘二&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;二进制每移一位乘二,最右补零&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&quot;text-align:center&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&lt;/code&gt;&lt;/td&gt;
 &lt;td style=&quot;text-align:center&quot;&gt;按位右移（包括符号）&lt;/td&gt;
-&lt;td style=&quot;text-align:center&quot;&gt;对应二进制每移一位除二&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;二进制每移一位除二,无符号最左补零，有符号补符号位&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&quot;text-align:center&quot;&gt;&lt;code&gt;`&amp;gt;&amp;gt;&amp;gt;&lt;/code&gt;&lt;/td&gt;
@@ -147,7 +218,7 @@ int d = ~c;//输出d为-51 2的ascii为50(十进制) 32(十六进制)
         return find2Num;
     }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&quot;使用位亦或-节约空间的数据交换&quot;&gt;&lt;a href=&quot;#使用位亦或-节约空间的数据交换&quot; class=&quot;headerlink&quot; title=&quot;使用位亦或(^)节约空间的数据交换&quot;&gt;&lt;/a&gt;使用位亦或(^)节约空间的数据交换&lt;/h2&gt;&lt;p&gt;原理：a亦或b=c，b亦或a=c，也就是亦或满足交换律；位亦或的逆运算，也就是&lt;code&gt;(a^b)^b=a&lt;/code&gt;等于它自己。所以，只需三个亦或运算即可交换数据。看代码。&lt;/p&gt;
+&lt;h2 id=&quot;使用位亦或-节约空间的数据交换&quot;&gt;&lt;a href=&quot;#使用位亦或-节约空间的数据交换&quot; class=&quot;headerlink&quot; title=&quot;使用位亦或^节约空间的数据交换&quot;&gt;&lt;/a&gt;使用位亦或^节约空间的数据交换&lt;/h2&gt;&lt;p&gt;原理：a亦或b=c，b亦或a=c，也就是亦或满足交换律；位亦或的逆运算，也就是&lt;code&gt;(a^b)^b=a&lt;/code&gt;等于它自己。所以，只需三个亦或运算即可交换数据。看代码。&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;    a ^= b;
     b ^= a;
     a ^= b;
@@ -252,8 +323,9 @@ int b = b&amp;gt;&amp;gt;k | b &amp;gt;&amp;gt; (Integer.SIZE-k); //右数第k�
     }
 &lt;/code&gt;&lt;/pre&gt;
 &lt;blockquote&gt;
-&lt;p&gt;但四，这个方式没有体现位移的优越性。通过分治的思想，由于结果只求1或0，那么通过1位表达2位的信息，通过2位表达4位的信息，通过4位表达8位的信息，通过8位表达16位的信息，通过16位表达32位的信息。通过五次&lt;strong&gt;表达&lt;/strong&gt;，就可以求出结果。&lt;br&gt;先看代码&lt;/p&gt;
+&lt;p&gt;但四，这个方式没有体现位移的优越性。通过分治的思想，由于结果只求1或0，那么通过1位表达2位的信息，通过2位表达4位的信息，通过4位表达8位的信息，通过8位表达16位的信息，通过16位表达32位的信息。通过五次&lt;strong&gt;表达&lt;/strong&gt;，就可以求出结果。&lt;br&gt;最关心的，其实只是&lt;font color=&quot;red&quot;&gt;最后一位&lt;/font&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;p&gt;先看代码&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;java&quot;&gt;    public static int get1Count(int x){
     //返回二进制数有偶数还是奇数个1 偶数返回0 奇数返回1
             x = x ^ (x &amp;gt;&amp;gt; 1);
@@ -265,24 +337,162 @@ int b = b&amp;gt;&amp;gt;k | b &amp;gt;&amp;gt; (Integer.SIZE-k); //右数第k�
     }
 &lt;/code&gt;&lt;/pre&gt;
 &lt;blockquote&gt;
-&lt;p&gt;解析一下。&lt;/p&gt;
+&lt;p&gt;解析一下。先拿byte举个栗子。因为byte是1个字节8个bit，所以表达-128~127即$-2^7\sim 2^7$.按照上面的方式，只需右移三次.举个例子88，二进制为$2^6+2^4+2^3=1011000$&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&quot;计算二进制1的个数&quot;&gt;&lt;a href=&quot;#计算二进制1的个数&quot; class=&quot;headerlink&quot; title=&quot;计算二进制1的个数&quot;&gt;&lt;/a&gt;计算二进制1的个数&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;#include &amp;lt;stdio.h&amp;gt;
-#include &amp;lt;iostream&amp;gt;
-
-using namespace std;
-
-int main(int argc, char *argv[]) {
-    int x;
-    while (cin &amp;gt;&amp;gt; x) {
-        x = (x &amp;amp; 0x55555555) + ((x &amp;gt;&amp;gt; 1) &amp;amp; 0x55555555);
-        x = (x &amp;amp; 0x33333333) + ((x &amp;gt;&amp;gt; 2) &amp;amp; 0x33333333);
-        x = (x &amp;amp; 0x0F0F0F0F) + ((x &amp;gt;&amp;gt; 4) &amp;amp; 0x0F0F0F0F);
-        x = (x &amp;amp; 0x00FF00FF) + ((x &amp;gt;&amp;gt; 8) &amp;amp; 0x00FF00FF);
-        x = (x &amp;amp; 0x0000FFFF) + ((x &amp;gt;&amp;gt; 16) &amp;amp; 0x0000FFFF);
-        cout &amp;lt;&amp;lt; x &amp;lt;&amp;lt; endl;
+&lt;p&gt;第一次&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;        01011000
+        00101100
+    xor --------
+        01110100  -&amp;gt;这个是结果！
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;结果的数值含义是，将原式中，这一位i与该位的上一位(即第i+1位)做了一次亦或，&lt;font color=&quot;red&quot;&gt;结果式中每出现一个1，则代表原式中必然邻位相异。&lt;/font&gt;其实，由于最终结果只需要表述奇偶，因此两个1为0，等同于抵消的含义。&lt;/p&gt;
+&lt;p&gt;第二次亦或&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;        01110100
+        00011101
+    xor --------
+        01101001 —&amp;gt;第二次的结果
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;结果的含义是，每一个数字1表示##原式##中，每一位与其前3位二进制数值中1的个数为奇数；每一个数字0表示##原式##中，每一位与其前3位二进制数值中1的个数为0.&lt;/p&gt;
+&lt;p&gt;第三次亦或&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+        01101001
+        00000110
+    xor --------
+        01101111 -&amp;gt;第三次结果
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;显而易见，每个1的出现表示与其前7个数字1出现奇数次。&lt;br&gt;最后取最后一位&lt;code&gt;x&amp;amp;1&lt;/code&gt;,得到1，即原式中有奇数次1.结果正确。&lt;/p&gt;
+&lt;h2 id=&quot;进阶-计算二进制1的个数&quot;&gt;&lt;a href=&quot;#进阶-计算二进制1的个数&quot; class=&quot;headerlink&quot; title=&quot;进阶-计算二进制1的个数&quot;&gt;&lt;/a&gt;进阶-计算二进制1的个数&lt;/h2&gt;&lt;h3 id=&quot;最原始的方式&quot;&gt;&lt;a href=&quot;#最原始的方式&quot; class=&quot;headerlink&quot; title=&quot;最原始的方式&quot;&gt;&lt;/a&gt;最原始的方式&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;    int BitCount(unsigned int n)
+    {
+        unsigned int c =0 ; // 计数器
+        while (n &amp;gt;0)
+        {
+            if((n &amp;amp;1) ==1) // 当前位是1
+                ++c ; // 计数器加1
+            n &amp;gt;&amp;gt;=1 ; // 移位
+        }
+        return c ;
     }
-    return 0;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;原始方式的改进&quot;&gt;&lt;a href=&quot;#原始方式的改进&quot; class=&quot;headerlink&quot; title=&quot;原始方式的改进&quot;&gt;&lt;/a&gt;原始方式的改进&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;    int BitCount1(unsigned int n)
+    {
+        unsigned int c =0 ; // 计数器
+        for (c =0; n; n &amp;gt;&amp;gt;=1) // 循环移位
+            c += n &amp;amp;1 ; // 如果当前位是1，则计数器加1
+        return c ;
+    }
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;亦或清1法&quot;&gt;&lt;a href=&quot;#亦或清1法&quot; class=&quot;headerlink&quot; title=&quot;亦或清1法&quot;&gt;&lt;/a&gt;亦或清1法&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;int BitCount2(unsigned int n)
+{
+    unsigned int c =0 ;
+    for (c =0; n; ++c)
+    {
+        n &amp;amp;= (n -1) ; // 清除最低位的1
+    }
+    return c ;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;查表法1：&quot;&gt;&lt;a href=&quot;#查表法1：&quot; class=&quot;headerlink&quot; title=&quot;查表法1：&quot;&gt;&lt;/a&gt;查表法1：&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;int BitCount3(unsigned int n) 
+{ 
+    // 建表
+    unsigned char BitsSetTable256[256] = {0} ; 
+
+    // 初始化表 
+    for (int i =0; i &amp;lt;256; i++) 
+    { 
+        BitsSetTable256[i] = (i &amp;amp;1) + BitsSetTable256[i /2]; 
+    } 
+
+    unsigned int c =0 ; 
+
+    // 查表
+    unsigned char* p = (unsigned char*) &amp;amp;n ; 
+
+    c = BitsSetTable256[p[0]] + 
+        BitsSetTable256[p[1]] + 
+        BitsSetTable256[p[2]] + 
+        BitsSetTable256[p[3]]; 
+
+    return c ; 
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;查表法2：4bit查表&quot;&gt;&lt;a href=&quot;#查表法2：4bit查表&quot; class=&quot;headerlink&quot; title=&quot;查表法2：4bit查表&quot;&gt;&lt;/a&gt;查表法2：4bit查表&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;int BitCount4(unsigned int n)
+{
+    unsigned int table[16] = 
+    {
+        0, 1, 1, 2, 
+        1, 2, 2, 3, 
+        1, 2, 2, 3, 
+        2, 3, 3, 4
+    } ;
+
+    unsigned int count =0 ;
+    while (n)
+    {
+        count += table[n &amp;amp;0xf] ;
+        n &amp;gt;&amp;gt;=4 ;
+    }
+    return count ;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;查表法3：8bit查表&quot;&gt;&lt;a href=&quot;#查表法3：8bit查表&quot; class=&quot;headerlink&quot; title=&quot;查表法3：8bit查表&quot;&gt;&lt;/a&gt;查表法3：8bit查表&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;int BitCount7(unsigned int n)
+{ 
+    unsigned int table[256] = 
+    { 
+        0, 1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4, 
+        1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5, 
+        1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5, 
+        2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 
+        1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5, 
+        2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 
+        2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 
+        3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7, 
+        1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5, 
+        2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 
+        2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 
+        3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7, 
+        2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 
+        3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7, 
+        3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7, 
+        4, 5, 5, 6, 5, 6, 6, 7, 5, 6, 6, 7, 6, 7, 7, 8, 
+    }; 
+
+    return table[n &amp;amp;0xff] +
+        table[(n &amp;gt;&amp;gt;8) &amp;amp;0xff] +
+        table[(n &amp;gt;&amp;gt;16) &amp;amp;0xff] +
+        table[(n &amp;gt;&amp;gt;24) &amp;amp;0xff] ;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;###炸裂的平行算法&lt;br&gt;邻位相加，重复这一过程，直到只剩一位。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    #include &amp;lt;stdio.h&amp;gt;
+    #include &amp;lt;iostream&amp;gt;
+
+    using namespace std;
+
+    int main(int argc, char *argv[]) {
+        int x;
+        while (cin &amp;gt;&amp;gt; x) {
+            x = (x &amp;amp; 0x55555555) + ((x &amp;gt;&amp;gt; 1) &amp;amp; 0x55555555);
+            x = (x &amp;amp; 0x33333333) + ((x &amp;gt;&amp;gt; 2) &amp;amp; 0x33333333);
+            x = (x &amp;amp; 0x0F0F0F0F) + ((x &amp;gt;&amp;gt; 4) &amp;amp; 0x0F0F0F0F);
+            x = (x &amp;amp; 0x00FF00FF) + ((x &amp;gt;&amp;gt; 8) &amp;amp; 0x00FF00FF);
+            x = (x &amp;amp; 0x0000FFFF) + ((x &amp;gt;&amp;gt; 16) &amp;amp; 0x0000FFFF);
+            cout &amp;lt;&amp;lt; x &amp;lt;&amp;lt; endl;
+        }
+        return 0;
+    }
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;###终极大招&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;int BitCount5(unsigned int n) 
+{
+    unsigned int tmp = n - ((n &amp;gt;&amp;gt;1) &amp;amp;033333333333) - ((n &amp;gt;&amp;gt;2) &amp;amp;011111111111);
+    return ((tmp + (tmp &amp;gt;&amp;gt;3)) &amp;amp;030707070707) %63;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;补充：位标志法&quot;&gt;&lt;a href=&quot;#补充：位标志法&quot; class=&quot;headerlink&quot; title=&quot;补充：位标志法&quot;&gt;&lt;/a&gt;补充：位标志法&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;struct _byte 
+{ 
+    unsigned a:1; 
+    unsigned b:1; 
+    unsigned c:1; 
+    unsigned d:1; 
+    unsigned e:1; 
+    unsigned f:1; 
+    unsigned g:1; 
+    unsigned h:1; 
+}; 
+
+long get_bit_count( unsigned char b ) 
+{
+    struct _byte *by = (struct _byte*)&amp;amp;b; 
+    return (by-&amp;gt;a+by-&amp;gt;b+by-&amp;gt;c+by-&amp;gt;d+by-&amp;gt;e+by-&amp;gt;f+by-&amp;gt;g+by-&amp;gt;h); 
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;求二进制最高位前0的个数&quot;&gt;&lt;a href=&quot;#求二进制最高位前0的个数&quot; class=&quot;headerlink&quot; title=&quot;求二进制最高位前0的个数&quot;&gt;&lt;/a&gt;求二进制最高位前0的个数&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;int nlz(unsigned x)
 {
@@ -313,7 +523,11 @@ x = x ^ ((~(x&amp;gt;&amp;gt;31))+1) + x&amp;gt;&amp;gt;31;
    return (x &amp;gt;&amp;gt; 16) | (x &amp;lt;&amp;lt; 16);
    //byte可写成(x &amp;gt;&amp;gt; 4) | (x &amp;lt;&amp;lt; 4);
 }
-&lt;/code&gt;&lt;/pre&gt;</content>
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;参考链接：  &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.lijinma.com/blog/2014/05/29/amazing-xor/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.lijinma.com/blog/2014/05/29/amazing-xor/&lt;/a&gt;  &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.cnblogs.com/graphics/archive/2010/06/21/1752421.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/graphics/archive/2010/06/21/1752421.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</content>
     
     <summary type="html">
     
@@ -2158,43 +2372,6 @@ boolean isScreenOn = pm.isScreenOn();
       <category term="检校" scheme="http://ovjaywang.github.io/tags/%E6%A3%80%E6%A0%A1/"/>
     
       <category term="精度" scheme="http://ovjaywang.github.io/tags/%E7%B2%BE%E5%BA%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[2015.11.08]安装google 框架 Service 一系列</title>
-    <link href="http://ovjaywang.github.io/2015/11/08/2015.11.08%E5%AE%89%E8%A3%85google%20%E6%A1%86%E6%9E%B6%20service%20%E4%B8%80%E7%B3%BB%E5%88%97/"/>
-    <id>http://ovjaywang.github.io/2015/11/08/2015.11.08安装google 框架 service 一系列/</id>
-    <published>2015-11-08T15:53:53.000Z</published>
-    <updated>2016-04-11T14:09:45.581Z</updated>
-    
-    <content type="html">&lt;p&gt;装了cm还有其他一些国产ui直接滤掉了google的一系列被墙的服务。&lt;/p&gt;
-&lt;p&gt;但明明又不可或缺。尤其是最近无可救药的爱上了google相册，那无限制的容量让人流口水。&lt;/p&gt;
-&lt;p&gt;试了一下各种论坛apk专栏的gms（google mobile service 涉及Android版本 cpu类型 屏幕尺寸，以及各种旧版本都试过了都不行。。我就郁闷了。。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://www.coolapk.com/apk/com.google.android.gms&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;各版本gms-酷安网&lt;/a&gt;&amp;nbsp; &amp;nbsp; &lt;a href=&quot;http://www.android-apk.com/zh-cn/2015/02/google-play-store-%E8%88%8A%E7%89%88%E6%9C%AC-apk-%E5%A4%A7%E9%9B%86%E5%90%88/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;各种旧版本google&lt;/a&gt;&amp;nbsp;&amp;nbsp; &lt;a href=&quot;http://www.apkmirror.com/?s=google+play+service&amp;amp;post_type=apps_post&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;各种能找到的google相关旧版本&lt;/a&gt;&amp;nbsp;&amp;nbsp; &lt;a href=&quot;http://sspai.com/30499&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;少数派的小姿势&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;因此试了一下传说中的，Open GApps和TK GApps，非常顺滑。一刷就行，不用双清，放在sd里和刷机一样。&lt;/p&gt;
-&lt;p&gt;提供了详细列表的&lt;a href=&quot;http://forum.xda-developers.com/android/software/tk-gapps-t3116347&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;tk gapps-5.1.X列表&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;同样提供了详细列表的&lt;a href=&quot;http://www.androidrootz.com/2015/03/download-android-51x-lollipop-pa-gapps.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;PA Gapps-5.1.X列表&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://www.technobuzz.net/download-google-apps-gapps/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GAPPS FOR ANY ANDROID ROM&lt;/a&gt;（提供所有安卓版本的GAPPS安装，我成功的刷入了一台老机子nexus 7 在CM12下。震精的是，居然也提供了6.0和我家一加二的安装-。-，MIUI6也适时的出现了&lt;/p&gt;
-&lt;p&gt;stock ：最为贴近 Nexus 机型体验的 GApps 版本，包含了 Nexus 机型所预装的所有 Google 服务和 Google 应用。需要注意的是，这个版本会用 Chrome 、 Google Now Launcher 、 Google Keybord 等 Google 应用替换掉 CM 系 ROM 中那些基于 AOSP 代码的相关应用。&lt;br&gt; full ：与 stock 版所包含的内容相同，但不会替换 AOSP 应用。&lt;br&gt; mini ：包含了完整的 Google 服务框架和主流 Google 应用，去掉了 Google Docs 等文档处理应用&lt;br&gt; micro ：包含了完整的 Google 服务框架和少数 Google 应用，如 Gmail 、 Google Calender 、 Google Now Launcher 。&lt;br&gt; nano ：包含完整的 Google 服务框架但不包含多余的 Google 应用。&lt;br&gt; pico：包含了最基础的 Google 服务框架，体积最小，一些依赖完整 Google 框架的应用（如 Google Camera ）将无法运行。&lt;/p&gt;
-&lt;div class=&quot;PoweredByWebStory&quot; style=&quot;margin-top:15px;margin-bottom:10px&quot;&gt;&lt;a href=&quot;http://sns.juziyue.com/webinvite.php?u=94887&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;/a&gt;&amp;nbsp;今天你&lt;a href=&quot;http://sns.juziyue.com/webinvite.php?u=94887&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;菊子曰&lt;/a&gt;了么？&lt;/div&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;装了cm还有其他一些国产ui直接滤掉了google的一系列被墙的服务。&lt;/p&gt;
-&lt;p&gt;但明明又不可或缺。尤其是最近无可救药的爱上了google相册，那无限制的容量让人流口水。&lt;/p&gt;
-&lt;p&gt;试了一下各种论坛apk专栏的gms（google mobile service 涉及
-    
-    </summary>
-    
-      <category term="App强推" scheme="http://ovjaywang.github.io/categories/App%E5%BC%BA%E6%8E%A8/"/>
-    
-      <category term="软文" scheme="http://ovjaywang.github.io/categories/App%E5%BC%BA%E6%8E%A8/%E8%BD%AF%E6%96%87/"/>
-    
-    
-      <category term="Android" scheme="http://ovjaywang.github.io/tags/Android/"/>
-    
-      <category term="gms" scheme="http://ovjaywang.github.io/tags/gms/"/>
     
   </entry>
   
