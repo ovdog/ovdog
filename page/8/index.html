@@ -295,6 +295,210 @@
             
               
                 
+                <a class="post-title-link" href="/2013/05/08/bae-java/" itemprop="url">
+                  关于Bae的java环境下的几点提示
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2013-05-08T12:09:32+08:00" content="2013-05-08">
+              2013-05-08
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/代码狗/" itemprop="url" rel="index">
+                    <span itemprop="name">代码狗</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/代码狗/学习log/" itemprop="url" rel="index">
+                    <span itemprop="name">学习log</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2013/05/08/bae-java/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/05/08/bae-java/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.要加入session的话需要在duapp.xml中加入<br>2.不能部署在本机tomcat的问题 以myeclipse为例<br>在项目根目录的 .mymetadata中id=”XXX”后面 加入 context-root=”/项目名字”（不带后缀，随便起名字 最好和 name=”XX”中一样）<img src="http://i1061.photobucket.com/albums/t476/ov_beeshoot/bae90E87F72.jpg" alt="bae的本机部署"><br>3.log4j要参考文档进行配置。否则直接使用会有异常抛出。<br>4.连接云百度数据库 必须要在百度的云环境（即svn或者git在本地编辑的工程。BaeEnv是云环境的变量 不用导入包即可使用）<br>注意的是 连接云数库只能在云环境使用 使用tomcat等在本地的无法连接云数据库。<br>在java环境中为例：<br>在云环境基本信息中获取ApIkey 和secretKey<img src="http://i1061.photobucket.com/albums/t476/ov_beeshoot/bae768457FA672C4FE1606F.jpg" alt="bae基本信息"><br>在版本管理中新建一个版本 并在本地用svn同步（不知道什么是svn…算了）<br>在云数据库中新建一个数据库 可以获取免费的1G配额<br>数据库可以利用phpAdmin管理 也可以在本地建好导出sql脚本（最好在本地建好 否则phpAdmin比较难操作 在本地可以利用MysqlFont我比较喜欢这个）如图建立了一个User表 里面有username和password两个字段<br><img src="http://i1061.photobucket.com/albums/t476/ov_beeshoot/bae6570636E5E93.jpg" alt="bae数据库"><br>在同步的javaweb中建以下几个东西<br>一个DBManager.java以连接数据库</p>
+<p>‘’’java<br>import java.sql.DriverManager;<br>import java.sql.SQLException;<br>import com.mysql.jdbc.Connection;<br>public class  DBManager {<br>    private static Connection con=null;<br>    /**</p>
+<pre><code> * 
+ * 构造方法私有 外部方法不能创建对象
+ * @author Wjy
+ * 懒汉单态模式
+ */
+private DBManager()
+{}
+public synchronized static Connection getCon() 
+    throws ClassNotFoundException, SQLException
+{
+</code></pre><p>//      String host = BaeEnv.getBaeHeader(BaeEnv.BAE_ENV_ADDR_SQL_IP);<br>//      String port = BaeEnv.getBaeHeader(BaeEnv.BAE_ENV_ADDR_SQL_PORT);<br>//      String username = BaeEnv.getBaeHeader(BaeEnv.BAE_ENV_AK);<br>//      String password = BaeEnv.getBaeHeader(BaeEnv.BAE_ENV_SK);<br>          String DRIVERNAME = &quot;com.mysql.jdbc.Driver&quot;;<br>          String URL = &quot;jdbc:mysql://sqld.duapp.com:4050/rMDtIBgOtaeTHVuKjaep&quot;;<br>          String USER = &quot;uK2b4AyjaNTGCcxUbR9Drmo8&quot;;<br>          String PWD = &quot;LGN4LjqH0bTFMGhtTMoQMCeDFQ6tzeRW&quot;;<br>        //String driverName = &quot;com.mysql.jdbc.Driver&quot;;<br>        //String dbUrl = &quot;jdbc:mysql://&quot;;<br>        //String serverName = host + &quot;:&quot; + port + &quot;/&quot;;<br>            //从平台查询应用要使用的数据库名<br>        String databaseName = &quot;rMDtIBgOtaeTHVuKjaep&quot;;<br>        //String connName = dbUrl + serverName + databaseName;<br>        Connection connection = null;<br>        Class.forName(DRIVERNAME);<br>        connection = (Connection) DriverManager.getConnection(URL, USER,PWD); // 链接数据库<br>        if(connection!=null){return connection;}<br>        else{return null;}//具体的数据库操作逻辑</p>
+<pre><code>} 
+</code></pre><p>}<br>‘’’</p>
+<p>一个实体类User.java</p>
+<p>‘’’java<br>public class User {<br>    private String userName;<br>    private String psw;<br>    public String getUserName() {<br>        return userName;<br>    }<br>    public void setUserName(String userName) {<br>        this.userName = userName;<br>    }<br>    public String getPsw() {<br>        return psw;<br>    }<br>    public void setPsw(String psw) {<br>        this.psw = psw;<br>    }<br>    public User(String userName, String psw) {<br>        super();<br>        this.userName = userName;<br>        this.psw = psw;<br>    }<br>    @Override<br>    public String toString() {<br>        return &quot;User [userName=&quot; + userName + &quot;, psw=&quot; + psw + &quot;]&quot;;<br>    }</p>
+<p>}<br>‘’’</p>
+<p>一个把sql查询的结果集转换成实体类的接口和实现类<br>EntityMapping .java</p>
+<p>‘’’java<br>import java.sql.ResultSet;<br>import java.sql.SQLException;<br>public interface EntityMapping {<br>    public Object mapping(ResultSet rs)throws SQLException ;<br>}<br>‘’’</p>
+<p>UserMapping.java</p>
+<p>‘’’java<br>import java.sql.ResultSet;<br>import java.sql.SQLException;<br>public class UserMapping  implements EntityMapping{</p>
+<pre><code>@Override
+public User mapping(ResultSet rs) throws SQLException {
+    int i = 1;
+    User user = new User(rs.getString(i++),rs.getString(i++));
+    return user;
+}
+</code></pre><p>}<br>‘’’</p>
+<p>一个万能！！！的！！！操作数据库的类。。在任何地方也可以使用<br>JdbcTemplate.java</p>
+<p>‘’’java<br>import java.sql.Connection;<br>import java.sql.PreparedStatement;<br>import java.sql.ResultSet;<br>import java.sql.SQLException;<br>import java.util.ArrayList;<br>import java.util.List;<br>import java.util.Vector;</p>
+<p>//代替原来DBmamager功能<br>public class JdbcTemplate {<br>    public  boolean update(String sql,Object… values) throws ClassNotFoundException, SQLException<br>    {<br>        PreparedStatement psta=null;<br>        int row=0;<br>        try {<br>            Connection con=DBManager.getCon();<br>            psta= con.prepareStatement(sql);<br>                for (int i = 0; i &lt; values.length; i++) {<br>                psta.setObject(i+1, values[i]);<br>            }<br>            row=psta.executeUpdate();<br>        } catch (Exception e) {<br>            // TODO: handle exception<br>        }finally<br>        {<br>            if (psta!=null) {<br>                psta.close();<br>                psta=null;<br>            }<br>        }       </p>
+<pre><code>    return (row==1);
+}
+public List findAll(String sql,EntityMapping EnMp,Object...Objects) throws SQLException
+{   PreparedStatement psta=null;
+    ResultSet rs=null;
+    List list=new Vector();
+    try {
+        Connection con=DBManager.getCon();
+        psta= con.prepareStatement(sql);    
+    for (int i = 0; i &amp;lt; Objects.length; i++) {
+         psta.setObject(i+1, Objects[i]);
+    }
+         rs=psta.executeQuery();
+        if(rs==null)
+        {System.out.println(&amp;quot;为空！&amp;quot;);}
+    while(rs.next())
+    {
+         list.add(EnMp.mapping(rs));
+    }
+
+} catch (Exception e) {
+}finally
+{
+    if (rs!=null) {
+        rs.close();
+        rs=null;
+    }
+    if (psta!=null) {
+        psta.close();
+        psta=null;
+    }
+}       
+    return list;
+}
+</code></pre><p>}<br>‘’’</p>
+<p>连接数据库的servlet<br>GetUser.java</p>
+<p>‘’’java<br>import java.io.IOException;<br>import java.sql.SQLException;<br>import java.util.List;</p>
+<p>import javax.servlet.ServletException;<br>import javax.servlet.http.HttpServlet;<br>import javax.servlet.http.HttpServletRequest;<br>import javax.servlet.http.HttpServletResponse;</p>
+<p>public class GetUser extends HttpServlet {<br>    public GetUser() {<br>        super();<br>    }<br>    public void doGet(HttpServletRequest request, HttpServletResponse response)<br>            throws ServletException, IOException {<br>        this.doPost(request, response);<br>    }<br>    public void doPost(HttpServletRequest request, HttpServletResponse response)<br>            throws ServletException, IOException {<br>         JdbcTemplate template=new JdbcTemplate();<br>         List  list=null;<br>         try {<br>             list=template.findAll(&quot;select * from User&quot;, new UserMapping());<br>        } catch (SQLException e) {<br>            // TODO Auto-generated catch block<br>            e.printStackTrace();}<br>         request.setAttribute(&quot;User&quot;, list);<br>         request.getRequestDispatcher(&quot;/User.jsp&quot;).forward(request, response);}<br>}<br>‘’’</p>
+<p>最后是显示信息的页面User.jsp</p>
+<p>‘’’html<br>&lt;%@ page language=&quot;java&quot; import=&quot;java.util.*,java.net.URL&quot; contentType=&quot;text/html; charset=UTF-8&quot;%&gt;<br>&lt;%@page import=&quot;你的类名！&quot;%&gt;<br>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;&gt;<br>&lt;html&gt;<br>  &lt;head&gt;<br>    &lt;title&gt;User&lt;/title&gt;<br>  &lt;/head&gt;<br>  &lt;body&gt;<br>    &lt;%Object info=request.getAttribute(&quot;User&quot;);<br>    if (info!=null)<br>    {  List&lt;User&gt; uu=(List&lt;User&gt;)info;<br>        for (User user : uu) {<br>            %&gt;&lt;%=user%&gt;&lt;br&gt;&lt;%<br>        }}<br>   %&gt;<br>  &lt;/body&gt;<br>&lt;/html&gt;<br>‘’’</p>
+<p>记住的是要把web.xml中的welcome-filelist设成servlet的名字或者直接输入地址<br><a href="http://1.你的app名字.duapp.com/GetUser" target="_blank" rel="external">http://1.你的app名字.duapp.com/GetUser</a></p>
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2013/05/08/今日吐槽/" itemprop="url">
                   今日吐槽
                 </a>
@@ -1308,7 +1512,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">106</span>
+              <span class="site-state-item-count">107</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

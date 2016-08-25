@@ -82,37 +82,16 @@
 
 
 
-<meta name="description" content="Git是当下最流行最舒适的版本控制系统。这里大致把git容易忘记的事情做小结。
-Git Tips
-Git的机制记录每次commit的快照及镜像，而非版本增量。完全的分布式及提倡多分支非线性开发。
-
-类似CVS Subversion记录次提交时更新的文件及更新了哪些内容。
-Git则将快照记录在微型文件系统中，并使用指针(索引)指向当前快照以区别版本。
-
-Git每次提交不必联网 大部分操作在本地完成">
+<meta name="description" content="Git是当下最流行最舒适的版本控制系统。这里大致把git容易忘记的事情做小结。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git的小tips">
 <meta property="og:url" content="http://ovjaywang.github.io/2016/06/14/git的小tips/index.html">
 <meta property="og:site_name" content="ov智商捉急">
-<meta property="og:description" content="Git是当下最流行最舒适的版本控制系统。这里大致把git容易忘记的事情做小结。
-Git Tips
-Git的机制记录每次commit的快照及镜像，而非版本增量。完全的分布式及提倡多分支非线性开发。
-
-类似CVS Subversion记录次提交时更新的文件及更新了哪些内容。
-Git则将快照记录在微型文件系统中，并使用指针(索引)指向当前快照以区别版本。
-
-Git每次提交不必联网 大部分操作在本地完成">
-<meta property="og:updated_time" content="2016-06-14T15:29:16.456Z">
+<meta property="og:description" content="Git是当下最流行最舒适的版本控制系统。这里大致把git容易忘记的事情做小结。">
+<meta property="og:updated_time" content="2016-06-15T02:00:41.867Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git的小tips">
-<meta name="twitter:description" content="Git是当下最流行最舒适的版本控制系统。这里大致把git容易忘记的事情做小结。
-Git Tips
-Git的机制记录每次commit的快照及镜像，而非版本增量。完全的分布式及提倡多分支非线性开发。
-
-类似CVS Subversion记录次提交时更新的文件及更新了哪些内容。
-Git则将快照记录在微型文件系统中，并使用指针(索引)指向当前快照以区别版本。
-
-Git每次提交不必联网 大部分操作在本地完成">
+<meta name="twitter:description" content="Git是当下最流行最舒适的版本控制系统。这里大致把git容易忘记的事情做小结。">
 
 
 
@@ -368,7 +347,7 @@ Git每次提交不必联网 大部分操作在本地完成">
       
 
       
-        <p>Git是当下最流行最舒适的版本控制系统。这里大致把git容易忘记的事情做小结。</p>
+        <p>Git是当下最流行最舒适的版本控制系统。这里大致把git容易忘记的事情做小结。<br><a id="more"></a></p>
 <h1 id="Git-Tips"><a href="#Git-Tips" class="headerlink" title="Git Tips"></a>Git Tips</h1><hr>
 <h2 id="Git的机制"><a href="#Git的机制" class="headerlink" title="Git的机制"></a>Git的机制</h2><p>记录每次commit的快照及镜像，而非版本增量。完全的分布式及提倡多分支非线性开发。</p>
 <ul>
@@ -417,8 +396,10 @@ git tag -a [tag_name] [commit_code] #给忘记添加标记的提交起个标签
 e.g. 
 git log --pretty=format:&quot;%h - %an, %ar : %s&quot;
 </code></pre>
-<p>上式以一个很优美的显示方案：哈希字符串、对象、时间、提交的说明 一行一个提交显示。<br>|   选项     |   说明       |<br>| :——————–: |:————————————————-:|<br>| <code>-p</code>      |按补丁格式显示每个更新之间的差异。 |<br>| <code>--word-diff</code> | 按 word diff 格式显示差异。  |<br>| <code>--stat</code>      |  显示每次更新的文件修改统计信息。  |<br>|<code>--shortstat</code>      |只显示 –stat 中最后的行数修改添加移除统计。|<br>|<code>--name-only</code>|仅在提交信息后显示已修改的文件清单。|<br>|<code>--name-status</code>|显示新增、修改、删除的文件清单。|<br>|<code>--abbrev-commit</code>|仅显示 SHA-1 的前几个字符，而非所有的 40 个字符。|<br>|<code>--relative-date</code>|按位无符号右移|<br>|<code>--graph</code>|显示 ASCII 图形表示的分支合并历史。|<br>|<code>--pretty</code>|使用其他格式显示历史提交信息。可用的选项包括oneline，short，full，fuller 和 format（后跟指定格式）。|<br>|<code>--online</code>|–pretty=oneline –abbrev-commit 的简化用法。|</p>
-<h2 id="自动补全-命令别名"><a href="#自动补全-命令别名" class="headerlink" title="自动补全-命令别名"></a>自动补全-命令别名</h2><p>直接看<a href="http://www.fenby.com/courses/sections/ji-qiao-he-qiao-men/" target="_blank" rel="external">这里</a></p>
+<p>上式以一个很优美的显示方案：哈希字符串、对象、时间、提交的说明 一行一个提交显示。<br>对于可显示选项，可选用下表备用词。</p>
+<table class="table table-bordered table-striped table-condensed"><br>    <tr><br>        <td>选项 </td><br>        <td>说明</td><br>    </tr><br>    <tr><br>        <td>-p </td><br>        <td>按补丁格式显示每个更新之间的差异。</td><br>    </tr><br>    <tr><br>        <td>–word-diff </td><br>        <td>按 word diff 格式显示差异。</td><br>    </tr><br>    <tr><br>        <td>–stat </td><br>        <td>显示每次更新的文件修改统计信息。</td><br>    </tr><br>    <tr><br>        <td>–shortstat </td><br>        <td>只显示 –stat 中最后的行数修改添加移除统计。</td><br>    </tr><br>    <tr><br>        <td>–name-only </td><br>        <td>仅在提交信息后显示已修改的文件清单。</td><br>    </tr><br>    <tr><br>        <td>–name-status </td><br>        <td>显示新增、修改、删除的文件清单。</td><br>    </tr><br>    <tr><br>        <td>–abbrev-commit </td><br>        <td>仅显示 SHA-1 的前几个字符，而非所有的 40 个字符。</td><br>    </tr><br>    <tr><br>        <td>–relative-date </td><br>        <td>使用较短的相对时间显示（比如，“2 weeks ago”）。</td><br>    </tr><br>    <tr><br>        <td>–graph </td><br>        <td>显示 ASCII 图形表示的分支合并历史。</td><br>    </tr><br>    <tr><br>        <td>–pretty </td><br>        <td>使用其他格式显示历史提交信息。可用的选项包括 oneline，short，full，fuller 和 format（后跟指定格式）。</td><br>    </tr><br>    <tr><br>        <td>–oneline </td><br>        <td>–pretty=oneline –abbrev-commit 的简化用法。</td><br>    </tr><br></table><br>而对于pretty中的格式，可以自由设定，如下表标注。<br><table><br>    <tr><br>        <td>选项 </td><br>        <td>说明</td><br>    </tr><br>    <tr><br>        <td>%H </td><br>        <td>提交对象（commit）的完整哈希字串</td><br>    </tr><br>    <tr><br>        <td>%h </td><br>        <td>提交对象的简短哈希字串</td><br>    </tr><br>    <tr><br>        <td>%T </td><br>        <td>树对象（tree）的完整哈希字串</td><br>    </tr><br>    <tr><br>        <td>%t </td><br>        <td>树对象的简短哈希字串</td><br>    </tr><br>    <tr><br>        <td>%P </td><br>        <td>父对象（parent）的完整哈希字串</td><br>    </tr><br>    <tr><br>        <td>%p </td><br>        <td>父对象的简短哈希字串</td><br>    </tr><br>    <tr><br>        <td>%an </td><br>        <td>作者（author）的名字</td><br>    </tr><br>    <tr><br>        <td>%ae </td><br>        <td>作者的电子邮件地址</td><br>    </tr><br>    <tr><br>        <td>%ad </td><br>        <td>作者修订日期（可以用 -date= 选项定制格式）</td><br>    </tr><br>    <tr><br>        <td>%ar </td><br>        <td>作者修订日期，按多久以前的方式显示</td><br>    </tr><br>    <tr><br>        <td>%cn </td><br>        <td>提交者(committer)的名字</td><br>    </tr><br>    <tr><br>        <td>%ce </td><br>        <td>提交者的电子邮件地址</td><br>    </tr><br>    <tr><br>        <td>%cd </td><br>        <td>提交日期</td><br>    </tr><br>    <tr><br>        <td>%cr </td><br>        <td>提交日期，按多久以前的方式显示</td><br>    </tr><br>    <tr><br>        <td>%s </td><br>        <td>提交说明</td><br>    </tr><br></table>
+
+<h2 id="自动补全-命令别名"><a href="#自动补全-命令别名" class="headerlink" title="自动补全-命令别名"></a>自动补全-命令别名</h2><p>相当酷炫而有用。直接看<a href="http://www.fenby.com/courses/sections/ji-qiao-he-qiao-men/" target="_blank" rel="external">这里</a></p>
       
     </div>
     
@@ -454,6 +435,10 @@ git log --pretty=format:&quot;%h - %an, %ar : %s&quot;
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/18/Learn-sth-the-other-day/" rel="prev" title="Learn Sth. the Other Day">
+                Learn Sth. the Other Day <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -541,7 +526,7 @@ git log --pretty=format:&quot;%h - %an, %ar : %s&quot;
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">106</span>
+              <span class="site-state-item-count">107</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
