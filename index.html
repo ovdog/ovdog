@@ -348,10 +348,14 @@
           
             <hr>
 <p>title: Learn sth. the other day<br>date: 2016-08-18 18:58:03</p>
-<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><p>16-08-28<br>近日复习了机器学习线性回归和Logistic回归。前者只需记住j(Θ)的推导和最终结论$$\theta =(X^{T}X)^{-1}X^{T}Y$$或者$$\theta =(X^{T}X+\lambda I)^{-1}X^{T}Y$$即可；为了排除求逆的复杂度则进行梯度下降也是极好。    </p>
+<h2 id="categories-槽"><a href="#categories-槽" class="headerlink" title="categories: 槽"></a>categories: 槽</h2><p>16-09-29<br>py的机器学习包调用的好的好简单啊。。数据清洗和筛选都很舒服。。</p>
+<p>关于Java集合框架(JCF)，主要的接口和类有：<br><img src="http://ooo.0o0.ooo/2016/08/29/57c452fde4a68.png" alt="JCF"><br>List下面都有提到，现在主要来讨论Set和Queue。值得一提的是，Set其实是一种特殊的Map。将键和值都赋为相同的值，Set为Map的一种适配器模式，即只实现了想实现的功能，其他Map的功能我不要。同时，由于在JDK1.6以后，Deque实现了双向链表的功能，也封装了顶部加入和弹出、底部加入和弹出的功能，实际完成了Stack的基本操作，所以Stack基本被Deque取代了。可以将Deque看做实现了基本所有优先队列功能的接口，其唯一实现类是LinkedList(它继承自AbstractList，因为也带有List基本的功能，好屌啊).</p>
+<p><strong>这个很重要</strong><br>下图为集合框架的实现方式。<br><img src="http://ooo.0o0.ooo/2016/08/29/57c45a1026983.png" alt=""><br>可以看到，LinkedList几乎即实现了双链表又实现了List集合的功能；而基于红黑树的TreeMap和TreeSet能在O(lg(n))时间内完成数据的插入、删除、查找等基本操作。而链表和数组不同方式实现了的List则对于插入和删除有显而易见不同的时间复杂度。LinkedHash两者并存也是神奇的存在，一个Map里，在哈希表的slot里面插入同一位置的使用链表存放，并把链表尾端链到下一个有值的槽的键值上。。虽然很好用，但是，大量的数据需要开很大的空间来存放指针。</p>
+<p>集合框架都能使用.hasNext函数来使用迭代器进行遍历，当然，foreach大法也很好。</p>
+<p>16-08-28<br>近日复习了机器学习线性回归和Logistic回归。前者只需记住j(Θ)的推导和最终结论$$\theta =(X^{T}X)^{-1}X^{T}Y$$或者$$\theta =(X^{T}X+\lambda I)^{-1}X^{T}Y$$即可；为了排除求逆的复杂度则进行梯度下降也是极好。    </p>
 <ul>
-<li>Batch<br>$$ \theta_{j} += \alpha \sum^m_{i=1}(y^i-h_\theta(x^{(i)}))x^{(i)}_j$$<br>其中α是步长(学习因子)，h为Θ相关的预测，xy均已知，该方法每步需迭代所有数据</li>
-<li>stachastic<br>$$ \theta_j += \alpha (y^i-h_\theta(x^{(i)}))x^{(i)}_j$$<br>同上类似 但每步只加入一个数据进行梯度计算迭代。</li>
+<li>Batch（批量梯度下降）<br>$$ \theta_{j} += \alpha \sum^m_{i=1}(y^i-h_\theta(x^{(i)}))x^{(i)}_j$$<br>其中α是步长(学习因子)，h为Θ相关的预测，xy均已知，该方法每步需迭代所有数据</li>
+<li>stachastic（随机梯度下降）<br>$$ \theta_j += \alpha (y^i-h_\theta(x^{(i)}))x^{(i)}_j$$<br>同上类似 但每步只加入一个数据进行梯度计算迭代。</li>
 <li>mini batch（结合上俩式结合一小部分的数据进行迭代而非全部也不是一个）</li>
 </ul>
 <ol>
