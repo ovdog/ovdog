@@ -83,20 +83,20 @@
 
 
 <meta name="description" content="title: Learn sth. the other daydate: 2016-08-18 18:58:03
-tags:16-08-28近日复习了机器学习线性回归和Logistic回归。前者只需记住j(Θ)的推导和最终结论$$!\Theta =(X^{T}X)^{-1}X^{T}Y$$或者$$!\Theta =(X^{T}X+\lambda I)^{-1}X^{T}Y$$即可；为了排除求逆的">
+tags:$$H$2$O$$$$\sum{p\rm\;prime}f(p) = \int_{t&amp;gt;1}f(t)d\pi(t).$$16-08-28近日复习了机器学习线性回归和Logistic回归。前者只需记住j(Θ)的推导和最终结论$$\Theta =(X^{T}X)^{-1}X">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ov智商捉急">
 <meta property="og:url" content="http://ovjaywang.github.io/2016/08/18/Learn-sth-the-other-day/index.html">
 <meta property="og:site_name" content="ov智商捉急">
 <meta property="og:description" content="title: Learn sth. the other daydate: 2016-08-18 18:58:03
-tags:16-08-28近日复习了机器学习线性回归和Logistic回归。前者只需记住j(Θ)的推导和最终结论$$!\Theta =(X^{T}X)^{-1}X^{T}Y$$或者$$!\Theta =(X^{T}X+\lambda I)^{-1}X^{T}Y$$即可；为了排除求逆的">
+tags:$$H$2$O$$$$\sum{p\rm\;prime}f(p) = \int_{t&amp;gt;1}f(t)d\pi(t).$$16-08-28近日复习了机器学习线性回归和Logistic回归。前者只需记住j(Θ)的推导和最终结论$$\Theta =(X^{T}X)^{-1}X">
 <meta property="og:image" content="https://ooo.0o0.ooo/2016/08/22/57bbc0d99a834.jpg">
 <meta property="og:image" content="https://ooo.0o0.ooo/2016/08/18/57b5962f1d2d2.gif">
-<meta property="og:updated_time" content="2016-08-29T06:35:26.405Z">
+<meta property="og:updated_time" content="2016-08-29T06:58:34.054Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ov智商捉急">
 <meta name="twitter:description" content="title: Learn sth. the other daydate: 2016-08-18 18:58:03
-tags:16-08-28近日复习了机器学习线性回归和Logistic回归。前者只需记住j(Θ)的推导和最终结论$$!\Theta =(X^{T}X)^{-1}X^{T}Y$$或者$$!\Theta =(X^{T}X+\lambda I)^{-1}X^{T}Y$$即可；为了排除求逆的">
+tags:$$H$2$O$$$$\sum{p\rm\;prime}f(p) = \int_{t&amp;gt;1}f(t)d\pi(t).$$16-08-28近日复习了机器学习线性回归和Logistic回归。前者只需记住j(Θ)的推导和最终结论$$\Theta =(X^{T}X)^{-1}X">
 <meta name="twitter:image" content="https://ooo.0o0.ooo/2016/08/22/57bbc0d99a834.jpg">
 
 
@@ -355,33 +355,34 @@ tags:16-08-28近日复习了机器学习线性回归和Logistic回归。前者�
       
         <hr>
 <p>title: Learn sth. the other day<br>date: 2016-08-18 18:58:03</p>
-<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><p>16-08-28<br>近日复习了机器学习线性回归和Logistic回归。前者只需记住j(Θ)的推导和最终结论$$!\Theta =(X^{T}X)^{-1}X^{T}Y$$或者$$!\Theta =(X^{T}X+\lambda I)^{-1}X^{T}Y$$即可；为了排除求逆的复杂度则进行梯度下降也是极好。    </p>
+<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><p>$$H$<em>2$O$$<br>$$\sum</em>{p\rm\;prime}f(p) = \int_{t&gt;1}f(t)d\pi(t).$$<br>16-08-28<br>近日复习了机器学习线性回归和Logistic回归。前者只需记住j(Θ)的推导和最终结论$$\Theta =(X^{T}X)^{-1}X^{T}Y$$或者$$\Theta =(X^{T}X+\lambda I)^{-1}X^{T}Y$$即可；为了排除求逆的复杂度则进行梯度下降也是极好。    </p>
 <ul>
-<li>Batch $$ \Theta <em>{j} += \alpha \sum</em>{i=1}^{m}(y^{i}-h<em>{\Theta }(x^{(i)}))x^{(i)}</em>{j}$$  其中α是步长，h为Θ相关的预测，xy均已知，该方法每步需迭代所有数据</li>
-<li>stachastic  $$\Theta <em>{j} += \alpha (y^{i}-h</em>{\Theta }(x^{(i)}))x^{(i)}_{j}$$<br>同上类似 但每步只加入一个数据进行梯度计算迭代。</li>
+<li>Batch<br>$ (\Theta)<em>{j} += \alpha \sum</em>{i=1}^{m}(y^{i}-h<em>{ \Theta }(x^{(i)}))x^{(i)}</em>{j}$<br>其中α是步长，h为Θ相关的预测，xy均已知，该方法每步需迭代所有数据</li>
+<li>stachastic<br>$ (\Theta)<em>{j} += \alpha (y^{i}-h</em>{\Theta}(x^{(i)}))x^{(i)}_{j}$<br>同上类似 但每步只加入一个数据进行梯度计算迭代。</li>
 <li>mini batch（结合上俩式结合一小部分的数据进行迭代而非全部也不是一个）</li>
 </ul>
 <ol>
 <li>回归不适用于分类，尤其是多分类。原理回归曲线的点会严重影响回归函数。</li>
 <li>局部加权回归是在求解梯度时在求和部分加入一个ω函数，使得残杀服从某种分布，一般选择ω为高斯核函数。</li>
-<li>J(Θ)采用的是似然函数求取极值的方式来计算参数；回归时很可能需要先验知识对数据加入某一特征的二次、三次作为新的特征来拟合回归函数。<br>16-08-25<br>复习leetcode的一些基本题。两个排序数组取中值的，这个真心想了好久。虽知道是分支，但就是解决不好头尾和递推条件。还有很经典的子数组max和，子数组max积，股票买卖那几个动归的问题。单独拿那个取中值的说一下。</li>
+<li>J(Θ)采用的是似然函数求取极值的方式来计算参数；回归时很可能需要先验知识对数据加入某一特征的二次、三次作为新的特征来拟合回归函数。    </li>
 </ol>
+<p>16-08-25<br>复习leetcode的一些基本题。两个排序数组取中值的，这个真心想了好久。虽知道是分支，但就是解决不好头尾和递推条件。还有很经典的子数组max和，子数组max积，股票买卖那几个动归的问题。单独拿那个取中值的说一下。</p>
 <p>这个算法最直接的当阿然是O(n)把排序数组重合。与快拍里面的一小节类似。但是要更快，就需要更好的思维过程了。</p>
 <p>想到分治必然是划分小区间，然而已经有两段了如何划分更 .0小的区间，一划就成4个了。然而转念一想，取中值，必然是两组里面分别小于中值的和两组里面分别大于中值的共四组。设A B倆数组，长度分别是m,n.约定划分在i∈[0,m-1],j∈[0,n-1]。这样，AB分为了左右两组，</p>
 <table>
 <thead>
 <tr>
-<th>Left</th>
+<th style="text-align:center">Left</th>
 <th style="text-align:center">Right</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>A[0]~A[i]</td>
+<td style="text-align:center">A[0]~A[i]</td>
 <td style="text-align:center">A[i+1]~B[m-1]</td>
 </tr>
 <tr>
-<td>B[0]~B[j]</td>
+<td style="text-align:center">B[0]~B[j]</td>
 <td style="text-align:center">B[j+1]~B[n-1]</td>
 </tr>
 </tbody>
