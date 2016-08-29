@@ -296,7 +296,7 @@
               
                 
                 <a class="post-title-link" href="/2016/08/18/Learn-sth-the-other-day/" itemprop="url">
-                  Learn Sth. the Other Day
+                  未命名
                 </a>
               
             
@@ -346,7 +346,45 @@
       
         
           
-            <p>16-08-24<br>关于高并发 synchronized可以针对<strong>静态函数 实例方法和类对象</strong>进行阻塞。当访问到里临界区资源时，不但不能写入，同时亦不能读取，防止读取到副本而做出超出预计的运算。HashMap和ArrayList在多线程时一定不能用。    </p>
+            <hr>
+<p>title: Learn sth. the other day<br>date: 2016-08-18 18:58:03</p>
+<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><p>16-08-28<br>近日复习了机器学习线性回归和Logistic回归。前者只需记住j(Θ)的推导和最终结论$$!\Theta =(X^{T}X)^{-1}X^{T}Y$$或者$$!\Theta =(X^{T}X+\lambda I)^{-1}X^{T}Y$$即可；为了排除求逆的复杂度则进行梯度下降也是极好。    </p>
+<ul>
+<li>Batch $$ \Theta <em>{j} += \alpha \sum</em>{i=1}^{m}(y^{i}-h<em>{\Theta }(x^{(i)}))x^{(i)}</em>{j}$$  其中α是步长，h为Θ相关的预测，xy均已知，该方法每步需迭代所有数据</li>
+<li>stachastic  $$\Theta <em>{j} += \alpha (y^{i}-h</em>{\Theta }(x^{(i)}))x^{(i)}_{j}$$<br>同上类似 但每步只加入一个数据进行梯度计算迭代。</li>
+<li>mini batch（结合上俩式结合一小部分的数据进行迭代而非全部也不是一个）</li>
+</ul>
+<ol>
+<li>回归不适用于分类，尤其是多分类。原理回归曲线的点会严重影响回归函数。</li>
+<li>局部加权回归是在求解梯度时在求和部分加入一个ω函数，使得残杀服从某种分布，一般选择ω为高斯核函数。</li>
+<li>J(Θ)采用的是似然函数求取极值的方式来计算参数；回归时很可能需要先验知识对数据加入某一特征的二次、三次作为新的特征来拟合回归函数。<br>16-08-25<br>复习leetcode的一些基本题。两个排序数组取中值的，这个真心想了好久。虽知道是分支，但就是解决不好头尾和递推条件。还有很经典的子数组max和，子数组max积，股票买卖那几个动归的问题。单独拿那个取中值的说一下。</li>
+</ol>
+<p>这个算法最直接的当阿然是O(n)把排序数组重合。与快拍里面的一小节类似。但是要更快，就需要更好的思维过程了。</p>
+<p>想到分治必然是划分小区间，然而已经有两段了如何划分更 .0小的区间，一划就成4个了。然而转念一想，取中值，必然是两组里面分别小于中值的和两组里面分别大于中值的共四组。设A B倆数组，长度分别是m,n.约定划分在i∈[0,m-1],j∈[0,n-1]。这样，AB分为了左右两组，</p>
+<table>
+<thead>
+<tr>
+<th>Left</th>
+<th style="text-align:center">Right</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A[0]~A[i]</td>
+<td style="text-align:center">A[i+1]~B[m-1]</td>
+</tr>
+<tr>
+<td>B[0]~B[j]</td>
+<td style="text-align:center">B[j+1]~B[n-1]</td>
+</tr>
+</tbody>
+</table>
+<p>当且仅当以下条件满足时，找到了合适的i和j。</p>
+<ul>
+<li>A[i]&lt;B[j+1]且B[j]&lt;A[i+1] (即保证严格左堆小于又堆)</li>
+<li></li>
+</ul>
+<p>16-08-24<br>关于高并发 synchronized可以针对<strong>静态函数 实例方法和类对象</strong>进行阻塞。当访问到里临界区资源时，不但不能写入，同时亦不能读取，防止读取到副本而做出超出预计的运算。HashMap和ArrayList在多线程时一定不能用。    </p>
 <p>针对synchronized很方便的加锁方式，重入锁可以很好的完全替代它。它的主要作用有在中断时给予响应，对某锁申请限制时间的等待，给与申请锁的线程公平的获得机会（防止饥饿产生）。其主要的方法有：</p>
 <ul>
 <li>lock()获得锁 如果已被占用则等待。</li>
@@ -357,7 +395,7 @@
 </ul>
 <p>而使用condition来配合完成wait和notify操作。</p>
 <p>16-08-22</p>
-<p>###关于ArrayList与Vector<br>同步性及线程安全不同、自增方式不同；底层均基于数组（Object[]）实现，可随机访问，查询增删效率相同。<br>List<t>接口有三个实现类，ArrayList、Vector、LinkedList。前两个基于数组实现，物理位置应该是连续的；LinkedList类似C语言的链表，删除时，查询效率是O(i),i为index,而删除时指针改变效率为O(1).而两者查询效率为O(1),删除时效率为O(n-i).<br>LinkedList通过双链表维护，因而可以轻易的转换为栈和队列（Stack Queue Deque）等优先队列的结构。<br>要得到一个同步的LinkedList可以使用同步封装器实现,从Collections.synchronizedList(List)得到。但Vector就不需要进行额外的调用，尤其是在访问和更新。    </t></p>
+<h3 id="关于ArrayList与Vector"><a href="#关于ArrayList与Vector" class="headerlink" title="关于ArrayList与Vector"></a>关于ArrayList与Vector</h3><p>同步性及线程安全不同、自增方式不同；底层均基于数组（Object[]）实现，可随机访问，查询增删效率相同。<br>List<t>接口有三个实现类，ArrayList、Vector、LinkedList。前两个基于数组实现，物理位置应该是连续的；LinkedList类似C语言的链表，删除时，查询效率是O(i),i为index,而删除时指针改变效率为O(1).而两者查询效率为O(1),删除时效率为O(n-i).<br>LinkedList通过双链表维护，因而可以轻易的转换为栈和队列（Stack Queue Deque）等优先队列的结构。<br>要得到一个同步的LinkedList可以使用同步封装器实现,从Collections.synchronizedList(List)得到。但Vector就不需要进行额外的调用，尤其是在访问和更新。    </t></p>
 <p>LinkedList定义了专门用于表头和表尾操作的方法。Vector提供了indexOf(obj,start)接口，arrayList没有这个。</p>
 <p><strong>List和Map中，只有Vector和HashTable能维护高效的同步</strong><br>List的继承链大致为</p>
 <pre><code class="c++">+--java.util.Collection[I](集合框架接口)
@@ -368,7 +406,7 @@
 </code></pre>
 <p>所有的类要么继承自List要么继承自Set，不能直接实现Collection。<br><img src="https://ooo.0o0.ooo/2016/08/22/57bbc0d99a834.jpg" alt=""></p>
 <p><strong>AbstractList</strong>是一个抽象类，继承自<strong>AbstractCollection</strong>,AbstractList实现了除size()和get(int location)之外的函数。LinkedList与正常基于数组的不同，其通过AbstractSequentialList这一抽象类继承了AbstractList并额外添加了对链表的各项操作，又实现了Deque接口而完成了双向链表的功能。可以看到，<strong>Queue和Deque的唯一实现类都是LinkedList</strong>.Stack该类继承自Vector，完成了先进后出的操作。</p>
-<p>###关于线程安全<br>线程安全的类 ，指的是<strong>类内共享的全局变量的访问必须保证是不受多线程形式影响的</strong>。<br>多线程保持原子性、可见性、有序性（涉及指令重排）</p>
+<h3 id="关于线程安全"><a href="#关于线程安全" class="headerlink" title="关于线程安全"></a>关于线程安全</h3><p>线程安全的类 ，指的是<strong>类内共享的全局变量的访问必须保证是不受多线程形式影响的</strong>。<br>多线程保持原子性、可见性、有序性（涉及指令重排）</p>
 <p>16-08-21<br>复习了小顶堆 大顶堆的插入。以树为逻辑以数组为存储的结构。初始化第一个位置置为null或者0.插入在末尾进行heapUp,删除替换末尾进行heapDown,排序也是进行heapDown的操作。    </p>
 <p>16-08-20<br>TreeMap是基于红黑树的SortedMap的实现。SortedMap是基于键的大小自动运行比较器的Map集合框架，正规的实现该接口必须包括：</p>
 <ul>
