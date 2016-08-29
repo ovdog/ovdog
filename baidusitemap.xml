@@ -4,8 +4,28 @@
 
     
   <url>
+    <loc>http://ovjaywang.github.io/2016/04/10/Hello-Hexo/</loc>
+    <lastmod>2016-08-29T08:52:17.503Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo双备份Github和Coding及域名绑定</title>
+        <pubTime>2016-04-10T14:51:49.000Z</pubTime>
+        
+        <tag>hello</tag>
+         
+         
+           
+             
+              <breadCrumb title="槽" url="http://ovjaywang.github.io/categories/%E6%A7%BD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://ovjaywang.github.io/2016/08/18/Learn-sth-the-other-day/</loc>
-    <lastmod>2016-08-29T06:58:34.054Z</lastmod>
+    <lastmod>2016-08-29T08:14:34.152Z</lastmod>
     <data>
         <display>
         <title></title>
@@ -148,26 +168,6 @@
           
              
               <breadCrumb title="软文" url="http://ovjaywang.github.io/categories/App%E5%BC%BA%E6%8E%A8/%E8%BD%AF%E6%96%87/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ovjaywang.github.io/2016/04/10/Hello-Hexo/</loc>
-    <lastmod>2016-05-19T11:31:50.251Z</lastmod>
-    <data>
-        <display>
-        <title>Hexo双备份Github和Coding及域名绑定</title>
-        <pubTime>2016-04-10T14:51:49.000Z</pubTime>
-        
-        <tag>hello</tag>
-         
-         
-           
-             
-              <breadCrumb title="槽" url="http://ovjaywang.github.io/categories/%E6%A7%BD/"/>
           
         </display>
     </data>
@@ -796,6 +796,29 @@
 
     
   <url>
+    <loc>http://ovjaywang.github.io/2014/05/15/%E7%8C%9C%E5%9C%B0%E5%9D%80%E6%B8%B8%E6%88%8F/</loc>
+    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
+    <data>
+        <display>
+        <title>猜地址游戏</title>
+        <pubTime>2014-05-15T11:28:08.000Z</pubTime>
+        
+        <tag>recommend</tag>
+         
+         
+           
+             
+              <breadCrumb title="App强推" url="http://ovjaywang.github.io/categories/App%E5%BC%BA%E6%8E%A8/"/>
+          
+             
+              <breadCrumb title="软文" url="http://ovjaywang.github.io/categories/App%E5%BC%BA%E6%8E%A8/%E8%BD%AF%E6%96%87/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://ovjaywang.github.io/2014/12/12/Hadoop2.2.0%20Mapreduce%20Log%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90%E5%B0%8F%E4%BE%8B/</loc>
     <lastmod>2016-04-11T14:09:45.581Z</lastmod>
     <data>
@@ -819,14 +842,14 @@
 
     
   <url>
-    <loc>http://ovjaywang.github.io/2015/02/01/2015-movie-1/</loc>
+    <loc>http://ovjaywang.github.io/2015/05/30/%E6%9C%80%E8%BF%91%E5%90%AC%E7%9A%84%E9%9F%B3%E4%B9%90/</loc>
     <lastmod>2016-04-11T14:09:45.581Z</lastmod>
     <data>
         <display>
-        <title>【电影】【2015】〇一次点评</title>
-        <pubTime>2015-01-31T20:07:13.000Z</pubTime>
+        <title>最近听的音乐</title>
+        <pubTime>2015-05-30T10:10:51.000Z</pubTime>
         
-        <tag>电影</tag>
+        <tag>音乐</tag>
          
          
            
@@ -839,14 +862,14 @@
 
     
   <url>
-    <loc>http://ovjaywang.github.io/2015/05/30/%E6%9C%80%E8%BF%91%E5%90%AC%E7%9A%84%E9%9F%B3%E4%B9%90/</loc>
+    <loc>http://ovjaywang.github.io/2015/01/29/2014%E7%94%9F%E6%B4%BB%E7%94%9F%E5%91%BD%E3%80%81/</loc>
     <lastmod>2016-04-11T14:09:45.581Z</lastmod>
     <data>
         <display>
-        <title>最近听的音乐</title>
-        <pubTime>2015-05-30T10:10:51.000Z</pubTime>
+        <title>[2014]生活生命、</title>
+        <pubTime>2015-01-28T16:42:10.000Z</pubTime>
         
-        <tag>音乐</tag>
+        <tag>年度总结</tag>
          
          
            
@@ -907,47 +930,19 @@
 
     
   <url>
-    <loc>http://ovjaywang.github.io/2014/05/15/%E7%8C%9C%E5%9C%B0%E5%9D%80%E6%B8%B8%E6%88%8F/</loc>
+    <loc>http://ovjaywang.github.io/2014/05/05/travel-to-jiangnan-10-days/</loc>
     <lastmod>2016-04-11T14:09:45.581Z</lastmod>
     <data>
         <display>
-        <title>猜地址游戏</title>
-        <pubTime>2014-05-15T11:28:08.000Z</pubTime>
+        <title>【游记】江南10日游（绍兴-杭州-乌镇-嘉兴-西塘-同里-苏州-无锡-扬州）</title>
+        <pubTime>2014-05-05T15:07:56.000Z</pubTime>
         
-        <tag>recommend</tag>
+        <tag>游记</tag>
          
          
            
              
-              <breadCrumb title="App强推" url="http://ovjaywang.github.io/categories/App%E5%BC%BA%E6%8E%A8/"/>
-          
-             
-              <breadCrumb title="软文" url="http://ovjaywang.github.io/categories/App%E5%BC%BA%E6%8E%A8/%E8%BD%AF%E6%96%87/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ovjaywang.github.io/2014/05/09/trans-between-pc-and-phone/</loc>
-    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
-    <data>
-        <display>
-        <title>[汇总][2014.05.08]电脑与移动端及不同移动端间无线传输的方式</title>
-        <pubTime>2014-05-08T17:17:30.000Z</pubTime>
-        
-        <tag>测评</tag>
-         
-        <tag>无线传输</tag>
-         
-         
-           
-             
-              <breadCrumb title="软件测评" url="http://ovjaywang.github.io/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%84/"/>
-          
-             
-              <breadCrumb title="软文" url="http://ovjaywang.github.io/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%84/%E8%BD%AF%E6%96%87/"/>
+              <breadCrumb title="槽" url="http://ovjaywang.github.io/categories/%E6%A7%BD/"/>
           
         </display>
     </data>
@@ -1003,52 +998,6 @@
 
     
   <url>
-    <loc>http://ovjaywang.github.io/2014/12/15/SublimeText%E6%B7%BB%E5%8A%A0%E4%B8%AD%E6%96%87%E7%BC%96%E7%A0%81/</loc>
-    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
-    <data>
-        <display>
-        <title>SublimeText添加中文编码</title>
-        <pubTime>2014-12-15T11:10:49.000Z</pubTime>
-        
-        <tag>sublimetext</tag>
-         
-         
-           
-             
-              <breadCrumb title="代码狗" url="http://ovjaywang.github.io/categories/%E4%BB%A3%E7%A0%81%E7%8B%97/"/>
-          
-             
-              <breadCrumb title="学习log" url="http://ovjaywang.github.io/categories/%E4%BB%A3%E7%A0%81%E7%8B%97/%E5%AD%A6%E4%B9%A0log/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ovjaywang.github.io/2014/10/12/erdas9.2+lps%E5%AE%89%E8%A3%85/</loc>
-    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
-    <data>
-        <display>
-        <title>erdas9.2+lps安装</title>
-        <pubTime>2014-10-12T11:09:00.000Z</pubTime>
-        
-        <tag>erdas</tag>
-         
-         
-           
-             
-              <breadCrumb title="代码狗" url="http://ovjaywang.github.io/categories/%E4%BB%A3%E7%A0%81%E7%8B%97/"/>
-          
-             
-              <breadCrumb title="学习log" url="http://ovjaywang.github.io/categories/%E4%BB%A3%E7%A0%81%E7%8B%97/%E5%AD%A6%E4%B9%A0log/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://ovjaywang.github.io/2014/05/25/%E8%A6%81%E6%9C%89%E8%BF%BD%E6%B1%82%E5%95%8A/</loc>
     <lastmod>2016-04-11T14:09:45.581Z</lastmod>
     <data>
@@ -1056,6 +1005,26 @@
         <title>要有追求啊</title>
         <pubTime>2014-05-24T18:41:31.000Z</pubTime>
         
+         
+           
+             
+              <breadCrumb title="槽" url="http://ovjaywang.github.io/categories/%E6%A7%BD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ovjaywang.github.io/2015/10/09/%E7%BA%A2%E5%8C%85%E5%9C%A8%E5%93%AA%E9%87%8C/</loc>
+    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
+    <data>
+        <display>
+        <title>红包在哪里</title>
+        <pubTime>2015-10-08T18:16:05.000Z</pubTime>
+        
+        <tag>呵呵哒</tag>
+         
          
            
              
@@ -1140,24 +1109,47 @@
 
     
   <url>
-    <loc>http://ovjaywang.github.io/2014/05/08/goagent-chrome/</loc>
+    <loc>http://ovjaywang.github.io/2014/10/12/erdas9.2+lps%E5%AE%89%E8%A3%85/</loc>
     <lastmod>2016-04-11T14:09:45.581Z</lastmod>
     <data>
         <display>
-        <title>[汇总][2014.05.08]goagent在chrome Firefox Android以及shadowsocks的爬墙</title>
-        <pubTime>2014-05-08T15:45:54.000Z</pubTime>
+        <title>erdas9.2+lps安装</title>
+        <pubTime>2014-10-12T11:09:00.000Z</pubTime>
         
-        <tag>梯子</tag>
+        <tag>erdas</tag>
          
+         
+           
+             
+              <breadCrumb title="代码狗" url="http://ovjaywang.github.io/categories/%E4%BB%A3%E7%A0%81%E7%8B%97/"/>
+          
+             
+              <breadCrumb title="学习log" url="http://ovjaywang.github.io/categories/%E4%BB%A3%E7%A0%81%E7%8B%97/%E5%AD%A6%E4%B9%A0log/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ovjaywang.github.io/2014/05/09/trans-between-pc-and-phone/</loc>
+    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
+    <data>
+        <display>
+        <title>[汇总][2014.05.08]电脑与移动端及不同移动端间无线传输的方式</title>
+        <pubTime>2014-05-08T17:17:30.000Z</pubTime>
+        
         <tag>测评</tag>
          
+        <tag>无线传输</tag>
+         
          
            
              
-              <breadCrumb title="App强推" url="http://ovjaywang.github.io/categories/App%E5%BC%BA%E6%8E%A8/"/>
+              <breadCrumb title="软件测评" url="http://ovjaywang.github.io/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%84/"/>
           
              
-              <breadCrumb title="软文" url="http://ovjaywang.github.io/categories/App%E5%BC%BA%E6%8E%A8/%E8%BD%AF%E6%96%87/"/>
+              <breadCrumb title="软文" url="http://ovjaywang.github.io/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%84/%E8%BD%AF%E6%96%87/"/>
           
         </display>
     </data>
@@ -1165,34 +1157,14 @@
 
     
   <url>
-    <loc>http://ovjaywang.github.io/2015/01/29/2014%E7%94%9F%E6%B4%BB%E7%94%9F%E5%91%BD%E3%80%81/</loc>
+    <loc>http://ovjaywang.github.io/2015/02/01/2015-movie-1/</loc>
     <lastmod>2016-04-11T14:09:45.581Z</lastmod>
     <data>
         <display>
-        <title>[2014]生活生命、</title>
-        <pubTime>2015-01-28T16:42:10.000Z</pubTime>
+        <title>【电影】【2015】〇一次点评</title>
+        <pubTime>2015-01-31T20:07:13.000Z</pubTime>
         
-        <tag>年度总结</tag>
-         
-         
-           
-             
-              <breadCrumb title="槽" url="http://ovjaywang.github.io/categories/%E6%A7%BD/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ovjaywang.github.io/2014/05/05/travel-to-jiangnan-10-days/</loc>
-    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
-    <data>
-        <display>
-        <title>【游记】江南10日游（绍兴-杭州-乌镇-嘉兴-西塘-同里-苏州-无锡-扬州）</title>
-        <pubTime>2014-05-05T15:07:56.000Z</pubTime>
-        
-        <tag>游记</tag>
+        <tag>电影</tag>
          
          
            
@@ -1228,12 +1200,12 @@
 
     
   <url>
-    <loc>http://ovjaywang.github.io/2015/10/28/%E5%90%8E%E6%96%B9%E4%BA%A4%E4%BC%9A%E6%A3%80%E6%A0%A1(3)/</loc>
+    <loc>http://ovjaywang.github.io/2015/10/28/%E5%90%8E%E6%96%B9%E4%BA%A4%E4%BC%9A%E6%A3%80%E6%A0%A1(4)/</loc>
     <lastmod>2016-04-11T14:09:45.581Z</lastmod>
     <data>
         <display>
-        <title>后方交会检校(3)--角度、坐标及其应用</title>
-        <pubTime>2015-10-28T11:55:49.000Z</pubTime>
+        <title>后方交会检校(4)--畸变差矫正</title>
+        <pubTime>2015-10-28T13:19:08.000Z</pubTime>
         
         <tag>后方交会</tag>
          
@@ -1246,6 +1218,54 @@
           
              
               <breadCrumb title="学习log" url="http://ovjaywang.github.io/categories/%E4%BB%80%E4%B9%88%E9%83%BD%E5%AD%A6%E4%B8%80%E4%B8%8B/%E5%AD%A6%E4%B9%A0log/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ovjaywang.github.io/2014/12/15/SublimeText%E6%B7%BB%E5%8A%A0%E4%B8%AD%E6%96%87%E7%BC%96%E7%A0%81/</loc>
+    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
+    <data>
+        <display>
+        <title>SublimeText添加中文编码</title>
+        <pubTime>2014-12-15T11:10:49.000Z</pubTime>
+        
+        <tag>sublimetext</tag>
+         
+         
+           
+             
+              <breadCrumb title="代码狗" url="http://ovjaywang.github.io/categories/%E4%BB%A3%E7%A0%81%E7%8B%97/"/>
+          
+             
+              <breadCrumb title="学习log" url="http://ovjaywang.github.io/categories/%E4%BB%A3%E7%A0%81%E7%8B%97/%E5%AD%A6%E4%B9%A0log/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ovjaywang.github.io/2014/05/08/goagent-chrome/</loc>
+    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
+    <data>
+        <display>
+        <title>[汇总][2014.05.08]goagent在chrome Firefox Android以及shadowsocks的爬墙</title>
+        <pubTime>2014-05-08T15:45:54.000Z</pubTime>
+        
+        <tag>梯子</tag>
+         
+        <tag>测评</tag>
+         
+         
+           
+             
+              <breadCrumb title="App强推" url="http://ovjaywang.github.io/categories/App%E5%BC%BA%E6%8E%A8/"/>
+          
+             
+              <breadCrumb title="软文" url="http://ovjaywang.github.io/categories/App%E5%BC%BA%E6%8E%A8/%E8%BD%AF%E6%96%87/"/>
           
         </display>
     </data>
@@ -1276,32 +1296,12 @@
 
     
   <url>
-    <loc>http://ovjaywang.github.io/2015/03/03/2015-movie-2/</loc>
+    <loc>http://ovjaywang.github.io/2015/10/28/%E5%90%8E%E6%96%B9%E4%BA%A4%E4%BC%9A%E6%A3%80%E6%A0%A1(3)/</loc>
     <lastmod>2016-04-11T14:09:45.581Z</lastmod>
     <data>
         <display>
-        <title>【电影】【2015】 〇二次点评</title>
-        <pubTime>2015-03-03T13:42:06.000Z</pubTime>
-        
-        <tag>电影</tag>
-         
-         
-           
-             
-              <breadCrumb title="槽" url="http://ovjaywang.github.io/categories/%E6%A7%BD/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ovjaywang.github.io/2015/10/28/%E5%90%8E%E6%96%B9%E4%BA%A4%E4%BC%9A%E6%A3%80%E6%A0%A1(4)/</loc>
-    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
-    <data>
-        <display>
-        <title>后方交会检校(4)--畸变差矫正</title>
-        <pubTime>2015-10-28T13:19:08.000Z</pubTime>
+        <title>后方交会检校(3)--角度、坐标及其应用</title>
+        <pubTime>2015-10-28T11:55:49.000Z</pubTime>
         
         <tag>后方交会</tag>
          
@@ -1392,14 +1392,14 @@
 
     
   <url>
-    <loc>http://ovjaywang.github.io/2015/10/09/%E7%BA%A2%E5%8C%85%E5%9C%A8%E5%93%AA%E9%87%8C/</loc>
+    <loc>http://ovjaywang.github.io/2015/03/03/2015-movie-2/</loc>
     <lastmod>2016-04-11T14:09:45.581Z</lastmod>
     <data>
         <display>
-        <title>红包在哪里</title>
-        <pubTime>2015-10-08T18:16:05.000Z</pubTime>
+        <title>【电影】【2015】 〇二次点评</title>
+        <pubTime>2015-03-03T13:42:06.000Z</pubTime>
         
-        <tag>呵呵哒</tag>
+        <tag>电影</tag>
          
          
            
@@ -1412,22 +1412,48 @@
 
     
   <url>
-    <loc>http://ovjaywang.github.io/2013/05/24/%E6%9C%80%E8%BF%91%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8E%A8%E8%8D%90%E6%8B%89/</loc>
+    <loc>http://ovjaywang.github.io/2013/07/12/%E6%9C%AC%E4%BD%93%E7%9A%84%E4%BB%8B%E7%BB%8D/</loc>
     <lastmod>2016-04-11T14:09:45.580Z</lastmod>
     <data>
         <display>
-        <title>最近的一些推荐拉</title>
-        <pubTime>2013-05-23T17:27:41.000Z</pubTime>
+        <title>本体的介绍</title>
+        <pubTime>2013-07-11T20:06:39.000Z</pubTime>
         
-        <tag>recommend</tag>
+        <tag>jena</tag>
+         
+        <tag>语义网</tag>
+         
+        <tag>ontology</tag>
+         
+        <tag>本体论</tag>
          
          
            
              
-              <breadCrumb title="App强推" url="http://ovjaywang.github.io/categories/App%E5%BC%BA%E6%8E%A8/"/>
+              <breadCrumb title="什么都学一下" url="http://ovjaywang.github.io/categories/%E4%BB%80%E4%B9%88%E9%83%BD%E5%AD%A6%E4%B8%80%E4%B8%8B/"/>
           
              
-              <breadCrumb title="软文" url="http://ovjaywang.github.io/categories/App%E5%BC%BA%E6%8E%A8/%E8%BD%AF%E6%96%87/"/>
+              <breadCrumb title="学习log" url="http://ovjaywang.github.io/categories/%E4%BB%80%E4%B9%88%E9%83%BD%E5%AD%A6%E4%B8%80%E4%B8%8B/%E5%AD%A6%E4%B9%A0log/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ovjaywang.github.io/2013/07/11/%E4%B8%BB%E9%A2%98%E6%9B%B4%E6%96%B0%E4%BC%A4%E4%B8%8D%E8%B5%B7/</loc>
+    <lastmod>2016-04-11T14:09:45.580Z</lastmod>
+    <data>
+        <display>
+        <title>主题更新伤不起</title>
+        <pubTime>2013-07-10T20:34:54.000Z</pubTime>
+        
+        <tag>吐槽</tag>
+         
+         
+           
+             
+              <breadCrumb title="槽" url="http://ovjaywang.github.io/categories/%E6%A7%BD/"/>
           
         </display>
     </data>
@@ -1441,6 +1467,26 @@
         <display>
         <title>不予置评。</title>
         <pubTime>2013-12-16T17:12:14.000Z</pubTime>
+        
+        <tag>吐槽</tag>
+         
+         
+           
+             
+              <breadCrumb title="槽" url="http://ovjaywang.github.io/categories/%E6%A7%BD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ovjaywang.github.io/2013/08/29/xiaomi-360-story/</loc>
+    <lastmod>2016-04-11T14:09:45.580Z</lastmod>
+    <data>
+        <display>
+        <title>小米和360：两个100亿美元的故事_创事记_新浪科技_新浪网</title>
+        <pubTime>2013-08-29T13:34:45.000Z</pubTime>
         
         <tag>吐槽</tag>
          
@@ -1478,42 +1524,21 @@
 
     
   <url>
-    <loc>http://ovjaywang.github.io/2013/08/29/xiaomi-360-story/</loc>
+    <loc>http://ovjaywang.github.io/2013/07/18/why-tiny-time-sucks/</loc>
     <lastmod>2016-04-11T14:09:45.580Z</lastmod>
     <data>
         <display>
-        <title>小米和360：两个100亿美元的故事_创事记_新浪科技_新浪网</title>
-        <pubTime>2013-08-29T13:34:45.000Z</pubTime>
+        <title>你他妈的在逗我？——为什么小时代是烂片</title>
+        <pubTime>2013-07-17T19:56:53.000Z</pubTime>
         
+        <tag>电影</tag>
+         
         <tag>吐槽</tag>
          
          
            
              
               <breadCrumb title="槽" url="http://ovjaywang.github.io/categories/%E6%A7%BD/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ovjaywang.github.io/2013/05/25/Conversion-to-Dalvik-format-failed-with-error-1/</loc>
-    <lastmod>2016-04-11T14:09:45.580Z</lastmod>
-    <data>
-        <display>
-        <title>Conversion to Dalvik Format Failed With Error 1解决方法：</title>
-        <pubTime>2013-05-24T16:15:52.000Z</pubTime>
-        
-        <tag>Android</tag>
-         
-         
-           
-             
-              <breadCrumb title="代码狗" url="http://ovjaywang.github.io/categories/%E4%BB%A3%E7%A0%81%E7%8B%97/"/>
-          
-             
-              <breadCrumb title="学习log" url="http://ovjaywang.github.io/categories/%E4%BB%A3%E7%A0%81%E7%8B%97/%E5%AD%A6%E4%B9%A0log/"/>
           
         </display>
     </data>
@@ -1544,41 +1569,22 @@
 
     
   <url>
-    <loc>http://ovjaywang.github.io/2014/03/15/%E9%80%BC%E6%A0%BC%E4%B8%8D%E8%83%BD%E9%9A%8F%E4%BE%BF%E8%A3%85/</loc>
+    <loc>http://ovjaywang.github.io/2013/05/25/Conversion-to-Dalvik-format-failed-with-error-1/</loc>
     <lastmod>2016-04-11T14:09:45.580Z</lastmod>
     <data>
         <display>
-        <title>逼格不能随便装</title>
-        <pubTime>2014-03-15T15:04:58.000Z</pubTime>
+        <title>Conversion to Dalvik Format Failed With Error 1解决方法：</title>
+        <pubTime>2013-05-24T16:15:52.000Z</pubTime>
         
-        <tag>吐槽</tag>
+        <tag>Android</tag>
          
          
            
              
-              <breadCrumb title="槽" url="http://ovjaywang.github.io/categories/%E6%A7%BD/"/>
+              <breadCrumb title="代码狗" url="http://ovjaywang.github.io/categories/%E4%BB%A3%E7%A0%81%E7%8B%97/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ovjaywang.github.io/2013/07/18/why-tiny-time-sucks/</loc>
-    <lastmod>2016-04-11T14:09:45.580Z</lastmod>
-    <data>
-        <display>
-        <title>你他妈的在逗我？——为什么小时代是烂片</title>
-        <pubTime>2013-07-17T19:56:53.000Z</pubTime>
-        
-        <tag>电影</tag>
-         
-        <tag>吐槽</tag>
-         
-         
-           
              
-              <breadCrumb title="槽" url="http://ovjaywang.github.io/categories/%E6%A7%BD/"/>
+              <breadCrumb title="学习log" url="http://ovjaywang.github.io/categories/%E4%BB%A3%E7%A0%81%E7%8B%97/%E5%AD%A6%E4%B9%A0log/"/>
           
         </display>
     </data>
@@ -1676,67 +1682,12 @@
 
     
   <url>
-    <loc>http://ovjaywang.github.io/2013/07/21/OWL%E7%9A%84%E8%AF%AD%E4%B9%89%E8%AF%AD%E6%B3%95%E5%8F%8AJena%E5%88%9D%E6%AD%A5/</loc>
+    <loc>http://ovjaywang.github.io/2014/03/15/%E9%80%BC%E6%A0%BC%E4%B8%8D%E8%83%BD%E9%9A%8F%E4%BE%BF%E8%A3%85/</loc>
     <lastmod>2016-04-11T14:09:45.580Z</lastmod>
     <data>
         <display>
-        <title>OWL的语义语法及Jena初步</title>
-        <pubTime>2013-07-20T21:07:26.000Z</pubTime>
-        
-        <tag>jena</tag>
-         
-        <tag>本体</tag>
-         
-        <tag>语义网</tag>
-         
-         
-           
-             
-              <breadCrumb title="什么都学一下" url="http://ovjaywang.github.io/categories/%E4%BB%80%E4%B9%88%E9%83%BD%E5%AD%A6%E4%B8%80%E4%B8%8B/"/>
-          
-             
-              <breadCrumb title="代码狗" url="http://ovjaywang.github.io/categories/%E4%BB%80%E4%B9%88%E9%83%BD%E5%AD%A6%E4%B8%80%E4%B8%8B/%E4%BB%A3%E7%A0%81%E7%8B%97/"/>
-          
-             
-              <breadCrumb title="学习log" url="http://ovjaywang.github.io/categories/%E4%BB%80%E4%B9%88%E9%83%BD%E5%AD%A6%E4%B8%80%E4%B8%8B/%E4%BB%A3%E7%A0%81%E7%8B%97/%E5%AD%A6%E4%B9%A0log/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ovjaywang.github.io/2013/08/10/%E8%80%83%E7%A0%94%E8%A7%86%E9%A2%91%E9%A9%AC%E5%85%8B/</loc>
-    <lastmod>2016-04-11T14:09:45.580Z</lastmod>
-    <data>
-        <display>
-        <title>考研视频马克</title>
-        <pubTime>2013-08-10T13:00:01.000Z</pubTime>
-        
-        <tag>马克</tag>
-         
-        <tag>考研</tag>
-         
-         
-           
-             
-              <breadCrumb title="什么都学一下" url="http://ovjaywang.github.io/categories/%E4%BB%80%E4%B9%88%E9%83%BD%E5%AD%A6%E4%B8%80%E4%B8%8B/"/>
-          
-             
-              <breadCrumb title="学习log" url="http://ovjaywang.github.io/categories/%E4%BB%80%E4%B9%88%E9%83%BD%E5%AD%A6%E4%B8%80%E4%B8%8B/%E5%AD%A6%E4%B9%A0log/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ovjaywang.github.io/2013/07/18/%E5%B0%8F%E7%9B%AE%E6%A0%87/</loc>
-    <lastmod>2016-04-11T14:09:45.580Z</lastmod>
-    <data>
-        <display>
-        <title>小目标</title>
-        <pubTime>2013-07-18T13:42:28.000Z</pubTime>
+        <title>逼格不能随便装</title>
+        <pubTime>2014-03-15T15:04:58.000Z</pubTime>
         
         <tag>吐槽</tag>
          
@@ -1774,24 +1725,29 @@
 
     
   <url>
-    <loc>http://ovjaywang.github.io/2013/05/26/android-listview-initpics-and-update/</loc>
+    <loc>http://ovjaywang.github.io/2013/07/21/OWL%E7%9A%84%E8%AF%AD%E4%B9%89%E8%AF%AD%E6%B3%95%E5%8F%8AJena%E5%88%9D%E6%AD%A5/</loc>
     <lastmod>2016-04-11T14:09:45.580Z</lastmod>
     <data>
         <display>
-        <title>android的ListView自定义样式 下拉刷新上拉加载 远程图片加载</title>
-        <pubTime>2013-05-25T21:04:37.000Z</pubTime>
+        <title>OWL的语义语法及Jena初步</title>
+        <pubTime>2013-07-20T21:07:26.000Z</pubTime>
         
-        <tag>Android</tag>
+        <tag>jena</tag>
          
-        <tag>java</tag>
+        <tag>本体</tag>
+         
+        <tag>语义网</tag>
          
          
            
              
-              <breadCrumb title="代码狗" url="http://ovjaywang.github.io/categories/%E4%BB%A3%E7%A0%81%E7%8B%97/"/>
+              <breadCrumb title="什么都学一下" url="http://ovjaywang.github.io/categories/%E4%BB%80%E4%B9%88%E9%83%BD%E5%AD%A6%E4%B8%80%E4%B8%8B/"/>
           
              
-              <breadCrumb title="学习log" url="http://ovjaywang.github.io/categories/%E4%BB%A3%E7%A0%81%E7%8B%97/%E5%AD%A6%E4%B9%A0log/"/>
+              <breadCrumb title="代码狗" url="http://ovjaywang.github.io/categories/%E4%BB%80%E4%B9%88%E9%83%BD%E5%AD%A6%E4%B8%80%E4%B8%8B/%E4%BB%A3%E7%A0%81%E7%8B%97/"/>
+          
+             
+              <breadCrumb title="学习log" url="http://ovjaywang.github.io/categories/%E4%BB%80%E4%B9%88%E9%83%BD%E5%AD%A6%E4%B8%80%E4%B8%8B/%E4%BB%A3%E7%A0%81%E7%8B%97/%E5%AD%A6%E4%B9%A0log/"/>
           
         </display>
     </data>
@@ -1799,13 +1755,35 @@
 
     
   <url>
-    <loc>http://ovjaywang.github.io/2014/01/03/%E8%80%83%E7%A0%94%E7%9B%AE%E6%A0%87%E3%80%82%E3%80%82%E3%80%82/</loc>
+    <loc>http://ovjaywang.github.io/2013/07/18/%E5%B0%8F%E7%9B%AE%E6%A0%87/</loc>
     <lastmod>2016-04-11T14:09:45.580Z</lastmod>
     <data>
         <display>
-        <title>考研目标。。。</title>
-        <pubTime>2014-01-02T18:23:41.000Z</pubTime>
+        <title>小目标</title>
+        <pubTime>2013-07-18T13:42:28.000Z</pubTime>
         
+        <tag>吐槽</tag>
+         
+         
+           
+             
+              <breadCrumb title="槽" url="http://ovjaywang.github.io/categories/%E6%A7%BD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ovjaywang.github.io/2013/08/10/%E8%80%83%E7%A0%94%E8%A7%86%E9%A2%91%E9%A9%AC%E5%85%8B/</loc>
+    <lastmod>2016-04-11T14:09:45.580Z</lastmod>
+    <data>
+        <display>
+        <title>考研视频马克</title>
+        <pubTime>2013-08-10T13:00:01.000Z</pubTime>
+        
+        <tag>马克</tag>
+         
         <tag>考研</tag>
          
          
@@ -1815,26 +1793,6 @@
           
              
               <breadCrumb title="学习log" url="http://ovjaywang.github.io/categories/%E4%BB%80%E4%B9%88%E9%83%BD%E5%AD%A6%E4%B8%80%E4%B8%8B/%E5%AD%A6%E4%B9%A0log/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ovjaywang.github.io/2014/01/18/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A%E7%9A%84%E8%A1%B0%E8%B4%A5/</loc>
-    <lastmod>2016-04-11T14:09:45.580Z</lastmod>
-    <data>
-        <display>
-        <title>新浪微博的衰败</title>
-        <pubTime>2014-01-18T12:46:39.000Z</pubTime>
-        
-        <tag>吐槽</tag>
-         
-         
-           
-             
-              <breadCrumb title="槽" url="http://ovjaywang.github.io/categories/%E6%A7%BD/"/>
           
         </display>
     </data>
@@ -1893,61 +1851,12 @@
 
     
   <url>
-    <loc>http://ovjaywang.github.io/2013/07/12/%E6%9C%AC%E4%BD%93%E7%9A%84%E4%BB%8B%E7%BB%8D/</loc>
+    <loc>http://ovjaywang.github.io/2014/01/18/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A%E7%9A%84%E8%A1%B0%E8%B4%A5/</loc>
     <lastmod>2016-04-11T14:09:45.580Z</lastmod>
     <data>
         <display>
-        <title>本体的介绍</title>
-        <pubTime>2013-07-11T20:06:39.000Z</pubTime>
-        
-        <tag>jena</tag>
-         
-        <tag>语义网</tag>
-         
-        <tag>ontology</tag>
-         
-        <tag>本体论</tag>
-         
-         
-           
-             
-              <breadCrumb title="什么都学一下" url="http://ovjaywang.github.io/categories/%E4%BB%80%E4%B9%88%E9%83%BD%E5%AD%A6%E4%B8%80%E4%B8%8B/"/>
-          
-             
-              <breadCrumb title="学习log" url="http://ovjaywang.github.io/categories/%E4%BB%80%E4%B9%88%E9%83%BD%E5%AD%A6%E4%B8%80%E4%B8%8B/%E5%AD%A6%E4%B9%A0log/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ovjaywang.github.io/2013/07/11/%E4%B8%BB%E9%A2%98%E6%9B%B4%E6%96%B0%E4%BC%A4%E4%B8%8D%E8%B5%B7/</loc>
-    <lastmod>2016-04-11T14:09:45.580Z</lastmod>
-    <data>
-        <display>
-        <title>主题更新伤不起</title>
-        <pubTime>2013-07-10T20:34:54.000Z</pubTime>
-        
-        <tag>吐槽</tag>
-         
-         
-           
-             
-              <breadCrumb title="槽" url="http://ovjaywang.github.io/categories/%E6%A7%BD/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ovjaywang.github.io/2013/07/18/%E6%A0%BC%E8%A8%80/</loc>
-    <lastmod>2016-04-11T14:09:45.580Z</lastmod>
-    <data>
-        <display>
-        <title>格言</title>
-        <pubTime>2013-07-18T13:25:10.000Z</pubTime>
+        <title>新浪微博的衰败</title>
+        <pubTime>2014-01-18T12:46:39.000Z</pubTime>
         
         <tag>吐槽</tag>
          
@@ -1989,6 +1898,52 @@
 
     
   <url>
+    <loc>http://ovjaywang.github.io/2013/05/24/%E6%9C%80%E8%BF%91%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8E%A8%E8%8D%90%E6%8B%89/</loc>
+    <lastmod>2016-04-11T14:09:45.580Z</lastmod>
+    <data>
+        <display>
+        <title>最近的一些推荐拉</title>
+        <pubTime>2013-05-23T17:27:41.000Z</pubTime>
+        
+        <tag>recommend</tag>
+         
+         
+           
+             
+              <breadCrumb title="App强推" url="http://ovjaywang.github.io/categories/App%E5%BC%BA%E6%8E%A8/"/>
+          
+             
+              <breadCrumb title="软文" url="http://ovjaywang.github.io/categories/App%E5%BC%BA%E6%8E%A8/%E8%BD%AF%E6%96%87/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ovjaywang.github.io/2014/01/03/%E8%80%83%E7%A0%94%E7%9B%AE%E6%A0%87%E3%80%82%E3%80%82%E3%80%82/</loc>
+    <lastmod>2016-04-11T14:09:45.580Z</lastmod>
+    <data>
+        <display>
+        <title>考研目标。。。</title>
+        <pubTime>2014-01-02T18:23:41.000Z</pubTime>
+        
+        <tag>考研</tag>
+         
+         
+           
+             
+              <breadCrumb title="什么都学一下" url="http://ovjaywang.github.io/categories/%E4%BB%80%E4%B9%88%E9%83%BD%E5%AD%A6%E4%B8%80%E4%B8%8B/"/>
+          
+             
+              <breadCrumb title="学习log" url="http://ovjaywang.github.io/categories/%E4%BB%80%E4%B9%88%E9%83%BD%E5%AD%A6%E4%B8%80%E4%B8%8B/%E5%AD%A6%E4%B9%A0log/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://ovjaywang.github.io/2014/01/03/%E8%80%83%E7%A0%94%E6%94%BF%E6%B2%BB%E9%A2%84%E6%B5%8B/</loc>
     <lastmod>2016-04-11T14:09:45.580Z</lastmod>
     <data>
@@ -2009,12 +1964,12 @@
 
     
   <url>
-    <loc>http://ovjaywang.github.io/2014/02/10/%E7%80%9A%E6%B5%B7%E7%AE%B4%E8%A8%80-%20-/</loc>
+    <loc>http://ovjaywang.github.io/2013/07/18/%E6%A0%BC%E8%A8%80/</loc>
     <lastmod>2016-04-11T14:09:45.580Z</lastmod>
     <data>
         <display>
-        <title>瀚海箴言- -</title>
-        <pubTime>2014-02-10T12:57:37.000Z</pubTime>
+        <title>格言</title>
+        <pubTime>2013-07-18T13:25:10.000Z</pubTime>
         
         <tag>吐槽</tag>
          
@@ -2056,46 +2011,6 @@
 
     
   <url>
-    <loc>http://ovjaywang.github.io/2014/01/20/%E7%9F%A5%E4%B9%8E%E4%B8%8E%E6%9E%9C%E5%A3%B3/</loc>
-    <lastmod>2016-04-11T14:09:45.580Z</lastmod>
-    <data>
-        <display>
-        <title>知乎与果壳</title>
-        <pubTime>2014-01-20T07:31:35.000Z</pubTime>
-        
-        <tag>吐槽</tag>
-         
-         
-           
-             
-              <breadCrumb title="槽" url="http://ovjaywang.github.io/categories/%E6%A7%BD/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ovjaywang.github.io/2013/08/06/%E7%9D%A1%E4%B8%8D%E7%9D%80%E5%95%8A%E7%9D%A1%E4%B8%8D%E7%9D%80/</loc>
-    <lastmod>2016-04-11T14:09:45.580Z</lastmod>
-    <data>
-        <display>
-        <title>睡不着啊睡不着</title>
-        <pubTime>2013-08-05T19:45:47.000Z</pubTime>
-        
-        <tag>吐槽</tag>
-         
-         
-           
-             
-              <breadCrumb title="槽" url="http://ovjaywang.github.io/categories/%E6%A7%BD/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://ovjaywang.github.io/2013/11/08/easy-come-easy-go/</loc>
     <lastmod>2016-04-11T14:09:45.580Z</lastmod>
     <data>
@@ -2104,6 +2019,26 @@
         <pubTime>2013-11-08T05:53:16.000Z</pubTime>
         
         <tag>呵呵</tag>
+         
+         
+           
+             
+              <breadCrumb title="槽" url="http://ovjaywang.github.io/categories/%E6%A7%BD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ovjaywang.github.io/2014/02/10/%E7%80%9A%E6%B5%B7%E7%AE%B4%E8%A8%80-%20-/</loc>
+    <lastmod>2016-04-11T14:09:45.580Z</lastmod>
+    <data>
+        <display>
+        <title>瀚海箴言- -</title>
+        <pubTime>2014-02-10T12:57:37.000Z</pubTime>
+        
+        <tag>吐槽</tag>
          
          
            
@@ -2141,6 +2076,71 @@
 
     
   <url>
+    <loc>http://ovjaywang.github.io/2013/05/26/android-listview-initpics-and-update/</loc>
+    <lastmod>2016-04-11T14:09:45.580Z</lastmod>
+    <data>
+        <display>
+        <title>android的ListView自定义样式 下拉刷新上拉加载 远程图片加载</title>
+        <pubTime>2013-05-25T21:04:37.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>java</tag>
+         
+         
+           
+             
+              <breadCrumb title="代码狗" url="http://ovjaywang.github.io/categories/%E4%BB%A3%E7%A0%81%E7%8B%97/"/>
+          
+             
+              <breadCrumb title="学习log" url="http://ovjaywang.github.io/categories/%E4%BB%A3%E7%A0%81%E7%8B%97/%E5%AD%A6%E4%B9%A0log/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ovjaywang.github.io/2013/08/06/%E7%9D%A1%E4%B8%8D%E7%9D%80%E5%95%8A%E7%9D%A1%E4%B8%8D%E7%9D%80/</loc>
+    <lastmod>2016-04-11T14:09:45.580Z</lastmod>
+    <data>
+        <display>
+        <title>睡不着啊睡不着</title>
+        <pubTime>2013-08-05T19:45:47.000Z</pubTime>
+        
+        <tag>吐槽</tag>
+         
+         
+           
+             
+              <breadCrumb title="槽" url="http://ovjaywang.github.io/categories/%E6%A7%BD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ovjaywang.github.io/2014/01/20/%E7%9F%A5%E4%B9%8E%E4%B8%8E%E6%9E%9C%E5%A3%B3/</loc>
+    <lastmod>2016-04-11T14:09:45.580Z</lastmod>
+    <data>
+        <display>
+        <title>知乎与果壳</title>
+        <pubTime>2014-01-20T07:31:35.000Z</pubTime>
+        
+        <tag>吐槽</tag>
+         
+         
+           
+             
+              <breadCrumb title="槽" url="http://ovjaywang.github.io/categories/%E6%A7%BD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://ovjaywang.github.io/2013/12/31/2013%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93%EF%BC%8C%EF%BC%8C%E7%8E%A9%E4%B8%8D%E5%8A%A8/</loc>
     <lastmod>2016-04-11T14:09:45.580Z</lastmod>
     <data>
@@ -2161,34 +2161,14 @@
 
     
   <url>
-    <loc>http://ovjaywang.github.io/2013/05/06/%E7%9C%9F%E6%98%AF%E5%BF%83%E7%B4%AF/</loc>
+    <loc>http://ovjaywang.github.io/2013/05/05/%E7%A0%B4%E5%A4%84%E7%AF%87...%E5%A5%BD%E5%90%A7/</loc>
     <lastmod>2016-04-11T14:09:45.579Z</lastmod>
     <data>
         <display>
-        <title>真是心累</title>
-        <pubTime>2013-05-05T17:41:51.000Z</pubTime>
+        <title>破处篇...好吧</title>
+        <pubTime>2013-05-05T15:54:51.000Z</pubTime>
         
-        <tag>寂寞寂寞就好</tag>
-         
-         
-           
-             
-              <breadCrumb title="槽" url="http://ovjaywang.github.io/categories/%E6%A7%BD/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ovjaywang.github.io/2013/05/08/%E4%BB%8A%E6%97%A5%E5%90%90%E6%A7%BD/</loc>
-    <lastmod>2016-04-11T14:09:45.579Z</lastmod>
-    <data>
-        <display>
-        <title>今日吐槽</title>
-        <pubTime>2013-05-07T17:36:20.000Z</pubTime>
-        
-        <tag>吐槽</tag>
+        <tag>test</tag>
          
          
            
@@ -2221,6 +2201,49 @@
 
     
   <url>
+    <loc>http://ovjaywang.github.io/2013/05/07/%E5%88%B7%E5%B1%8F%E6%B5%8B%E8%AF%95%E3%80%82%E3%80%82/</loc>
+    <lastmod>2016-04-11T14:09:45.579Z</lastmod>
+    <data>
+        <display>
+        <title>刷屏测试。。</title>
+        <pubTime>2013-05-07T13:24:33.000Z</pubTime>
+        
+        <tag>寂寞寂寞就好</tag>
+         
+         
+           
+             
+              <breadCrumb title="什么都学一下" url="http://ovjaywang.github.io/categories/%E4%BB%80%E4%B9%88%E9%83%BD%E5%AD%A6%E4%B8%80%E4%B8%8B/"/>
+          
+             
+              <breadCrumb title="学习log" url="http://ovjaywang.github.io/categories/%E4%BB%80%E4%B9%88%E9%83%BD%E5%AD%A6%E4%B8%80%E4%B8%8B/%E5%AD%A6%E4%B9%A0log/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ovjaywang.github.io/2013/05/08/%E4%BB%8A%E6%97%A5%E5%90%90%E6%A7%BD/</loc>
+    <lastmod>2016-04-11T14:09:45.579Z</lastmod>
+    <data>
+        <display>
+        <title>今日吐槽</title>
+        <pubTime>2013-05-07T17:36:20.000Z</pubTime>
+        
+        <tag>吐槽</tag>
+         
+         
+           
+             
+              <breadCrumb title="槽" url="http://ovjaywang.github.io/categories/%E6%A7%BD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://ovjaywang.github.io/2013/11/29/poy/</loc>
     <lastmod>2016-04-11T14:09:45.579Z</lastmod>
     <data>
@@ -2239,34 +2262,14 @@
 
     
   <url>
-    <loc>http://ovjaywang.github.io/2013/11/23/so-be-better-man/</loc>
+    <loc>http://ovjaywang.github.io/2013/05/06/%E7%9C%9F%E6%98%AF%E5%BF%83%E7%B4%AF/</loc>
     <lastmod>2016-04-11T14:09:45.579Z</lastmod>
     <data>
         <display>
-        <title>So Be Better Man?</title>
-        <pubTime>2013-11-22T17:48:43.000Z</pubTime>
+        <title>真是心累</title>
+        <pubTime>2013-05-05T17:41:51.000Z</pubTime>
         
-        <tag>吐槽</tag>
-         
-         
-           
-             
-              <breadCrumb title="槽" url="http://ovjaywang.github.io/categories/%E6%A7%BD/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ovjaywang.github.io/2013/05/05/%E7%A0%B4%E5%A4%84%E7%AF%87...%E5%A5%BD%E5%90%A7/</loc>
-    <lastmod>2016-04-11T14:09:45.579Z</lastmod>
-    <data>
-        <display>
-        <title>破处篇...好吧</title>
-        <pubTime>2013-05-05T15:54:51.000Z</pubTime>
-        
-        <tag>test</tag>
+        <tag>寂寞寂寞就好</tag>
          
          
            
@@ -2304,6 +2307,26 @@
 
     
   <url>
+    <loc>http://ovjaywang.github.io/2013/11/08/targets-by-07-2014/</loc>
+    <lastmod>2016-04-11T14:09:45.579Z</lastmod>
+    <data>
+        <display>
+        <title>Targets by 07.2014</title>
+        <pubTime>2013-11-08T15:32:56.000Z</pubTime>
+        
+        <tag>考研</tag>
+         
+         
+           
+             
+              <breadCrumb title="槽" url="http://ovjaywang.github.io/categories/%E6%A7%BD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://ovjaywang.github.io/2013/05/09/wuha/</loc>
     <lastmod>2016-04-11T14:09:45.579Z</lastmod>
     <data>
@@ -2324,37 +2347,14 @@
 
     
   <url>
-    <loc>http://ovjaywang.github.io/2013/05/07/%E5%88%B7%E5%B1%8F%E6%B5%8B%E8%AF%95%E3%80%82%E3%80%82/</loc>
+    <loc>http://ovjaywang.github.io/2013/11/23/so-be-better-man/</loc>
     <lastmod>2016-04-11T14:09:45.579Z</lastmod>
     <data>
         <display>
-        <title>刷屏测试。。</title>
-        <pubTime>2013-05-07T13:24:33.000Z</pubTime>
+        <title>So Be Better Man?</title>
+        <pubTime>2013-11-22T17:48:43.000Z</pubTime>
         
-        <tag>寂寞寂寞就好</tag>
-         
-         
-           
-             
-              <breadCrumb title="什么都学一下" url="http://ovjaywang.github.io/categories/%E4%BB%80%E4%B9%88%E9%83%BD%E5%AD%A6%E4%B8%80%E4%B8%8B/"/>
-          
-             
-              <breadCrumb title="学习log" url="http://ovjaywang.github.io/categories/%E4%BB%80%E4%B9%88%E9%83%BD%E5%AD%A6%E4%B8%80%E4%B8%8B/%E5%AD%A6%E4%B9%A0log/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ovjaywang.github.io/2013/11/08/targets-by-07-2014/</loc>
-    <lastmod>2016-04-11T14:09:45.579Z</lastmod>
-    <data>
-        <display>
-        <title>Targets by 07.2014</title>
-        <pubTime>2013-11-08T15:32:56.000Z</pubTime>
-        
-        <tag>考研</tag>
+        <tag>吐槽</tag>
          
          
            

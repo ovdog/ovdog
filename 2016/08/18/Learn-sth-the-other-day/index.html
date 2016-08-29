@@ -83,20 +83,20 @@
 
 
 <meta name="description" content="title: Learn sth. the other daydate: 2016-08-18 18:58:03
-tags:$$H$2$O$$$$\sum{p\rm\;prime}f(p) = \int_{t&amp;gt;1}f(t)d\pi(t).$$16-08-28近日复习了机器学习线性回归和Logistic回归。前者只需记住j(Θ)的推导和最终结论$$\Theta =(X^{T}X)^{-1}X">
+tags:16-08-28近日复习了机器学习线性回归和Logistic回归。前者只需记住j(Θ)的推导和最终结论$$\theta =(X^{T}X)^{-1}X^{T}Y$$或者$$\theta =(X^{T}X+\lambda I)^{-1}X^{T}Y$$即可；为了排除求逆的复杂">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ov智商捉急">
 <meta property="og:url" content="http://ovjaywang.github.io/2016/08/18/Learn-sth-the-other-day/index.html">
 <meta property="og:site_name" content="ov智商捉急">
 <meta property="og:description" content="title: Learn sth. the other daydate: 2016-08-18 18:58:03
-tags:$$H$2$O$$$$\sum{p\rm\;prime}f(p) = \int_{t&amp;gt;1}f(t)d\pi(t).$$16-08-28近日复习了机器学习线性回归和Logistic回归。前者只需记住j(Θ)的推导和最终结论$$\Theta =(X^{T}X)^{-1}X">
+tags:16-08-28近日复习了机器学习线性回归和Logistic回归。前者只需记住j(Θ)的推导和最终结论$$\theta =(X^{T}X)^{-1}X^{T}Y$$或者$$\theta =(X^{T}X+\lambda I)^{-1}X^{T}Y$$即可；为了排除求逆的复杂">
 <meta property="og:image" content="https://ooo.0o0.ooo/2016/08/22/57bbc0d99a834.jpg">
 <meta property="og:image" content="https://ooo.0o0.ooo/2016/08/18/57b5962f1d2d2.gif">
-<meta property="og:updated_time" content="2016-08-29T06:58:34.054Z">
+<meta property="og:updated_time" content="2016-08-29T08:14:34.152Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ov智商捉急">
 <meta name="twitter:description" content="title: Learn sth. the other daydate: 2016-08-18 18:58:03
-tags:$$H$2$O$$$$\sum{p\rm\;prime}f(p) = \int_{t&amp;gt;1}f(t)d\pi(t).$$16-08-28近日复习了机器学习线性回归和Logistic回归。前者只需记住j(Θ)的推导和最终结论$$\Theta =(X^{T}X)^{-1}X">
+tags:16-08-28近日复习了机器学习线性回归和Logistic回归。前者只需记住j(Θ)的推导和最终结论$$\theta =(X^{T}X)^{-1}X^{T}Y$$或者$$\theta =(X^{T}X+\lambda I)^{-1}X^{T}Y$$即可；为了排除求逆的复杂">
 <meta name="twitter:image" content="https://ooo.0o0.ooo/2016/08/22/57bbc0d99a834.jpg">
 
 
@@ -355,10 +355,10 @@ tags:$$H$2$O$$$$\sum{p\rm\;prime}f(p) = \int_{t&amp;gt;1}f(t)d\pi(t).$$16-08-28�
       
         <hr>
 <p>title: Learn sth. the other day<br>date: 2016-08-18 18:58:03</p>
-<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><p>$$H$<em>2$O$$<br>$$\sum</em>{p\rm\;prime}f(p) = \int_{t&gt;1}f(t)d\pi(t).$$<br>16-08-28<br>近日复习了机器学习线性回归和Logistic回归。前者只需记住j(Θ)的推导和最终结论$$\Theta =(X^{T}X)^{-1}X^{T}Y$$或者$$\Theta =(X^{T}X+\lambda I)^{-1}X^{T}Y$$即可；为了排除求逆的复杂度则进行梯度下降也是极好。    </p>
+<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><p>16-08-28<br>近日复习了机器学习线性回归和Logistic回归。前者只需记住j(Θ)的推导和最终结论$$\theta =(X^{T}X)^{-1}X^{T}Y$$或者$$\theta =(X^{T}X+\lambda I)^{-1}X^{T}Y$$即可；为了排除求逆的复杂度则进行梯度下降也是极好。    </p>
 <ul>
-<li>Batch<br>$ (\Theta)<em>{j} += \alpha \sum</em>{i=1}^{m}(y^{i}-h<em>{ \Theta }(x^{(i)}))x^{(i)}</em>{j}$<br>其中α是步长，h为Θ相关的预测，xy均已知，该方法每步需迭代所有数据</li>
-<li>stachastic<br>$ (\Theta)<em>{j} += \alpha (y^{i}-h</em>{\Theta}(x^{(i)}))x^{(i)}_{j}$<br>同上类似 但每步只加入一个数据进行梯度计算迭代。</li>
+<li>Batch<br>$$ \theta_{j} += \alpha \sum^m_{i=1}(y^i-h_\theta(x^{(i)}))x^{(i)}_j$$<br>其中α是步长(学习因子)，h为Θ相关的预测，xy均已知，该方法每步需迭代所有数据</li>
+<li>stachastic<br>$$ \theta_j += \alpha (y^i-h_\theta(x^{(i)}))x^{(i)}_j$$<br>同上类似 但每步只加入一个数据进行梯度计算迭代。</li>
 <li>mini batch（结合上俩式结合一小部分的数据进行迭代而非全部也不是一个）</li>
 </ul>
 <ol>

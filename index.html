@@ -348,10 +348,10 @@
           
             <hr>
 <p>title: Learn sth. the other day<br>date: 2016-08-18 18:58:03</p>
-<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><p>$$H$<em>2$O$$<br>$$\sum</em>{p\rm\;prime}f(p) = \int_{t&gt;1}f(t)d\pi(t).$$<br>16-08-28<br>近日复习了机器学习线性回归和Logistic回归。前者只需记住j(Θ)的推导和最终结论$$\Theta =(X^{T}X)^{-1}X^{T}Y$$或者$$\Theta =(X^{T}X+\lambda I)^{-1}X^{T}Y$$即可；为了排除求逆的复杂度则进行梯度下降也是极好。    </p>
+<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><p>16-08-28<br>近日复习了机器学习线性回归和Logistic回归。前者只需记住j(Θ)的推导和最终结论$$\theta =(X^{T}X)^{-1}X^{T}Y$$或者$$\theta =(X^{T}X+\lambda I)^{-1}X^{T}Y$$即可；为了排除求逆的复杂度则进行梯度下降也是极好。    </p>
 <ul>
-<li>Batch<br>$ (\Theta)<em>{j} += \alpha \sum</em>{i=1}^{m}(y^{i}-h<em>{ \Theta }(x^{(i)}))x^{(i)}</em>{j}$<br>其中α是步长，h为Θ相关的预测，xy均已知，该方法每步需迭代所有数据</li>
-<li>stachastic<br>$ (\Theta)<em>{j} += \alpha (y^{i}-h</em>{\Theta}(x^{(i)}))x^{(i)}_{j}$<br>同上类似 但每步只加入一个数据进行梯度计算迭代。</li>
+<li>Batch<br>$$ \theta_{j} += \alpha \sum^m_{i=1}(y^i-h_\theta(x^{(i)}))x^{(i)}_j$$<br>其中α是步长(学习因子)，h为Θ相关的预测，xy均已知，该方法每步需迭代所有数据</li>
+<li>stachastic<br>$$ \theta_j += \alpha (y^i-h_\theta(x^{(i)}))x^{(i)}_j$$<br>同上类似 但每步只加入一个数据进行梯度计算迭代。</li>
 <li>mini batch（结合上俩式结合一小部分的数据进行迭代而非全部也不是一个）</li>
 </ul>
 <ol>
@@ -1508,109 +1508,6 @@ x = x ^ ((~(x&gt;&gt;31))+1) + x&gt;&gt;31;
             
               
                 
-                <a class="post-title-link" href="/2016/04/27/effective-java-tips-of-create-object/" itemprop="url">
-                  Effective Java 笔记--创建对象的几个Tips
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-27T11:50:01+08:00" content="2016-04-27">
-              2016-04-27
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/27/effective-java-tips-of-create-object/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/27/effective-java-tips-of-create-object/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>第一章-创建和销毁对象 的一些 小tips</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/27/effective-java-tips-of-create-object/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2016/04/27/hexo多客户端写作/" itemprop="url">
                   Hexo多客户端写作
                 </a>
@@ -1672,6 +1569,109 @@ x = x ^ ((~(x&gt;&gt;31))+1) + x&gt;&gt;31;
 <p>我就纯属蛋疼的。喜欢在办公和休息的地方都写作；或者我一win本<br>一mac 都想写文章。但Hexo的静态部署的原则不像WordPress一样，能关联博客地址，利用数据库进行博客更新。好了，这里就来解决这个问题。┑(￣Д ￣)┍</p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/04/27/hexo多客户端写作/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/27/effective-java-tips-of-create-object/" itemprop="url">
+                  Effective Java 笔记--创建对象的几个Tips
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-27T11:50:01+08:00" content="2016-04-27">
+              2016-04-27
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/27/effective-java-tips-of-create-object/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/27/effective-java-tips-of-create-object/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>第一章-创建和销毁对象 的一些 小tips</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/27/effective-java-tips-of-create-object/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
