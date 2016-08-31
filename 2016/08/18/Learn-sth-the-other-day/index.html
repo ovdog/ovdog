@@ -96,7 +96,7 @@ categories: 槽16-08-31Logistic回归是广义上的线性回归（将y变为lny
 <meta property="og:image" content="http://ooo.0o0.ooo/2016/08/29/57c45a1026983.png">
 <meta property="og:image" content="https://ooo.0o0.ooo/2016/08/22/57bbc0d99a834.jpg">
 <meta property="og:image" content="https://ooo.0o0.ooo/2016/08/18/57b5962f1d2d2.gif">
-<meta property="og:updated_time" content="2016-08-31T08:13:32.577Z">
+<meta property="og:updated_time" content="2016-08-31T08:40:26.210Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ov智商捉急">
 <meta name="twitter:description" content="title: Learn sth. the other daydate: 2016-08-18 18:58:03tags: [learn]
@@ -366,7 +366,7 @@ categories: 槽16-08-31Logistic回归是广义上的线性回归（将y变为lny
 <li><strong>扔圈圈法</strong><br>直径为线宽（长度为时πL）的圆扔过去，必有两个点，扔n次必有2n个交点。根据机会均等原则，折成直线的情况扔过去，可能会有0,1,2,3,4个交点，但扔n次也必有2n个点。当针长为a时，显而易见的是a与交点个数m成正比，即m=αa.令a=πL，m=2n,∴α=2n/(πL)，又相交概率P=n/m，所以联立<br>$$ \pi =\frac{2Pa}{L} $$    </li>
 <li><strong>概率密度函数法</strong><br>另一种方式根据概率，针中点距离最近的一条线的距离x和与线成的角度y服从独立分布，其中x∈[0,L/2],y∈[0,π/2].相交的情况就是.P(x,y)=X&lt;a×cos(y)</li>
 </ol>
-<p>$$f(x,y)=\left{\begin{matrix}<br>\frac{4}{m}&amp; 0&lt;x&lt;\frac{a}{2},0&lt;y&lt;\frac{\pi }{2} \\<br>0 &amp; Others<br>\end{matrix}\right.$$</p>
+<p>$$f(x,y)=\left\{\begin{matrix}<br>\frac{4}{m}&amp; 0&lt;x&lt;\frac{a}{2},0&lt;y&lt;\frac{\pi }{2} \\<br>0 &amp; Others<br>\end{matrix}\right.$$</p>
 <p>16-08-29<br>py的机器学习包调用的好的好简单啊。。数据清洗和筛选都很舒服。。</p>
 <p>关于Java集合框架(JCF)，主要的接口和类有：<br><img src="http://ooo.0o0.ooo/2016/08/29/57c452fde4a68.png" alt="JCF"><br>List下面都有提到，现在主要来讨论Set和Queue。值得一提的是，Set其实是一种特殊的Map。将键和值都赋为相同的值，Set为Map的一种适配器模式，即只实现了想实现的功能，其他Map的功能我不要。同时，由于在JDK1.6以后，Deque实现了双向链表的功能，也封装了顶部加入和弹出、底部加入和弹出的功能，实际完成了Stack的基本操作，所以Stack基本被Deque取代了。可以将Deque看做实现了基本所有优先队列功能的接口，其唯一实现类是LinkedList(它继承自AbstractList，因为也带有List基本的功能，好屌啊).</p>
 <p><strong>这个很重要</strong><br>下图为集合框架的实现方式。<br><img src="http://ooo.0o0.ooo/2016/08/29/57c45a1026983.png" alt=""><br>可以看到，LinkedList几乎即实现了双链表又实现了List集合的功能；而基于红黑树的TreeMap和TreeSet能在O(lg(n))时间内完成数据的插入、删除、查找等基本操作。而链表和数组不同方式实现了的List则对于插入和删除有显而易见不同的时间复杂度。LinkedHash两者并存也是神奇的存在，一个Map里，在哈希表的slot里面插入同一位置的使用链表存放，并把链表尾端链到下一个有值的槽的键值上。。虽然很好用，但是，大量的数据需要开很大的空间来存放指针。</p>
