@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ovjaywang.github.io/"/>
-  <updated>2016-08-31T09:20:28.227Z</updated>
+  <updated>2016-09-18T04:05:59.963Z</updated>
   <id>http://ovjaywang.github.io/</id>
   
   <author>
@@ -16,27 +16,19 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>Learn Sth. the Other Day</title>
     <link href="http://ovjaywang.github.io/2016/08/18/Learn-sth-the-other-day/"/>
     <id>http://ovjaywang.github.io/2016/08/18/Learn-sth-the-other-day/</id>
-    <published>2016-08-18T10:58:03.744Z</published>
-    <updated>2016-08-31T09:20:28.227Z</updated>
+    <published>2016-08-18T10:58:03.000Z</published>
+    <updated>2016-09-18T04:05:59.963Z</updated>
     
-    <content type="html">&lt;hr&gt;
-&lt;p&gt;title: Learn sth. the other day&lt;br&gt;date: 2016-08-18 18:58:03&lt;br&gt;tags:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;learn&lt;br&gt;categories:&lt;/li&gt;
-&lt;li&gt;学习log&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;p&gt;16-08-31&lt;br&gt;Logistic回归是广义上的线性回归（将y变为lny）。它使用了一个单增可微函数，因而损失函数（预计值与实际值以某种函数表达的差异）接近。实际上它们都是指数分布族的函数。&lt;/p&gt;
+    <content type="html">&lt;p&gt;近期忙着撸工作。边学边总结。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;16-08-31&lt;br&gt;Logistic回归是广义上的线性回归（将y变为lny）。它使用了一个单增可微函数，因而损失函数（预计值与实际值以某种函数表达的差异）接近。实际上它们都是指数分布族的函数。&lt;/p&gt;
 &lt;p&gt;关于布冯投针试验，3个简易的理解方式（线宽为L 针长为a）：    &lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;扔圈圈法&lt;/strong&gt;&lt;br&gt;直径为线宽（长度为时πL）的圆扔过去，必有两个点，扔n次必有2n个交点。根据机会均等原则，折成直线的情况扔过去，可能会有0,1,2,3,4个交点，但扔n次也必有2n个点。当针长为a时，显而易见的是a与交点个数m成正比，即m=αa.令a=πL，m=2n,∴α=2n/(πL)，又相交概率P=n/m，所以联立&lt;br&gt;$$ \pi =\frac{2Pa}{L} $$    &lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;概率密度函数法&lt;/strong&gt;&lt;br&gt;另一种方式根据概率，针中点距离最近的一条线的距离x和与线成的角度y服从独立分布，其中x∈[0,L/2],y∈[0,π/2].相交的情况就是.P(x,y)=X&amp;lt;a×cos(y)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;扔圈圈法&lt;/strong&gt;&lt;br&gt;直径为线宽（长度为时πL）的圆扔过去，必有两个点，扔n次必有2n个交点。根据机会均等原则，折成直线的情况扔过去，可能会有0,1,2,3,4个交点，但扔n次也必有2n个点。当针长为a时，显而易见的是a与交点个数m成正比，即m=αa.令a=πL，m=2n,∴α=2n/(πL)，又相交概率P=n/m，所以联立&lt;br&gt;$$ \pi =\frac{2a}{LP} $$    &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;概率密度函数法&lt;/strong&gt;&lt;br&gt;另一种方式根据概率，针中点距离最近的一条线的距离x和与线成的角度Θ服从独立分布，其中&lt;br&gt;x∈[0,L/2],服从均匀分布，其概率密度函数为2/L&lt;br&gt;Θ∈[0,π/2],服从均匀分布，其概率密度函数为2/π&lt;br&gt;由于x,Θ是相互独立的，所以两者结合的概率为两者概率密度函数的积：4/πL。&lt;br&gt;当满足相交的条件时，x≤a/2*sin(Θ)。凡是一切满足该情况的积分起来就好了。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;$$f(x,y)=\left\{\begin{matrix}&lt;br&gt;\frac{4}{m}&amp;amp; 0&amp;lt;x&amp;lt;\frac{a}{2},0&amp;lt;y&amp;lt;\frac{\pi }{2} \\&lt;br&gt;0 &amp;amp; Others&lt;br&gt;\end{matrix}\right.$$&lt;/p&gt;
-&lt;p&gt;$$f(x,y)=\left\{\begin{matrix}&lt;br&gt;\frac{4}{m}&amp;amp;&amp;amp; 0&amp;lt;x&amp;lt;\frac{a}{2},0&amp;lt;y&amp;lt;\frac{\pi }{2} \\&lt;br&gt;0 &amp;amp;&amp;amp; Others&lt;br&gt;\end{matrix}\right.$$&lt;/p&gt;
+&lt;p&gt;$$P=\int_{0}^{\frac{\pi }{2}}\int_{0}^{\frac{a}{2}sin(\theta)}\frac{4}{\pi L}dxd\theta =\frac{2a}{\pi L}$$亦可得到上解法。&lt;/p&gt;
 &lt;p&gt;16-08-29&lt;br&gt;py的机器学习包调用的好的好简单啊。。数据清洗和筛选都很舒服。。&lt;/p&gt;
 &lt;p&gt;关于Java集合框架(JCF)，主要的接口和类有：&lt;br&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/08/29/57c452fde4a68.png&quot; alt=&quot;JCF&quot;&gt;&lt;br&gt;List下面都有提到，现在主要来讨论Set和Queue。值得一提的是，Set其实是一种特殊的Map。将键和值都赋为相同的值，Set为Map的一种适配器模式，即只实现了想实现的功能，其他Map的功能我不要。同时，由于在JDK1.6以后，Deque实现了双向链表的功能，也封装了顶部加入和弹出、底部加入和弹出的功能，实际完成了Stack的基本操作，所以Stack基本被Deque取代了。可以将Deque看做实现了基本所有优先队列功能的接口，其唯一实现类是LinkedList(它继承自AbstractList，因为也带有List基本的功能，好屌啊).&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;这个很重要&lt;/strong&gt;&lt;br&gt;下图为集合框架的实现方式。&lt;br&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/08/29/57c45a1026983.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;可以看到，LinkedList几乎即实现了双链表又实现了List集合的功能；而基于红黑树的TreeMap和TreeSet能在O(lg(n))时间内完成数据的插入、删除、查找等基本操作。而链表和数组不同方式实现了的List则对于插入和删除有显而易见不同的时间复杂度。LinkedHash两者并存也是神奇的存在，一个Map里，在哈希表的slot里面插入同一位置的使用链表存放，并把链表尾端链到下一个有值的槽的键值上。。虽然很好用，但是，大量的数据需要开很大的空间来存放指针。&lt;/p&gt;
@@ -120,16 +112,12 @@
     
     <summary type="html">
     
-      &lt;hr&gt;
-&lt;p&gt;title: Learn sth. the other day&lt;br&gt;date: 2016-08-18 18:58:03&lt;br&gt;tags:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;learn&lt;br&gt;categories:&lt;/li&gt;
-&lt;li&gt;学习log&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h
+      &lt;p&gt;近期忙着撸工作。边学边总结。&lt;br&gt;
     
     </summary>
     
+    
+      <category term="learn" scheme="http://ovjaywang.github.io/tags/learn/"/>
     
   </entry>
   
@@ -1608,7 +1596,7 @@ public class TestHa {
     <link href="http://ovjaywang.github.io/2016/04/10/Hello-Hexo/"/>
     <id>http://ovjaywang.github.io/2016/04/10/Hello-Hexo/</id>
     <published>2016-04-10T14:51:49.000Z</published>
-    <updated>2016-08-29T08:52:17.503Z</updated>
+    <updated>2016-08-31T09:25:26.466Z</updated>
     
     <content type="html">&lt;p&gt;感谢&lt;a href=&quot;http://zipperary.com/2013/05/28/hexo-guide-2/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这个教程&lt;/a&gt;&lt;br&gt;还有&lt;a href=&quot;http://ibruce.info/2013/11/22/hexo-your-blog/?utm_source=tuicool&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这个&lt;/a&gt;&lt;br&gt;解决了好多bugs的&lt;a href=&quot;http://www.jianshu.com/p/35e197cb1273&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这个&lt;/a&gt;&lt;br&gt;优化cdn图床缓冲的&lt;a href=&quot;http://lukang.me/2015/optimization-of-hexo-2.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这个&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.dute.me/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这个&lt;/a&gt;让我找到了便宜的狗爹优惠码&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;从一开始的阵地wp搬到这里来了。后会有期了dooby.me 再见了WordPress  
@@ -1616,6 +1604,7 @@ public class TestHa {
 4年光阴不复返啊。从一个逗比成长为大逗比了。
 &lt;/code&gt;&lt;/pre&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;hexo坑还是挺多的。&lt;br&gt;$$ \begin{bmatrix} x \\ y \\ 1&lt;br&gt;\end{bmatrix} \sim \begin{bmatrix} f &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 \\ 0 &amp;amp; f &amp;amp; 0 &amp;amp; 0 \\ 0 &amp;amp; 0 &amp;amp; 1 &amp;amp; 0 \end{bmatrix} \begin{bmatrix} r_11 &amp;amp; r_12 &amp;amp; r_13 &amp;amp; t_x \\ r_21 &amp;amp; r_22 &amp;amp; r_23 &amp;amp; t_y \\ r_31 &amp;amp; r_32&amp;amp; r_33 &amp;amp; t_z \\ 0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 1 \end{bmatrix} \begin{bmatrix} p \\ q \\ 0 \\ 1 \end{bmatrix} \sim \begin{bmatrix} fr_11 &amp;amp; fr_12 &amp;amp; ft_x \\ fr_21 &amp;amp; fr_22 &amp;amp; ft_y \\ r_31 &amp;amp; r_32 &amp;amp; t_z \end{bmatrix} \begin{bmatrix} p \\ q \\ 1 \end{bmatrix}&lt;br&gt;$$$$\sim \begin{bmatrix} h_11 &amp;amp; h_12&amp;amp;h_13 \\ h_21 &amp;amp; h_22 &amp;amp; h_23 \\ h_31 &amp;amp; h_32 &amp;amp; h_33 \end{bmatrix} \begin{bmatrix} p \\ q \\ 1 \end{bmatrix}$$&lt;/p&gt;
+&lt;p&gt;$$f(x,y)=\left\{\begin{matrix}&lt;br&gt;\frac{4}{m}&amp;amp; 0&amp;lt;x&amp;lt;\frac{a}{2},0&amp;lt;y&amp;lt;\frac{\pi }{2} \\&lt;br&gt;0 &amp;amp; Others&lt;br&gt;\end{matrix}\right.$$&lt;/p&gt;
 &lt;h1 id=&quot;公式和Markdown冲突&quot;&gt;&lt;a href=&quot;#公式和Markdown冲突&quot; class=&quot;headerlink&quot; title=&quot;公式和Markdown冲突&quot;&gt;&lt;/a&gt;公式和Markdown冲突&lt;/h1&gt;&lt;p&gt;由于下划线在LaTex公式编辑器和MarkDown中都有，因此如果在公式中有两个xiahuaxian”_”则必须注意不要发生冲突，需加入反斜杠在下划线前！！在SublimeText中也可以看到如果又两个双下划线字体已变成斜体。&lt;/p&gt;
 &lt;p&gt;$$ 2H_2 = 2O_2+H_2$$&lt;/p&gt;
 &lt;h1 id=&quot;WordPress迁移&quot;&gt;&lt;a href=&quot;#WordPress迁移&quot; class=&quot;headerlink&quot; title=&quot;WordPress迁移&quot;&gt;&lt;/a&gt;WordPress迁移&lt;/h1&gt;&lt;p&gt;这个使用hexo-migrate-wordpress插件还不错 但是切记导出的xml是文章 tag和category会自动建好。否则使用hexo migrate wordpress 会报错&lt;/p&gt;
