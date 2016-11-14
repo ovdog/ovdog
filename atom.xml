@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ovjaywang.github.io/"/>
-  <updated>2016-09-18T04:05:59.963Z</updated>
+  <updated>2016-11-03T08:58:40.078Z</updated>
   <id>http://ovjaywang.github.io/</id>
   
   <author>
@@ -20,9 +20,43 @@
     <link href="http://ovjaywang.github.io/2016/08/18/Learn-sth-the-other-day/"/>
     <id>http://ovjaywang.github.io/2016/08/18/Learn-sth-the-other-day/</id>
     <published>2016-08-18T10:58:03.000Z</published>
-    <updated>2016-09-18T04:05:59.963Z</updated>
+    <updated>2016-11-03T08:58:40.078Z</updated>
     
-    <content type="html">&lt;p&gt;近期忙着撸工作。边学边总结。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;16-08-31&lt;br&gt;Logistic回归是广义上的线性回归（将y变为lny）。它使用了一个单增可微函数，因而损失函数（预计值与实际值以某种函数表达的差异）接近。实际上它们都是指数分布族的函数。&lt;/p&gt;
+    <content type="html">&lt;p&gt;近期忙着撸工作。边学边总结。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;16-11-03&lt;br&gt;蛇精网络中，激活函数一般选择sigmod或者双曲正切函数。即&lt;/p&gt;
+&lt;p&gt;$$&lt;br&gt;f(x)=\frac{1}{1+e^{-x}}&lt;br&gt;f’(x)=f(x)(1-f(x))&lt;br&gt;$$&lt;/p&gt;
+&lt;p&gt;或&lt;/p&gt;
+&lt;p&gt;$$&lt;br&gt;f(x)=tanh(x)=\frac{e^{x}-e^{-x}}{e^{x}+e^{-x}}&lt;br&gt;f’(x)=1-(f(x))^{2}&lt;br&gt;$$&lt;br&gt;一个神经元的主要过程有：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;综合输入，根据Wx+b计算每个输入的滤波结果（可理解为线性变换），其中W是维度和输入相当的矩阵，b是截距，一些时候可以写入W里，同时增加一个齐次坐标1。&lt;/li&gt;
+&lt;li&gt;计算结果的sum&lt;/li&gt;
+&lt;li&gt;将结果作为输入载入激活函数，判断激活度，以偏置函数判断是否激活该节点。&lt;br&gt;16-10-08&lt;br&gt;CDN-dns服务器的CNAME如果指向dns智能负载均衡服务器，则通过CDN指派最快的的节点（一般根据用户IP）解析域名获取IP地址，并把缓存服务器没有超过TTL的内容直接传送给用户，包括静态页面、图片等。极大的节省了带宽和网络延时。每个节点都包含高速缓存服务器和负载均衡服务器，主要的内容有&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;约瑟夫环-通项公式为F(1)=0;F(i)=F(i+m)%k,循环从2-N。其中i为有i个人参与游戏，F(i)为i个人参与游戏最后一个人的ID（0开始的ID)&lt;/p&gt;
+&lt;p&gt;mysql主从备份-也叫双热备份。主要执行的是可中断的备份程序，在配置文件ini或者cnf中设置主从关系（密码，用户名，host，ID），然后grant duplication 设置slave的权限。然后使用逻辑备份的mysqldump进行备份。&lt;/p&gt;
+&lt;p&gt;索引的设置：在经常查询、连接（主要是外检）、排序、group by、范围查询的列上进行可以显著加快查询效率；不应在修改性能远大于检索性能、数值范围很少、查询较少、数据类型为textimagebit等的增加索引。主要有三种索引类型：唯一索引（不允许任意两行相同）、主键（唯一表示数据行的某列）索引、聚集索引（物理顺序与逻辑顺序相同）。&lt;/p&gt;
+&lt;p&gt;范式-第一范式 每一列不可以有多个值；第二范式 每个实例或行必须被唯一地区分。（一般用primary key）；第三范式 不依赖其他非主属性&lt;/p&gt;
+&lt;p&gt;数据库优化-&lt;br&gt;1.SQL(避免使用!= &amp;lt;&amp;gt;操作符，否则将放弃索引进行全盘搜索；避免null值判断、exists替代in，多用where替代having)&lt;br&gt;16-09-17&lt;br&gt;2.索引 如上&lt;br&gt;3.范式优化 消除冗余 适当增加冗余较少jion 表分区。&lt;br&gt;4.水平（解决单表数据增量）、垂直（解决IO 按照增量拆分）拆分表（适应增长）&lt;br&gt;……我以为 我快挂了呢。保持稳定，保持自信。去了趟深圳，投错了门。笔试了N家，家家挂。阿里、腾讯、猿题库、美团、网易互联网、搜狐畅游、爱奇艺、携程……AA啊等着吧。百度-卒；当当=卒；长光-卒；大疆-卒；招行-？&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;关于熵和最大熵和其他&lt;/strong&gt;&lt;br&gt;最近学习到了有关决策树的部分。分裂特征的时候ID3选择的就是熵减少最多的那个特征来进行。所有熵在信息论、物理、系统概论里面好多地方都用到了。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;熵的两种表述是不稳定性和信息量，越不稳定信息量也越多，反之亦然。物理系统里可以解释为混乱程度，体系能量程度。&lt;/li&gt;
+&lt;li&gt;最大熵理论解释为在已知情况下，不知道的部分最有可能是趋于其最混乱信息量最大最平均的情况。即最大熵是在未知信息的最一般最朴实理解，解释该情况的一个最普遍的实例就是，对一个未知的筛子每个面掷出的概率都是1/6.最大熵保留尽可能大的不确定性而作出最佳的尽量无偏差的决定。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;熵&lt;/strong&gt;=信息熵，&lt;strong&gt;联合熵&lt;/strong&gt;=独立分布事件的所有信息量（可能有信息量重叠），信息量重叠的部分即为&lt;strong&gt;互信息&lt;/strong&gt;，&lt;strong&gt;条件熵&lt;/strong&gt;是在已知某（些）事件发生时，另一件事件的所剩信息量，很显然，条件熵+互信息=信息熵。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;最基本的一条公式即为信息熵的公式。然鹅，大多数推公式都给出其表达，再给出其性质。恰恰相反，本质上该公式的表达则是从其应具有的性质上得出。由于越未知信息越多熵越大，信息熵具有的性质为：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;光滑连续的&lt;/li&gt;
+&lt;li&gt;信息应该是能叠加的，相加应大于等于部分&lt;/li&gt;
+&lt;li&gt;当两个变量是独立分布的时候，F(x)F(y)理应等于F(x)+F(y).-&amp;gt;显然，这里能够具有该性质的应该是对数函数&lt;/li&gt;
+&lt;li&gt;信息越大熵越大&lt;br&gt;取二项分布时的状态，可以得到$$-\sum_{i=0}^{n}p_{i}(x)lg  p_{i}(x)$$.底可以取任何数。&lt;br&gt;一个通俗的例子解释就是-&amp;gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;pi为该情况的概率，例如数学之美丽提到的，世界杯一个队夺冠的概率是1/32&lt;/li&gt;
+&lt;li&gt;1/pi为独立出现一次这样情况的需要的次数.例如，在不知道情况的情况下，大家实力一样，则1个队夺冠一次需要的次数参加世界杯的次数为32&lt;/li&gt;
+&lt;li&gt;$$lg(\frac{1}{p_{i}(x)})$$为系统确认该状况，需要几次。底为2说明系统每次能够区分2个度的情况，例如天平称重量，例如二叉查找树二分查找。猜测世界杯冠军时，当取2为底，表示每次能确认一半的信息，即二分询问lg(pi)=5；若取32为底，则表明每次确认1/32的信息，即挨个球队问问。lg(pi)=1.&lt;/li&gt;
+&lt;li&gt;$$p&lt;em&gt;{i}(x)lg p&lt;/em&gt;{i}(x)$$由于高概率事件常出现，低概率事件不经常出现，其概率与系统表达该情况次数相乘，即为表达该事件所需要的概率次数。&lt;/li&gt;
+&lt;li&gt;取所有情况的和，即为系统复现所有概率可能需要的平均次数（也可能为长度、时间等）&lt;br&gt;另一个客观的例子即字符串的概率和二进制的表达。某些二进制字符出现的概率为p(xi)，则样本中需要1/p(xi)次才会出现一个这样的字符，二进制表示需要lg(1/p(xi))位，则每表达一个字符串给与其权重为其出现的概率再求和，即平均每个样本所需要系统复现（表达、分辨）所需要的平均次数（平均信息量）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;系统每次表达两种情况，记做·bit；系统每次复现e种情况，记做ln。然鹅，我们并不关注系统每次能解决多少情况，我们关注的是相同的系统下，不同的时间的概率分布有多少信息量。一般呢，就取lg&lt;/strong&gt;&lt;br&gt;16-08-31&lt;br&gt;Logistic回归是广义上的线性回归（将y变为lny）。它使用了一个单增可微函数，因而损失函数（预计值与实际值以某种函数表达的差异）接近。实际上它们都是指数分布族的函数。&lt;/p&gt;
 &lt;p&gt;关于布冯投针试验，3个简易的理解方式（线宽为L 针长为a）：    &lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;扔圈圈法&lt;/strong&gt;&lt;br&gt;直径为线宽（长度为时πL）的圆扔过去，必有两个点，扔n次必有2n个交点。根据机会均等原则，折成直线的情况扔过去，可能会有0,1,2,3,4个交点，但扔n次也必有2n个点。当针长为a时，显而易见的是a与交点个数m成正比，即m=αa.令a=πL，m=2n,∴α=2n/(πL)，又相交概率P=n/m，所以联立&lt;br&gt;$$ \pi =\frac{2a}{LP} $$    &lt;/li&gt;
@@ -1000,6 +1034,131 @@ int BT_depth1(BiTree T, int depth)
   </entry>
   
   <entry>
+    <title>Hexo多客户端写作</title>
+    <link href="http://ovjaywang.github.io/2016/04/27/hexo%E5%A4%9A%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%86%99%E4%BD%9C/"/>
+    <id>http://ovjaywang.github.io/2016/04/27/hexo多客户端写作/</id>
+    <published>2016-04-27T03:50:01.000Z</published>
+    <updated>2016-04-28T15:29:03.676Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;Hexo是很棒的静态博客，简单的安装配置即可专注写作。&lt;br&gt;但是强迫症就是很爱折腾。倘若：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;主机烧了数据备份怎么破？&lt;/li&gt;
+&lt;li&gt;换了系统想继续之前的写作怎么破?&lt;/li&gt;
+&lt;li&gt;纯粹就是想多客户端写作怎么破？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我就纯属蛋疼的。喜欢在办公和休息的地方都写作；或者我一win本&lt;br&gt;一mac 都想写文章。但Hexo的静态部署的原则不像WordPress一样，能关联博客地址，利用数据库进行博客更新。好了，这里就来解决这个问题。┑(￣Д ￣)┍&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h1 id=&quot;Hexo写作的部署逻辑-amp-其他&quot;&gt;&lt;a href=&quot;#Hexo写作的部署逻辑-amp-其他&quot; class=&quot;headerlink&quot; title=&quot;Hexo写作的部署逻辑&amp;amp;其他&quot;&gt;&lt;/a&gt;Hexo写作的部署逻辑&amp;amp;其他&lt;/h1&gt;&lt;h2 id=&quot;Hexo的写作特点&quot;&gt;&lt;a href=&quot;#Hexo的写作特点&quot; class=&quot;headerlink&quot; title=&quot;Hexo的写作特点&quot;&gt;&lt;/a&gt;Hexo的写作特点&lt;/h2&gt;&lt;p&gt;Hexo最大特点就是静态博客，即部署到服务器的博客内容是静态写好的html（由markdown转义），而不像类似wordpress的数据都存放在服务器端数据库，每次更新即一次读写数据库的操作。所以如果需要更改博客内容、发布新内容，必须&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;更改源文件source文件夹下_post及其他各页面文件夹的md文件&lt;/li&gt;
+&lt;li&gt;通过&lt;code&gt;hexo g&lt;/code&gt;或&lt;code&gt;hexo generate&lt;/code&gt;在public生成静态文件。&lt;/li&gt;
+&lt;li&gt;利用&lt;code&gt;hexo-deployer-git&lt;/code&gt;插件及&lt;code&gt;hexo d&lt;/code&gt;命令将public的文件自动的部署到创建好的&lt;code&gt;user-name.github.io&lt;/code&gt;项目中。&lt;blockquote&gt;
+&lt;p&gt;在github项目中可以看到，自动上传的只有public文件夹中的文件，包括以年份分类的静态页面文件夹、tag、categories及其他辅助css、js、img等，还有域名指引的CNAME和rss sitemap等。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;在博客中看到更新的内容。当然，本地目录中，即存放了md源文件，也包含了生成的public文件。其实，本地并不需要public里的内容，只要有写作的源文件，generate一下就能生成。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;Hexo的缺憾&quot;&gt;&lt;a href=&quot;#Hexo的缺憾&quot; class=&quot;headerlink&quot; title=&quot;Hexo的缺憾&quot;&gt;&lt;/a&gt;Hexo的缺憾&lt;/h2&gt;&lt;p&gt;那么问题来了，如果我在公司和贫民窟都想写作怎么办。总不能在两个本地仓库hexo init都部署到pages项目。在公司更新一篇blog里面全都是公司写的，然后回到地下室又写一篇更新又全是小黑屋的内容。  &lt;/p&gt;
+&lt;p&gt;尽管Hexo让人专注写作，随时随地用md写一篇博，等到来到同步的机器才更新一次也让人很不爽。对于远程仓库只存放静态文件的方案，就想到了两个思路&lt;/p&gt;
+&lt;h3 id=&quot;同步静态文件&quot;&gt;&lt;a href=&quot;#同步静态文件&quot; class=&quot;headerlink&quot; title=&quot;同步静态文件&quot;&gt;&lt;/a&gt;同步静态文件&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;新仓库同步静态文件-&amp;gt;hexo g生成静态文件-&amp;gt;合并静态文件-&amp;gt;hexo d部署&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;在两地分别hexo init建立hexo博客目录，在_config.yml中都部署到同一个远程仓库，在每次generate时，都先将远程仓库的静态文件同步下来（新建一个单独的folder专门用于同步静态文件）。请勿使用hexo博客中的public文件夹用于同步，每次generate会覆盖同名文件。若另一台主机曾做过修改并提交，这次修改的静态文件将被本地未修改的静态文件覆盖。具体操作：&lt;br&gt;第一次克隆远程hexo主分支：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;git clone git@github.com:user-name/user-name.github.io.git
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;之后每次hexo仓库发布首先在静态文件仓库获取远程仓库最新静态文件(无条件merge)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git pull origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;ol&gt;
+&lt;li&gt;在静态文件同步仓库中，将自上次部署后，本地修改过的静态文件&lt;strong&gt;删掉&lt;/strong&gt;（不记得怪我咯┑(￣Д ￣)┍）；同时在hexo blog仓库中&lt;code&gt;hexo -g&lt;/code&gt;生成本地静态文件。&lt;/li&gt;
+&lt;li&gt;将剔除过期静态文件的public仓库中文件复制到hexo的public中。&lt;/li&gt;
+&lt;li&gt;使用&lt;code&gt;hexo -d&lt;/code&gt;部署&lt;blockquote&gt;
+&lt;p&gt;以上步骤2中的删除操作是为了保证静态文件的数据都是最新的，保证博客内容的一致性。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;同步源文件（大招）&quot;&gt;&lt;a href=&quot;#同步源文件（大招）&quot; class=&quot;headerlink&quot; title=&quot;同步源文件（大招）&quot;&gt;&lt;/a&gt;同步源文件（大招）&lt;/h3&gt;&lt;p&gt;想到上述方式需要进行2步骤的主要原因就是本地的源文件不同步，只能通过生成的静态文件进行合并的方式，为毛不将源文件同步呢？！参考&lt;a href=&quot;http://crazymilk.github.io/2015/12/28/GitHub-Pages-Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这篇文章&lt;/a&gt;的思路，同步源文件就是通过远程仓库对源文件融合统一。&lt;/p&gt;
+&lt;h2 id=&quot;呵呵哒&quot;&gt;&lt;a href=&quot;#呵呵哒&quot; class=&quot;headerlink&quot; title=&quot;呵呵哒&quot;&gt;&lt;/a&gt;呵呵哒&lt;/h2&gt;&lt;p&gt;本文为了完成多客户端的同Hexo博的管理和发布，对ssh、git安装、Hexo安装、配置插件主题管理、域名绑定&lt;strong&gt;不涉及&lt;/strong&gt;。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;系统不限制 &lt;/li&gt;
+&lt;li&gt;是否写过博部署过没差&lt;/li&gt;
+&lt;li&gt;最好Hexo3.X,2.X没试过出事自负&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;真·多客户端&quot;&gt;&lt;a href=&quot;#真·多客户端&quot; class=&quot;headerlink&quot; title=&quot;真·多客户端&quot;&gt;&lt;/a&gt;真·多客户端&lt;/h1&gt;&lt;h2 id=&quot;创建远程仓库&quot;&gt;&lt;a href=&quot;#创建远程仓库&quot; class=&quot;headerlink&quot; title=&quot;创建远程仓库&quot;&gt;&lt;/a&gt;创建远程仓库&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;对于没有进行创作的hexo博客，首先创建同名仓库，再创建一个hexo branch。此时俩分支都是空的  &lt;/li&gt;
+&lt;li&gt;对于已经进行创作的hexo博客，直接创建一个hexo 分支。此时，hexo clone了master的静态文件。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;设置主分支&quot;&gt;&lt;a href=&quot;#设置主分支&quot; class=&quot;headerlink&quot; title=&quot;设置主分支&quot;&gt;&lt;/a&gt;设置主分支&lt;/h2&gt;&lt;p&gt;将hexo branch设为主分支，用于同步源文件；master branch作为静态文件的存放。（由于github pages会检索master分支作为该域名下的部署分支，因此必须把master名字保留）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/04/27/5720a2a70a238.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;同步远程仓库并初始化&quot;&gt;&lt;a href=&quot;#同步远程仓库并初始化&quot; class=&quot;headerlink&quot; title=&quot;同步远程仓库并初始化&quot;&gt;&lt;/a&gt;同步远程仓库并初始化&lt;/h2&gt;&lt;p&gt;在本地（包含第一次所有源文件的主机）新建一个文件夹（就算已经写过博客的也这么搞）同步远程仓库并初始化&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git clone git@github.com:your-Id/your-Id.github.io.git
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;此时输入&lt;code&gt;git branch&lt;/code&gt;可以看到两个分支，红色分支为主分支。&lt;br&gt;若是非空白博客，同步后需要先删掉里面的静态文件.直接删光，把原博客的文件全部复制过来&lt;strong&gt;（好像没有发现更换远程仓库主分支后本地同步更换的git bash。求解?）&lt;/strong&gt;;若是空白博客，那么需要再令建一个文件夹，（因为hexo init操作会覆盖原.git文件导致与远程仓库失联）在该文件夹git bash执行&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm install -g hexo
+hexo init
+npm install
+hexo g
+npm install hexo-deployer-git--save
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;好了，里面该有的差不多都有了。全部复制到源文件仓库。&lt;strong&gt;注意把hello worl删掉啊。&lt;/strong&gt;关键的就是，config.yml里deployer的branch是master，而本地仓库关联的是hexo就对了。&lt;br&gt;然后执行&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git add .
+git commit -m &amp;quot;init&amp;quot;
+git push -u origin hexo
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;值得注意的是，有的时候提示主题的文件夹并未加入同步操作，显示&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;
+Changes not staged for commit
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;即主题文件夹的内容尚未有之前版本，应该加入tracked。应在提交前输入&lt;code&gt;git add themes/themes_name/&lt;/code&gt;.最后那个斜杠别忘了加。&lt;br&gt;这就完成源文件的同步了！(￣▽￣)”” 执行&lt;code&gt;hexo d&lt;/code&gt;操作将本地public静态文件部署。&lt;/p&gt;
+&lt;h1 id=&quot;发博日常&quot;&gt;&lt;a href=&quot;#发博日常&quot; class=&quot;headerlink&quot; title=&quot;发博日常&quot;&gt;&lt;/a&gt;发博日常&lt;/h1&gt;&lt;h2 id=&quot;更博&quot;&gt;&lt;a href=&quot;#更博&quot; class=&quot;headerlink&quot; title=&quot;更博&quot;&gt;&lt;/a&gt;更博&lt;/h2&gt;&lt;p&gt;如果你不能确定是否抽风需要经常换客户端，因此需要每次都要同步本地源文件；如果能忍住，，或者有规律的换客户端，那么平时更新不需要经常同步。&lt;br&gt;写博前操作(&lt;strong&gt;特么狠重要啊&lt;/strong&gt;)：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git pull origin hexo
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;更新操作：(同步源文件到hexo分支)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git add .
+git commit -m &amp;quot;hehe&amp;quot;
+git push origin hexo
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这样每次更博都需要多几个步骤，嫌麻烦就要忍住不手痒了。在手机、pad写md再同步到电脑也是个不错的习惯。&lt;/p&gt;
+&lt;h2 id=&quot;换客户端&quot;&gt;&lt;a href=&quot;#换客户端&quot; class=&quot;headerlink&quot; title=&quot;换客户端&quot;&gt;&lt;/a&gt;换客户端&lt;/h2&gt;&lt;p&gt;easy.只要远程仓库存在了一份完整的源文件，那同步就很容易了。似上步第一次同步，使用&lt;code&gt;git clone git@github.com:your-Id/your-Id.github.io.git&lt;/code&gt;拷贝仓库。然后执行&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm install -g hexo
+npm install
+npm install hexo-deployer-git
+&lt;/code&gt;&lt;/pre&gt;&lt;font color=&quot;red&quot;&gt;&lt;strong&gt;不用hexo init!!!&lt;/strong&gt;&lt;/font&gt;
+
+&lt;h1 id=&quot;后记&quot;&gt;&lt;a href=&quot;#后记&quot; class=&quot;headerlink&quot; title=&quot;后记&quot;&gt;&lt;/a&gt;后记&lt;/h1&gt;&lt;h2 id=&quot;多地部署&quot;&gt;&lt;a href=&quot;#多地部署&quot; class=&quot;headerlink&quot; title=&quot;多地部署&quot;&gt;&lt;/a&gt;多地部署&lt;/h2&gt;&lt;p&gt;pacman的公式和代码支持好差啊~还有需要多地备份的可以尝试coding（page之前免费的现在要钱了 = =）.在站点部署文件中更改deploy：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;markdown&quot;&gt;deploy:
+   type: git
+   repo: 
+      github: https://github.com/{YOUR_ID}/{YOUR_ID}.github.io.git,master
+      coding: https://git.coding.net/{YOUR_ID}/{BLOG　NAME}.git,master
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;同理也能部署到自己的ftp服务器上。&lt;/p&gt;
+&lt;h2 id=&quot;bug1-file-name-too-long&quot;&gt;&lt;a href=&quot;#bug1-file-name-too-long&quot; class=&quot;headerlink&quot; title=&quot;bug1 file-name-too-long&quot;&gt;&lt;/a&gt;&lt;font color=&quot;red&quot;&gt;bug1 file-name-too-long&lt;/font&gt;&lt;/h2&gt;&lt;p&gt;在拷贝原始数据的时候，提交远程仓库时可能会报modules的文件夹无法同步。这个情况在windows下安装msysgit进行git bash会报这一问题。&lt;a href=&quot;https://github.com/msysgit/git/pull/110&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;也提到了这个异常。但这并不是git的问题，而是msysgit的问题。使用其他git方式对文件路径较长的提交就不会报错。实测在github for windows下提交该modules文件就不会报错。&lt;/p&gt;
+&lt;h2 id=&quot;bug2-could-not-read-Username-for-‘https-XXX‘&quot;&gt;&lt;a href=&quot;#bug2-could-not-read-Username-for-‘https-XXX‘&quot; class=&quot;headerlink&quot; title=&quot;bug2 could not read Username for ‘https://XXX‘&quot;&gt;&lt;/a&gt;&lt;font color=&quot;red&quot;&gt;bug2 could not read Username for ‘&lt;a href=&quot;https://XXX&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://XXX&lt;/a&gt;‘&lt;/font&gt;&lt;/h2&gt;&lt;p&gt;当需要推送另一台设备的静态文件时，可能极少情况会碰上这个问题。有的说是bash的版本问题，不识别这种方式的推送。然而我用的同一版本的msysgit..&lt;/p&gt;
+&lt;p&gt;在&lt;a href=&quot;http://stackoverflow.com/questions/20871549/error-when-push-commits-with-github-fatal-could-not-read-username&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;也发现了这个问题，尝试了一下使用在https中加入用户名和密码的方式能够良好的推送。。当然配置文件别泄露了。。更改配置文件的deploy如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;markdown&quot;&gt;deploy:
+   type: git
+   repo: 
+      github: https://{YOUR_ID}:{Your_Pwd}@github.com/{YOUR_ID}/{YOUR_ID}.github.io.git,master
+      coding: https://{YOUR_ID}:{Your_Pwd}@git.coding.net/{YOUR_ID}/{BLOG　NAME}.git,master
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Enjoy Hexo!&lt;/p&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;Hexo是很棒的静态博客，简单的安装配置即可专注写作。&lt;br&gt;但是强迫症就是很爱折腾。倘若：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;主机烧了数据备份怎么破？&lt;/li&gt;
+&lt;li&gt;换了系统想继续之前的写作怎么破?&lt;/li&gt;
+&lt;li&gt;纯粹就是想多客户端写作怎么破？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我就纯属蛋疼的。喜欢在办公和休息的地方都写作；或者我一win本&lt;br&gt;一mac 都想写文章。但Hexo的静态部署的原则不像WordPress一样，能关联博客地址，利用数据库进行博客更新。好了，这里就来解决这个问题。┑(￣Д ￣)┍&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Effective Java 笔记--创建对象的几个Tips</title>
     <link href="http://ovjaywang.github.io/2016/04/27/effective-java-tips-of-create-object/"/>
     <id>http://ovjaywang.github.io/2016/04/27/effective-java-tips-of-create-object/</id>
@@ -1143,131 +1302,6 @@ public class Client {
     <summary type="html">
     
       &lt;p&gt;第一章-创建和销毁对象 的一些 小tips&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo多客户端写作</title>
-    <link href="http://ovjaywang.github.io/2016/04/27/hexo%E5%A4%9A%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%86%99%E4%BD%9C/"/>
-    <id>http://ovjaywang.github.io/2016/04/27/hexo多客户端写作/</id>
-    <published>2016-04-27T03:50:01.000Z</published>
-    <updated>2016-04-28T15:29:03.676Z</updated>
-    
-    <content type="html">&lt;blockquote&gt;
-&lt;p&gt;Hexo是很棒的静态博客，简单的安装配置即可专注写作。&lt;br&gt;但是强迫症就是很爱折腾。倘若：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;主机烧了数据备份怎么破？&lt;/li&gt;
-&lt;li&gt;换了系统想继续之前的写作怎么破?&lt;/li&gt;
-&lt;li&gt;纯粹就是想多客户端写作怎么破？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;我就纯属蛋疼的。喜欢在办公和休息的地方都写作；或者我一win本&lt;br&gt;一mac 都想写文章。但Hexo的静态部署的原则不像WordPress一样，能关联博客地址，利用数据库进行博客更新。好了，这里就来解决这个问题。┑(￣Д ￣)┍&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h1 id=&quot;Hexo写作的部署逻辑-amp-其他&quot;&gt;&lt;a href=&quot;#Hexo写作的部署逻辑-amp-其他&quot; class=&quot;headerlink&quot; title=&quot;Hexo写作的部署逻辑&amp;amp;其他&quot;&gt;&lt;/a&gt;Hexo写作的部署逻辑&amp;amp;其他&lt;/h1&gt;&lt;h2 id=&quot;Hexo的写作特点&quot;&gt;&lt;a href=&quot;#Hexo的写作特点&quot; class=&quot;headerlink&quot; title=&quot;Hexo的写作特点&quot;&gt;&lt;/a&gt;Hexo的写作特点&lt;/h2&gt;&lt;p&gt;Hexo最大特点就是静态博客，即部署到服务器的博客内容是静态写好的html（由markdown转义），而不像类似wordpress的数据都存放在服务器端数据库，每次更新即一次读写数据库的操作。所以如果需要更改博客内容、发布新内容，必须&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;更改源文件source文件夹下_post及其他各页面文件夹的md文件&lt;/li&gt;
-&lt;li&gt;通过&lt;code&gt;hexo g&lt;/code&gt;或&lt;code&gt;hexo generate&lt;/code&gt;在public生成静态文件。&lt;/li&gt;
-&lt;li&gt;利用&lt;code&gt;hexo-deployer-git&lt;/code&gt;插件及&lt;code&gt;hexo d&lt;/code&gt;命令将public的文件自动的部署到创建好的&lt;code&gt;user-name.github.io&lt;/code&gt;项目中。&lt;blockquote&gt;
-&lt;p&gt;在github项目中可以看到，自动上传的只有public文件夹中的文件，包括以年份分类的静态页面文件夹、tag、categories及其他辅助css、js、img等，还有域名指引的CNAME和rss sitemap等。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;在博客中看到更新的内容。当然，本地目录中，即存放了md源文件，也包含了生成的public文件。其实，本地并不需要public里的内容，只要有写作的源文件，generate一下就能生成。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&quot;Hexo的缺憾&quot;&gt;&lt;a href=&quot;#Hexo的缺憾&quot; class=&quot;headerlink&quot; title=&quot;Hexo的缺憾&quot;&gt;&lt;/a&gt;Hexo的缺憾&lt;/h2&gt;&lt;p&gt;那么问题来了，如果我在公司和贫民窟都想写作怎么办。总不能在两个本地仓库hexo init都部署到pages项目。在公司更新一篇blog里面全都是公司写的，然后回到地下室又写一篇更新又全是小黑屋的内容。  &lt;/p&gt;
-&lt;p&gt;尽管Hexo让人专注写作，随时随地用md写一篇博，等到来到同步的机器才更新一次也让人很不爽。对于远程仓库只存放静态文件的方案，就想到了两个思路&lt;/p&gt;
-&lt;h3 id=&quot;同步静态文件&quot;&gt;&lt;a href=&quot;#同步静态文件&quot; class=&quot;headerlink&quot; title=&quot;同步静态文件&quot;&gt;&lt;/a&gt;同步静态文件&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;新仓库同步静态文件-&amp;gt;hexo g生成静态文件-&amp;gt;合并静态文件-&amp;gt;hexo d部署&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ol&gt;
-&lt;li&gt;在两地分别hexo init建立hexo博客目录，在_config.yml中都部署到同一个远程仓库，在每次generate时，都先将远程仓库的静态文件同步下来（新建一个单独的folder专门用于同步静态文件）。请勿使用hexo博客中的public文件夹用于同步，每次generate会覆盖同名文件。若另一台主机曾做过修改并提交，这次修改的静态文件将被本地未修改的静态文件覆盖。具体操作：&lt;br&gt;第一次克隆远程hexo主分支：&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre&gt;&lt;code&gt;git clone git@github.com:user-name/user-name.github.io.git
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;之后每次hexo仓库发布首先在静态文件仓库获取远程仓库最新静态文件(无条件merge)&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git pull origin master
-&lt;/code&gt;&lt;/pre&gt;&lt;ol&gt;
-&lt;li&gt;在静态文件同步仓库中，将自上次部署后，本地修改过的静态文件&lt;strong&gt;删掉&lt;/strong&gt;（不记得怪我咯┑(￣Д ￣)┍）；同时在hexo blog仓库中&lt;code&gt;hexo -g&lt;/code&gt;生成本地静态文件。&lt;/li&gt;
-&lt;li&gt;将剔除过期静态文件的public仓库中文件复制到hexo的public中。&lt;/li&gt;
-&lt;li&gt;使用&lt;code&gt;hexo -d&lt;/code&gt;部署&lt;blockquote&gt;
-&lt;p&gt;以上步骤2中的删除操作是为了保证静态文件的数据都是最新的，保证博客内容的一致性。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;同步源文件（大招）&quot;&gt;&lt;a href=&quot;#同步源文件（大招）&quot; class=&quot;headerlink&quot; title=&quot;同步源文件（大招）&quot;&gt;&lt;/a&gt;同步源文件（大招）&lt;/h3&gt;&lt;p&gt;想到上述方式需要进行2步骤的主要原因就是本地的源文件不同步，只能通过生成的静态文件进行合并的方式，为毛不将源文件同步呢？！参考&lt;a href=&quot;http://crazymilk.github.io/2015/12/28/GitHub-Pages-Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这篇文章&lt;/a&gt;的思路，同步源文件就是通过远程仓库对源文件融合统一。&lt;/p&gt;
-&lt;h2 id=&quot;呵呵哒&quot;&gt;&lt;a href=&quot;#呵呵哒&quot; class=&quot;headerlink&quot; title=&quot;呵呵哒&quot;&gt;&lt;/a&gt;呵呵哒&lt;/h2&gt;&lt;p&gt;本文为了完成多客户端的同Hexo博的管理和发布，对ssh、git安装、Hexo安装、配置插件主题管理、域名绑定&lt;strong&gt;不涉及&lt;/strong&gt;。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;系统不限制 &lt;/li&gt;
-&lt;li&gt;是否写过博部署过没差&lt;/li&gt;
-&lt;li&gt;最好Hexo3.X,2.X没试过出事自负&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&quot;真·多客户端&quot;&gt;&lt;a href=&quot;#真·多客户端&quot; class=&quot;headerlink&quot; title=&quot;真·多客户端&quot;&gt;&lt;/a&gt;真·多客户端&lt;/h1&gt;&lt;h2 id=&quot;创建远程仓库&quot;&gt;&lt;a href=&quot;#创建远程仓库&quot; class=&quot;headerlink&quot; title=&quot;创建远程仓库&quot;&gt;&lt;/a&gt;创建远程仓库&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;对于没有进行创作的hexo博客，首先创建同名仓库，再创建一个hexo branch。此时俩分支都是空的  &lt;/li&gt;
-&lt;li&gt;对于已经进行创作的hexo博客，直接创建一个hexo 分支。此时，hexo clone了master的静态文件。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;设置主分支&quot;&gt;&lt;a href=&quot;#设置主分支&quot; class=&quot;headerlink&quot; title=&quot;设置主分支&quot;&gt;&lt;/a&gt;设置主分支&lt;/h2&gt;&lt;p&gt;将hexo branch设为主分支，用于同步源文件；master branch作为静态文件的存放。（由于github pages会检索master分支作为该域名下的部署分支，因此必须把master名字保留）&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/04/27/5720a2a70a238.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;同步远程仓库并初始化&quot;&gt;&lt;a href=&quot;#同步远程仓库并初始化&quot; class=&quot;headerlink&quot; title=&quot;同步远程仓库并初始化&quot;&gt;&lt;/a&gt;同步远程仓库并初始化&lt;/h2&gt;&lt;p&gt;在本地（包含第一次所有源文件的主机）新建一个文件夹（就算已经写过博客的也这么搞）同步远程仓库并初始化&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git clone git@github.com:your-Id/your-Id.github.io.git
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;此时输入&lt;code&gt;git branch&lt;/code&gt;可以看到两个分支，红色分支为主分支。&lt;br&gt;若是非空白博客，同步后需要先删掉里面的静态文件.直接删光，把原博客的文件全部复制过来&lt;strong&gt;（好像没有发现更换远程仓库主分支后本地同步更换的git bash。求解?）&lt;/strong&gt;;若是空白博客，那么需要再令建一个文件夹，（因为hexo init操作会覆盖原.git文件导致与远程仓库失联）在该文件夹git bash执行&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;npm install -g hexo
-hexo init
-npm install
-hexo g
-npm install hexo-deployer-git--save
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;好了，里面该有的差不多都有了。全部复制到源文件仓库。&lt;strong&gt;注意把hello worl删掉啊。&lt;/strong&gt;关键的就是，config.yml里deployer的branch是master，而本地仓库关联的是hexo就对了。&lt;br&gt;然后执行&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git add .
-git commit -m &amp;quot;init&amp;quot;
-git push -u origin hexo
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;值得注意的是，有的时候提示主题的文件夹并未加入同步操作，显示&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;
-Changes not staged for commit
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;即主题文件夹的内容尚未有之前版本，应该加入tracked。应在提交前输入&lt;code&gt;git add themes/themes_name/&lt;/code&gt;.最后那个斜杠别忘了加。&lt;br&gt;这就完成源文件的同步了！(￣▽￣)”” 执行&lt;code&gt;hexo d&lt;/code&gt;操作将本地public静态文件部署。&lt;/p&gt;
-&lt;h1 id=&quot;发博日常&quot;&gt;&lt;a href=&quot;#发博日常&quot; class=&quot;headerlink&quot; title=&quot;发博日常&quot;&gt;&lt;/a&gt;发博日常&lt;/h1&gt;&lt;h2 id=&quot;更博&quot;&gt;&lt;a href=&quot;#更博&quot; class=&quot;headerlink&quot; title=&quot;更博&quot;&gt;&lt;/a&gt;更博&lt;/h2&gt;&lt;p&gt;如果你不能确定是否抽风需要经常换客户端，因此需要每次都要同步本地源文件；如果能忍住，，或者有规律的换客户端，那么平时更新不需要经常同步。&lt;br&gt;写博前操作(&lt;strong&gt;特么狠重要啊&lt;/strong&gt;)：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git pull origin hexo
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;更新操作：(同步源文件到hexo分支)&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git add .
-git commit -m &amp;quot;hehe&amp;quot;
-git push origin hexo
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这样每次更博都需要多几个步骤，嫌麻烦就要忍住不手痒了。在手机、pad写md再同步到电脑也是个不错的习惯。&lt;/p&gt;
-&lt;h2 id=&quot;换客户端&quot;&gt;&lt;a href=&quot;#换客户端&quot; class=&quot;headerlink&quot; title=&quot;换客户端&quot;&gt;&lt;/a&gt;换客户端&lt;/h2&gt;&lt;p&gt;easy.只要远程仓库存在了一份完整的源文件，那同步就很容易了。似上步第一次同步，使用&lt;code&gt;git clone git@github.com:your-Id/your-Id.github.io.git&lt;/code&gt;拷贝仓库。然后执行&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;npm install -g hexo
-npm install
-npm install hexo-deployer-git
-&lt;/code&gt;&lt;/pre&gt;&lt;font color=&quot;red&quot;&gt;&lt;strong&gt;不用hexo init!!!&lt;/strong&gt;&lt;/font&gt;
-
-&lt;h1 id=&quot;后记&quot;&gt;&lt;a href=&quot;#后记&quot; class=&quot;headerlink&quot; title=&quot;后记&quot;&gt;&lt;/a&gt;后记&lt;/h1&gt;&lt;h2 id=&quot;多地部署&quot;&gt;&lt;a href=&quot;#多地部署&quot; class=&quot;headerlink&quot; title=&quot;多地部署&quot;&gt;&lt;/a&gt;多地部署&lt;/h2&gt;&lt;p&gt;pacman的公式和代码支持好差啊~还有需要多地备份的可以尝试coding（page之前免费的现在要钱了 = =）.在站点部署文件中更改deploy：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;markdown&quot;&gt;deploy:
-   type: git
-   repo: 
-      github: https://github.com/{YOUR_ID}/{YOUR_ID}.github.io.git,master
-      coding: https://git.coding.net/{YOUR_ID}/{BLOG　NAME}.git,master
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;同理也能部署到自己的ftp服务器上。&lt;/p&gt;
-&lt;h2 id=&quot;bug1-file-name-too-long&quot;&gt;&lt;a href=&quot;#bug1-file-name-too-long&quot; class=&quot;headerlink&quot; title=&quot;bug1 file-name-too-long&quot;&gt;&lt;/a&gt;&lt;font color=&quot;red&quot;&gt;bug1 file-name-too-long&lt;/font&gt;&lt;/h2&gt;&lt;p&gt;在拷贝原始数据的时候，提交远程仓库时可能会报modules的文件夹无法同步。这个情况在windows下安装msysgit进行git bash会报这一问题。&lt;a href=&quot;https://github.com/msysgit/git/pull/110&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;也提到了这个异常。但这并不是git的问题，而是msysgit的问题。使用其他git方式对文件路径较长的提交就不会报错。实测在github for windows下提交该modules文件就不会报错。&lt;/p&gt;
-&lt;h2 id=&quot;bug2-could-not-read-Username-for-‘https-XXX‘&quot;&gt;&lt;a href=&quot;#bug2-could-not-read-Username-for-‘https-XXX‘&quot; class=&quot;headerlink&quot; title=&quot;bug2 could not read Username for ‘https://XXX‘&quot;&gt;&lt;/a&gt;&lt;font color=&quot;red&quot;&gt;bug2 could not read Username for ‘&lt;a href=&quot;https://XXX&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://XXX&lt;/a&gt;‘&lt;/font&gt;&lt;/h2&gt;&lt;p&gt;当需要推送另一台设备的静态文件时，可能极少情况会碰上这个问题。有的说是bash的版本问题，不识别这种方式的推送。然而我用的同一版本的msysgit..&lt;/p&gt;
-&lt;p&gt;在&lt;a href=&quot;http://stackoverflow.com/questions/20871549/error-when-push-commits-with-github-fatal-could-not-read-username&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;也发现了这个问题，尝试了一下使用在https中加入用户名和密码的方式能够良好的推送。。当然配置文件别泄露了。。更改配置文件的deploy如下：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;markdown&quot;&gt;deploy:
-   type: git
-   repo: 
-      github: https://{YOUR_ID}:{Your_Pwd}@github.com/{YOUR_ID}/{YOUR_ID}.github.io.git,master
-      coding: https://{YOUR_ID}:{Your_Pwd}@git.coding.net/{YOUR_ID}/{BLOG　NAME}.git,master
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Enjoy Hexo!&lt;/p&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;Hexo是很棒的静态博客，简单的安装配置即可专注写作。&lt;br&gt;但是强迫症就是很爱折腾。倘若：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;主机烧了数据备份怎么破？&lt;/li&gt;
-&lt;li&gt;换了系统想继续之前的写作怎么破?&lt;/li&gt;
-&lt;li&gt;纯粹就是想多客户端写作怎么破？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;我就纯属蛋疼的。喜欢在办公和休息的地方都写作；或者我一win本&lt;br&gt;一mac 都想写文章。但Hexo的静态部署的原则不像WordPress一样，能关联博客地址，利用数据库进行博客更新。好了，这里就来解决这个问题。┑(￣Д ￣)┍&lt;/p&gt;
     
     </summary>
     
@@ -1596,14 +1630,14 @@ public class TestHa {
     <link href="http://ovjaywang.github.io/2016/04/10/Hello-Hexo/"/>
     <id>http://ovjaywang.github.io/2016/04/10/Hello-Hexo/</id>
     <published>2016-04-10T14:51:49.000Z</published>
-    <updated>2016-08-31T09:25:26.466Z</updated>
+    <updated>2016-11-14T07:29:12.587Z</updated>
     
     <content type="html">&lt;p&gt;感谢&lt;a href=&quot;http://zipperary.com/2013/05/28/hexo-guide-2/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这个教程&lt;/a&gt;&lt;br&gt;还有&lt;a href=&quot;http://ibruce.info/2013/11/22/hexo-your-blog/?utm_source=tuicool&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这个&lt;/a&gt;&lt;br&gt;解决了好多bugs的&lt;a href=&quot;http://www.jianshu.com/p/35e197cb1273&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这个&lt;/a&gt;&lt;br&gt;优化cdn图床缓冲的&lt;a href=&quot;http://lukang.me/2015/optimization-of-hexo-2.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这个&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.dute.me/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这个&lt;/a&gt;让我找到了便宜的狗爹优惠码&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;从一开始的阵地wp搬到这里来了。后会有期了dooby.me 再见了WordPress  
 默默的是有些不舍。虽然push很慢虽然被墙了大半  
 4年光阴不复返啊。从一个逗比成长为大逗比了。
 &lt;/code&gt;&lt;/pre&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;hexo坑还是挺多的。&lt;br&gt;$$ \begin{bmatrix} x \\ y \\ 1&lt;br&gt;\end{bmatrix} \sim \begin{bmatrix} f &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 \\ 0 &amp;amp; f &amp;amp; 0 &amp;amp; 0 \\ 0 &amp;amp; 0 &amp;amp; 1 &amp;amp; 0 \end{bmatrix} \begin{bmatrix} r_11 &amp;amp; r_12 &amp;amp; r_13 &amp;amp; t_x \\ r_21 &amp;amp; r_22 &amp;amp; r_23 &amp;amp; t_y \\ r_31 &amp;amp; r_32&amp;amp; r_33 &amp;amp; t_z \\ 0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 1 \end{bmatrix} \begin{bmatrix} p \\ q \\ 0 \\ 1 \end{bmatrix} \sim \begin{bmatrix} fr_11 &amp;amp; fr_12 &amp;amp; ft_x \\ fr_21 &amp;amp; fr_22 &amp;amp; ft_y \\ r_31 &amp;amp; r_32 &amp;amp; t_z \end{bmatrix} \begin{bmatrix} p \\ q \\ 1 \end{bmatrix}&lt;br&gt;$$$$\sim \begin{bmatrix} h_11 &amp;amp; h_12&amp;amp;h_13 \\ h_21 &amp;amp; h_22 &amp;amp; h_23 \\ h_31 &amp;amp; h_32 &amp;amp; h_33 \end{bmatrix} \begin{bmatrix} p \\ q \\ 1 \end{bmatrix}$$&lt;/p&gt;
+&lt;p&gt;hexo坑还是挺多的。&lt;br&gt;$$ \begin{bmatrix} x \\ y \\ 1&lt;br&gt;\end{bmatrix} \sim \begin{bmatrix} f &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 \\ 0 &amp;amp; f &amp;amp; 0 &amp;amp; 0 \\ 0 &amp;amp; 0 &amp;amp; 1 &amp;amp; 0 \end{bmatrix} \begin{bmatrix} r_{11} &amp;amp; r_{12} &amp;amp; r_{13} &amp;amp; t&lt;em&gt;x \\ r\&lt;/em&gt;{21} &amp;amp; r_{22} &amp;amp; r_{23} &amp;amp; t&lt;em&gt;y \\ r\&lt;/em&gt;{31} &amp;amp; r_{32}&amp;amp; r_{33} &amp;amp; t_z \\ 0 &amp;amp; 0 &amp;amp; 0 &amp;amp; 1 \end{bmatrix} \begin{bmatrix} p \\ q \\ 0 \\ 1 \end{bmatrix} \sim \begin{bmatrix} fr_11 &amp;amp; fr_12 &amp;amp; ft_x \\ fr_21 &amp;amp; fr_22 &amp;amp; ft&lt;em&gt;y \\ r\&lt;/em&gt;{31} &amp;amp; r_32 &amp;amp; t_z \end{bmatrix} \begin{bmatrix} p \\ q \\ 1 \end{bmatrix}&lt;br&gt;$$$$\sim \begin{bmatrix} h_11 &amp;amp; h_12&amp;amp;h_13 \\ h_21 &amp;amp; h_22 &amp;amp; h_23 \\ h_31 &amp;amp; h_32 &amp;amp; h_33 \end{bmatrix} \begin{bmatrix} p \\ q \\ 1 \end{bmatrix}$$&lt;/p&gt;
 &lt;p&gt;$$f(x,y)=\left\{\begin{matrix}&lt;br&gt;\frac{4}{m}&amp;amp; 0&amp;lt;x&amp;lt;\frac{a}{2},0&amp;lt;y&amp;lt;\frac{\pi }{2} \\&lt;br&gt;0 &amp;amp; Others&lt;br&gt;\end{matrix}\right.$$&lt;/p&gt;
 &lt;h1 id=&quot;公式和Markdown冲突&quot;&gt;&lt;a href=&quot;#公式和Markdown冲突&quot; class=&quot;headerlink&quot; title=&quot;公式和Markdown冲突&quot;&gt;&lt;/a&gt;公式和Markdown冲突&lt;/h1&gt;&lt;p&gt;由于下划线在LaTex公式编辑器和MarkDown中都有，因此如果在公式中有两个xiahuaxian”_”则必须注意不要发生冲突，需加入反斜杠在下划线前！！在SublimeText中也可以看到如果又两个双下划线字体已变成斜体。&lt;/p&gt;
 &lt;p&gt;$$ 2H_2 = 2O_2+H_2$$&lt;/p&gt;
@@ -1769,7 +1803,7 @@ public class TestHa {
     <link href="http://ovjaywang.github.io/2016/01/25/opencv-findhomography-findfundanmentalmat/"/>
     <id>http://ovjaywang.github.io/2016/01/25/opencv-findhomography-findfundanmentalmat/</id>
     <published>2016-01-24T16:54:26.000Z</published>
-    <updated>2016-04-29T09:13:23.591Z</updated>
+    <updated>2016-11-14T07:18:41.045Z</updated>
     
     <content type="html">&lt;p&gt;openCV中有两个函数，findhomography和findfundamentalmat，长的很像。。一开始严重的弄混，以为都是求对应点投影矩阵的公式，万万没想到其实是两个完全不同的内涵。😒&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;opencv 中，进行&lt;strong&gt;图像拼接(全景拼接 航摄拼接 三维重建 街景地图)&lt;/strong&gt;，大致流程如下。&lt;/p&gt;
@@ -1798,27 +1832,27 @@ public class TestHa {
 &lt;p&gt;&lt;strong&gt;灭点vanishing &lt;/strong&gt; point：平行线在二维图像中汇聚的地方，空间中每一组平行线都有自己的灭点。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;灭线vanishing line（消隐线 ）&lt;/strong&gt; ：不同的灭线连线，即灭线。如果两组不同的平行线，都平行于大地，则他们的连线就是地平线（horizon line）&lt;/p&gt;
 &lt;hr&gt;
-&lt;h1 id=&quot;1-第一个矩阵Essential本质矩阵&quot;&gt;&lt;a href=&quot;#1-第一个矩阵Essential本质矩阵&quot; class=&quot;headerlink&quot; title=&quot;1. 第一个矩阵Essential本质矩阵&quot;&gt;&lt;/a&gt;1. 第一个矩阵Essential本质矩阵&lt;/h1&gt;&lt;p&gt;由于拍摄物体时，摄影中并不能被反映在图像中。如果让第二个观察者同时拍摄下某摄影中心和它所拍的照片呢?&lt;/p&gt;
+&lt;h1 id=&quot;第一个矩阵Essential本质矩阵&quot;&gt;&lt;a href=&quot;#第一个矩阵Essential本质矩阵&quot; class=&quot;headerlink&quot; title=&quot;第一个矩阵Essential本质矩阵&quot;&gt;&lt;/a&gt;第一个矩阵Essential本质矩阵&lt;/h1&gt;&lt;p&gt;由于拍摄物体时，摄影中心并不能被反映在图像中。如果让第二个观察者同时拍摄下某摄影中心和它所拍的照片呢?&lt;/p&gt;
 &lt;center&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/02/25/56cfbd34f3c9e.png&quot; alt=&quot;&quot;&gt;&lt;/center&gt;
 
 &lt;p&gt;反映在第二个观察者的照片，摄影中心和物体分别投影在像片上，任意第一个摄影中心和它所拍摄物体的连线都可视为第二个摄影中心的极线。直观的理解，即为下图的erpr。&lt;/p&gt;
 &lt;center&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/02/25/56cfc06a0ddc5.png&quot; alt=&quot;&quot;&gt;&lt;/center&gt;
 
-&lt;p&gt;&lt;strong&gt;极线约束的理论就是左侧的物体成像在右侧的同名点一定在erpr上。&lt;/strong&gt;反映左右极线关系的就是表达向量和右向量之间的约束关系的——&lt;strong&gt;本质矩阵**&lt;/strong&gt;Eseential Matrix&lt;strong&gt;**。&lt;/strong&gt;但大多数情况下，别的摄影中心并不一定会被成像，即极点不在相片中。如下图&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;极线约束的理论就是左侧的物体成像在右侧的同名点一定在erpr上。&lt;/strong&gt;反映左右极线关系的就是表达向量和右向量之间的约束关系的——&lt;strong&gt;本质矩阵&lt;/strong&gt;即&lt;strong&gt;Eseential Matrix&lt;/strong&gt;。但大多数情况下，别的摄影中心并不一定会被成像，即极点不在相片中。如下图&lt;/p&gt;
 &lt;center&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/02/25/56cfc2d883aab.png&quot; alt=&quot;&quot;&gt;&lt;/center&gt;
 
-&lt;p&gt;具体的矩阵运算参考&lt;strong&gt;  &lt;/strong&gt;&lt;a href=&quot;http://www.cnblogs.com/gemstone/archive/2011/12/20/2294551.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;strong&gt;计算机视觉基础4——对极几何(Epipolar Geometry)&lt;/strong&gt;&lt;/a&gt; ，原理为三线同面（下图蓝色区域三边）  &lt;/p&gt;
+&lt;p&gt;具体的矩阵运算参考 &lt;a href=&quot;http://www.cnblogs.com/gemstone/archive/2011/12/20/2294551.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;strong&gt;计算机视觉基础4——对极几何(Epipolar Geometry)&lt;/strong&gt;&lt;/a&gt; ，原理为&lt;strong&gt;三线同面&lt;/strong&gt;（下图蓝色区域三边）  &lt;/p&gt;
 &lt;center&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/02/24/56ce77dc874bc.png&quot; alt=&quot;&quot;&gt; &lt;/center&gt;
 
 &lt;p&gt;&lt;strong&gt;其中，E是本质矩阵（Essential Matrix），R是像平面旋转矩阵，T是摄影中心平移矩阵，Pl和Pr分别为左右摄影中心指向同名点P的向量。S由矩阵T决定，具体形式为&lt;/strong&gt;&lt;/p&gt;
 &lt;center&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/02/24/56ce77fc78812.png&quot; alt=&quot;&quot;&gt;&lt;/center&gt;
 
-&lt;p&gt;&lt;strong&gt;本质矩阵&lt;/strong&gt; 采用的是相机的外部参数，也就是说采用相机坐标(The essential matrix uses CAMERA coordinates)，不涉及相机内参数，如果要分析数字图像，则要考虑坐标(u,v)，此时需要用到内部参数(To use image coordinates we must consider the INTRINSIC camera parameters)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;本质矩阵&lt;/strong&gt; 采用的是相机的&lt;strong&gt;外部参数&lt;/strong&gt;，也就是说采用相机坐标(The essential matrix uses CAMERA coordinates)，不涉及相机内参数，如果要分析数字图像，则要考虑坐标(u,v)，此时需要用到内部参数(To use image coordinates we must consider the INTRINSIC camera parameters)&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt; 谨记1：Essential Matrix是连结两个摄影中心指向同名点的向量的矩阵，秩为2。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt; 左向量·E·右向量=0！！！&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt; E由两部分组成！E=R·S  E仅由外方位元素决定！一张图记住E!!!&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;center&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/02/25/56cfcab0b492e.png&quot; alt=&quot;&quot;&gt;&lt;/center&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;由向量引申而出的，是同名点的像素坐标，原理是共线方程。&lt;/p&gt;
+&lt;p&gt;上式Pr Pl均基于物方三维坐标。同理由向量引申而出的，则是同名点的像素坐标，原理是&lt;strong&gt;共线方程&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;二维同名点&lt;/strong&gt;&lt;/p&gt;
 &lt;center&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/02/26/56d00bc787259.png&quot; alt=&quot;&quot;&gt;&lt;/center&gt;
 
@@ -1831,7 +1865,7 @@ public class TestHa {
 
 &lt;p&gt;其中，$\widetilde{p}$是像片任意同名点相机坐标，$\widetilde{l}$是方程系数。又依据同名点公式，$$Ep&lt;em&gt;{l} =\widetilde{l&lt;/em&gt;{r}}$$，所以！对应外极线的方程系数可以直接由E矩阵和本侧同名点求出。其中，$\widetilde{l_{l}}$是左极点对应外极线方程。&lt;/p&gt;
 &lt;p&gt;当已知左侧点，其右侧对应点在直线&lt;/p&gt;
-&lt;center&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/02/26/56d08c864e4a7.png&quot; alt=&quot;&quot;&gt;&lt;/center&gt;&lt;br&gt;当已知右侧点，其左侧对应点在极线&lt;br&gt;&lt;center&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/02/26/56d01c07d68ed.png&quot; alt=&quot;&quot;&gt;&lt;/center&gt;&lt;br&gt;&lt;strong&gt;极点&lt;/strong&gt;&lt;br&gt;&lt;br&gt;别忘了。极点也是在极线上，所以有&lt;br&gt;&lt;center&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/02/26/56d0673df0710.png&quot; alt=&quot;&quot;&gt;&lt;/center&gt;&lt;br&gt;且，极点属于所有极线，因而&lt;br&gt;&lt;center&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/02/26/56d0678f1ddfc.png&quot; alt=&quot;&quot;&gt;&lt;/center&gt;&lt;br&gt;上式可用来定位极点的坐标&lt;br&gt;&lt;br&gt;&lt;em&gt; &lt;/em&gt; &lt;em&gt;&lt;br&gt;&lt;br&gt;# &lt;strong&gt; 2.第2个矩阵 Fundamental基础矩阵&lt;/strong&gt;&lt;br&gt;&lt;br&gt;另一个需要提到的概念是基础矩阵。&lt;br&gt;&lt;br&gt;Essential矩阵使用CameraCoords相机坐标系。尽管其中可计算像素坐标，但仍然以摄影中心为原点，像平面所有点z值都是f。当考虑相机内参数时，这就是FundamentalMatrix基础矩阵&lt;br&gt;&lt;center&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/01/22/56a2556c54d1d.png&quot; alt=&quot;&quot;&gt;&lt;/center&gt;&lt;br&gt;该图显示了fundamentalmatrix（基础矩阵）的基本内涵。p q分别为同名点。计算基础矩阵需要考虑到内参数的仿射变换。M为内参数的矩阵，包含6个参数的3&lt;/em&gt;3矩阵。&lt;br&gt;&lt;center&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/02/26/56d069db39519.png&quot; alt=&quot;&quot;&gt;&lt;/center&gt;&lt;br&gt;将上式中的Camera坐标提到一边，带入基本矩阵解求对极同名点的方程，即可得到F的表达式.&lt;br&gt;&lt;center&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/02/24/56ce7854f3d64.jpg&quot; alt=&quot;&quot;&gt;&lt;/center&gt;&lt;br&gt;上式即为基础矩阵方程。其中，F是基础矩阵，x’x分别为同名点。而左右两个平面的两条极线为，显而易见，F由E和两个内参数矩阵决定。&lt;br&gt;&lt;center&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/02/26/56d06ae01c63d.png&quot; alt=&quot;&quot;&gt;&lt;/center&gt;&lt;br&gt;类似的，F与E一样都能指同名点坐标在对应极线的关系。下图分别是已知左右点其对应极线的关系。&lt;br&gt;&lt;center&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/02/24/56ce78b202e41.jpg&quot; alt=&quot;&quot;&gt;&lt;/center&gt;&lt;br&gt;一个简单的例子，如果从某种方式计算出基础矩阵，则在对应图中即可表示出像素点对应的极线。&lt;br&gt;&lt;center&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/02/28/56d3bee0758a5.png&quot; alt=&quot;&quot;&gt;&lt;/center&gt;&lt;br&gt;计算出矩阵即为l的三个参数。一般的，调整比例 将前两项的平方和定为1.&lt;br&gt;&lt;center&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/02/28/56d3bf4cbf895.png&quot; alt=&quot;&quot;&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/02/26/56d08c864e4a7.png&quot; alt=&quot;&quot;&gt;&lt;/center&gt;&lt;br&gt;当已知右侧点，其左侧对应点在极线&lt;br&gt;&lt;center&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/02/26/56d01c07d68ed.png&quot; alt=&quot;&quot;&gt;&lt;/center&gt;&lt;br&gt;&lt;strong&gt;极点&lt;/strong&gt;&lt;br&gt;&lt;br&gt;别忘了。极点也是在极线上，所以有&lt;br&gt;&lt;center&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/02/26/56d0673df0710.png&quot; alt=&quot;&quot;&gt;&lt;/center&gt;&lt;br&gt;且，极点属于所有极线，因而&lt;br&gt;&lt;center&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/02/26/56d0678f1ddfc.png&quot; alt=&quot;&quot;&gt;&lt;/center&gt;&lt;br&gt;上式可用来定位极点的坐标&lt;br&gt;&lt;br&gt;&lt;em&gt; &lt;/em&gt; &lt;em&gt;&lt;br&gt;&lt;br&gt;# &lt;strong&gt; 第2个矩阵 Fundamental基础矩阵&lt;/strong&gt;&lt;br&gt;&lt;br&gt;另一个需要提到的概念是基础矩阵。&lt;br&gt;&lt;br&gt;Essential矩阵使用CameraCoords相机坐标系。尽管其中可计算像素坐标，但仍然以摄影中心为原点，像平面所有点z值都是f。当考虑相机内参数时，这就是FundamentalMatrix基础矩阵&lt;br&gt;&lt;center&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/01/22/56a2556c54d1d.png&quot; alt=&quot;&quot;&gt;&lt;/center&gt;&lt;br&gt;该图显示了fundamentalmatrix（基础矩阵）的基本内涵。p q分别为同名点。计算基础矩阵需要考虑到内参数的&lt;strong&gt;仿射变换&lt;/strong&gt;。M为内参数的矩阵，包含6个参数的3&lt;/em&gt;3矩阵。&lt;br&gt;&lt;center&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/02/26/56d069db39519.png&quot; alt=&quot;&quot;&gt;&lt;/center&gt;&lt;br&gt;将上式中的Camera坐标提到一边，带入基本矩阵解求对极同名点的方程，即可得到F的表达式.&lt;br&gt;&lt;center&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/02/24/56ce7854f3d64.jpg&quot; alt=&quot;&quot;&gt;&lt;/center&gt;&lt;br&gt;上式即为基础矩阵方程。其中，F是基础矩阵，x’x分别为同名点。而左右两个平面的两条极线为，显而易见，F由E和两个内参数矩阵决定。&lt;br&gt;&lt;center&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/02/26/56d06ae01c63d.png&quot; alt=&quot;&quot;&gt;&lt;/center&gt;&lt;br&gt;类似的，F与E一样都能指同名点坐标在对应极线的关系。下图分别是已知左右点其对应极线的关系。&lt;br&gt;&lt;center&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/02/24/56ce78b202e41.jpg&quot; alt=&quot;&quot;&gt;&lt;/center&gt;&lt;br&gt;一个简单的例子，如果从某种方式计算出基础矩阵，则在对应图中即可表示出像素点对应的极线。&lt;br&gt;&lt;center&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/02/28/56d3bee0758a5.png&quot; alt=&quot;&quot;&gt;&lt;/center&gt;&lt;br&gt;计算出矩阵即为l的三个参数。一般的，调整比例 将前两项的平方和定为1.&lt;br&gt;&lt;center&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/02/28/56d3bf4cbf895.png&quot; alt=&quot;&quot;&gt;&lt;/center&gt;
 
 &lt;p&gt;findfundamentalmat()本意为基础矩阵，是假设两幅图像在同一三维场景中的不同视角。例如立体摄像机，从不同的角度拍摄同一个目标，它解算的是，两幅图像其中一个同名点，与其在外极线同名点的转换关系。它的映射基于三维场景，因此使用这个函数的时候，在不同的视角之间，应该有一个明显的基线。默认使用7点算法拟合数据。基础矩阵把左边图像的一个点的图像坐标与它右边图像中的对应点的图像联系起来，他是一个3x3的退化矩阵，描述了两个立体图像对的外极限几何关系，其计算依赖于在两个图像中相对应的一组点。&lt;/p&gt;
 &lt;p&gt;与Homography矩阵（下文提到）不同，它在每组对应点有两组约束：x、y同时作为x’y’的自变量，估算一组对应点只有一行的约束，因为极线约束是标量等式。因此至少需要8个点。所以一般使用8点算法计算F矩阵(8点算法)。&lt;/p&gt;
@@ -1871,7 +1905,7 @@ public class TestHa {
 &lt;center&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/02/29/56d3f7745f920.png&quot; alt=&quot;&quot;&gt;&lt;/center&gt;
 
 &lt;hr&gt;
-&lt;h1 id=&quot;3-第二个矩阵-Homography（单映）矩阵&quot;&gt;&lt;a href=&quot;#3-第二个矩阵-Homography（单映）矩阵&quot; class=&quot;headerlink&quot; title=&quot; 3. 第二个矩阵 Homography（单映）矩阵&quot;&gt;&lt;/a&gt;&lt;strong&gt; 3. 第二个矩阵 Homography（单映）矩阵&lt;/strong&gt;&lt;/h1&gt;&lt;p&gt;findhomography的前提是2D的转换，本意为单映（包含平移、仿射、尺度三种变换），试图找到一个3*3的投影矩阵，能够把1图中所有的点，通过某种形变，匹配到2图中去。当基线很小的时候(视差变化小，扭曲形变也少)，这个方法能够计算出精度极高的解。&lt;br&gt;当然可以首先参考opencv的&lt;a href=&quot;http://docs.opencv.org/2.4/modules/calib3d/doc/camera_calibration_and_3d_reconstruction.html?highlight=findhomography&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;文档&lt;/a&gt; 这里首先介绍二维映射的单映（homography）矩阵&lt;/p&gt;
+&lt;h1 id=&quot;第二个矩阵-Homography（单映）矩阵&quot;&gt;&lt;a href=&quot;#第二个矩阵-Homography（单映）矩阵&quot; class=&quot;headerlink&quot; title=&quot;  第二个矩阵 Homography（单映）矩阵&quot;&gt;&lt;/a&gt;&lt;strong&gt;  第二个矩阵 Homography（单映）矩阵&lt;/strong&gt;&lt;/h1&gt;&lt;p&gt;findhomography的前提是2D的转换，本意为单映（包含平移、仿射、尺度三种变换），试图找到一个3*3的投影矩阵，能够把1图中所有的点，通过某种形变，匹配到2图中去。当基线很小的时候(视差变化小，扭曲形变也少)，这个方法能够计算出精度极高的解。&lt;br&gt;当然可以首先参考opencv的&lt;a href=&quot;http://docs.opencv.org/2.4/modules/calib3d/doc/camera_calibration_and_3d_reconstruction.html?highlight=findhomography&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;文档&lt;/a&gt; 这里首先介绍二维映射的单映（homography）矩阵&lt;/p&gt;
 &lt;center&gt;&lt;img src=&quot;https://ooo.0o0.ooo/2016/01/23/56a3baf462830.png&quot; alt=&quot;&quot;&gt;&lt;/center&gt;
 
 &lt;p&gt;该式反应了像点齐次坐标的单映变换的方程。（u v）(u’ v’)分别是左右图像的同名像点坐标。通过一个8个自由度的矩阵P来解算两者之间的关系。p02 p12与平移相关，p00,p01,p10,p11与旋转 尺度和仿射（平行变换）变换有关，p20,p21与拉伸扭曲有关。&lt;/p&gt;
@@ -1908,7 +1942,7 @@ public class TestHa {
 &lt;center&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/02/25/56ceb83e89a7b.png&quot; alt=&quot;&quot;&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/02/25/56cebcef9abd7.png&quot; alt=&quot;&quot;&gt;&lt;/center&gt;
 
 &lt;hr&gt;
-&lt;h1 id=&quot;4-Homography（单映）矩阵的求取&quot;&gt;&lt;a href=&quot;#4-Homography（单映）矩阵的求取&quot; class=&quot;headerlink&quot; title=&quot; 4. Homography（单映）矩阵的求取&quot;&gt;&lt;/a&gt;&lt;strong&gt; 4. Homography（单映）矩阵的求取&lt;/strong&gt;&lt;/h1&gt;&lt;p&gt;参考&lt;a href=&quot;http://www.robots.ox.ac.uk/~vgg/presentations/bmvc97/criminispaper/node3.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;  只要大于4个匹配点，都认为是冗余测量，必须融合数据。文章里提到了三种解求二维面到面的单应矩阵的球法。&lt;/p&gt;
+&lt;h1 id=&quot;Homography（单映）矩阵的求取&quot;&gt;&lt;a href=&quot;#Homography（单映）矩阵的求取&quot; class=&quot;headerlink&quot; title=&quot;  Homography（单映）矩阵的求取&quot;&gt;&lt;/a&gt;&lt;strong&gt;  Homography（单映）矩阵的求取&lt;/strong&gt;&lt;/h1&gt;&lt;p&gt;参考&lt;a href=&quot;http://www.robots.ox.ac.uk/~vgg/presentations/bmvc97/criminispaper/node3.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;  只要大于4个匹配点，都认为是冗余测量，必须融合数据。文章里提到了三种解求二维面到面的单应矩阵的球法。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;非线性的解决办法，使用伪逆进行分解。当所解求值为0时会有bug。&lt;/li&gt;
 &lt;li&gt;线性最小二乘解法，通常使用SVD分解，V矩阵就对应了最小奇异值。&lt;a href=&quot;http://blog.chinaunix.net/uid-20761674-id-4040274.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这个SVD的文章&lt;/a&gt;相当好的解释了SVD分解的意义。八个未知数对应八个特征向量，也对应八个线性方程的解。SVD能直接解求出这八个向量，即V中的特征向量。&lt;/li&gt;
