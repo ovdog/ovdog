@@ -412,7 +412,7 @@
 <p>第二部中的关键步骤其实就是解算每一步的迭代旋转和平移量，用到的是最小二乘法；其次，输入模式及输入顺序对匹配影像也比较大。一般的，停止迭代可以设置限差或者迭代次数。</p>
 <p>VTK5.8的C#dll中有包含ICP最新的算法，但算法较旧，效率较低，但新版6.0+在C#上未开源，忧伤。算法中，求取最近点有三种做法，一点对点，直接找最近点，常用kd-tree实现；二点对面，求取最近的切面的一个切点，主要针对点集和曲面匹配；三点做发现与另一曲面交点，主要针对面与面配准。</p>
 <p>mrpt类库中关于ICP的例子</p>
-<p><a href="http://www.mrpt.org/Iterative_Closest_Point_%28ICP%29_and_other_matching_algorithms" title="http://www.mrpt.org/Iterative_Closest_Point_%28ICP%29_and_other_matching_algorithms" target="_blank" rel="external">http://www.mrpt.org/Iterative_Closest<em>Point</em>%28ICP%29_and_other_matching_algorithms</a></p>
+<p><a href="http://www.mrpt.org/Iterative_Closest_Point_%28ICP%29_and_other_matching_algorithms" title="http://www.mrpt.org/Iterative_Closest_Point_%28ICP%29_and_other_matching_algorithms" target="_blank" rel="external">http://www.mrpt.org/Iterative_Closest_Point_%28ICP%29_and_other_matching_algorithms</a></p>
 <p>结合NUnit的ICP算法</p>
 <p><a href="http://www.codeproject.com/Articles/865830/Point-cloud-alignment-ICP-methods-compared" title="http://www.codeproject.com/Articles/865830/Point-cloud-alignment-ICP-methods-compared" target="_blank" rel="external">http://www.codeproject.com/Articles/865830/Point-cloud-alignment-ICP-methods-compared</a></p>
 <p>&nbsp;</p>
@@ -678,6 +678,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">
+  <% if (page.mathjax){ %> <%- partial('plugin/mathjax') %> <% } %> 
   
   &copy; 
   <span itemprop="copyrightYear">2016</span>

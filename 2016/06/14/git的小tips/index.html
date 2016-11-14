@@ -643,6 +643,7 @@ git log --pretty=format:&quot;%h - %an, %ar : %s&quot;
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">
+  <% if (page.mathjax){ %> <%- partial('plugin/mathjax') %> <% } %> 
   
   &copy; 
   <span itemprop="copyrightYear">2016</span>

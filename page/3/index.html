@@ -386,8 +386,8 @@
 <p> 一些重要概念</p>
 <p><strong>   后方交会基于<span style="COLOR: #ff0000"></span></strong>共线方程<em>*，物理含义为同一个三维坐标系中投影中心、物方点、像平面投影的点在同一条直线上。
 </em></p>
-<p> $$!x-x<em>{0}=-f\cdot \frac{a</em>{1}(X-X<em>{s})+b</em>{1}(Y-Y<em>{s})+c</em>{1}(Z-Z<em>{s})}{a</em>{3}(X-X<em>{s})+b</em>{3}(Y-Y<em>{s})+c</em>{3}(Z-Z_{s})}$$</p>
-<p> $$!y-y<em>{0}=-f\cdot \frac{a</em>{2}(X-X<em>{s})+b</em>{2}(Y-Y<em>{s})+c</em>{2}(Z-Z<em>{s})}{a</em>{3}(X-X<em>{s})+b</em>{3}(Y-Y<em>{s})+c</em>{3}(Z-Z_{s})}$$</p>
+<p> $$!x-x_{0}=-f\cdot \frac{a_{1}(X-X_{s})+b_{1}(Y-Y_{s})+c_{1}(Z-Z_{s})}{a_{3}(X-X_{s})+b_{3}(Y-Y_{s})+c_{3}(Z-Z_{s})}$$</p>
+<p> $$!y-y_{0}=-f\cdot \frac{a_{2}(X-X_{s})+b_{2}(Y-Y_{s})+c_{2}(Z-Z_{s})}{a_{3}(X-X_{s})+b_{3}(Y-Y_{s})+c_{3}(Z-Z_{s})}$$</p>
 <p> 上式中，包含留个外方位元素，即Xs、Ys、Zs、φ、Ω、k。只有确定了六个外方位元素，才能确定摄影中心在物方空间的位置。a1、a2、a3、b1、b2、b3、c1、c2、c3是需要计算的直线方程的系数，其物理性质是3个外方位角元素组成的9个方向余弦。该方程利用了相似三角形的性质；f是焦距长，X Y Z均值控制点的测量坐标，默认为精确的，因此物方控制点测量的精度很大程度上决定了最后检校的精度；x y是X Y Z对应的像平面的坐标，x0，y0是主点在像平面的坐标，有时当作已知并不再改变，有时也参与迭代计算。</p>
 <p> 共线条件方程用途有：</p>
 <p>1.2.  单像、多像空间后方交会；多像空间前方交会<br>3.4.  解析空中三角测量的光束法平差<br>5.6.  数字投影的基础<br>7.8.  计算模拟影像数据（已知内外方位元素和物方坐标点求像点）<br>9.10.  DEM与共线方程制作正射影像<br>11.12.  DEM与共线方程进行单幅影像测图<br>13.</p>
@@ -395,80 +395,80 @@
 <p><strong>注意 一个方程代表一个点在像平面和物方世界的关系，因此一个点对应两个方程，若有n个控制点，则对应2n个方程</strong></p>
 </blockquote>
 <p> 若f x0 y0当作已知，则有外方位元素6个未知数，因此需要6个方程，即3个控制点的方程；若f x0 y0当作位置，则有9个未知数，因此需要至少5个控制点的方程。当然，很多文章也指出，<strong>越多的冗余数据</strong>参与计算得到的结果也越精确；<strong>越多的像片</strong>参与计算，得到的结果越精确；<strong>更均匀的控制点分布</strong>，能更多的控制整张像片，均匀的分布在边缘，得到的结果更精确。</p>
-<p> 一般情况下，令<br> $$!\overline{X}=a<em>{1}(X-X</em>{s})+b<em>{1}(Y-Y</em>{s})+c<em>{1}(Z-Z</em>{s})$$</p>
-<p>$$!\overline{Y}=a<em>{2}(X-X</em>{s})+b<em>{2}(Y-Y</em>{s})+c<em>{2}(Z-Z</em>{s})$$</p>
-<p>$$!\overline{Z}=a<em>{3}(X-X</em>{s})+b<em>{3}(Y-Y</em>{s})+c<em>{3}(Z-Z</em>{s})$$</p>
+<p> 一般情况下，令<br> $$!\overline{X}=a_{1}(X-X_{s})+b_{1}(Y-Y_{s})+c_{1}(Z-Z_{s})$$</p>
+<p>$$!\overline{Y}=a_{2}(X-X_{s})+b_{2}(Y-Y_{s})+c_{2}(Z-Z_{s})$$</p>
+<p>$$!\overline{Z}=a_{3}(X-X_{s})+b_{3}(Y-Y_{s})+c_{3}(Z-Z_{s})$$</p>
 <p> 而用矩阵的形式可以表示为：</p>
-<p> $$!\begin{pmatrix}\overline{X}\ \overline{Y}\ \overline{Z}\end{pmatrix}=\begin{pmatrix}a<em>{1}&amp;b</em>{1}&amp;c<em>{1}\a</em>{2}&amp;b<em>{2}&amp;c</em>{2}\a<em>{3}&amp;b</em>{3}&amp;c_{3}\end{pmatrix}\cdot\begin{pmatrix}X-Xs\Y-Ys\Z-Zs\end{pmatrix}=R^{T}\begin{pmatrix}X-Xs\Y-Ys\Z-Zs\end{pmatrix}$$</p>
+<p> $$!\begin{pmatrix}\overline{X}\ \overline{Y}\ \overline{Z}\end{pmatrix}=\begin{pmatrix}a_{1}&amp;b_{1}&amp;c_{1}\\a_{2}&amp;b_{2}&amp;c_{2}\\a_{3}&amp;b_{3}&amp;c_{3}\end{pmatrix}\cdot\begin{pmatrix}X-Xs\\Y-Ys\\Z-Zs\end{pmatrix}=R^{T}\begin{pmatrix}X-Xs\\Y-Ys\\Z-Zs\end{pmatrix}$$</p>
 <p>这里R是旋转矩阵，且$$R^{T}=R^{-1}$$,行列式的值为0，即任意元素等于其代数余子式的值.则共线方程变为：</p>
 <p> $$!x-x_{0}=-f\cdot \frac{\overline{X}}{\overline{Z}}$$</p>
 <p>$$!y-y_{0}=-f\cdot \frac{\overline{Y}}{\overline{Z}}$$</p>
 <p> 由于上式是共线方程的变形，因此Fx和Fy是六个外方位元素为参数的函数。由于方程是非线性的，因此不能解求数值，<strong>需要对方程进行线性化</strong>。思路是，对上式按泰勒级数在初值处展开并保留一次项，将非线性方程转化为各参数<span style="COLOR: #ff0000"><strong>改正数</strong></span>的线性方程</p>
-<p> 设<span style="COLOR: #ff0000">初值</span>为$$!X<em>{S}^{0},X</em>{S}^{0},Z<em>{S}^{0},\varphi^{0},\omega^{0},\kappa {0},X^{0},Y^{0},Z^{0},x</em>{0}^{0},y_{0}^{0},f^{0}$$</p>
+<p> 设<span style="COLOR: #ff0000">初值</span>为$$!X_{S}^{0},X_{S}^{0},Z_{S}^{0},\varphi^{0},\omega^{0},\kappa {0},X^{0},Y^{0},Z^{0},x_{0}^{0},y_{0}^{0},f^{0}$$</p>
 <p> 相应的<span style="COLOR: #ff0000">改正数</span>为</p>
 <p> $$!dXs=\triangle Xs=Xs-Xs^{0},dYs=\triangle Ys=Ys-Ys^{0},dZs=\triangle Zs=Zs-Zs^{0}$$</p>
 <p> $$!d\varphi=\triangle \varphi=\varphi-\varphi^{0},d\omega=\triangle \omega=\omega-\omega^{0},d\kappa=\triangle \kappa=\kappa-\kappa^{0}$$</p>
 <p> $$!dX=\triangle X=X-X^{0},dY=\triangle Y=Y-Y^{0},dZ=\triangle Z=Z-Z^{0}$$</p>
 <p> &nbsp;则<font color="#FF0000" size="5">共线方程的泰勒一次展开一般式</font>为<font color="#FF0000" size="5">①</font></p>
-<p> $$!x=(x)+\frac{\partial x}{\partial Xs}dXs+\frac{\partial x}{\partial Ys}dYs+\frac{\partial x}{\partial Zs}dZs+\frac{\partial x}{\partial \varphi }d\varphi +\frac{\partial x}{\partial \omega }d\omega +\frac{\partial x}{\partial \kappa }d\kappa +\frac{\partial x}{\partial X}dX+\frac{\partial x}{\partial Y}dY+\frac{\partial x}{\partial x<em>{0}}dx</em>{0}+\frac{\partial x}{\partial y<em>{0}}dy</em>{0}+\frac{\partial x}{\partial f}df$$</p>
-<p>$$!y=(y)+\frac{\partial y}{\partial Xs}dXs+\frac{\partial y}{\partial Ys}dYs+\frac{\partial y}{\partial Zs}dZs+\frac{\partial y}{\partial \varphi }d\varphi +\frac{\partial y}{\partial \omega }d\omega +\frac{\partial y}{\partial \kappa }d\kappa +\frac{\partial y}{\partial X}dX+\frac{\partial y}{\partial Y}dY+\frac{\partial y}{\partial x<em>{0}}dx</em>{0}+\frac{\partial y}{\partial y<em>{0}}dy</em>{0}+\frac{\partial y}{\partial f}df$$</p>
+<p> $$!x=(x)+\frac{\partial x}{\partial Xs}dXs+\frac{\partial x}{\partial Ys}dYs+\frac{\partial x}{\partial Zs}dZs+\frac{\partial x}{\partial \varphi }d\varphi +\frac{\partial x}{\partial \omega }d\omega +\frac{\partial x}{\partial \kappa }d\kappa +\frac{\partial x}{\partial X}dX+\frac{\partial x}{\partial Y}dY+\frac{\partial x}{\partial x_{0}}dx_{0}+\frac{\partial x}{\partial y_{0}}dy_{0}+\frac{\partial x}{\partial f}df$$</p>
+<p>$$!y=(y)+\frac{\partial y}{\partial Xs}dXs+\frac{\partial y}{\partial Ys}dYs+\frac{\partial y}{\partial Zs}dZs+\frac{\partial y}{\partial \varphi }d\varphi +\frac{\partial y}{\partial \omega }d\omega +\frac{\partial y}{\partial \kappa }d\kappa +\frac{\partial y}{\partial X}dX+\frac{\partial y}{\partial Y}dY+\frac{\partial y}{\partial x_{0}}dx_{0}+\frac{\partial y}{\partial y_{0}}dy_{0}+\frac{\partial y}{\partial f}df$$</p>
 <p>这是一个重要的总结性公式。(x)(y)分别是内方位元素x，y的初值。式中包含了所有内外元素和物放测量点。当进行不同矩阵运算时，可以选择需要的精度不足够的进行迭代计算。</p>
 <p>其中，对x和y求各未知项的偏导：</p>
-<p> $$!\frac{\partial x}{\partial Xs}=-f\cdot \frac{\frac{\partial \overline{X}}{\partial Xs}\overline{Z}-\frac{\partial \overline{Z}}{\partial Xs}\overline{X}}{\overline{Z}^{2}}=-\frac{f}{\overline{Z}^{2}}(-a<em>{1}\overline{Z}+a</em>{3}\overline{X})=\frac{1}{\overline{Z}}[a<em>{1}f-a</em>{3}f\frac{\overline{X}}{\overline{Z}}]=\frac{1}{\overline{Z}}[a<em>{1}f+a</em>{3}(x-x_{0})]$$</p>
+<p> $$!\frac{\partial x}{\partial Xs}=-f\cdot \frac{\frac{\partial \overline{X}}{\partial Xs}\overline{Z}-\frac{\partial \overline{Z}}{\partial Xs}\overline{X}}{\overline{Z}^{2}}=-\frac{f}{\overline{Z}^{2}}(-a_{1}\overline{Z}+a_{3}\overline{X})=\frac{1}{\overline{Z}}[a_{1}f-a_{3}f\frac{\overline{X}}{\overline{Z}}]=\frac{1}{\overline{Z}}[a_{1}f+a_{3}(x-x_{0})]$$</p>
 <p> 同理，其他的偏导为</p>
-<p> $$!\frac{\partial x}{\partial Ys}=\frac{1}{\overline{Z}}[b<em>{1}f+b</em>{3}(x-x_{0})]$$</p>
-<p> $$!\frac{\partial x}{\partial Zs}=\frac{1}{\overline{Z}}[c<em>{1}f+b</em>{3}(x-x_{0})]$$</p>
-<p> $$!\frac{\partial y}{\partial Xs}=\frac{1}{\overline{Z}}[a<em>{2}f+a</em>{3}(x-x_{0})]$$</p>
-<p> $$!\frac{\partial y}{\partial Ys}=\frac{1}{\overline{Z}}[b<em>{2}f+b</em>{3}(x-x_{0})]$$</p>
-<p> $$!\frac{\partial y}{\partial Zs}=\frac{1}{\overline{Z}}[c<em>{2}f+c</em>{3}(x-x_{0})]$$</p>
+<p> $$!\frac{\partial x}{\partial Ys}=\frac{1}{\overline{Z}}[b_{1}f+b_{3}(x-x_{0})]$$</p>
+<p> $$!\frac{\partial x}{\partial Zs}=\frac{1}{\overline{Z}}[c_{1}f+b_{3}(x-x_{0})]$$</p>
+<p> $$!\frac{\partial y}{\partial Xs}=\frac{1}{\overline{Z}}[a_{2}f+a_{3}(x-x_{0})]$$</p>
+<p> $$!\frac{\partial y}{\partial Ys}=\frac{1}{\overline{Z}}[b_{2}f+b_{3}(x-x_{0})]$$</p>
+<p> $$!\frac{\partial y}{\partial Zs}=\frac{1}{\overline{Z}}[c_{2}f+c_{3}(x-x_{0})]$$</p>
 <p> $$!\frac{\partial x}{\partial f}=\frac{x-x_{0}}{f}=-\frac{\overline{X}}{\overline{Z}}$$</p>
 <p>$$!\frac{\partial y}{\partial f}=\frac{y-y_{0}}{f}=-\frac{\overline{Y}}{\overline{Z}}$$</p>
-<p>$$!\frac{\partial x}{\partial x<em>{0}}=1,\frac{\partial x}{\partial y</em>{0}}=0$$</p>
-<p>$$!\frac{\partial y}{\partial x<em>{0}}=0,\frac{\partial y}{\partial y</em>{0}}=1$$</p>
+<p>$$!\frac{\partial x}{\partial x_{0}}=1,\frac{\partial x}{\partial y_{0}}=0$$</p>
+<p>$$!\frac{\partial y}{\partial x_{0}}=0,\frac{\partial y}{\partial y_{0}}=1$$</p>
 <p> 这里相对比较难解决的是角元素的偏导，关于角度的问题可以参考第三篇。</p>
 <p> 角度的变换在这里不再详述，两个坐标系之间的转换可以归结为变换矩阵的求取。三个角元素共同构成了矩阵的元素确定。</p>
 <p> 由于</p>
-<p>$$!R^{T}=R<em>{\kappa }^{T}R</em>{\omega }^{T}R_{\varphi }^{T} $$</p>
+<p>$$!R^{T}=R_{\kappa }^{T}R_{\omega }^{T}R_{\varphi }^{T} $$</p>
 <p>因而，难度转到求取$$\overline{X}\overline{Y} \overline{Z} $$对角元素的偏导上。对角元素求偏导可以分为三个步骤：</p>
-<p>①求各个方向余弦$$a<em>{i},b</em>{i},c_{i}$$对ω、k、φ的偏导数。共27个。</p>
+<p>①求各个方向余弦$$a_{i},b_{i},c_{i}$$对ω、k、φ的偏导数。共27个。</p>
 <p>②求$$\overline{X},\overline{Y},\overline{Z}$$对ω、k、φ的偏导数，共9个。</p>
 <p>③求x、y对ω、k、φ的偏导数，共6个。</p>
 <p>如下是$$\overline{X},\overline{Y},\overline{Z}$$对φ的偏导，三个参数写在矩阵中，有的地方也展开写成每一项的等式形式。</p>
-<p>$$!\frac{\partial }{\partial \varphi }\begin{pmatrix}\overline{X}\\overline{Y}\\overline{Z}\end{pmatrix}=R<em>{\kappa }^{T}R</em>{\omega }^{T}\frac{\partial R<em>{\varphi }^{T}}{\partial \varphi }\begin{pmatrix}X-Xs\ Y-Ys\ Z-Zs\end{pmatrix}=R</em>{\kappa }^{T}R<em>{\omega }^{T}\frac{\partial R</em>{\varphi }^{T}}{\partial \varphi }(R^{T})^{-1}\begin{pmatrix}\overline{X}\ \overline{Y}\ \overline{Z}\end{pmatrix}=R<em>{\kappa }^{T}R</em>{\omega }^{T}\frac{\partial R<em>{\varphi }^{T}}{\partial \varphi }R\begin{pmatrix}\overline{X}\ \overline{Y}\ \overline{Z}\end{pmatrix}=R</em>{\kappa }^{T}R<em>{\omega }^{T}(R</em>{\varphi }^{T}R<em>{\varphi })\frac{\partial R</em>{\varphi }^{T}}{\partial \varphi }R\begin{pmatrix}\overline{X}\ \overline{Y}\ \overline{Z}\end{pmatrix}=R^{T}R<em>{\varphi }\frac{\partial R</em>{\varphi }^{T}}{\partial \varphi }R\begin{pmatrix}\overline{X}\ \overline{Y}\ \overline{Z}\end{pmatrix}$$</p>
+<p>$$!\frac{\partial }{\partial \varphi }\begin{pmatrix}\overline{X}\\\overline{Y}\\\overline{Z}\end{pmatrix}=R_{\kappa }^{T}R_{\omega }^{T}\frac{\partial R_{\varphi }^{T}}{\partial \varphi }\begin{pmatrix}X-Xs\ Y-Ys\ Z-Zs\end{pmatrix}=R_{\kappa }^{T}R_{\omega }^{T}\frac{\partial R_{\varphi }^{T}}{\partial \varphi }(R^{T})^{-1}\begin{pmatrix}\overline{X}\ \overline{Y}\ \overline{Z}\end{pmatrix}=R_{\kappa }^{T}R_{\omega }^{T}\frac{\partial R_{\varphi }^{T}}{\partial \varphi }R\begin{pmatrix}\overline{X}\ \overline{Y}\ \overline{Z}\end{pmatrix}=R_{\kappa }^{T}R_{\omega }^{T}(R_{\varphi }^{T}R_{\varphi })\frac{\partial R_{\varphi }^{T}}{\partial \varphi }R\begin{pmatrix}\overline{X}\ \overline{Y}\ \overline{Z}\end{pmatrix}=R^{T}R_{\varphi }\frac{\partial R_{\varphi }^{T}}{\partial \varphi }R\begin{pmatrix}\overline{X}\ \overline{Y}\ \overline{Z}\end{pmatrix}$$</p>
 <p>带入具体系数，上式可变形为</p>
-<p>$$!\begin{pmatrix}a<em>{1} &amp; b</em>{1} &amp; c<em>{1}\a</em>{2} &amp; b<em>{2} &amp; c</em>{2}\a<em>{3} &amp; b</em>{3} &amp; c<em>{3}\end{pmatrix}\begin{pmatrix}0 &amp; 0 &amp;1\0 &amp; 0 &amp; 0\-1 &amp; 0 &amp; 0\end{pmatrix}\begin{pmatrix}a</em>{1} &amp; a<em>{2} &amp; a</em>{3}\b<em>{1} &amp; b</em>{2} &amp; b<em>{3}\c</em>{1} &amp; c<em>{2}&amp;c</em>{3} \end{pmatrix}\begin{pmatrix}\overline{X}\\overline{Y}\\overline{Z} \end{pmatrix}=\begin{pmatrix}0 &amp;-a<em>{2}c</em>{1}+a<em>{1}c</em>{2}&amp;-a<em>{3}c</em>{1}+a<em>{1}c</em>{3}\-a<em>{1}c</em>{2}+a<em>{2}c</em>{1} &amp; 0 &amp; -a<em>{3}c</em>{2}+a<em>{2}c</em>{3}\ -a<em>{1}c</em>{3}+a<em>{3}c</em>{1}&amp; -a<em>{2}c</em>{3}+a<em>{3}c</em>{2} &amp;0\end{pmatrix}\begin{pmatrix}\overline{X}\\overline{Y}\\overline{Z} \end{pmatrix}=\begin{pmatrix}0 &amp; -b<em>{3} &amp; b</em>{2}\b<em>{3}&amp;0&amp;-b</em>{1}\-b<em>{2}&amp;b</em>{1}&amp;0\end{pmatrix}\begin{pmatrix}\overline{X}\\overline{Y}\\overline{Z} \end{pmatrix}$$</p>
+<p>$$!\begin{pmatrix}a_{1} &amp; b_{1} &amp; c_{1}\\a_{2} &amp; b_{2} &amp; c_{2}\\a_{3} &amp; b_{3} &amp; c_{3}\end{pmatrix}\begin{pmatrix}0 &amp; 0 &amp;1\\0 &amp; 0 &amp; 0\-1 &amp; 0 &amp; 0\end{pmatrix}\begin{pmatrix}a_{1} &amp; a_{2} &amp; a_{3}\\b_{1} &amp; b_{2} &amp; b_{3}\\c_{1} &amp; c_{2}&amp;c_{3} \end{pmatrix}\begin{pmatrix}\overline{X}\\\overline{Y}\\\overline{Z} \end{pmatrix}=\begin{pmatrix}0 &amp;-a_{2}c_{1}+a_{1}c_{2}&amp;-a_{3}c_{1}+a_{1}c_{3}\-a_{1}c_{2}+a_{2}c_{1} &amp; 0 &amp; -a_{3}c_{2}+a_{2}c_{3}\ -a_{1}c_{3}+a_{3}c_{1}&amp; -a_{2}c_{3}+a_{3}c_{2} &amp;0\end{pmatrix}\begin{pmatrix}\overline{X}\\\overline{Y}\\\overline{Z} \end{pmatrix}=\begin{pmatrix}0 &amp; -b_{3} &amp; b_{2}\\b_{3}&amp;0&amp;-b_{1}\-b_{2}&amp;b_{1}&amp;0\end{pmatrix}\begin{pmatrix}\overline{X}\\\overline{Y}\\\overline{Z} \end{pmatrix}$$</p>
 <p>其中利用了旋转矩阵一个元素的值<font color="#FF0000">等于代数余子式的值</font>。如下是$$\overline{X},\overline{Y},\overline{Z}$$对ω的偏导。</p>
-<p>$$!\frac{\partial }{\partial \omega }\begin{pmatrix}\overline{X}\\overline{Y}\\overline{Z}\end{pmatrix}=R<em>{\kappa }^{T}\frac{\partial R</em>{\omega}^{T}}{\partial \omega }R<em>{\varphi }^{T}\begin{pmatrix}X-Xs\Y-Ys\Z-Zs\end{pmatrix}=R</em>{\kappa}^{T}\frac{\partial R<em>{\omega }^{T}}{\partial \omega }R</em>{\varphi }^{T}(R<em>{\varphi }R</em>{\omega }R<em>{\kappa })\begin{pmatrix}\overline{X}\ \overline{Y}\ \overline{Z}\end{pmatrix}=R</em>{\kappa }^{T}\frac{\partial R<em>{\omega }^{T}}{\partial \omega}R</em>{\omega }R_{\kappa }\begin{pmatrix}\overline{X}\ \overline{Y}\ \overline{Z}\end{pmatrix}=\begin{pmatrix}0&amp;0&amp;sin\kappa\ 0&amp;0&amp;cos\kappa\-sin\kappa&amp;-cos \kappa&amp;0\end{pmatrix}\begin{pmatrix}\overline{X}\ \overline{Y}\ \overline{Z}\end{pmatrix}$$其中，这里用到了</p>
-<p>$$!\begin{pmatrix}\overline{X}\\overline{Y}\\overline{Z}\end{pmatrix}=R^{T}\begin{pmatrix}X-Xs\Y-Ys\Z-Zs\end{pmatrix}=(R<em>{\varphi}R</em>{\omega}R<em>{\kappa })^{T}\begin{pmatrix}X-Xs\Y-Ys\Z-Zs\end{pmatrix}=R</em>{\kappa }^{T}R<em>{\omega }^{T}R</em>{\varphi }^{T}\begin{pmatrix}X-Xs\Y-Ys\Z-Zs\end{pmatrix}$$</p>
-<p>$$!\begin{pmatrix}X-Xs\Y-Ys\Z-Zs\end{pmatrix}=(R^{T})^{-1}\begin{pmatrix}\overline{X}\\overline{Y}\\overline{Z}\end{pmatrix}=R\begin{pmatrix}\overline{X}\\overline{Y}\\overline{Z}\end{pmatrix}=R<em>{\varphi }R</em>{\omega }R_{\kappa }\begin{pmatrix}\overline{X}\\overline{Y}\\overline{Z}\end{pmatrix}$$</p>
+<p>$$!\frac{\partial }{\partial \omega }\begin{pmatrix}\overline{X}\\\overline{Y}\\\overline{Z}\end{pmatrix}=R_{\kappa }^{T}\frac{\partial R_{\omega}^{T}}{\partial \omega }R_{\varphi }^{T}\begin{pmatrix}X-Xs\\Y-Ys\\Z-Zs\end{pmatrix}=R_{\kappa}^{T}\frac{\partial R_{\omega }^{T}}{\partial \omega }R_{\varphi }^{T}(R_{\varphi }R_{\omega }R_{\kappa })\begin{pmatrix}\overline{X}\ \overline{Y}\ \overline{Z}\end{pmatrix}=R_{\kappa }^{T}\frac{\partial R_{\omega }^{T}}{\partial \omega}R_{\omega }R_{\kappa }\begin{pmatrix}\overline{X}\ \overline{Y}\ \overline{Z}\end{pmatrix}=\begin{pmatrix}0&amp;0&amp;sin\kappa\ 0&amp;0&amp;cos\kappa\-sin\kappa&amp;-cos \kappa&amp;0\end{pmatrix}\begin{pmatrix}\overline{X}\ \overline{Y}\ \overline{Z}\end{pmatrix}$$其中，这里用到了</p>
+<p>$$!\begin{pmatrix}\overline{X}\\\overline{Y}\\\overline{Z}\end{pmatrix}=R^{T}\begin{pmatrix}X-Xs\\Y-Ys\\Z-Zs\end{pmatrix}=(R_{\varphi}R_{\omega}R_{\kappa })^{T}\begin{pmatrix}X-Xs\\Y-Ys\\Z-Zs\end{pmatrix}=R_{\kappa }^{T}R_{\omega }^{T}R_{\varphi }^{T}\begin{pmatrix}X-Xs\\Y-Ys\\Z-Zs\end{pmatrix}$$</p>
+<p>$$!\begin{pmatrix}X-Xs\\Y-Ys\\Z-Zs\end{pmatrix}=(R^{T})^{-1}\begin{pmatrix}\overline{X}\\\overline{Y}\\\overline{Z}\end{pmatrix}=R\begin{pmatrix}\overline{X}\\\overline{Y}\\\overline{Z}\end{pmatrix}=R_{\varphi }R_{\omega }R_{\kappa }\begin{pmatrix}\overline{X}\\\overline{Y}\\\overline{Z}\end{pmatrix}$$</p>
 <p>如下是$$\overline{X},\overline{Y},\overline{Z}$$对k的偏导。</p>
-<p>$$!\frac{\partial }{\partial \kappa }\begin{pmatrix}\overline{X}\ \overline{Y}\ \overline{Z}\end{pmatrix}=\frac{\partial R<em>{\kappa }^{T}}{\partial \kappa }R</em>{\omega }^{T}R<em>{\varphi }^{T}\begin{pmatrix}X-Xs\Y-Ys\Z-Zs\end{pmatrix}=\frac{\partial R</em>{\kappa }^{T}}{\partial \kappa }(R<em>{\kappa }R</em>{\kappa }^{T})R<em>{\omega }^{T}R</em>{\varphi }^{T}\begin{pmatrix}X-Xs\Y-Ys\Z-Zs\end{pmatrix}=\frac{\partial R<em>{\kappa }^{T}}{\partial \kappa }R</em>{\kappa }\begin{pmatrix}\overline{X}\ \overline{Y}\ \overline{Z}\end{pmatrix}=\begin{pmatrix}\overline{Y}\ -\overline{X}\0\end{pmatrix}$$<br> 通过以上三式可得到x和y对各角元素未知数的偏导。有的地方，将x，y先分别除以$$\overline{Z}$$,</p>
+<p>$$!\frac{\partial }{\partial \kappa }\begin{pmatrix}\overline{X}\ \overline{Y}\ \overline{Z}\end{pmatrix}=\frac{\partial R_{\kappa }^{T}}{\partial \kappa }R_{\omega }^{T}R_{\varphi }^{T}\begin{pmatrix}X-Xs\\Y-Ys\\Z-Zs\end{pmatrix}=\frac{\partial R_{\kappa }^{T}}{\partial \kappa }(R_{\kappa }R_{\kappa }^{T})R_{\omega }^{T}R_{\varphi }^{T}\begin{pmatrix}X-Xs\\Y-Ys\\Z-Zs\end{pmatrix}=\frac{\partial R_{\kappa }^{T}}{\partial \kappa }R_{\kappa }\begin{pmatrix}\overline{X}\ \overline{Y}\ \overline{Z}\end{pmatrix}=\begin{pmatrix}\overline{Y}\ -\overline{X}\\0\end{pmatrix}$$<br> 通过以上三式可得到x和y对各角元素未知数的偏导。有的地方，将x，y先分别除以$$\overline{Z}$$,</p>
 <p>这样可以在求取偏导的时候减少计算量。</p>
-<p>$$!\frac{\partial x}{\partial \varphi }=-\frac{f}{\overline{Z}^{2}}(\frac{\partial \overleftarrow{X}}{\partial \varphi }\overline{Z}-\frac{\partial \overline{Z}}{\partial \varphi }\overline{X})=-\frac{f}{\overline{Z}^{2}}(-b<em>{3}\overline{Y}+b</em>{2}\overline{Z})\overline{Z}+\frac{f}{\overline{Z}^{2}}(b<em>{2}\overline{X}-b</em>{1}\overline{Y})\overline{X}=-(y-y<em>{0})b</em>{3}-fb<em>{2}-\frac{(x-x</em>{0})^{2}}{f}b<em>{2}+\frac{(x-x</em>{0})(y-y<em>{0})}{f}b</em>{1}=\frac{(x-x<em>{0})(y-y</em>{0})}{f}b<em>{1}-(f+\frac{(x-x</em>{0})^{2}}{f})b<em>{2}-(y-y</em>{0})b_{3}$$其他一次类推</p>
-<p>$$!\frac{\partial x}{\partial \omega }=\frac{(x-x<em>{0})^{2}}{f}sin\kappa-\frac{(x-x</em>{0})(y-y_{0})}{f}cos\kappa -fsin\kappa $$</p>
+<p>$$!\frac{\partial x}{\partial \varphi }=-\frac{f}{\overline{Z}^{2}}(\frac{\partial \overleftarrow{X}}{\partial \varphi }\overline{Z}-\frac{\partial \overline{Z}}{\partial \varphi }\overline{X})=-\frac{f}{\overline{Z}^{2}}(-b_{3}\overline{Y}+b_{2}\overline{Z})\overline{Z}+\frac{f}{\overline{Z}^{2}}(b_{2}\overline{X}-b_{1}\overline{Y})\overline{X}=-(y-y_{0})b_{3}-fb_{2}-\frac{(x-x_{0})^{2}}{f}b_{2}+\frac{(x-x_{0})(y-y_{0})}{f}b_{1}=\frac{(x-x_{0})(y-y_{0})}{f}b_{1}-(f+\frac{(x-x_{0})^{2}}{f})b_{2}-(y-y_{0})b_{3}$$其他一次类推</p>
+<p>$$!\frac{\partial x}{\partial \omega }=\frac{(x-x_{0})^{2}}{f}sin\kappa-\frac{(x-x_{0})(y-y_{0})}{f}cos\kappa -fsin\kappa $$</p>
 <p>$$!\frac{\partial x}{\partial \kappa }=y-y_{0}$$</p>
-<p>$$!\frac{\partial y}{\partial \varphi }=(f+\frac{(y-y<em>{0}^{2})}{f})b</em>{1}-\frac{(x-x<em>{0})(y-y</em>{0})}{f}b<em>{2}-(x-x</em>{0})b_{3}$$</p>
-<p>$$!\frac{\partial y}{\partial \omega }=-\frac{(x-x<em>{0})(y-y</em>{0})}{f}sin\kappa -\frac{(y-y_{0})^{2}}{f}cos\kappa -fcos\kappa $$</p>
+<p>$$!\frac{\partial y}{\partial \varphi }=(f+\frac{(y-y_{0}^{2})}{f})b_{1}-\frac{(x-x_{0})(y-y_{0})}{f}b_{2}-(x-x_{0})b_{3}$$</p>
+<p>$$!\frac{\partial y}{\partial \omega }=-\frac{(x-x_{0})(y-y_{0})}{f}sin\kappa -\frac{(y-y_{0})^{2}}{f}cos\kappa -fcos\kappa $$</p>
 <p>$$!\frac{\partial y}{\partial \kappa }=-(x-x_{0})$$</p>
 <p>以上求出了所有的偏导，则①式的公式可变为<font color="#FF0000" size="5">更重要的</font>式<font color="#FF0000">②</font></p>
-<p>$$!c<em>{11}dXs+c</em>{12}dYs+c<em>{13}dZs+c</em>{14}d\phi +c<em>{15}d\omega +c</em>{16}d\kappa -c<em>{11}dX-c</em>{12}dY-c<em>{13}dZ+c</em>{17}df+c<em>{18}dx</em>{0}+c<em>{19}dy</em>{0}-lx=0$$</p>
-<p>$$!c<em>{21}dXs+c</em>{22}dYs+c<em>{23}dZs+c</em>{24}d\phi +c<em>{25}d\omega +c</em>{26}d\kappa -c<em>{21}dX-c</em>{22}dY-c<em>{23}dZ+c</em>{27}df+c<em>{28}dx</em>{0}+c<em>{29}dy</em>{0}-ly=0$$这里可以看到，Xs和X Ys和Y Zs和Z的偏导互为相反数，因此12个未知数只需要求解9个。 其中c的系数分别为：</p>
-<p>$$!c<em>{11}=\frac{1}{\overline{Z}}(a</em>{1}f+a<em>{3}(x-x</em>{0}))$$</p>
-<p>$$!c<em>{12}=\frac{1}{\overline{Z}}(b</em>{1}f+b<em>{3}(x-x</em>{0}))$$</p>
-<p>$$!c<em>{13}=\frac{1}{\overline{Z}}(c</em>{1}f+c<em>{3}(x-x</em>{0}))$$</p>
-<p>$$!c<em>{14}=\frac{(x-x</em>{0})(y-y<em>{0})}{f}b</em>{1}-(f+\frac{(x-x<em>{0})^{2}}{f})b</em>{2}-(y-y<em>{0})b</em>{3}$$</p>
-<p>$$!c<em>{15}=-\frac{(x-x</em>{0})^{2}}{f}sin\kappa -\frac{(x-x<em>{0})(y-y</em>{0})}{f}cos\kappa -fsin\kappa$$</p>
-<p>$$!c<em>{16}=y-y</em>{0}$$</p>
-<p>$$!c<em>{17}=\frac{x-x</em>{0}}{f},c<em>{18}=1,c</em>{19}=0,lx=x-x_{cal}$$</p>
+<p>$$!c_{11}dXs+c_{12}dYs+c_{13}dZs+c_{14}d\phi +c_{15}d\omega +c_{16}d\kappa -c_{11}dX-c_{12}dY-c_{13}dZ+c_{17}df+c_{18}dx_{0}+c_{19}dy_{0}-lx=0$$</p>
+<p>$$!c_{21}dXs+c_{22}dYs+c_{23}dZs+c_{24}d\phi +c_{25}d\omega +c_{26}d\kappa -c_{21}dX-c_{22}dY-c_{23}dZ+c_{27}df+c_{28}dx_{0}+c_{29}dy_{0}-ly=0$$这里可以看到，Xs和X Ys和Y Zs和Z的偏导互为相反数，因此12个未知数只需要求解9个。 其中c的系数分别为：</p>
+<p>$$!c_{11}=\frac{1}{\overline{Z}}(a_{1}f+a_{3}(x-x_{0}))$$</p>
+<p>$$!c_{12}=\frac{1}{\overline{Z}}(b_{1}f+b_{3}(x-x_{0}))$$</p>
+<p>$$!c_{13}=\frac{1}{\overline{Z}}(c_{1}f+c_{3}(x-x_{0}))$$</p>
+<p>$$!c_{14}=\frac{(x-x_{0})(y-y_{0})}{f}b_{1}-(f+\frac{(x-x_{0})^{2}}{f})b_{2}-(y-y_{0})b_{3}$$</p>
+<p>$$!c_{15}=-\frac{(x-x_{0})^{2}}{f}sin\kappa -\frac{(x-x_{0})(y-y_{0})}{f}cos\kappa -fsin\kappa$$</p>
+<p>$$!c_{16}=y-y_{0}$$</p>
+<p>$$!c_{17}=\frac{x-x_{0}}{f},c_{18}=1,c_{19}=0,lx=x-x_{cal}$$</p>
 <p>&nbsp;</p>
-<p>$$!c<em>{21}=\frac{1}{\overline{Z}}(a</em>{2}f+a<em>{3}(y-y</em>{0}))$$</p>
-<p>$$!c<em>{22}=\frac{1}{\overline{Z}}(b</em>{2}f+b<em>{3}(y-y</em>{0}))$$</p>
-<p>$$!c<em>{23}=\frac{1}{\overline{Z}}(c</em>{2}f+c<em>{3}(y-y</em>{0}))$$</p>
-<p>$$!c<em>{24}=(f+\frac{(y-y</em>{0})^{2}}{f})b<em>{1}-\frac{(x-x</em>{0})(y-y<em>{0})}{f}b</em>{2}+(x-x<em>{0})b</em>{3}$$</p>
-<p>$$!c<em>{25}=-\frac{(x-x</em>{0})(y-y<em>{0})}{f}sin\kappa -\frac{(y-y</em>{0})^{2}}{f}cos\kappa -fcos\kappa ,c<em>{26}=-(x-x</em>{0})$$</p>
-<p>$$!c<em>{17}=\frac{y-y</em>{0}}{f},c<em>{28}=0,c</em>{29}=1,ly=y-y_{cal}$$</p>
+<p>$$!c_{21}=\frac{1}{\overline{Z}}(a_{2}f+a_{3}(y-y_{0}))$$</p>
+<p>$$!c_{22}=\frac{1}{\overline{Z}}(b_{2}f+b_{3}(y-y_{0}))$$</p>
+<p>$$!c_{23}=\frac{1}{\overline{Z}}(c_{2}f+c_{3}(y-y_{0}))$$</p>
+<p>$$!c_{24}=(f+\frac{(y-y_{0})^{2}}{f})b_{1}-\frac{(x-x_{0})(y-y_{0})}{f}b_{2}+(x-x_{0})b_{3}$$</p>
+<p>$$!c_{25}=-\frac{(x-x_{0})(y-y_{0})}{f}sin\kappa -\frac{(y-y_{0})^{2}}{f}cos\kappa -fcos\kappa ,c_{26}=-(x-x_{0})$$</p>
+<p>$$!c_{17}=\frac{y-y_{0}}{f},c_{28}=0,c_{29}=1,ly=y-y_{cal}$$</p>
 <p>在正摄影像近似垂直时，可以采用φ≈ω≈k≈0,$$\overline{Z}\approx -H$$的取值带入系数中，则②式可化简为<font color="#FF0000">本篇最终的结果式③</font>：</p>
-<p>$$!\left{\begin{matrix}v<em>{x}=-\frac{f}{H}dXs-\frac{x-x</em>{0}}{H}dZs-[f+\frac{(x-x<em>{0})^{2}}{f}]d\varphi-\frac{(x-x</em>{0})(y-y<em>{0})}{f}d\omega+(y-y</em>{0})d\kappa+\frac{f}{H}dX+\frac{x-x<em>{0}}{H}dZ+\frac{x-x</em>{0}}{f}df+dx<em>{0}-(x-x</em>{cal})\v<em>{y}=-\frac{f}{H}dYs-\frac{y-y</em>{0}}{H}dZs-\frac{(x-x<em>{0})(y-y</em>{0})}{f}d\varphi-[f+\frac{(y-y<em>{0})^{2}}{f}]d\omega+(x-x</em>{0})d\kappa+\frac{f}{H}dY+\frac{y-y<em>{0}}{H}dZ+\frac{y-y</em>{0}}{f}df+dy<em>{0}-(y-y</em>{cal})\end{matrix}\right.$$</p>
+<p>$$!\left\{\begin{matrix}v_{x}=-\frac{f}{H}dXs-\frac{x-x_{0}}{H}dZs-[f+\frac{(x-x_{0})^{2}}{f}]d\varphi-\frac{(x-x_{0})(y-y_{0})}{f}d\omega+(y-y_{0})d\kappa+\frac{f}{H}dX+\frac{x-x_{0}}{H}dZ+\frac{x-x_{0}}{f}df+dx_{0}-(x-x_{cal})\\v_{y}=-\frac{f}{H}dYs-\frac{y-y_{0}}{H}dZs-\frac{(x-x_{0})(y-y_{0})}{f}d\varphi-[f+\frac{(y-y_{0})^{2}}{f}]d\omega+(x-x_{0})d\kappa+\frac{f}{H}dY+\frac{y-y_{0}}{H}dZ+\frac{y-y_{0}}{f}df+dy_{0}-(y-y_{cal})\end{matrix}\right.$$</p>
 <p>式中相对①式添加了改正项，为了平衡一次项以下的展开式对结果的影响，是平差方程中重要的一部。误差方程将在下文提到。</p>
 <div class="PoweredByWebStory" style="margin-top:15px;margin-bottom:10px"><a href="http://sns.juziyue.com/webinvite.php?u=94887" target="_blank" rel="external"></a>&nbsp;今天你<a href="http://sns.juziyue.com/webinvite.php?u=94887" target="_blank" rel="external">菊子曰</a>了么？</div>
           
@@ -1733,7 +1733,7 @@ hiddenimports = [&#039;scipy.special._ufuncs_cxx&#039;]</pre>
 <p><span style="color: #000000">考虑到这一点，我们可以从函数 <img src="http://upload.wikimedia.org/math/8/0/0/800618943025315f869e4e1f09471012.png" alt="F"> 的局部极小值的初始估计 <img src="http://upload.wikimedia.org/math/c/d/5/cd5146b777ca8406c51d8ba8da7fe901.png" alt="\mathbf{x}_0"> 出发，并考虑如下序列 <img src="http://upload.wikimedia.org/math/e/3/6/e36041cdf241095ff7a0e0169a8d405e.png" alt="\mathbf{x}_0, \mathbf{x}_1, \mathbf{x}_2, \dots"> 使得</span></p>
 <dl><dd><span style="color: #000000"><img src="http://upload.wikimedia.org/math/8/b/0/8b0e3f1c41429f48f4788cfee9fe57ee.png" alt="\mathbf{x}_{n+1}=\mathbf{x}_n-\gamma_n \nabla F(\mathbf{x}_n),\ n \ge 0."></span></dd></dl>
 
-<p><span style="color: #000000">因此可得到</span><img src="http://upload.wikimedia.org/math/3/e/a/3ea251fcbc5ebc8b22f515e171570797.png" alt="F(\mathbf{x}_0)\ge F(\mathbf{x}_1)\ge F(\mathbf{x}_2)\ge \cdots,">如果顺利的话序列 <img src="http://upload.wikimedia.org/math/c/a/c/cac7a8ab62b2a332af1981678d0504e3.png" alt="(\mathbf{x}_n)"> 收敛到期望的极值。<span style="color: #000000">注意每次迭代<em>步长</em> <img src="http://upload.wikimedia.org/math/3/3/4/334de1ea38b615839e4ee6b65ee1b103.png" alt="\gamma"> 可以改变。假设 <img src="http://upload.wikimedia.org/math/8/0/0/800618943025315f869e4e1f09471012.png" alt="F"> 定义在平面上，并且函数图像是一个碗型。蓝色的曲线是等高线，即函数 <img src="http://upload.wikimedia.org/math/8/0/0/800618943025315f869e4e1f09471012.png" alt="F"> 为常数的集合构成的曲线。红色的箭头指向该点梯度的反方向。（一点处的梯度方向与通过该点的等高线的垂线。沿着梯度<em>下降</em>方向，将最终到达碗底，即函数 <img src="http://upload.wikimedia.org/math/8/0/0/800618943025315f869e4e1f09471012.png" alt="F"> 值最小的点。</span></p>
+<p><span style="color: #000000">因此可得到</span><img src="http://upload.wikimedia.org/math/3/e/a/3ea251fcbc5ebc8b22f515e171570797.png" alt="F(\mathbf{x}_0)\ge F(\mathbf{x}_1)\ge F(\mathbf{x}_2)\ge \cdots,">如果顺利的话序列 <img src="http://upload.wikimedia.org/math/c/a/c/cac7a8ab62b2a332af1981678d0504e3.png" alt="(\mathbf{x}_n)"> 收敛到期望的极值。<span style="color: #000000">注意每次迭代_步长_ <img src="http://upload.wikimedia.org/math/3/3/4/334de1ea38b615839e4ee6b65ee1b103.png" alt="\gamma"> 可以改变。假设 <img src="http://upload.wikimedia.org/math/8/0/0/800618943025315f869e4e1f09471012.png" alt="F"> 定义在平面上，并且函数图像是一个碗型。蓝色的曲线是等高线，即函数 <img src="http://upload.wikimedia.org/math/8/0/0/800618943025315f869e4e1f09471012.png" alt="F"> 为常数的集合构成的曲线。红色的箭头指向该点梯度的反方向。（一点处的梯度方向与通过该点的等高线的垂线。沿着梯度_下降_方向，将最终到达碗底，即函数 <img src="http://upload.wikimedia.org/math/8/0/0/800618943025315f869e4e1f09471012.png" alt="F"> 值最小的点。</span></p>
 <p><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Gradient_descent.png/350px-Gradient_descent.png" alt=""></p>
 <p>&nbsp;</p>
           
@@ -2865,6 +2865,7 @@ hiddenimports = [&#039;scipy.special._ufuncs_cxx&#039;]</pre>
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">
+  <% if (page.mathjax){ %> <%- partial('plugin/mathjax') %> <% } %> 
   
   &copy; 
   <span itemprop="copyrightYear">2016</span>
