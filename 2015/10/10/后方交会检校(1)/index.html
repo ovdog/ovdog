@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="检校,后方交会,">
+  <meta name="keywords" content="后方交会,检校,">
 
 
 
@@ -94,7 +94,7 @@
  一些注意
    后方交会是为了获取影像的内外方位数据，其中外方位数据可以通过GPS、INS（惯性导航系统）、雷达、星相摄像机来获取；然而由于穷穷穷，只能利用影响覆盖范围内的一定控制点来计算空间坐标与影响坐标之间的关系，来反算外方位元素。
    多片检校基于单片检校。在矩阵组合时分别解算外方位元素。但使用同一">
-<meta property="og:updated_time" content="2016-11-14T14:57:33.669Z">
+<meta property="og:updated_time" content="2016-11-15T03:37:26.654Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="后方交会检校(1)--前景 共线方程及其线性化">
 <meta name="twitter:description" content="各种文档看得累。条理不清结构不明缺斤少两。决定自己总结一个。（公式较多，墙外浏览更顺哟）
@@ -443,30 +443,19 @@
 <p> 角度的变换在这里不再详述，两个坐标系之间的转换可以归结为变换矩阵的求取。三个角元素共同构成了矩阵的元素确定。</p>
 <p> 由于</p>
 <p>$$R^{T}=R_{\kappa }^{T}R_{\omega }^{T}R_{\varphi }^{T} $$</p>
-<p>因而，难度转到求取$$\overline{X}\overline{Y} \overline{Z} $$对角元素的偏导上。对角元素求偏导可以分为三个步骤：</p>
-<p>①求各个方向余弦$$a_{i},b_{i},c_{i}$$对ω、k、φ的偏导数。共27个。</p>
-<p>②求$$\overline{X},\overline{Y},\overline{Z}$$对ω、k、φ的偏导数，共9个。</p>
+<p>因而，难度转到求取$\overline{X}\overline{Y} \overline{Z} $对角元素的偏导上。对角元素求偏导可以分为三个步骤：</p>
+<p>①求各个方向余弦$a_{i},b_{i},c_{i}$对ω、k、φ的偏导数。共27个。</p>
+<p>②求$\overline{X},\overline{Y},\overline{Z}$对ω、k、φ的偏导数，共9个。</p>
 <p>③求x、y对ω、k、φ的偏导数，共6个。</p>
-<p>如下是$$\overline{X},\overline{Y},\overline{Z}$$对φ的偏导，三个参数写在矩阵中，有的地方也展开写成每一项的等式形式。</p>
-<p>$$\frac{\partial }{\partial \varphi }\begin{pmatrix}\overline{X}\\\overline{Y}\\\overline{Z}\end{pmatrix}=R_{\kappa }^{T}R_{\omega }^{T}\frac{\partial R_{\varphi }^{T}}{\partial \varphi }\begin{pmatrix}X-Xs\ Y-Ys\ Z-Zs\end{pmatrix}=R_{\kappa }^{T}R_{\omega }^{T}\frac{\partial R_{\varphi }^{T}}{\partial \varphi }(R^{T})^{-1}\begin{pmatrix}\overline{X}\ \overline{Y}\ \overline{Z}\end{pmatrix}=R_{\kappa }^{T}R_{\omega }^{T}\frac{\partial R_{\varphi }^{T}}{\partial \varphi }R\begin{pmatrix}\overline{X}\ \overline{Y}\ \overline{Z}\end{pmatrix}=R_{\kappa }^{T}R_{\omega }^{T}(R_{\varphi }^{T}R_{\varphi })\frac{\partial R_{\varphi }^{T}}{\partial \varphi }R\begin{pmatrix}\overline{X}\ \overline{Y}\ \overline{Z}\end{pmatrix}=R^{T}R_{\varphi }\frac{\partial R_{\varphi }^{T}}{\partial \varphi }R\begin{pmatrix}\overline{X}\ \overline{Y}\ \overline{Z}\end{pmatrix}$$</p>
-<p>带入具体系数，上式可变形为</p>
-<p>$$\begin{pmatrix}a_{1} &amp; b_{1} &amp; c_{1}\\a_{2} &amp; b_{2} &amp; c_{2}\\a_{3} &amp; b_{3} &amp; c_{3}\end{pmatrix}\begin{pmatrix}0 &amp; 0 &amp;1\\0 &amp; 0 &amp; 0\-1 &amp; 0 &amp; 0\end{pmatrix}\begin{pmatrix}a_{1} &amp; a_{2} &amp; a_{3}\\b_{1} &amp; b_{2} &amp; b_{3}\\c_{1} &amp; c_{2}&amp;c_{3} \end{pmatrix}\begin{pmatrix}\overline{X}\\\overline{Y}\\\overline{Z} \end{pmatrix}=\begin{pmatrix}0 &amp;-a_{2}c_{1}+a_{1}c_{2}&amp;-a_{3}c_{1}+a_{1}c_{3}\-a_{1}c_{2}+a_{2}c_{1} &amp; 0 &amp; -a_{3}c_{2}+a_{2}c_{3}\ -a_{1}c_{3}+a_{3}c_{1}&amp; -a_{2}c_{3}+a_{3}c_{2} &amp;0\end{pmatrix}\begin{pmatrix}\overline{X}\\\overline{Y}\\\overline{Z} \end{pmatrix}=\begin{pmatrix}0 &amp; -b_{3} &amp; b_{2}\\b_{3}&amp;0&amp;-b_{1}\-b_{2}&amp;b_{1}&amp;0\end{pmatrix}\begin{pmatrix}\overline{X}\\\overline{Y}\\\overline{Z} \end{pmatrix}$$</p>
-<p>其中利用了旋转矩阵一个元素的值<font color="#FF0000">等于代数余子式的值</font>。如下是$$\overline{X},\overline{Y},\overline{Z}$$对ω的偏导。</p>
-<p>$$\frac{\partial }{\partial \omega }\begin{pmatrix}\overline{X}\\\overline{Y}\\\overline{Z}\end{pmatrix}=R_{\kappa }^{T}\frac{\partial R_{\omega}^{T}}{\partial \omega }R_{\varphi }^{T}\begin{pmatrix}X-Xs\\Y-Ys\\Z-Zs\end{pmatrix}=R_{\kappa}^{T}\frac{\partial R_{\omega }^{T}}{\partial \omega }R_{\varphi }^{T}(R_{\varphi }R_{\omega }R_{\kappa })\begin{pmatrix}\overline{X}\ \overline{Y}\ \overline{Z}\end{pmatrix}=R_{\kappa }^{T}\frac{\partial R_{\omega }^{T}}{\partial \omega}R_{\omega }R_{\kappa }\begin{pmatrix}\overline{X}\ \overline{Y}\ \overline{Z}\end{pmatrix}=\begin{pmatrix}0&amp;0&amp;sin\kappa\ 0&amp;0&amp;cos\kappa\-sin\kappa&amp;-cos \kappa&amp;0\end{pmatrix}\begin{pmatrix}\overline{X}\ \overline{Y}\ \overline{Z}\end{pmatrix}$$其中，这里用到了</p>
+<p>如下是$\overline{X},\overline{Y},\overline{Z}$对φ的偏导，三个参数写在矩阵中，有的地方也展开写成每一项的等式形式。</p>
+<p>$$\begin{align}<br>\frac{\partial }{\partial \varphi }\begin{pmatrix}\overline{X}\\\overline{Y}\\\overline{Z}\end{pmatrix}&amp;=R_{\kappa }^{T}R_{\omega }^{T}\frac{\partial R_{\varphi }^{T}}{\partial \varphi }\begin{pmatrix}X-Xs\ Y-Ys\ Z-Zs\end{pmatrix}=R_{\kappa }^{T}R_{\omega }^{T}\frac{\partial R_{\varphi }^{T}}{\partial \varphi }(R^{T})^{-1}\begin{pmatrix}\overline{X}\ \overline{Y}\ \overline{Z}\end{pmatrix}=R_{\kappa }^{T}R_{\omega }^{T}\frac{\partial R_{\varphi }^{T}}{\partial \varphi }R\begin{pmatrix}\overline{X}\ \overline{Y}\ \overline{Z}\end{pmatrix}\\\ &amp;=R_{\kappa }^{T}R_{\omega }^{T}(R_{\varphi }^{T}R_{\varphi })\frac{\partial R_{\varphi }^{T}}{\partial \varphi }R\begin{pmatrix}\overline{X}\ \overline{Y}\ \overline{Z}\end{pmatrix}=R^{T}R_{\varphi }\frac{\partial R_{\varphi }^{T}}{\partial \varphi }R\begin{pmatrix}\overline{X}\ \overline{Y}\ \overline{Z}\end{pmatrix}<br>\end{align}$$</p>
+<p>带入具体系数，上式可变形为<br>$$<br>\begin{matrix}<br>\begin{pmatrix}a_{1} &amp; b_{1} &amp; c_{1}\\a_{2} &amp; b_{2} &amp; c_{2}\\a_{3} &amp; b_{3} &amp; c_{3}\end{pmatrix}\begin{pmatrix}0 &amp; 0 &amp;1\\0 &amp; 0 &amp; 0\\\ -1 &amp; 0 &amp; 0\end{pmatrix}\begin{pmatrix}a_{1} &amp; a_{2} &amp; a_{3}\\b_{1} &amp; b_{2} &amp; b_{3}\\c_{1} &amp; c_{2}&amp;c_{3} \end{pmatrix}\begin{pmatrix}\overline{X}\\\overline{Y}\\\overline{Z} \end{pmatrix}\\<br>=\begin{pmatrix}0 &amp;-a_{2}c_{1}+a_{1}c_{2}&amp;-a_{3}c_{1}+a_{1}c_{3}\\\-a_{1}c_{2}+a_{2}c_{1} &amp; 0 &amp; -a_{3}c_{2}+a_{2}c_{3}\\\ -a_{1}c_{3}+a_{3}c_{1}&amp; -a_{2}c_{3}+a_{3}c_{2} &amp;0\end{pmatrix}\begin{pmatrix}\overline{X}\\\overline{Y}\\\overline{Z} \end{pmatrix} \\<br>= \begin{pmatrix}0 &amp; -b_{3} &amp; b_{2}\\b_{3}&amp;0&amp;-b_{1}\\\ -b_{2}&amp;b_{1}&amp;0\end{pmatrix}\begin{pmatrix}\overline{X}\\\overline{Y}\\\overline{Z} \end{pmatrix}<br>\end{matrix}<br>$$<br>其中利用了旋转矩阵一个元素的值<font color="#FF0000">等于代数余子式的值</font>。如下是$\overline{X},\overline{Y},\overline{Z}$对ω的偏导。</p>
+<p>$$\begin{align}<br>\frac{\partial }{\partial \omega }\begin{pmatrix}\overline{X}\\\overline{Y}\\\overline{Z}\end{pmatrix} &amp;=R_{\kappa }^{T}\frac{\partial R_{\omega}^{T}}{\partial \omega }R_{\varphi }^{T}\begin{pmatrix}X-Xs\\Y-Ys\\Z-Zs\end{pmatrix}=R_{\kappa}^{T}\frac{\partial R_{\omega }^{T}}{\partial \omega }R_{\varphi }^{T}(R_{\varphi }R_{\omega }R_{\kappa })\begin{pmatrix}\overline{X}\ \overline{Y}\ \overline{Z}\end{pmatrix}\\<br>&amp;=R_{\kappa }^{T}\frac{\partial R_{\omega }^{T}}{\partial \omega}R_{\omega }R_{\kappa }\begin{pmatrix}\overline{X}\ \overline{Y}\ \overline{Z}\end{pmatrix}=<br>\begin{pmatrix}0&amp;0&amp;sin\kappa\ 0&amp;0&amp;cos\kappa\\\-sin\kappa&amp;-cos \kappa&amp;0\end{pmatrix}\begin{pmatrix}\overline{X}\ \overline{Y}\ \overline{Z}\end{pmatrix}<br>\end{align}$$其中，这里用到了</p>
 <p>$$\begin{pmatrix}\overline{X}\\\overline{Y}\\\overline{Z}\end{pmatrix}=R^{T}\begin{pmatrix}X-Xs\\Y-Ys\\Z-Zs\end{pmatrix}=(R_{\varphi}R_{\omega}R_{\kappa })^{T}\begin{pmatrix}X-Xs\\Y-Ys\\Z-Zs\end{pmatrix}=R_{\kappa }^{T}R_{\omega }^{T}R_{\varphi }^{T}\begin{pmatrix}X-Xs\\Y-Ys\\Z-Zs\end{pmatrix}$$</p>
 <p>$$\begin{pmatrix}X-Xs\\Y-Ys\\Z-Zs\end{pmatrix}=(R^{T})^{-1}\begin{pmatrix}\overline{X}\\\overline{Y}\\\overline{Z}\end{pmatrix}=R\begin{pmatrix}\overline{X}\\\overline{Y}\\\overline{Z}\end{pmatrix}=R_{\varphi }R_{\omega }R_{\kappa }\begin{pmatrix}\overline{X}\\\overline{Y}\\\overline{Z}\end{pmatrix}$$</p>
-<p>如下是$$\overline{X},\overline{Y},\overline{Z}$$对k的偏导。</p>
-<p>$$\frac{\partial }{\partial \kappa }\begin{pmatrix}\overline{X}\ \overline{Y}\ \overline{Z}\end{pmatrix}=\frac{\partial R_{\kappa }^{T}}{\partial \kappa }R_{\omega }^{T}R_{\varphi }^{T}\begin{pmatrix}X-Xs\\Y-Ys\\Z-Zs\end{pmatrix}=\frac{\partial R_{\kappa }^{T}}{\partial \kappa }(R_{\kappa }R_{\kappa }^{T})R_{\omega }^{T}R_{\varphi }^{T}\begin{pmatrix}X-Xs\\Y-Ys\\Z-Zs\end{pmatrix}=\frac{\partial R_{\kappa }^{T}}{\partial \kappa }R_{\kappa }\begin{pmatrix}\overline{X}\ \overline{Y}\ \overline{Z}\end{pmatrix}=\begin{pmatrix}\overline{Y}\ -\overline{X}\\0\end{pmatrix}$$<br> 通过以上三式可得到x和y对各角元素未知数的偏导。有的地方，将x，y先分别除以$$\overline{Z}$$,</p>
-<p>这样可以在求取偏导的时候减少计算量。</p>
-<p>$$\frac{\partial x}{\partial \varphi }=-\frac{f}{\overline{Z}^{2}}(\frac{\partial \overleftarrow{X}}{\partial \varphi }\overline{Z}-\frac{\partial \overline{Z}}{\partial \varphi }\overline{X})=-\frac{f}{\overline{Z}^{2}}(-b_{3}\overline{Y}+b_{2}\overline{Z})\overline{Z}+\frac{f}{\overline{Z}^{2}}(b_{2}\overline{X}-b_{1}\overline{Y})\overline{X}=-(y-y_{0})b_{3}-fb_{2}-\frac{(x-x_{0})^{2}}{f}b_{2}+\frac{(x-x_{0})(y-y_{0})}{f}b_{1}=\frac{(x-x_{0})(y-y_{0})}{f}b_{1}-(f+\frac{(x-x_{0})^{2}}{f})b_{2}-(y-y_{0})b_{3}$$其他一次类推</p>
-<p>$$\frac{\partial x}{\partial \omega }=\frac{(x-x_{0})^{2}}{f}sin\kappa-\frac{(x-x_{0})(y-y_{0})}{f}cos\kappa -fsin\kappa $$</p>
-<p>$$\frac{\partial x}{\partial \kappa }=y-y_{0}$$</p>
-<p>$$\frac{\partial y}{\partial \varphi }=(f+\frac{(y-y_{0}^{2})}{f})b_{1}-\frac{(x-x_{0})(y-y_{0})}{f}b_{2}-(x-x_{0})b_{3}$$</p>
-<p>$$\frac{\partial y}{\partial \omega }=-\frac{(x-x_{0})(y-y_{0})}{f}sin\kappa -\frac{(y-y_{0})^{2}}{f}cos\kappa -fcos\kappa $$</p>
-<p>$$\frac{\partial y}{\partial \kappa }=-(x-x_{0})$$</p>
-<p>以上求出了所有的偏导，则①式的公式可变为<font color="#FF0000" size="5">更重要的</font>式<font color="#FF0000">②</font></p>
-<p>$$!c_{11}dXs+c_{12}dYs+c_{13}dZs+c_{14}d\phi +c_{15}d\omega +c_{16}d\kappa -c_{11}dX-c_{12}dY-c_{13}dZ+c_{17}df+c_{18}dx_{0}+c_{19}dy_{0}-lx=0$$</p>
-<p>$$c_{21}dXs+c_{22}dYs+c_{23}dZs+c_{24}d\phi +c_{25}d\omega +c_{26}d\kappa -c_{21}dX-c_{22}dY-c_{23}dZ+c_{27}df+c_{28}dx_{0}+c_{29}dy_{0}-ly=0$$这里可以看到，Xs和X Ys和Y Zs和Z的偏导互为相反数，因此12个未知数只需要求解9个。 其中c的系数分别为：</p>
+<p>如下是$\overline{X},\overline{Y},\overline{Z}$对k的偏导。</p>
+<p>$$\frac{\partial }{\partial \kappa }\begin{pmatrix}\overline{X}\ \overline{Y}\ \overline{Z}\end{pmatrix}=\frac{\partial R_{\kappa }^{T}}{\partial \kappa }R_{\omega }^{T}R_{\varphi }^{T}\begin{pmatrix}X-Xs\\Y-Ys\\Z-Zs\end{pmatrix}=\frac{\partial R_{\kappa }^{T}}{\partial \kappa }(R_{\kappa }R_{\kappa }^{T})R_{\omega }^{T}R_{\varphi }^{T}\begin{pmatrix}X-Xs\\Y-Ys\\Z-Zs\end{pmatrix}=\frac{\partial R_{\kappa }^{T}}{\partial \kappa }R_{\kappa }\begin{pmatrix}\overline{X}\ \overline{Y}\ \overline{Z}\end{pmatrix}=\begin{pmatrix}\overline{Y}\ -\overline{X}\\0\end{pmatrix}$$<br> 通过以上三式可得到x和y对各角元素未知数的偏导。有的地方，将x，y先分别除以$\overline{Z}$,这样可以在求取偏导的时候减少计算量。<br>$$<br>\begin{align}<br>\frac{\partial x}{\partial \varphi}<br>&amp; = -\frac{f}{\overline{Z}^{2}}(\frac{\partial \overline{X}}{\partial \varphi }\overline{Z}-\frac{\partial \overline{Z}}{\partial \varphi }\overline{X}) \\<br> &amp; = -\frac{f}{\overline{Z}^{2}}(-b_{3}\overline{Y}+b_{2}\overline{Z})\overline{Z}+\frac{f}{\overline{Z}^{2}}(b_{2}\overline{X}-b_{1}\overline{Y})\overline{X} \ <br> &amp; = -(y-y_{0})b_{3}-fb_{2}-\frac{(x-x_{0})^{2}}{f}b_{2}+\frac{(x-x_{0})(y-y_{0})}{f}b_{1} \\<br> &amp; = \frac{(x-x_{0})(y-y_{0})}{f}b_{1}-(f+\frac{(x-x_{0})^{2}}{f})b_{2}-(y-y_{0})b_{3} \ <br>\end{align}<br>$$<br>其他一次类推<br>$$<br>\begin{aligned}<br>\frac{\partial x}{\partial \omega } &amp;=\frac{(x-x_{0})^{2}}{f}sin\kappa-\frac{(x-x_{0})(y-y_{0})}{f}cos\kappa -fsin\kappa \ <br>\frac{\partial x}{\partial \kappa } &amp;=y-y_{0} \ <br>\frac{\partial y}{\partial \varphi } &amp;=(f+\frac{(y-y_{0}^{2})}{f})b_{1}-\frac{(x-x_{0})(y-y_{0})}{f}b_{2}-(x-x_{0})b_{3} \\<br>\frac{\partial y}{\partial \omega } &amp;=-\frac{(x-x_{0})(y-y_{0})}{f}sin\kappa -\frac{(y-y_{0})^{2}}{f}cos\kappa -fcos\kappa\\<br>\frac{\partial y}{\partial \kappa }&amp;=-(x-x_{0})<br>\end{aligned} $$<br>以上求出了所有的偏导，则①式的公式可变为<font color="#FF0000" size="5">更重要的</font>式<font color="#FF0000">②</font></p>
+<p>$$\begin{aligned}<br>c_{11}dXs+c_{12}dYs+c_{13}dZs+c_{14}d\phi +c_{15}d\omega &amp;+c_{16}d\kappa \-c_{11}dX &amp;-c_{12}dY-c_{13}dZ+c_{17}df+c_{18}dx_{0}+c_{19}dy_{0}-lx=0<br>\end{aligned}$$<br>$$\begin{aligned}<br>c_{21}dXs+c_{22}dYs+c_{23}dZs+c_{24}d\phi +c_{25}d\omega &amp;+c_{26}d\kappa \-c_{21}dX &amp;-c_{22}dY-c_{23}dZ+c_{27}df+c_{28}dx_{0}+c_{29}dy_{0}-ly=0<br>\end{aligned}$$<br>这里可以看到，Xs和X Ys和Y Zs和Z的偏导互为相反数，因此12个未知数只需要求解9个。 其中c的系数分别为：</p>
 <p>$$c_{11}=\frac{1}{\overline{Z}}(a_{1}f+a_{3}(x-x_{0}))$$</p>
 <p>$$c_{12}=\frac{1}{\overline{Z}}(b_{1}f+b_{3}(x-x_{0}))$$</p>
 <p>$$c_{13}=\frac{1}{\overline{Z}}(c_{1}f+c_{3}(x-x_{0}))$$</p>
@@ -480,7 +469,7 @@
 <p>$$c_{24}=(f+\frac{(y-y_{0})^{2}}{f})b_{1}-\frac{(x-x_{0})(y-y_{0})}{f}b_{2}+(x-x_{0})b_{3}$$</p>
 <p>$$c_{25}=-\frac{(x-x_{0})(y-y_{0})}{f}sin\kappa -\frac{(y-y_{0})^{2}}{f}cos\kappa -fcos\kappa ,c_{26}=-(x-x_{0})$$</p>
 <p>$$c_{17}=\frac{y-y_{0}}{f},c_{28}=0,c_{29}=1,ly=y-y_{cal}$$</p>
-<p>在正摄影像近似垂直时，可以采用φ≈ω≈k≈0,$$\overline{Z}\approx -H$$的取值带入系数中，则②式可化简为<font color="#FF0000">本篇最终的结果式③</font>：</p>
+<p>在正摄影像近似垂直时，可以采用φ≈ω≈k≈0,$\overline{Z}\approx -H$的取值带入系数中，则②式可化简为<font color="#FF0000">本篇最终的结果式③</font>：</p>
 <p>$$\left\{\begin{matrix}v_{x}=-\frac{f}{H}dXs-\frac{x-x_{0}}{H}dZs-[f+\frac{(x-x_{0})^{2}}{f}]d\varphi-\frac{(x-x_{0})(y-y_{0})}{f}d\omega+(y-y_{0})d\kappa+\frac{f}{H}dX+\frac{x-x_{0}}{H}dZ+\frac{x-x_{0}}{f}df+dx_{0}-(x-x_{cal})\\v_{y}=-\frac{f}{H}dYs-\frac{y-y_{0}}{H}dZs-\frac{(x-x_{0})(y-y_{0})}{f}d\varphi-[f+\frac{(y-y_{0})^{2}}{f}]d\omega+(x-x_{0})d\kappa+\frac{f}{H}dY+\frac{y-y_{0}}{H}dZ+\frac{y-y_{0}}{f}df+dy_{0}-(y-y_{cal})\end{matrix}\right.$$</p>
 <p>式中相对①式添加了改正项，为了平衡一次项以下的展开式对结果的影响，是平差方程中重要的一部。误差方程将在下文提到。</p>
       
@@ -502,9 +491,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/检校/" rel="tag">#检校</a>
-          
             <a href="/tags/后方交会/" rel="tag">#后方交会</a>
+          
+            <a href="/tags/检校/" rel="tag">#检校</a>
           
         </div>
       
