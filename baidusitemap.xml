@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://ovjaywang.github.io/2015/10/10/%E5%90%8E%E6%96%B9%E4%BA%A4%E4%BC%9A%E6%A3%80%E6%A0%A1(1)/</loc>
-    <lastmod>2016-11-17T09:34:06.126Z</lastmod>
+    <lastmod>2016-11-17T09:49:16.026Z</lastmod>
     <data>
         <display>
         <title>后方交会检校(1)--前景 共线方程及其线性化</title>
@@ -823,34 +823,14 @@
 
     
   <url>
-    <loc>http://ovjaywang.github.io/2015/03/03/2015-movie-2/</loc>
+    <loc>http://ovjaywang.github.io/2014/12/12/Hadoop2.2.0%20Mapreduce%20Log%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90%E5%B0%8F%E4%BE%8B/</loc>
     <lastmod>2016-04-11T14:09:45.581Z</lastmod>
     <data>
         <display>
-        <title>【电影】【2015】 〇二次点评</title>
-        <pubTime>2015-03-03T13:42:06.000Z</pubTime>
+        <title>Hadoop2.2.0 Mapreduce Log日志分析小例</title>
+        <pubTime>2014-12-11T18:17:26.000Z</pubTime>
         
-        <tag>电影</tag>
-         
-         
-           
-             
-              <breadCrumb title="槽" url="http://ovjaywang.github.io/categories/%E6%A7%BD/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ovjaywang.github.io/2014/12/06/Android%20adt%20zip%E5%8C%85%E4%B8%8B%E8%BD%BD/</loc>
-    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
-    <data>
-        <display>
-        <title>Android Adt Zip包下载</title>
-        <pubTime>2014-12-06T08:28:47.000Z</pubTime>
-        
-        <tag>Android</tag>
+        <tag>hadoop</tag>
          
          
            
@@ -874,6 +854,26 @@
         <pubTime>2015-05-30T10:10:51.000Z</pubTime>
         
         <tag>音乐</tag>
+         
+         
+           
+             
+              <breadCrumb title="槽" url="http://ovjaywang.github.io/categories/%E6%A7%BD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ovjaywang.github.io/2015/03/03/2015-movie-2/</loc>
+    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
+    <data>
+        <display>
+        <title>【电影】【2015】 〇二次点评</title>
+        <pubTime>2015-03-03T13:42:06.000Z</pubTime>
+        
+        <tag>电影</tag>
          
          
            
@@ -911,6 +911,29 @@
 
     
   <url>
+    <loc>http://ovjaywang.github.io/2014/12/06/Android%20adt%20zip%E5%8C%85%E4%B8%8B%E8%BD%BD/</loc>
+    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
+    <data>
+        <display>
+        <title>Android Adt Zip包下载</title>
+        <pubTime>2014-12-06T08:28:47.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="代码狗" url="http://ovjaywang.github.io/categories/%E4%BB%A3%E7%A0%81%E7%8B%97/"/>
+          
+             
+              <breadCrumb title="学习log" url="http://ovjaywang.github.io/categories/%E4%BB%A3%E7%A0%81%E7%8B%97/%E5%AD%A6%E4%B9%A0log/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://ovjaywang.github.io/2014/05/09/trans-between-pc-and-phone/</loc>
     <lastmod>2016-04-11T14:09:45.581Z</lastmod>
     <data>
@@ -929,29 +952,6 @@
           
              
               <breadCrumb title="软文" url="http://ovjaywang.github.io/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%84/%E8%BD%AF%E6%96%87/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ovjaywang.github.io/2014/05/15/%E7%8C%9C%E5%9C%B0%E5%9D%80%E6%B8%B8%E6%88%8F/</loc>
-    <lastmod>2016-04-11T14:09:45.581Z</lastmod>
-    <data>
-        <display>
-        <title>猜地址游戏</title>
-        <pubTime>2014-05-15T11:28:08.000Z</pubTime>
-        
-        <tag>recommend</tag>
-         
-         
-           
-             
-              <breadCrumb title="App强推" url="http://ovjaywang.github.io/categories/App%E5%BC%BA%E6%8E%A8/"/>
-          
-             
-              <breadCrumb title="软文" url="http://ovjaywang.github.io/categories/App%E5%BC%BA%E6%8E%A8/%E8%BD%AF%E6%96%87/"/>
           
         </display>
     </data>
@@ -1068,14 +1068,18 @@
 
     
   <url>
-    <loc>http://ovjaywang.github.io/2015/11/18/%E5%90%8E%E6%96%B9%E4%BA%A4%E4%BC%9A%E6%A3%80%E6%A0%A1(8)/</loc>
+    <loc>http://ovjaywang.github.io/2015/11/09/%E5%90%8E%E6%96%B9%E4%BA%A4%E4%BC%9A%E6%A3%80%E6%A0%A1(7)/</loc>
     <lastmod>2016-04-11T14:09:45.581Z</lastmod>
     <data>
         <display>
-        <title>后方交会检校(8)--光束法区域平差 Bundle Block Adjustment</title>
-        <pubTime>2015-11-18T15:17:39.000Z</pubTime>
+        <title>后方交会检校(7)--后方检校精度的检验</title>
+        <pubTime>2015-11-09T09:39:06.000Z</pubTime>
         
+        <tag>后方交会</tag>
+         
         <tag>检校</tag>
+         
+        <tag>精度</tag>
          
          
            
@@ -1091,18 +1095,14 @@
 
     
   <url>
-    <loc>http://ovjaywang.github.io/2015/11/09/%E5%90%8E%E6%96%B9%E4%BA%A4%E4%BC%9A%E6%A3%80%E6%A0%A1(7)/</loc>
+    <loc>http://ovjaywang.github.io/2015/11/18/%E5%90%8E%E6%96%B9%E4%BA%A4%E4%BC%9A%E6%A3%80%E6%A0%A1(8)/</loc>
     <lastmod>2016-04-11T14:09:45.581Z</lastmod>
     <data>
         <display>
-        <title>后方交会检校(7)--后方检校精度的检验</title>
-        <pubTime>2015-11-09T09:39:06.000Z</pubTime>
+        <title>后方交会检校(8)--光束法区域平差 Bundle Block Adjustment</title>
+        <pubTime>2015-11-18T15:17:39.000Z</pubTime>
         
-        <tag>后方交会</tag>
-         
         <tag>检校</tag>
-         
-        <tag>精度</tag>
          
          
            
@@ -1368,22 +1368,22 @@
 
     
   <url>
-    <loc>http://ovjaywang.github.io/2014/12/12/Hadoop2.2.0%20Mapreduce%20Log%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90%E5%B0%8F%E4%BE%8B/</loc>
+    <loc>http://ovjaywang.github.io/2014/05/15/%E7%8C%9C%E5%9C%B0%E5%9D%80%E6%B8%B8%E6%88%8F/</loc>
     <lastmod>2016-04-11T14:09:45.581Z</lastmod>
     <data>
         <display>
-        <title>Hadoop2.2.0 Mapreduce Log日志分析小例</title>
-        <pubTime>2014-12-11T18:17:26.000Z</pubTime>
+        <title>猜地址游戏</title>
+        <pubTime>2014-05-15T11:28:08.000Z</pubTime>
         
-        <tag>hadoop</tag>
+        <tag>recommend</tag>
          
          
            
              
-              <breadCrumb title="代码狗" url="http://ovjaywang.github.io/categories/%E4%BB%A3%E7%A0%81%E7%8B%97/"/>
+              <breadCrumb title="App强推" url="http://ovjaywang.github.io/categories/App%E5%BC%BA%E6%8E%A8/"/>
           
              
-              <breadCrumb title="学习log" url="http://ovjaywang.github.io/categories/%E4%BB%A3%E7%A0%81%E7%8B%97/%E5%AD%A6%E4%B9%A0log/"/>
+              <breadCrumb title="软文" url="http://ovjaywang.github.io/categories/App%E5%BC%BA%E6%8E%A8/%E8%BD%AF%E6%96%87/"/>
           
         </display>
     </data>
@@ -1443,12 +1443,12 @@
 
     
   <url>
-    <loc>http://ovjaywang.github.io/2013/07/11/%E4%B8%BB%E9%A2%98%E6%9B%B4%E6%96%B0%E4%BC%A4%E4%B8%8D%E8%B5%B7/</loc>
+    <loc>http://ovjaywang.github.io/2013/12/17/%E4%B8%8D%E4%BA%88%E7%BD%AE%E8%AF%84%E3%80%82/</loc>
     <lastmod>2016-04-11T14:09:45.580Z</lastmod>
     <data>
         <display>
-        <title>主题更新伤不起</title>
-        <pubTime>2013-07-10T20:34:54.000Z</pubTime>
+        <title>不予置评。</title>
+        <pubTime>2013-12-16T17:12:14.000Z</pubTime>
         
         <tag>吐槽</tag>
          
@@ -1714,14 +1714,16 @@
 
     
   <url>
-    <loc>http://ovjaywang.github.io/2013/06/09/%E5%9B%BD%E5%86%85%E4%B8%BB%E8%A6%81%E7%A7%91%E6%8A%80%E5%8D%9A%E5%AE%A2%E7%B1%BB%E5%9E%8B%E8%A1%A8/</loc>
+    <loc>http://ovjaywang.github.io/2013/08/10/%E8%80%83%E7%A0%94%E8%A7%86%E9%A2%91%E9%A9%AC%E5%85%8B/</loc>
     <lastmod>2016-04-11T14:09:45.580Z</lastmod>
     <data>
         <display>
-        <title>国内主要科技博客类型表</title>
-        <pubTime>2013-06-09T15:03:17.000Z</pubTime>
+        <title>考研视频马克</title>
+        <pubTime>2013-08-10T13:00:01.000Z</pubTime>
         
-        <tag>recommend</tag>
+        <tag>马克</tag>
+         
+        <tag>考研</tag>
          
          
            
@@ -1737,16 +1739,14 @@
 
     
   <url>
-    <loc>http://ovjaywang.github.io/2013/08/10/%E8%80%83%E7%A0%94%E8%A7%86%E9%A2%91%E9%A9%AC%E5%85%8B/</loc>
+    <loc>http://ovjaywang.github.io/2013/06/09/%E5%9B%BD%E5%86%85%E4%B8%BB%E8%A6%81%E7%A7%91%E6%8A%80%E5%8D%9A%E5%AE%A2%E7%B1%BB%E5%9E%8B%E8%A1%A8/</loc>
     <lastmod>2016-04-11T14:09:45.580Z</lastmod>
     <data>
         <display>
-        <title>考研视频马克</title>
-        <pubTime>2013-08-10T13:00:01.000Z</pubTime>
+        <title>国内主要科技博客类型表</title>
+        <pubTime>2013-06-09T15:03:17.000Z</pubTime>
         
-        <tag>马克</tag>
-         
-        <tag>考研</tag>
+        <tag>recommend</tag>
          
          
            
@@ -1926,12 +1926,12 @@
 
     
   <url>
-    <loc>http://ovjaywang.github.io/2013/12/17/%E4%B8%8D%E4%BA%88%E7%BD%AE%E8%AF%84%E3%80%82/</loc>
+    <loc>http://ovjaywang.github.io/2013/07/11/%E4%B8%BB%E9%A2%98%E6%9B%B4%E6%96%B0%E4%BC%A4%E4%B8%8D%E8%B5%B7/</loc>
     <lastmod>2016-04-11T14:09:45.580Z</lastmod>
     <data>
         <display>
-        <title>不予置评。</title>
-        <pubTime>2013-12-16T17:12:14.000Z</pubTime>
+        <title>主题更新伤不起</title>
+        <pubTime>2013-07-10T20:34:54.000Z</pubTime>
         
         <tag>吐槽</tag>
          
@@ -2013,14 +2013,14 @@
 
     
   <url>
-    <loc>http://ovjaywang.github.io/2014/02/10/%E7%80%9A%E6%B5%B7%E7%AE%B4%E8%A8%80-%20-/</loc>
+    <loc>http://ovjaywang.github.io/2013/11/08/easy-come-easy-go/</loc>
     <lastmod>2016-04-11T14:09:45.580Z</lastmod>
     <data>
         <display>
-        <title>瀚海箴言- -</title>
-        <pubTime>2014-02-10T12:57:37.000Z</pubTime>
+        <title>Easy Come Easy Go( ^_^ )/~~</title>
+        <pubTime>2013-11-08T05:53:16.000Z</pubTime>
         
-        <tag>吐槽</tag>
+        <tag>呵呵</tag>
          
          
            
@@ -2033,14 +2033,14 @@
 
     
   <url>
-    <loc>http://ovjaywang.github.io/2013/11/08/easy-come-easy-go/</loc>
+    <loc>http://ovjaywang.github.io/2014/02/10/%E7%80%9A%E6%B5%B7%E7%AE%B4%E8%A8%80-%20-/</loc>
     <lastmod>2016-04-11T14:09:45.580Z</lastmod>
     <data>
         <display>
-        <title>Easy Come Easy Go( ^_^ )/~~</title>
-        <pubTime>2013-11-08T05:53:16.000Z</pubTime>
+        <title>瀚海箴言- -</title>
+        <pubTime>2014-02-10T12:57:37.000Z</pubTime>
         
-        <tag>呵呵</tag>
+        <tag>吐槽</tag>
          
          
            
