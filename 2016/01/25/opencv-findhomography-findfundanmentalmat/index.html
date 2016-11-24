@@ -135,7 +135,7 @@
 <meta property="og:image" content="http://ooo.0o0.ooo/2016/02/25/56cf08c613352.png">
 <meta property="og:image" content="http://ooo.0o0.ooo/2016/02/25/56cf0b53675d9.png">
 <meta property="og:image" content="http://ooo.0o0.ooo/2016/02/25/56cf0eb50a41b.png">
-<meta property="og:updated_time" content="2016-11-14T07:18:41.045Z">
+<meta property="og:updated_time" content="2016-11-24T03:02:02.769Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="由opencv中findFundamentalMat和findHomography区别的引申">
 <meta name="twitter:description" content="openCV中有两个函数，findhomography和findfundamentalmat，长的很像。。一开始严重的弄混，以为都是求对应点投影矩阵的公式，万万没想到其实是两个完全不同的内涵。😒">
@@ -492,7 +492,7 @@
 <p>与Homography矩阵（下文提到）不同，它在每组对应点有两组约束：x、y同时作为x’y’的自变量，估算一组对应点只有一行的约束，因为极线约束是标量等式。因此至少需要8个点。所以一般使用8点算法计算F矩阵(8点算法)。</p>
 <p>$$\begin{bmatrix} x^{‘}_i &amp; y^{‘}_i &amp; 1 \end{bmatrix} \begin{bmatrix} f_{11} &amp; f_{12} &amp; f_{13} \\\ f_{21} &amp; f_{22} &amp; f_{23} \\\  f_{31} &amp; f_{32}  &amp; f_{33}  \end{bmatrix} \begin{bmatrix} x_i \\\ y_i \\\ 1 \end{bmatrix}=0$$</p>
 <p>可推到出方程：</p>
-<p>$$ x_i x^{‘}_i {f_11} + x_i y^{‘}_i f_21 + x_i f_31 + y_i x^{‘}_i f_12 + y_i y^{‘}_i f_22 + y_i f_32 + {x_i}^{‘} f_13 + y^{‘}_i f_23 + f_33 =0$$</p>
+<p>$$ x_i x^{‘}_i f_{11} + x_i y^{‘}_i f_{21} + x_i f_{31} + y_i x^{‘}_i f_{12} + y_i y^{‘}_i f_{22} + y_i f_{32} + {x_i}^{‘} f_{13} + y^{‘}_i f_{23} + f_{33} =0$$</p>
 <center><img src="https://ooo.0o0.ooo/2016/02/29/56d3ed9679e76.png" alt=""></center>
 
 <p>最终目标是找到ATA的一个特征向量使得它的特征值最小。常用的解法是构造m*9的矩阵A（m是点对数），求解A的奇异值分解，即A=UDVT，</p>
@@ -545,7 +545,7 @@
 <center><img src="http://ooo.0o0.ooo/2016/02/24/56ce6cd71fc88.png" alt=""></center>
 
 <p>上图可以看到，将三维坐标点z值设为0，[p,q,0,1]即为三维齐次坐标。</p>
-<p>$$ \begin{bmatrix} x \\\ y \\\ 1<br>\end{bmatrix} \sim \begin{bmatrix} f &amp; 0 &amp; 0 &amp; 0 \\\ 0 &amp; f &amp; 0 &amp; 0 \\\ 0 &amp; 0 &amp; 1 &amp; 0 \end{bmatrix} \begin{bmatrix} r_11 &amp; r_12 &amp; r_13 &amp; t_x \\\ r_21 &amp; r_22 &amp; r_23 &amp; t_y \\\ r_31 &amp; r_32&amp; r_33 &amp; t_z \\\ 0 &amp; 0 &amp; 0 &amp; 1 \end{bmatrix} \begin{bmatrix} p \\\ q \\\ 0 \\\ 1 \end{bmatrix} \sim \begin{bmatrix} fr_11 &amp; fr_12 &amp; ft_x \\\ fr_21 &amp; fr_22 &amp; ft_y \\\ r_31 &amp; r_32 &amp; t_z \end{bmatrix} \begin{bmatrix} p \\\ q \\\ 1 \end{bmatrix}<br>$$$$\sim \begin{bmatrix} h_11 &amp; h_12&amp;h_13 \\\ h_21 &amp; h_22 &amp; h_23 \\\ h_31 &amp; h_32 &amp; h_33 \end{bmatrix} \begin{bmatrix} p \\\ q \\\ 1 \end{bmatrix}$$<br>最终推到出，3D转2D的投影变换成为2D转2D的变换，该变化可逆！其特例是，当采用的物方坐标系z轴与主光轴平行，即正射影像，则上式R矩阵为</p>
+<p>$$ \begin{bmatrix} x \\\ y \\\ 1<br>\end{bmatrix} \sim \begin{bmatrix} f &amp; 0 &amp; 0 &amp; 0 \\\ 0 &amp; f &amp; 0 &amp; 0 \\\ 0 &amp; 0 &amp; 1 &amp; 0 \end{bmatrix} \begin{bmatrix} r_{11} &amp; r_{12} &amp; r_{13} &amp; t_x \\\ r_{21} &amp; r_{22} &amp; r_{23} &amp; t_y \\\ r_{31} &amp; r_{32}&amp; r_33 &amp; t_z \\\ 0 &amp; 0 &amp; 0 &amp; 1 \end{bmatrix} \begin{bmatrix} p \\\ q \\\ 0 \\\ 1 \end{bmatrix} \sim \begin{bmatrix} fr_{11} &amp; fr_{12} &amp; ft_x \\\ fr_{21} &amp; fr_{22} &amp; ft_y \\\ r_{31} &amp; r_{32} &amp; t_z \end{bmatrix} \begin{bmatrix} p \\\ q \\\ 1 \end{bmatrix}<br>$$$$\sim \begin{bmatrix} h_{11} &amp; h_{12}&amp;h_{13} \\\ h_{21} &amp; h_{22} &amp; h_{23} \\\ h_{31} &amp; h_{32} &amp; h_{33} \end{bmatrix} \begin{bmatrix} p \\\ q \\\ 1 \end{bmatrix}$$<br>最终推到出，3D转2D的投影变换成为2D转2D的变换，该变化可逆！其特例是，当采用的物方坐标系z轴与主光轴平行，即正射影像，则上式R矩阵为</p>
 <center><img src="http://ooo.0o0.ooo/2016/02/24/56ce7aab1b305.png" alt=""></center>
 
 <p>则上式变形为：</p>
@@ -570,10 +570,10 @@
 <li>非线性几何解法，使对应点和映射点差值欧几里得距离（或平方和）最小。</li>
 </ul>
 <p>Homograhy的计算：计算该矩阵当然不会上式f θ等值直接解算。由于是二维图像之间的关系，一般都已知二维对应点集，直接采用最小二乘的方式使用LM进行计算。在一般情况下的H矩阵可表示为</p>
-<p>$$ \begin{bmatrix} x^{‘} \\\ y^{‘} \\\ 1 \end{bmatrix} \sim \begin{bmatrix} h_11 &amp; h_12 &amp; h_13 \\\ h_21 &amp; h_22 &amp; h_23 \\\ h_31 &amp; h_32 &amp; h_33 \end{bmatrix} \begin{bmatrix} x \\\ y \\\ 1 \end{bmatrix}$$</p>
-<p>其中，$h_31 h_32 h_33$是为了配置相似比例，化简为</p>
-<p>$$x^{‘}=\frac{h_11 x + h_12 y + h_13 }{ h_31 x + h_32 y + h_33 }$$</p>
-<p>$$y^{‘}=\frac{h_21 \cdot x + h_22 y + h_23 }{ h_31 x + h_32 y + h_33 }$$</p>
+<p>$$ \begin{bmatrix} x^{‘} \\\ y^{‘} \\\ 1 \end{bmatrix} \sim \begin{bmatrix} h_{11} &amp; h_{12} &amp; h_{13} \\\ h_{21} &amp; h_{22} &amp; h_{23} \\\ h_{31} &amp; h_{32} &amp; h_{33} \end{bmatrix} \begin{bmatrix} x \\\ y \\\ 1 \end{bmatrix}$$</p>
+<p>其中，$h_{31} h_{32} h_{33}$是为了配置相似比例，化简为</p>
+<p>$$x^{‘}=\frac{h_{11} x + h_{12} y + h_{13} }{ h_{31} x + h_{32} y + h_{33} }$$</p>
+<p>$$y^{‘}=\frac{h_{21} \cdot x + h_{22} y + h_{23} }{ h_{31} x + h_{32} y + h_{33} }$$</p>
 <p>但可以看到，h所有元素同乘k 等式依旧成立。因而强制设为8自由度有两种方式，</p>
 <p>①$$ h_{33} = 1 $$</p>
 <p>②$ h_{11}\^{2} + h_{12}\^{2} = 1 $<br>采用第一种方式较为常见。<br>当采用最小二乘解求H矩阵时，一般先用Ransac筛选最大集，然后利用下方程。</p>
