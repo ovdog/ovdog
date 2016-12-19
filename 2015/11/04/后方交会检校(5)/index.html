@@ -93,7 +93,7 @@
 <meta property="og:image" content="http://ww4.sinaimg.cn/large/68eb7c93gw1eyb8jft5rpj20ln0fmgoj.jpg">
 <meta property="og:image" content="http://ww3.sinaimg.cn/large/68eb7c93gw1eyb93i6vwcj20lg0d0dii.jpg">
 <meta property="og:image" content="http://ww4.sinaimg.cn/large/68eb7c93gw1eyb9drztouj20lz0ig782.jpg">
-<meta property="og:updated_time" content="2016-05-19T12:06:01.863Z">
+<meta property="og:updated_time" content="2016-12-19T08:25:44.423Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="后方交会检校(5)--相对绝对定向">
 <meta name="twitter:description" content="多片检校方程&amp;nbsp;相对定向完成标志&amp;nbsp;&amp;nbsp;相对定向解答的两种方式&amp;nbsp;图解连续像片和单独像对
@@ -388,7 +388,7 @@
         <p><a href="#多片交会">多片检校方程</a>&nbsp;<a href="#相对定向完成标志">相对定向完成标志</a>&nbsp;&nbsp;<a href="#两种方式">相对定向解答的两种方式</a>&nbsp;<a href="#图解">图解连续像片和单独像对</a></p>
 <p>单片检校主要目的是精确测量相机的内方位元素和检校相机镜头畸变。由于只使用一幅影像进行参数的解算，使用了较少的几何约束条件和观测值，最容易产生内方位元素x0 y0 与外方位元素Xs Ys的不定解或强相关，使检校结果稳定性和可靠性受到影响。多片后方交会则可以更精确的解算这些参数，尤其是<font color="#FF0000">主点位置的精度</font>问题。多片空间后方交会与单片空间后方交会的根本区别是：在不同的位置拍摄多张照片，由于各像片在同一主距条件下拍摄，因而解算所得的各相片的<font color="#FF0000">外方位元素不同</font>，解算的<font color="#FF0000">内方位元素和畸变参数被认为相同</font>。</p>
 <p>这样，就可以用下式方程表达<a name="多片交会">多片交会</a>：</p>
-<p>$$!\begin{bmatrix}A_{I}&amp;0&amp;\cdot&amp;\cdot&amp;\cdot&amp;0&amp;B_{I}&amp;C_{I}\\0&amp;A_{II}&amp;.&amp;.&amp;.&amp;0&amp;B_{II}&amp;C_{II}\.&amp;.&amp; &amp; &amp; &amp;0&amp;.&amp;.\.&amp;.&amp; &amp; &amp; &amp;0&amp;.&amp;.\\0&amp;.&amp;.&amp;.&amp;.&amp;A_{n}&amp;B_{n}&amp;C_{n}\end{bmatrix}_{2n\times (6n+7)}\begin{bmatrix}X_{out_{I}}\\X_{out_{II}}\.\.\.\\X_{out_{n}}\\X_{in}\\X_{res}\end{bmatrix}_{(6n+7)\times1}-\begin{bmatrix}xy_{res 1}\\xy_{res 2}\.\.\.\\xy_{res n}\end{bmatrix}_{2\times1}=0$$</p>
+<p>$$\begin{bmatrix}A_{I}&amp;0&amp;.&amp;.&amp;.&amp;0&amp;B_{I}&amp;C_{I}\\0&amp;A_{II}&amp;.&amp;.&amp;.&amp;0&amp;B_{II}&amp;C_{II}\\\ .&amp;.&amp;.&amp;.&amp;.&amp;.&amp;.&amp;.\\0&amp;.&amp;.&amp;.&amp;.&amp;A_{n}&amp;B_{n}&amp;C_{n}\end{bmatrix}_{2n\times (6n+7)}\begin{bmatrix}X_{out_{I}}\\X_{out_{II}}\\\ .\\\ .\\\ .\\X_{out_{n}}\\X_{in}\\X_{res}\end{bmatrix}_{(6n+7)\times1}-\begin{bmatrix}xy_{res 1}\\xy_{res 2}\\\ .\\\ .\\\ .\\xy_{res n}\end{bmatrix}_{2\times1}=0$$</p>
 <p>这一点与图像配准极其相似，用一副影像作为参考影像去配准多幅图像的结果显然没有用周边多幅图像组为参考标准的结果令人信服。由于每张相片的外方位元素不同（一般都是围绕检校场左中右进行拍摄），所以良好的消除了外方位元素和内方位元素的强相关性。</p>
 <p>针对多片，提出了相对定向和绝对定向的概念，绝对定向即利用共线方程检校计算出的外方位元素绝对值，这是以物方坐标系的原点作为参考值；而相对定向则是以被检校出的某一张像片为参考，计算出其余像片在其坐标系的坐标值，即相对关系。相对关系的求取的精度对图像拼接有至关重要的影像。</p>
 <p><a name="相对定向完成标志"><font color="#FF0000">相对定向完成的标志</font></a>：同名光线对对相交。所有点在其承影面上的上下视差为零。即通过矩阵变换改变投影器的相对位置，使光线相交。<font color="#FF0000">&nbsp;&nbsp;&nbsp;</font></p>
@@ -401,17 +401,17 @@
 <p>&nbsp;</p>
 <p>相对定向共面条件</p>
 <p>在相对定向中，答解相对元素的重要依据就是共面条件，当光线相交时，易知B（摄影基线，即S1S2）,S1a1,S2a2共面。如图可以看到，解求相对定向元素就是解求两个摄影中心的像方辅助坐标系的转换。共面条件方程形式为：</p>
-<p>$$!\overrightarrow{S_{1}S_{2}}\cdot (\overrightarrow{S_{1}a_{1}}\times \overrightarrow{S_{2}a_{2}})=0$$</p>
+<p>$$\overrightarrow{S_{1}S_{2}}\cdot (\overrightarrow{S_{1}a_{1}}\times \overrightarrow{S_{2}a_{2}})=0$$</p>
 <p>共面条件方程无需地面控制点，一个同名点列一个方程。必须有5个以上定向点。</p>
 <p><img src="http://ww4.sinaimg.cn/large/68eb7c93gw1eyb9drztouj20lz0ig782.jpg" alt=""></p>
 <p>如图，设像点a1、a2在大地坐标系坐标分别为(X1,Y1,Z1)、(X2,Y2,Z2).摄站S1、S2在大地坐标系坐标分别为$$(X_{S1},Y_{S1},Z_{S1}),(X_{S2},Y_{S2},Z_{S2})$$,则上式在即可表示为向量形式的行列式。</p>
-<p>$$!\begin{vmatrix}X_{S2}-X_{S1}&amp;Y_{S2}-Y_{S1}&amp;Z_{S2}-Z_{S1}\\X_{1}-X_{S1}&amp;Y_{1}-Y_{S1}&amp;Z_{1}-Z_{S1}\\X_{2}-X_{S2}&amp;Y_{2}-Y_{S2}&amp;Z_{2}-Z_{S2}\end{vmatrix}$$</p>
+<p>$$\begin{vmatrix}X_{S2}-X_{S1}&amp;Y_{S2}-Y_{S1}&amp;Z_{S2}-Z_{S1}\\X_{1}-X_{S1}&amp;Y_{1}-Y_{S1}&amp;Z_{1}-Z_{S1}\\X_{2}-X_{S2}&amp;Y_{2}-Y_{S2}&amp;Z_{2}-Z_{S2}\end{vmatrix}$$</p>
 <p>又令(X,Y,Z)、(Bx,By,Bz)为a1,S2在S1的像辅系S1-XYZ中的坐标，(X’,Y’,Z’)为a2在S2像辅系S2-XYZ中的坐标。由三点共面的方程，</p>
-<p>$$!\begin{vmatrix}B_{X}&amp;B_{Y}&amp;B_{Z}\\X&amp;Y&amp;Z\\X’&amp;Y’&amp;Z’\end{vmatrix}=0$$上式可改写为：</p>
-<p>$$!\begin{bmatrix}B_{X}&amp;B_{Y}&amp;B_{Z}\end{bmatrix}\begin{bmatrix}0&amp;-Z&amp;Y\\Z&amp;0&amp;-X\-Y&amp;X&amp;0\end{bmatrix}\begin{bmatrix}X’\\Y’\\Z’\end{bmatrix}=0$$</p>
+<p>$$\begin{vmatrix}B_{X}&amp;B_{Y}&amp;B_{Z}\\X&amp;Y&amp;Z\\X’&amp;Y’&amp;Z’\end{vmatrix}=0$$上式可改写为：</p>
+<p>$$\begin{bmatrix}B_{X}&amp;B_{Y}&amp;B_{Z}\end{bmatrix}\begin{bmatrix}0&amp;-Z&amp;Y\\Z&amp;0&amp;-X\\\  -Y&amp;X&amp;0\end{bmatrix}\begin{bmatrix}X’\\Y’\\Z’\end{bmatrix}=0$$</p>
 <p>光线是否成对相交与摄影测量坐标系的选择无关，但可以<font color="#FF0000">选择适当的像辅系</font>，改变共面条件便于实际应用。</p>
 <p>（1）<font color="#FF0000">选择左侧像空系</font>——连续像对系统。此时R1=E，即左系的旋转矩阵为0，像平面的z坐标均为-f；或为右片的旋转矩阵。则，公式未改变。</p>
-<p>$$!\begin{vmatrix}B_{X}&amp;B_{Y}&amp;B_{Z}\\X&amp;Y&amp;Z\\X’&amp;Y’&amp;Z’\end{vmatrix}=0$$</p>
+<p>$$\begin{vmatrix}B_{X}&amp;B_{Y}&amp;B_{Z}\\X&amp;Y&amp;Z\\X’&amp;Y’&amp;Z’\end{vmatrix}=0$$</p>
 <p>（2）选择基线坐标系——单独像对系统。此时，$$B_{Y}=B_{Z}=0$$，即需要求取两个像片对基线坐标系的旋转。</p>
 <div class="PoweredByWebStory" style="margin-top:15px;margin-bottom:10px"><a href="http://sns.juziyue.com/webinvite.php?u=94887" target="_blank" rel="external"></a>&nbsp;今天你<a href="http://sns.juziyue.com/webinvite.php?u=94887" target="_blank" rel="external">菊子曰</a>了么？</div>
       

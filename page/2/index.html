@@ -1616,57 +1616,56 @@
 <p><a name="DLT基本原理与公式">DLT基本原理与公式</a></p>
 <p>基本原理：将物方点坐标（X,Y,Z）和(x,y)看做是空间中的某种线性变换，可以互为函数。一般地，将x,y用X,Y,Z表示。</p>
 <p>基本公式：</p>
-<p>$$!\left\{\begin{matrix}x+\frac{L_{1}X+L_{2}Y+L_{3}Z+L_{4}}{L_{9}X+L_{10}Y+L_{11}Z+1}=0\\y+\frac{L_{5}X+L_{6}Y+L_{7}Z+L_{8}}{L_{9}X+L_{10}Y+L_{11}Z+1}=0\end{matrix}\right.$$</p>
+<p>$$\left\{\begin{matrix}x+\frac{L_{1}X+L_{2}Y+L_{3}Z+L_{4}}{L_{9}X+L_{10}Y+L_{11}Z+1}=0\\y+\frac{L_{5}X+L_{6}Y+L_{7}Z+L_{8}}{L_{9}X+L_{10}Y+L_{11}Z+1}=0\end{matrix}\right.$$</p>
 <p>DLT误差方程：</p>
-<font color="#FF0000">$$!\begin{pmatrix}v_{x}\\v_{y}\end{pmatrix}=\begin{pmatrix}X&amp;Y&amp;Z&amp;1&amp;0&amp;0&amp;0&amp;0&amp;xX&amp;xY&amp;xZ\\0&amp;0&amp;0&amp;0&amp;X&amp;Y&amp;Z&amp;1&amp;yX&amp;yY&amp;yZ\end{pmatrix}\begin{pmatrix}L_{1}\\L_{2}\\L_{3}\\L_{4}\\L_{5}\\L_{6}\\L_{7}\\L_{8}\\L_{9}\\L_{10}\\L_{11}\end{pmatrix}+\begin{pmatrix}l_{x}\\l_{y}\end{pmatrix}$$</font>
+<font color="#FF0000">$$\begin{pmatrix}v_{x}\\v_{y}\end{pmatrix}=\begin{pmatrix}X&amp;Y&amp;Z&amp;1&amp;0&amp;0&amp;0&amp;0&amp;xX&amp;xY&amp;xZ\\0&amp;0&amp;0&amp;0&amp;X&amp;Y&amp;Z&amp;1&amp;yX&amp;yY&amp;yZ\end{pmatrix}\begin{pmatrix}L_{1}\\L_{2}\\L_{3}\\L_{4}\\L_{5}\\L_{6}\\L_{7}\\L_{8}\\L_{9}\\L_{10}\\L_{11}\end{pmatrix}+\begin{pmatrix}l_{x}\\l_{y}\end{pmatrix}$$</font>
 
 <p>与后方交会一样，若有n个控制点，则A矩阵有2n行。还是利用求改正数的公式求取。</p>
 <p>DLT推导过程如下：</p>
 <p>根据共线方程的后方交会形式：</p>
-<p>$$!x-x_{0}+f_{x}\frac{a_{1}(X-X_{s})+b_{1}(Y-Y_{s})+c_{1}(Z-Z_{s})}{a_{3}(X-X_{s})+b_{3}(Y-Y_{s})+c_{3}(Z-Z_{s})}=0$$</p>
-<p>$$!y-y_{0}+f_{y}\frac{a_{2}(X-X_{s})+b_{2}(Y-Y_{s})+c_{2}(Z-Z_{s})}{a_{3}(X-X_{s})+b_{3}(Y-Y_{s})+c_{3}(Z-Z_{s})}=0$$</p>
+<p>$$x-x_{0}+f_{x}\frac{a_{1}(X-X_{s})+b_{1}(Y-Y_{s})+c_{1}(Z-Z_{s})}{a_{3}(X-X_{s})+b_{3}(Y-Y_{s})+c_{3}(Z-Z_{s})}=0$$</p>
+<p>$$y-y_{0}+f_{y}\frac{a_{2}(X-X_{s})+b_{2}(Y-Y_{s})+c_{2}(Z-Z_{s})}{a_{3}(X-X_{s})+b_{3}(Y-Y_{s})+c_{3}(Z-Z_{s})}=0$$</p>
 <p>这里，f分为fx和fy，即主距在像空系中这两个分量的投影。因为有的单个ccd xy方向上的大小不一致，即不是正方形。</p>
 <p>将X，Y，Z和Xs，Ys，Zs分离，将之看作是摄影中心的变换坐标。</p>
-<font color="#FF0000">$$!\left\{\begin{matrix}r_{1}=-(a_{1}X_{s}+b_{1}Y_{s}+c_{1}Z_{s})\\r_{2}=-(a_{2}X_{s}+b_{2}Y_{s}+c_{2}Z_{s})\\r_{3}=-(a_{3}X_{s}+b_{3}Y_{s}+c_{3}Z_{s})\end{matrix}\right.$$</font>
+<font color="#FF0000">$$\left\{\begin{matrix}r_{1}=-(a_{1}X_{s}+b_{1}Y_{s}+c_{1}Z_{s})\\r_{2}=-(a_{2}X_{s}+b_{2}Y_{s}+c_{2}Z_{s})\\r_{3}=-(a_{3}X_{s}+b_{3}Y_{s}+c_{3}Z_{s})\end{matrix}\right.$$</font>
 
 <p>化简可得</p>
-<p>$$!x-x_{0}+f_{x}\frac{a_{1}X+b_{1}Y+c_{1}Z+r_{1}}{a_{3}X+b_{3}Y+c_{3}Z+r_{3}}=0$$</p>
-<p>$$!y-y_{0}+f_{y}\frac{a_{2}X+b_{2}Y+c_{2}Z+r_{1}}{a_{3}X+b_{3}Y+c_{3}Z+r_{3}}=0$$</p>
+<p>$$x-x_{0}+f_{x}\frac{a_{1}X+b_{1}Y+c_{1}Z+r_{1}}{a_{3}X+b_{3}Y+c_{3}Z+r_{3}}=0$$</p>
+<p>$$y-y_{0}+f_{y}\frac{a_{2}X+b_{2}Y+c_{2}Z+r_{1}}{a_{3}X+b_{3}Y+c_{3}Z+r_{3}}=0$$</p>
 <p>将x0，y0通分。</p>
-<p>$$!x+\frac{(a_{1}f_{x}-a_{3}x_{0})X+(b_{1}f_{x}-b_{3}x_{0})Y+(c_{1}f_{x}-c_{3}x_{0})Z+(r_{1}f_{x}-r_{3}x_{0})}{a_{3}X+b_{3}Y+c_{3}Z+r_{3}}=0$$</p>
-<p>$$!y+\frac{(a_{2}f_{y}-a_{3}y_{0})X+(b_{2}f_{y}-b_{3}y_{0})Y+(c_{2}f_{y}-c_{3}y_{0})Z+(r_{2}f_{y}-r_{3}y_{0})}{a_{3}X+b_{3}Y+c_{3}Z+r_{3}}=0$$</p>
+<p>$$x+\frac{(a_{1}f_{x}-a_{3}x_{0})X+(b_{1}f_{x}-b_{3}x_{0})Y+(c_{1}f_{x}-c_{3}x_{0})Z+(r_{1}f_{x}-r_{3}x_{0})}{a_{3}X+b_{3}Y+c_{3}Z+r_{3}}=0$$</p>
+<p>$$y+\frac{(a_{2}f_{y}-a_{3}y_{0})X+(b_{2}f_{y}-b_{3}y_{0})Y+(c_{2}f_{y}-c_{3}y_{0})Z+(r_{2}f_{y}-r_{3}y_{0})}{a_{3}X+b_{3}Y+c_{3}Z+r_{3}}=0$$</p>
 <p>将X、Y、Z的系数简化为L，即</p>
-<p>$$!x+\frac{L_{1}X+L_{2}Y+L_{3}Z+L_{4}}{L_{9}X+L_{10}Y+L_{11}Z+1}=0$$</p>
-<p>$$!y+\frac{L_{5}X+L_{6}Y+L_{7}Z+L_{8}}{L_{9}X+L_{10}Y+L_{11}Z+1}=0$$</p>
+<p>$$x+\frac{L_{1}X+L_{2}Y+L_{3}Z+L_{4}}{L_{9}X+L_{10}Y+L_{11}Z+1}=0$$</p>
+<p>$$y+\frac{L_{5}X+L_{6}Y+L_{7}Z+L_{8}}{L_{9}X+L_{10}Y+L_{11}Z+1}=0$$</p>
 <p><a name="其中">其中，L为：</a></p>
-<font color="#FF0000">$$!L=\begin{bmatrix}L_{1}&amp;L_{2}&amp;L_{3}&amp;L_{4}\\L_{5}&amp;L_{6}&amp;L_{7}&amp;L_{8}\\L_{9}&amp;L_{10}&amp;L_{11}&amp;L_{12}\end{bmatrix}$$</font>
+<font color="#FF0000">$$L=\begin{bmatrix}L_{1}&amp;L_{2}&amp;L_{3}&amp;L_{4}\\L_{5}&amp;L_{6}&amp;L_{7}&amp;L_{8}\\L_{9}&amp;L_{10}&amp;L_{11}&amp;L_{12}\end{bmatrix}$$</font>
 
 <p><img src="http://www.dooby.me/wp-content/uploads/2015/11/151C86750F1FFF17ECE621971610488CBAE13A81.jpg" alt=""></p>
 <p>该公式表示像点测量坐标与物方点坐标直接的变化，无需内方位元素。从另一个角度看，L矩阵其实是二维坐标通过三次矩阵变换得到的三维坐标，即：</p>
-<p>$$!L=\frac{1}{r_{3}}\begin{bmatrix}f_{x}&amp;0&amp;-x_{0}\\0&amp;f_{y}&amp;-y_{0}\\0&amp;0&amp;1\end{bmatrix}\begin{bmatrix}a_{1}&amp;b_{1}&amp;c_{1}\\a_{2}&amp;b_{2}&amp;c_{2}\\a_{3}&amp;b_{3}&amp;c_{3}\end{bmatrix}\begin{bmatrix}1&amp;0&amp;0&amp;X_{s}\\0&amp;1&amp;0&amp;Y_{s}\\0&amp;0&amp;1&amp;Z_{s}\end{bmatrix}=\frac{1}{r_{3}}\begin{bmatrix}f_{x}&amp;0&amp;-x_{0}\\0&amp;f_{y}&amp;-y_{0}\\0&amp;0&amp;1\end{bmatrix}\begin{bmatrix}R&amp;t\\0^{T}&amp;1\end{bmatrix}$$</p>
+<p>$$L=\frac{1}{r_{3}}\begin{bmatrix}f_{x}&amp;0&amp;-x_{0}\\0&amp;f_{y}&amp;-y_{0}\\0&amp;0&amp;1\end{bmatrix}\begin{bmatrix}a_{1}&amp;b_{1}&amp;c_{1}\\a_{2}&amp;b_{2}&amp;c_{2}\\a_{3}&amp;b_{3}&amp;c_{3}\end{bmatrix}\begin{bmatrix}1&amp;0&amp;0&amp;X_{s}\\0&amp;1&amp;0&amp;Y_{s}\\0&amp;0&amp;1&amp;Z_{s}\end{bmatrix}=\frac{1}{r_{3}}\begin{bmatrix}f_{x}&amp;0&amp;-x_{0}\\0&amp;f_{y}&amp;-y_{0}\\0&amp;0&amp;1\end{bmatrix}\begin{bmatrix}R&amp;t\\0^{T}&amp;1\end{bmatrix}$$</p>
 <p>第一个矩阵由内方位元素组成，是辅助坐标和像平面坐标的平移和比例关系；第二个矩阵是外方位元素的角元素，表达物方系和地辅系的坐标旋转关系；第三个矩阵是外方位线元素，表达物方坐标和地辅系坐标的原点平移关系。</p>
 <p>由于计算机视觉中使用齐次坐标，即如下形式</p>
-<p>$$!\begin{pmatrix}x\\y\\1\end{pmatrix}=L\begin{pmatrix}X\\Y\\Z\\1\end{pmatrix}=\begin{bmatrix}L_{1}&amp;L_{2}&amp;L_{3}&amp;L_{4}\\L_{5}&amp;L_{6}&amp;L_{7}&amp;L_{8}\\L_{9}&amp;L_{10}&amp;L_{11}&amp;L_{12}\end{bmatrix}\begin{pmatrix}X\\Y\\Z\\1\end{pmatrix}$$因此形成了上红色式子。</p>
+<p>$$\begin{pmatrix}x\\y\\1\end{pmatrix}=L\begin{pmatrix}X\\Y\\Z\\1\end{pmatrix}=\begin{bmatrix}L_{1}&amp;L_{2}&amp;L_{3}&amp;L_{4}\\L_{5}&amp;L_{6}&amp;L_{7}&amp;L_{8}\\L_{9}&amp;L_{10}&amp;L_{11}&amp;L_{12}\end{bmatrix}\begin{pmatrix}X\\Y\\Z\\1\end{pmatrix}$$因此形成了上红色式子。</p>
 <p><a name="根据求得的li计算各参数">根据求得的li计算各参数</a></p>
 <p>重要参数的求解：</p>
-<p>$$!r_{3}=\frac{1}{(L_{9}^{2}+L_{10}^{2}+L_{11}^{2})^{1/2}}$$</p>
+<p>$$r_{3}=\frac{1}{(L_{9}^{2}+L_{10}^{2}+L_{11}^{2})^{1/2}}$$</p>
 <p>(1)内方位元素</p>
-<p>$$!x_{0}=-(L_{1}L_{9}+L_{2}L_{10}+L_{3}L_{11})/(L_{9}^{2}+_{10}^{2}+L_{11}^{2})$$</p>
-<p>$$!y_{0}=-(L_{5}L_{9}+L_{6}L_{10}+L_{7}L_{11})/(L_{9}^{2}+_{10}^{2}+L_{11}^{2})$$</p>
-<p>$$!f_{x}^{2}=-x_{0}^{2}+(L_{1}^{2}+L_{2}^{2}+L_{3}^{2})/(L_{9}^{2}+_{10}^{2}+L_{11}^{2})$$</p>
-<p>$$!f_{y}^{2}=-y_{0}^{2}+(L_{4}^{2}+L_{5}^{2}+L_{6}^{2})/(L_{9}^{2}+_{10}^{2}+L_{11}^{2})$$</p>
-<p>$$!f=\frac{1}{2}(f_{x}+f_{y})$$</p>
+<p>$$x_{0}=-(L_{1}L_{9}+L_{2}L_{10}+L_{3}L_{11})/(L_{9}^{2}+_{10}^{2}+L_{11}^{2})$$</p>
+<p>$$y_{0}=-(L_{5}L_{9}+L_{6}L_{10}+L_{7}L_{11})/(L_{9}^{2}+_{10}^{2}+L_{11}^{2})$$</p>
+<p>$$f_{x}^{2}=-x_{0}^{2}+(L_{1}^{2}+L_{2}^{2}+L_{3}^{2})/(L_{9}^{2}+_{10}^{2}+L_{11}^{2})$$</p>
+<p>$$f_{y}^{2}=-y_{0}^{2}+(L_{4}^{2}+L_{5}^{2}+L_{6}^{2})/(L_{9}^{2}+_{10}^{2}+L_{11}^{2})$$</p>
+<p>$$f=\frac{1}{2}(f_{x}+f_{y})$$</p>
 <p>(2)外方位角元素</p>
-<p>$$!\begin{bmatrix}a_{1}&amp;b_{1}&amp;c_{1}\end{bmatrix}=\frac{1}{f_{x}}\begin{bmatrix}\frac{L_{1}}{(L_{9}^{2}+L_{10}^{2}+L_{11}^{2})^{1/2}}+a_{3}x_{0}\frac{L_{2}}{(L_{9}^{2}+L_{10}^{2}+L_{11}^{2})^{1/2}}+b_{3}x_{0}\frac{L_{3}}{(L_{9}^{2}+L_{10}^{2}+L_{11}^{2})^{1/2}}+c_{3}x_{0}\end{bmatrix}$$</p>
-<p>$$!\begin{bmatrix}a_{2}&amp;b_{2}&amp;c_{2}\end{bmatrix}=\frac{1}{f_{y}}\begin{bmatrix}\frac{L_{5}}{(L_{9}^{2}+L_{10}^{2}+L_{11}^{2})^{1/2}}+a_{3}y_{0}\frac{L_{6}}{(L_{9}^{2}+L_{10}^{2}+L_{11}^{2})^{1/2}}+b_{3}y_{0}\frac{L_{7}}{(L_{9}^{2}+L_{10}^{2}+L_{11}^{2})^{1/2}}+c_{3}y_{0}\end{bmatrix}$$</p>
-<p>$$!\begin{bmatrix}a_{3}&amp;b_{3}&amp;c_{3}\end{bmatrix}=\frac{1}{(L_{9}^{2}+L_{10^{2}}+L_{11}^{2})^{1/2}}\begin{bmatrix}L_{9}&amp;L_{10}&amp;L_{11}\end{bmatrix}$$</p>
+<p>$$\begin{bmatrix}a_{1}&amp;b_{1}&amp;c_{1}\end{bmatrix}=\frac{1}{f_{x}}\begin{bmatrix}\frac{L_{1}}{(L_{9}^{2}+L_{10}^{2}+L_{11}^{2})^{1/2}}+a_{3}x_{0}\frac{L_{2}}{(L_{9}^{2}+L_{10}^{2}+L_{11}^{2})^{1/2}}+b_{3}x_{0}\frac{L_{3}}{(L_{9}^{2}+L_{10}^{2}+L_{11}^{2})^{1/2}}+c_{3}x_{0}\end{bmatrix}$$</p>
+<p>$$\begin{bmatrix}a_{2}&amp;b_{2}&amp;c_{2}\end{bmatrix}=\frac{1}{f_{y}}\begin{bmatrix}\frac{L_{5}}{(L_{9}^{2}+L_{10}^{2}+L_{11}^{2})^{1/2}}+a_{3}y_{0}\frac{L_{6}}{(L_{9}^{2}+L_{10}^{2}+L_{11}^{2})^{1/2}}+b_{3}y_{0}\frac{L_{7}}{(L_{9}^{2}+L_{10}^{2}+L_{11}^{2})^{1/2}}+c_{3}y_{0}\end{bmatrix}$$</p>
+<p>$$\begin{bmatrix}a_{3}&amp;b_{3}&amp;c_{3}\end{bmatrix}=\frac{1}{(L_{9}^{2}+L_{10^{2}}+L_{11}^{2})^{1/2}}\begin{bmatrix}L_{9}&amp;L_{10}&amp;L_{11}\end{bmatrix}$$</p>
 <p>可以注意到的是，DLT解求内外方位元素是有次序的，因为外方位元素解求的公式中包含有所有的内方位元素。</p>
-<p>$$!\left\{\begin{matrix}\varphi =arctan(\frac{a_{3}}{c_{3}})=arctan(\frac{l_{9}}{l_{11}})\\\omega =arcsin(-b_{3})=arcsin(-\frac{l_{10}}{l_{9}^2+l_{10}^{2}+l_{11}^{2}})\\\kappa =arctan(\frac{b_{1}}{b_{2}})=arctan(\frac{f_{y}[x_{0}\frac{L_{2}}{(L_{9}^{2}+L_{10}^{2}+L_{11}^{2})^{1/2}}+b_{3}]}{f_{x}[y_{0}\frac{L_{6}}{(L_{9}^{2}+L_{10}^{2}+L_{11}^{2})^{1/2}}+b_{3}]})\end{matrix}\right.$$</p>
+<p>$$ \left\{\begin{matrix}\varphi =arctan(\frac{a_{3}}{c_{3}})=arctan(\frac{l_{9}}{l_{11}})\\\omega =arcsin(-b_{3})=arcsin(-\frac{l_{10}}{l_{9}^2+l_{10}^{2}+l_{11}^{2}})\\\kappa =arctan(\frac{b_{1}}{b_{2}})=arctan(\frac{f_{y}[x_{0}\frac{L_{2}}{(L_{9}^{2}+L_{10}^{2}+L_{11}^{2})^{1/2}}+b_{3}]}{f_{x}[y_{0}\frac{L_{6}}{(L_{9}^{2}+L_{10}^{2}+L_{11}^{2})^{1/2}}+b_{3}]})\end{matrix}\right.$$</p>
 <p>(3)外方位线元素<br> 则需要根据如下方程解出</p>
-<p>$$!a_{3}X_{s}+b_{3}Y_{s}+c_{3}Z_{s}+r_{3}$$</p>
-<p>$$!\frac{a_{1}f_{x}-a_{3}x_{0}}{r_{3}}X_{s}+\frac{b_{1}f_{x}-b_{3}x_{0}}{r_{3}}Y_{s}+\frac{c_{1}f_{x}-c_{3}x_{0}}{r_{3}}+L_{4}=0$$</p>
-<p>$$!\frac{a_{2}f_{y}-a_{3}y_{0}}{r_{3}}X_{s}+\frac{b_{2}f_{y}-b_{3}y_{0}}{r_{3}}Y_{s}+\frac{c_{2}f_{y}-c_{3}y_{0}}{r_{3}}+L_{8}=0$$</p>
-<p>&nbsp;</p>
+<p>$$a_{3}X_{s}+b_{3}Y_{s}+c_{3}Z_{s}+r_{3}$$</p>
+<p>$$\frac{a_{1}f_{x}-a_{3}x_{0}}{r_{3}}X_{s}+\frac{b_{1}f_{x}-b_{3}x_{0}}{r_{3}}Y_{s}+\frac{c_{1}f_{x}-c_{3}x_{0}}{r_{3}}+L_{4}=0$$</p>
+<p>$$\frac{a_{2}f_{y}-a_{3}y_{0}}{r_{3}}X_{s}+\frac{b_{2}f_{y}-b_{3}y_{0}}{r_{3}}Y_{s}+\frac{c_{2}f_{y}-c_{3}y_{0}}{r_{3}}+L_{8}=0$$</p>
 <p>DLT实质上与共线方程等价，Li之间的相关性，因为2个条件=11个参数-必要观测个数</p>
 <hr>
 <p>以上是只解求内外方位元素的时候，Li与各参数的关系，如果加上光学畸变、非正交比例、比例尺不一致等误差，光学畸变在前文中提到。</p>
@@ -1676,63 +1675,63 @@
 <p><a name="非正交与比例尺不一致因素">如图展现了以上两种误差的原因。</a></p>
 <p><img src="http://www.dooby.me/wp-content/uploads/2015/11/C99CDEAA218715286FA9FE07A8E69B343C345FAA.jpg" alt=""></p>
 <p>以下表述中，小括号代表坐标系，中括号代表坐标值。</p>
-<p>$$!(\overline{x},\overline{y})[on_{2},on_{1}]$$——以像主点为原点（像平面坐标系的原点），不包含线性误差的<font color="#FF0000">某像点p的坐标</font></p>
-<p>$$!(x,y)[om_{2},0m_{1}]$$——以像主点为原点，不包含正交性dβ误差的像点p坐标。</p>
-<p>$$!(x,y)[om_{2},om_{1}^{‘}]$$——以像主点为原点，不包括正交性dβ误差及比例尺不一致误差ds的像点坐标p</p>
+<p>$$(\overline{x},\overline{y})[on_{2},on_{1}]$$——以像主点为原点（像平面坐标系的原点），不包含线性误差的<font color="#FF0000">某像点p的坐标</font></p>
+<p>$$(x,y)[om_{2},0m_{1}]$$——以像主点为原点，不包含正交性dβ误差的像点p坐标。</p>
+<p>$$(x,y)[om_{2},om_{1}^{‘}]$$——以像主点为原点，不包括正交性dβ误差及比例尺不一致误差ds的像点坐标p</p>
 <p>则从图中可知，$$!\delta x=on_{2}-om_{2}=m_{2}p\cdot sin d\beta=om_{1}\cdot sin d\beta=(1+ds)(y-y_{0})sind\beta\approx (y-y_{0})sind\beta$$</p>
-<p>$$!\delta y=on_{1}-om_{1}^{‘}=om_{1}\cdot cosd\beta -om_{1}^{‘}=(1+ds)(y-y_{0})\cdot cosd\beta-(y-y_{0})=<a href="y-y_{0}">(1+ds)\cdot cosd\beta -1</a>\approx (y-y_{0})\cdot ds$$</p>
+<p>$$\delta y=on_{1}-om_{1}^{‘}=om_{1}\cdot cosd\beta -om_{1}^{‘}=(1+ds)(y-y_{0})\cdot cosd\beta-(y-y_{0})=<a href="y-y_{0}">(1+ds)\cdot cosd\beta -1</a>\approx (y-y_{0})\cdot ds$$</p>
 <p>将上式2值带入线性方程<font color="#FF0000">有线性误差的形式</font>：式中有11个独立参数，3个内方位x0,yo,fx6个外方位Xs，Ys，Zs，φ，ω，k，比例尺不一致系数ds，xy轴不正交系数dβ。</p>
-<p>$$!\left\{\begin{matrix}x-x_{0}+(1+ds)(y-y_{0})\cdot sind\beta +f_{x}\frac{a_{1}(X-X_{s}+b_{1}(Y-Y_{s})+c_{1}(Z-Z_{s})}{a_{3}(X-X_{s})+b_{3}(Y-Y_{s})+c_{3}(Z-Z_{s})}=0\\y-y_{0}+[(1+ds)\cdot cosd\beta-1] (y-y_{0})+f_{x}\frac{a_{1}(X-X_{s}+b_{1}(Y-Y_{s})+c_{1}(Z-Z_{s})}{a_{3}(X-X_{s})+b_{3}(Y-Y_{s})+c_{3}(Z-Z_{s})}=0\end{matrix}\right.$$</p>
+<p>$$\left\{\begin{matrix}x-x_{0}+(1+ds)(y-y_{0})\cdot sind\beta +f_{x}\frac{a_{1}(X-X_{s}+b_{1}(Y-Y_{s})+c_{1}(Z-Z_{s})}{a_{3}(X-X_{s})+b_{3}(Y-Y_{s})+c_{3}(Z-Z_{s})}=0\\y-y_{0}+[(1+ds)\cdot cosd\beta-1] (y-y_{0})+f_{x}\frac{a_{1}(X-X_{s}+b_{1}(Y-Y_{s})+c_{1}(Z-Z_{s})}{a_{3}(X-X_{s})+b_{3}(Y-Y_{s})+c_{3}(Z-Z_{s})}=0\end{matrix}\right.$$</p>
 <p>通过一系列的化简，如前面介绍不带线性误差一样，提取出r1，r2，r3，<a name="DLT的真正一般形式">得到：</a></p>
-<p>$$!x+\frac{\frac{1}{r_{3}}(a_{1}f_{x}-a_{2}f_{x}tand\beta -a_{3}x_{0})}{\frac{a_{3}}{r_{3}}X+\frac{b_{3}}{r_{3}}Y+\frac{c_{3}}{r_{3}}Z+1}\cdot X+\frac{\frac{1}{r_{3}}(b_{1}f_{x}-b_{2}f_{x}tand\beta -b_{3}x_{0})}{\frac{a_{3}}{r_{3}}X+\frac{b_{3}}{r_{3}}Y+\frac{c_{3}}{r_{3}}Z+1}\cdot Y+\frac{\frac{1}{r_{3}}(c_{1}f_{x}-c_{2}f_{x}tand\beta -c_{3}x_{0})}{\frac{a_{3}}{r_{3}}X+\frac{b_{3}}{r_{3}}Y+\frac{c_{3}}{r_{3}}Z+1}\cdot Z+\frac{\frac{1}{r_{3}}(r_{1}f_{x}-r_{2}f_{x}tand\beta -r_{3}x_{0})}{\frac{a_{3}}{r_{3}}X+\frac{b_{3}}{r_{3}}Y+\frac{c_{3}}{r_{3}}Z+1}=0$$</p>
-<p>$$!y+\frac{\frac{1}{r_{3}}[\frac{a_{2}f_{x}}{(1+ds)cosd\beta }-a_{3}\cdot y_{0}]}{\frac{a_{3}}{r_{3}}X+\frac{b_{3}}{r_{3}}Y+\frac{c_{3}}{r_{3}}Z+1}\cdot X+\frac{\frac{1}{r_{3}}[\frac{b_{2}f_{x}}{(1+ds)cosd\beta }-b_{3}\cdot y_{0}]}{\frac{a_{3}}{r_{3}}X+\frac{b_{3}}{r_{3}}Y+\frac{c_{3}}{r_{3}}Z+1}\cdot Y+\frac{\frac{1}{r_{3}}[\frac{c_{2}f}{(1+ds)cosd\beta }-c_{3}\cdot y_{0}]}{\frac{a_{3}}{r_{3}}X+\frac{b_{3}}{r_{3}}Y+\frac{c_{3}}{r_{3}}Z+1}\cdot Z+\frac{\frac{1}{r_{3}}[\frac{r_{2}f_{x}}{(1+ds)cosd\beta }-r_{3}\cdot y_{0}]}{\frac{a_{3}}{r_{3}}X+\frac{b_{3}}{r_{3}}Y+\frac{c_{3}}{r_{3}}Z+1}=0$$</p>
+<p>$$x+\frac{\frac{1}{r_{3}}(a_{1}f_{x}-a_{2}f_{x}tand\beta -a_{3}x_{0})}{\frac{a_{3}}{r_{3}}X+\frac{b_{3}}{r_{3}}Y+\frac{c_{3}}{r_{3}}Z+1}\cdot X+\frac{\frac{1}{r_{3}}(b_{1}f_{x}-b_{2}f_{x}tand\beta -b_{3}x_{0})}{\frac{a_{3}}{r_{3}}X+\frac{b_{3}}{r_{3}}Y+\frac{c_{3}}{r_{3}}Z+1}\cdot Y+\frac{\frac{1}{r_{3}}(c_{1}f_{x}-c_{2}f_{x}tand\beta -c_{3}x_{0})}{\frac{a_{3}}{r_{3}}X+\frac{b_{3}}{r_{3}}Y+\frac{c_{3}}{r_{3}}Z+1}\cdot Z+\frac{\frac{1}{r_{3}}(r_{1}f_{x}-r_{2}f_{x}tand\beta -r_{3}x_{0})}{\frac{a_{3}}{r_{3}}X+\frac{b_{3}}{r_{3}}Y+\frac{c_{3}}{r_{3}}Z+1}=0$$</p>
+<p>$$y+\frac{\frac{1}{r_{3}}[\frac{a_{2}f_{x}}{(1+ds)cosd\beta }-a_{3}\cdot y_{0}]}{\frac{a_{3}}{r_{3}}X+\frac{b_{3}}{r_{3}}Y+\frac{c_{3}}{r_{3}}Z+1}\cdot X+\frac{\frac{1}{r_{3}}[\frac{b_{2}f_{x}}{(1+ds)cosd\beta }-b_{3}\cdot y_{0}]}{\frac{a_{3}}{r_{3}}X+\frac{b_{3}}{r_{3}}Y+\frac{c_{3}}{r_{3}}Z+1}\cdot Y+\frac{\frac{1}{r_{3}}[\frac{c_{2}f}{(1+ds)cosd\beta }-c_{3}\cdot y_{0}]}{\frac{a_{3}}{r_{3}}X+\frac{b_{3}}{r_{3}}Y+\frac{c_{3}}{r_{3}}Z+1}\cdot Z+\frac{\frac{1}{r_{3}}[\frac{r_{2}f_{x}}{(1+ds)cosd\beta }-r_{3}\cdot y_{0}]}{\frac{a_{3}}{r_{3}}X+\frac{b_{3}}{r_{3}}Y+\frac{c_{3}}{r_{3}}Z+1}=0$$</p>
 <p>则上式即可化为基本式：</p>
-<p>$$!x+\frac{l_{1}X+l_{2}Y+l_{3}Z+l_{4}}{l_{9}X+l_{10}Y+l_{11}Z+1}=0$$</p>
-<p>$$!y+\frac{l_{5}X+l_{6}Y+l_{7}Z+l_{8}}{l_{9}X+l_{10}Y+l_{11}Z+1}=0$$</p>
+<p>$$x+\frac{l_{1}X+l_{2}Y+l_{3}Z+l_{4}}{l_{9}X+l_{10}Y+l_{11}Z+1}=0$$</p>
+<p>$$y+\frac{l_{5}X+l_{6}Y+l_{7}Z+l_{8}}{l_{9}X+l_{10}Y+l_{11}Z+1}=0$$</p>
 <p>其中，l4、l8可化简：</p>
-<p>$$!l_{8}=\frac{1}{r_{3}}[\frac{r_{2}f_{x}}{(1+ds)\cdot d\beta}-r_{3}\cdot y_{0}]=\frac{1}{r_{3}}[\frac{-(a_{2}Xs+b_{2}Y_{s}+c_{2}Z_{s})f_{x}}{(1+ds)\cdot cosd\beta }+(a_{3}X_{s}+b_{3}Y_{s}+c_{3}Z_{s})\cdot y_{0}]=-\frac{1}{r_{3}}[(\frac{a_{2}f_{x}}{(1+ds)\cdot cosd\beta }-a_{3}y_{0})X_{s}+(\frac{b_{2}f_{x}}{(1+ds)\cdot cosd\beta }-b_{3}y_{0})Y_{s}+(\frac{c_{2}f_{x}}{(1+ds)\cdot cosd\beta }-c_{3}y_{0})Z_{s}]=-(l_{5}X_{s}+l_{6}Y_{s}+l_{7}Z_{s})$$</p>
-<p>$$!l_{4}=\frac{1}{r_{3}}(r_{1}f_{x}-r_{2}f_{x}tand\beta -r_{3}x_{0})=-(l_{1}X_{s}+l_{2}Y_{s}+l_{3}Z_{s})$$</p>
+<p>$$l_{8}=\frac{1}{r_{3}}[\frac{r_{2}f_{x}}{(1+ds)\cdot d\beta}-r_{3}\cdot y_{0}]=\frac{1}{r_{3}}[\frac{-(a_{2}Xs+b_{2}Y_{s}+c_{2}Z_{s})f_{x}}{(1+ds)\cdot cosd\beta }+(a_{3}X_{s}+b_{3}Y_{s}+c_{3}Z_{s})\cdot y_{0}]=-\frac{1}{r_{3}}[(\frac{a_{2}f_{x}}{(1+ds)\cdot cosd\beta }-a_{3}y_{0})X_{s}+(\frac{b_{2}f_{x}}{(1+ds)\cdot cosd\beta }-b_{3}y_{0})Y_{s}+(\frac{c_{2}f_{x}}{(1+ds)\cdot cosd\beta }-c_{3}y_{0})Z_{s}]=-(l_{5}X_{s}+l_{6}Y_{s}+l_{7}Z_{s})$$</p>
+<p>$$l_{4}=\frac{1}{r_{3}}(r_{1}f_{x}-r_{2}f_{x}tand\beta -r_{3}x_{0})=-(l_{1}X_{s}+l_{2}Y_{s}+l_{3}Z_{s})$$</p>
 <p>由于未知数是11个，因此最少需要布置6个控制点。</p>
 <p>值得一提的是，像主点的求解公式与没有畸变参与<a name="包含2项因素的Li表达内外参数">相同</a>，</p>
-<p>$$!x_{0}=-(L_{1}L_{9}+L_{2}L_{10}+L_{3}L_{11})/(L_{9}^{2}+_{10}^{2}+L_{11}^{2})$$</p>
-<p>$$!y_{0}=-(L_{5}L_{9}+L_{6}L_{10}+L_{7}L_{11})/(L_{9}^{2}+_{10}^{2}+L_{11}^{2})$$</p>
+<p>$$x_{0}=-(L_{1}L_{9}+L_{2}L_{10}+L_{3}L_{11})/(L_{9}^{2}+_{10}^{2}+L_{11}^{2})$$</p>
+<p>$$y_{0}=-(L_{5}L_{9}+L_{6}L_{10}+L_{7}L_{11})/(L_{9}^{2}+_{10}^{2}+L_{11}^{2})$$</p>
 <p>最重要的ds和dβ，设：</p>
-<p>$$!\overline{A}=r_{3}^{2}(l_{1}^{2}+l_{2}^{2}+l_{3}^{2})-x_{0}^{2}=\frac{f_{x}^{2}}{cos^{2}d\beta }$$</p>
-<p>$$!B=r_{3}^{2}(l_{5}^{2}+l_{6}^{2}+l_{7}^{2})-y_{0}^{2}=\frac{f_{x}^{2}}{(1+ds)^{2}cos^{2}d\beta }$$</p>
-<p>$$!C=r_{3}^{2}(l_{1}l_{5}+l_{2}l_{6}+l_{3}l_{7})-x_{0}y_{0}=\frac{-f_{x}^{2}sind\beta }{(1+ds)cos^{2}d\beta }$$</p>
-<p>$$!ds=\sqrt{\frac{\overline{A}}{B}-1}$$</p>
-<p>$$!sind\beta =\pm \sqrt{\frac{C^{2}}{\overline{A}B}}$$</p>
+<p>$$\overline{A}=r_{3}^{2}(l_{1}^{2}+l_{2}^{2}+l_{3}^{2})-x_{0}^{2}=\frac{f_{x}^{2}}{cos^{2}d\beta }$$</p>
+<p>$$B=r_{3}^{2}(l_{5}^{2}+l_{6}^{2}+l_{7}^{2})-y_{0}^{2}=\frac{f_{x}^{2}}{(1+ds)^{2}cos^{2}d\beta }$$</p>
+<p>$$C=r_{3}^{2}(l_{1}l_{5}+l_{2}l_{6}+l_{3}l_{7})-x_{0}y_{0}=\frac{-f_{x}^{2}sind\beta }{(1+ds)cos^{2}d\beta }$$</p>
+<p>$$ds=\sqrt{\frac{\overline{A}}{B}-1}$$</p>
+<p>$$sind\beta =\pm \sqrt{\frac{C^{2}}{\overline{A}B}}$$</p>
 <p>而主距的公式变为：</p>
-<p>$$!f_{x}=\sqrt{\overline{A}}cosd\beta $$</p>
-<p>$$!f_{y}=\frac{f_{x}}{1+ds}$$</p>
+<p>$$f_{x}=\sqrt{\overline{A}}cosd\beta $$</p>
+<p>$$f_{y}=\frac{f_{x}}{1+ds}$$</p>
 <p>外方位角元素：</p>
-<p>$$!tan\varphi =\frac{a_{3}}{c_{3}}$$</p>
-<p>$$!sin\omega =-b_{3}$$</p>
-<p>$$!tan\kappa =\frac{b_{1}}{b_{2}}$$</p>
+<p>$$tan\varphi =\frac{a_{3}}{c_{3}}$$</p>
+<p>$$sin\omega =-b_{3}$$</p>
+<p>$$tan\kappa =\frac{b_{1}}{b_{2}}$$</p>
 <p>其中，$$a_{3}=r_{3}l_{9},b_{3}=r_{3}l_{10},c_{3}=r_{3}l_{11}$$</p>
 <p>而外方位线元素由以下三个式子构成：</p>
-<p>$$!l_{1}X_{s}+l_{2}Y_{s}+l_{3}Z_{s}=-l_{4}$$</p>
-<p>$$!l_{5}X_{s}+l_{6}Y_{s}+l_{7}Z_{s}=-l_{8}$$</p>
-<p>$$!l_{9}X_{s}+l_{10}Y_{s}+l_{11}Z_{s}=\frac{a_{3}}{r_{3}}X_{s}+\frac{b_{3}}{r_{3}}Y_{s}+\frac{c_{3}}{r_{3}}Z_{s}=-\frac{a_{3}Xs+b_{3}Y_{s}+c_{3}Z_{s}}{a_{3}Xs+b_{3}Y_{s}+c_{3}Z_{s}}=-1$$</p>
+<p>$$l_{1}X_{s}+l_{2}Y_{s}+l_{3}Z_{s}=-l_{4}$$</p>
+<p>$$l_{5}X_{s}+l_{6}Y_{s}+l_{7}Z_{s}=-l_{8}$$</p>
+<p>$$l_{9}X_{s}+l_{10}Y_{s}+l_{11}Z_{s}=\frac{a_{3}}{r_{3}}X_{s}+\frac{b_{3}}{r_{3}}Y_{s}+\frac{c_{3}}{r_{3}}Z_{s}=-\frac{a_{3}Xs+b_{3}Y_{s}+c_{3}Z_{s}}{a_{3}Xs+b_{3}Y_{s}+c_{3}Z_{s}}=-1$$</p>
 <p>到这里，能解求出包含非正交比例和xy不一致比例，但缺乏了对镜头畸变的改正。若将镜头畸变写入DLT方程式，则变为：</p>
-<p>$$!x+v_{x}+\Delta x+\frac{l_{1}X+l_{2}Y+l_{3}Z+l_{4}}{l_{9}X+l_{10}Y+l_{11}Z+1}=0$$</p>
-<p>$$!y+v_{y}+\Delta y+\frac{l_{5}X+l_{6}Y+l_{7}Z+l_{8}}{l_{9}X+l_{10}Y+l_{11}Z+1}=0$$</p>
+<p>$$x+v_{x}+\Delta x+\frac{l_{1}X+l_{2}Y+l_{3}Z+l_{4}}{l_{9}X+l_{10}Y+l_{11}Z+1}=0$$</p>
+<p>$$y+v_{y}+\Delta y+\frac{l_{5}X+l_{6}Y+l_{7}Z+l_{8}}{l_{9}X+l_{10}Y+l_{11}Z+1}=0$$</p>
 <p>其中，vx vy是残差，△x △y是畸变的改正数，若忽略切向畸变且只去一项径向畸变的参数作为例子，</p>
-<p>$$!\left\{\begin{matrix}\Delta x=(x-x_{0})r^{2}k_{1}\\\Delta y=(y-y_{0})r^{2}k_{1}\end{matrix}\right.$$</p>
+<p>$$\left\{\begin{matrix}\Delta x=(x-x_{0})r^{2}k_{1}\\\Delta y=(y-y_{0})r^{2}k_{1}\end{matrix}\right.$$</p>
 <p>再令$$A=l_{9}X+l_{10}Y+l_{11}Z+1$$</p>
 <p>以li为未知数，列误差方程，则DLT<a name="包含畸变参数校正的DLT">公式可化简为</a>：</p>
-<p>$$!v_{x}=-\frac{1}{A}[Xl_{1}+Yl_{2}+Zl_{3}+l_{4}+xXl_{9}+xYl_{10}+xZl_{11}+A(x-x_{0}^{2})r^{2}k_{1}+x]$$</p>
-<p>$$!v_{y}=-\frac{1}{A}[Xl_{5}+Yl_{6}+Zl_{7}+l_{8}+yXl_{9}+yYl_{10}+yZl_{11}+A(y-y_{0}^{2})r^{2}k_{1}+x]$$</p>
+<p>$$v_{x}=-\frac{1}{A}[Xl_{1}+Yl_{2}+Zl_{3}+l_{4}+xXl_{9}+xYl_{10}+xZl_{11}+A(x-x_{0}^{2})r^{2}k_{1}+x]$$</p>
+<p>$$v_{y}=-\frac{1}{A}[Xl_{5}+Yl_{6}+Zl_{7}+l_{8}+yXl_{9}+yYl_{10}+yZl_{11}+A(y-y_{0}^{2})r^{2}k_{1}+x]$$</p>
 <p>矩阵的形式则可写为（以物方坐标表示像点坐标）：</p>
-<font color="#FF0000">$$!\begin{bmatrix}v_{x}\\v_{y}\end{bmatrix}=\begin{bmatrix}\frac{X}{A}&amp;\frac{Y}{A}&amp;\frac{Z}{A}&amp;\frac{1}{A}&amp;0&amp;0&amp;0&amp;0&amp;\frac{xX}{A}&amp;\frac{xY}{A}&amp;\frac{xZ}{A}&amp;(x-x_{0})r^{2}\\0&amp;0&amp;0&amp;0&amp;\frac{X}{A}&amp;\frac{Y}{A}&amp;\frac{Z}{A}&amp;\frac{1}{A}&amp;\frac{yX}{A}&amp;\frac{yY}{A}&amp;\frac{yZ}{A}&amp;(y-y_{0})r^{2}\end{bmatrix}\begin{bmatrix}l_{1}\\l_{2}\\l_{3}\\l_{4}\\l_{5}\\l_{6}\\l_{7}\\l_{8}\\l_{9}\\l_{10}\\l_{11}\\k_{1}\end{bmatrix}-\begin{bmatrix}\frac{x}{A}\\\frac{y}{A}\end{bmatrix}$$</font>
+<font color="#FF0000">$$\begin{bmatrix}v_{x}\\v_{y}\end{bmatrix}=\begin{bmatrix}\frac{X}{A}&amp;\frac{Y}{A}&amp;\frac{Z}{A}&amp;\frac{1}{A}&amp;0&amp;0&amp;0&amp;0&amp;\frac{xX}{A}&amp;\frac{xY}{A}&amp;\frac{xZ}{A}&amp;(x-x_{0})r^{2}\\0&amp;0&amp;0&amp;0&amp;\frac{X}{A}&amp;\frac{Y}{A}&amp;\frac{Z}{A}&amp;\frac{1}{A}&amp;\frac{yX}{A}&amp;\frac{yY}{A}&amp;\frac{yZ}{A}&amp;(y-y_{0})r^{2}\end{bmatrix}\begin{bmatrix}l_{1}\\l_{2}\\l_{3}\\l_{4}\\l_{5}\\l_{6}\\l_{7}\\l_{8}\\l_{9}\\l_{10}\\l_{11}\\k_{1}\end{bmatrix}-\begin{bmatrix}\frac{x}{A}\\\frac{y}{A}\end{bmatrix}$$</font>
 
 <p>可简写为:</p>
-<p>$$!V=AL+BX-W$$</p>
+<p>$$V=AL+BX-W$$</p>
 <p>其中L是11个（二维DLT是可能是8个）li参数，X是单独提出来计算的畸变系数，在后交时通常加载改正数值里，当学要加入更多畸变参数时，需要确定更多的B矩阵中的形式。W一般是x/A,y/A.</p>
 <p>A和B的求取也是迭代计算，每次迭代A的值计算是通过控制点求得的。对不同控制点像点坐标列误差方程，A的值也不同。</p>
 <p>简单提一下以像方坐标表示物放坐标的DLT公式：</p>
-<p>$$!(l_{1}+\overline{x}l_{9})X+(l_{2}+\overline{x}l_{10})Y+(l_{3}+\overline{x}l_{11})Z+(l_{4}+\overline{x})=0$$</p>
-<p>$$!(l_{5}+\overline{y}l_{9})X+(l_{6}+\overline{y}l_{10})Y+(l_{7}+\overline{y}l_{11})Z+(l_{8}+\overline{y})=0$$</p>
+<p>$$(l_{1}+\overline{x}l_{9})X+(l_{2}+\overline{x}l_{10})Y+(l_{3}+\overline{x}l_{11})Z+(l_{4}+\overline{x})=0$$</p>
+<p>$$(l_{5}+\overline{y}l_{9})X+(l_{6}+\overline{y}l_{10})Y+(l_{7}+\overline{y}l_{11})Z+(l_{8}+\overline{y})=0$$</p>
 <p>直接线性变换的精度：可提供1/5000摄影距离精度的测量成果。影响DLT解法精度的是：控制点分布数量质量、像点坐标的测量精度、两张相片主光轴的交会角、像片张数、非线性畸变误差的改正数。</p>
 <div class="PoweredByWebStory" style="margin-top:15px;margin-bottom:10px"><a href="http://sns.juziyue.com/webinvite.php?u=94887" target="_blank" rel="external"></a>&nbsp;今天你<a href="http://sns.juziyue.com/webinvite.php?u=94887" target="_blank" rel="external">菊子曰</a>了么？</div>
           
@@ -1868,7 +1867,7 @@
             <p><a href="#多片交会">多片检校方程</a>&nbsp;<a href="#相对定向完成标志">相对定向完成标志</a>&nbsp;&nbsp;<a href="#两种方式">相对定向解答的两种方式</a>&nbsp;<a href="#图解">图解连续像片和单独像对</a></p>
 <p>单片检校主要目的是精确测量相机的内方位元素和检校相机镜头畸变。由于只使用一幅影像进行参数的解算，使用了较少的几何约束条件和观测值，最容易产生内方位元素x0 y0 与外方位元素Xs Ys的不定解或强相关，使检校结果稳定性和可靠性受到影响。多片后方交会则可以更精确的解算这些参数，尤其是<font color="#FF0000">主点位置的精度</font>问题。多片空间后方交会与单片空间后方交会的根本区别是：在不同的位置拍摄多张照片，由于各像片在同一主距条件下拍摄，因而解算所得的各相片的<font color="#FF0000">外方位元素不同</font>，解算的<font color="#FF0000">内方位元素和畸变参数被认为相同</font>。</p>
 <p>这样，就可以用下式方程表达<a name="多片交会">多片交会</a>：</p>
-<p>$$!\begin{bmatrix}A_{I}&amp;0&amp;\cdot&amp;\cdot&amp;\cdot&amp;0&amp;B_{I}&amp;C_{I}\\0&amp;A_{II}&amp;.&amp;.&amp;.&amp;0&amp;B_{II}&amp;C_{II}\.&amp;.&amp; &amp; &amp; &amp;0&amp;.&amp;.\.&amp;.&amp; &amp; &amp; &amp;0&amp;.&amp;.\\0&amp;.&amp;.&amp;.&amp;.&amp;A_{n}&amp;B_{n}&amp;C_{n}\end{bmatrix}_{2n\times (6n+7)}\begin{bmatrix}X_{out_{I}}\\X_{out_{II}}\.\.\.\\X_{out_{n}}\\X_{in}\\X_{res}\end{bmatrix}_{(6n+7)\times1}-\begin{bmatrix}xy_{res 1}\\xy_{res 2}\.\.\.\\xy_{res n}\end{bmatrix}_{2\times1}=0$$</p>
+<p>$$\begin{bmatrix}A_{I}&amp;0&amp;.&amp;.&amp;.&amp;0&amp;B_{I}&amp;C_{I}\\0&amp;A_{II}&amp;.&amp;.&amp;.&amp;0&amp;B_{II}&amp;C_{II}\\\ .&amp;.&amp;.&amp;.&amp;.&amp;.&amp;.&amp;.\\0&amp;.&amp;.&amp;.&amp;.&amp;A_{n}&amp;B_{n}&amp;C_{n}\end{bmatrix}_{2n\times (6n+7)}\begin{bmatrix}X_{out_{I}}\\X_{out_{II}}\\\ .\\\ .\\\ .\\X_{out_{n}}\\X_{in}\\X_{res}\end{bmatrix}_{(6n+7)\times1}-\begin{bmatrix}xy_{res 1}\\xy_{res 2}\\\ .\\\ .\\\ .\\xy_{res n}\end{bmatrix}_{2\times1}=0$$</p>
 <p>这一点与图像配准极其相似，用一副影像作为参考影像去配准多幅图像的结果显然没有用周边多幅图像组为参考标准的结果令人信服。由于每张相片的外方位元素不同（一般都是围绕检校场左中右进行拍摄），所以良好的消除了外方位元素和内方位元素的强相关性。</p>
 <p>针对多片，提出了相对定向和绝对定向的概念，绝对定向即利用共线方程检校计算出的外方位元素绝对值，这是以物方坐标系的原点作为参考值；而相对定向则是以被检校出的某一张像片为参考，计算出其余像片在其坐标系的坐标值，即相对关系。相对关系的求取的精度对图像拼接有至关重要的影像。</p>
 <p><a name="相对定向完成标志"><font color="#FF0000">相对定向完成的标志</font></a>：同名光线对对相交。所有点在其承影面上的上下视差为零。即通过矩阵变换改变投影器的相对位置，使光线相交。<font color="#FF0000">&nbsp;&nbsp;&nbsp;</font></p>
@@ -1881,17 +1880,17 @@
 <p>&nbsp;</p>
 <p>相对定向共面条件</p>
 <p>在相对定向中，答解相对元素的重要依据就是共面条件，当光线相交时，易知B（摄影基线，即S1S2）,S1a1,S2a2共面。如图可以看到，解求相对定向元素就是解求两个摄影中心的像方辅助坐标系的转换。共面条件方程形式为：</p>
-<p>$$!\overrightarrow{S_{1}S_{2}}\cdot (\overrightarrow{S_{1}a_{1}}\times \overrightarrow{S_{2}a_{2}})=0$$</p>
+<p>$$\overrightarrow{S_{1}S_{2}}\cdot (\overrightarrow{S_{1}a_{1}}\times \overrightarrow{S_{2}a_{2}})=0$$</p>
 <p>共面条件方程无需地面控制点，一个同名点列一个方程。必须有5个以上定向点。</p>
 <p><img src="http://ww4.sinaimg.cn/large/68eb7c93gw1eyb9drztouj20lz0ig782.jpg" alt=""></p>
 <p>如图，设像点a1、a2在大地坐标系坐标分别为(X1,Y1,Z1)、(X2,Y2,Z2).摄站S1、S2在大地坐标系坐标分别为$$(X_{S1},Y_{S1},Z_{S1}),(X_{S2},Y_{S2},Z_{S2})$$,则上式在即可表示为向量形式的行列式。</p>
-<p>$$!\begin{vmatrix}X_{S2}-X_{S1}&amp;Y_{S2}-Y_{S1}&amp;Z_{S2}-Z_{S1}\\X_{1}-X_{S1}&amp;Y_{1}-Y_{S1}&amp;Z_{1}-Z_{S1}\\X_{2}-X_{S2}&amp;Y_{2}-Y_{S2}&amp;Z_{2}-Z_{S2}\end{vmatrix}$$</p>
+<p>$$\begin{vmatrix}X_{S2}-X_{S1}&amp;Y_{S2}-Y_{S1}&amp;Z_{S2}-Z_{S1}\\X_{1}-X_{S1}&amp;Y_{1}-Y_{S1}&amp;Z_{1}-Z_{S1}\\X_{2}-X_{S2}&amp;Y_{2}-Y_{S2}&amp;Z_{2}-Z_{S2}\end{vmatrix}$$</p>
 <p>又令(X,Y,Z)、(Bx,By,Bz)为a1,S2在S1的像辅系S1-XYZ中的坐标，(X’,Y’,Z’)为a2在S2像辅系S2-XYZ中的坐标。由三点共面的方程，</p>
-<p>$$!\begin{vmatrix}B_{X}&amp;B_{Y}&amp;B_{Z}\\X&amp;Y&amp;Z\\X’&amp;Y’&amp;Z’\end{vmatrix}=0$$上式可改写为：</p>
-<p>$$!\begin{bmatrix}B_{X}&amp;B_{Y}&amp;B_{Z}\end{bmatrix}\begin{bmatrix}0&amp;-Z&amp;Y\\Z&amp;0&amp;-X\-Y&amp;X&amp;0\end{bmatrix}\begin{bmatrix}X’\\Y’\\Z’\end{bmatrix}=0$$</p>
+<p>$$\begin{vmatrix}B_{X}&amp;B_{Y}&amp;B_{Z}\\X&amp;Y&amp;Z\\X’&amp;Y’&amp;Z’\end{vmatrix}=0$$上式可改写为：</p>
+<p>$$\begin{bmatrix}B_{X}&amp;B_{Y}&amp;B_{Z}\end{bmatrix}\begin{bmatrix}0&amp;-Z&amp;Y\\Z&amp;0&amp;-X\\\  -Y&amp;X&amp;0\end{bmatrix}\begin{bmatrix}X’\\Y’\\Z’\end{bmatrix}=0$$</p>
 <p>光线是否成对相交与摄影测量坐标系的选择无关，但可以<font color="#FF0000">选择适当的像辅系</font>，改变共面条件便于实际应用。</p>
 <p>（1）<font color="#FF0000">选择左侧像空系</font>——连续像对系统。此时R1=E，即左系的旋转矩阵为0，像平面的z坐标均为-f；或为右片的旋转矩阵。则，公式未改变。</p>
-<p>$$!\begin{vmatrix}B_{X}&amp;B_{Y}&amp;B_{Z}\\X&amp;Y&amp;Z\\X’&amp;Y’&amp;Z’\end{vmatrix}=0$$</p>
+<p>$$\begin{vmatrix}B_{X}&amp;B_{Y}&amp;B_{Z}\\X&amp;Y&amp;Z\\X’&amp;Y’&amp;Z’\end{vmatrix}=0$$</p>
 <p>（2）选择基线坐标系——单独像对系统。此时，$$B_{Y}=B_{Z}=0$$，即需要求取两个像片对基线坐标系的旋转。</p>
 <div class="PoweredByWebStory" style="margin-top:15px;margin-bottom:10px"><a href="http://sns.juziyue.com/webinvite.php?u=94887" target="_blank" rel="external"></a>&nbsp;今天你<a href="http://sns.juziyue.com/webinvite.php?u=94887" target="_blank" rel="external">菊子曰</a>了么？</div>
           

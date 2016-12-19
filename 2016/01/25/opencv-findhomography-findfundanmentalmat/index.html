@@ -135,7 +135,7 @@
 <meta property="og:image" content="http://ooo.0o0.ooo/2016/02/25/56cf08c613352.png">
 <meta property="og:image" content="http://ooo.0o0.ooo/2016/02/25/56cf0b53675d9.png">
 <meta property="og:image" content="http://ooo.0o0.ooo/2016/02/25/56cf0eb50a41b.png">
-<meta property="og:updated_time" content="2016-11-24T03:02:02.769Z">
+<meta property="og:updated_time" content="2016-12-19T09:24:02.566Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="由opencv中findFundamentalMat和findHomography区别的引申">
 <meta name="twitter:description" content="openCV中有两个函数，findhomography和findfundamentalmat，长的很像。。一开始严重的弄混，以为都是求对应点投影矩阵的公式，万万没想到其实是两个完全不同的内涵。😒">
@@ -545,7 +545,7 @@
 <center><img src="http://ooo.0o0.ooo/2016/02/24/56ce6cd71fc88.png" alt=""></center>
 
 <p>上图可以看到，将三维坐标点z值设为0，[p,q,0,1]即为三维齐次坐标。</p>
-<p>$$ \begin{bmatrix} x \\\ y \\\ 1<br>\end{bmatrix} \sim \begin{bmatrix} f &amp; 0 &amp; 0 &amp; 0 \\\ 0 &amp; f &amp; 0 &amp; 0 \\\ 0 &amp; 0 &amp; 1 &amp; 0 \end{bmatrix} \begin{bmatrix} r_{11} &amp; r_{12} &amp; r_{13} &amp; t_x \\\ r_{21} &amp; r_{22} &amp; r_{23} &amp; t_y \\\ r_{31} &amp; r_{32}&amp; r_33 &amp; t_z \\\ 0 &amp; 0 &amp; 0 &amp; 1 \end{bmatrix} \begin{bmatrix} p \\\ q \\\ 0 \\\ 1 \end{bmatrix} \sim \begin{bmatrix} fr_{11} &amp; fr_{12} &amp; ft_x \\\ fr_{21} &amp; fr_{22} &amp; ft_y \\\ r_{31} &amp; r_{32} &amp; t_z \end{bmatrix} \begin{bmatrix} p \\\ q \\\ 1 \end{bmatrix}<br>$$$$\sim \begin{bmatrix} h_{11} &amp; h_{12}&amp;h_{13} \\\ h_{21} &amp; h_{22} &amp; h_{23} \\\ h_{31} &amp; h_{32} &amp; h_{33} \end{bmatrix} \begin{bmatrix} p \\\ q \\\ 1 \end{bmatrix}$$<br>最终推到出，3D转2D的投影变换成为2D转2D的变换，该变化可逆！其特例是，当采用的物方坐标系z轴与主光轴平行，即正射影像，则上式R矩阵为</p>
+<p>$$ \begin{bmatrix} x\\\ y \\\ 1<br>\end{bmatrix} \sim \begin{bmatrix} f &amp; 0 &amp; 0 &amp; 0 \\\ 0 &amp; f &amp; 0 &amp; 0 \\\ 0 &amp; 0 &amp; 1 &amp; 0 \end{bmatrix} \begin{bmatrix} r_{11} &amp; r_{12} &amp; r_{13} &amp; t_x \\\ r_{21} &amp; r_{22} &amp; r_{23} &amp; t_y \\\ r_{31} &amp; r_{32}&amp; r_33 &amp; t_z \\\ 0 &amp; 0 &amp; 0 &amp; 1 \end{bmatrix} \begin{bmatrix} p \\\ q \\\ 0\\\ 1 \end{bmatrix} \sim \begin{bmatrix} fr_{11} &amp; fr_{12} &amp; ft_x \\\ fr_{21} &amp; fr_{22} &amp; ft_y \\\ r_{31} &amp; r_{32} &amp; t_z \end{bmatrix} \begin{bmatrix} p \\\ q\\\ 1 \end{bmatrix}<br>$$$$\sim \begin{bmatrix} h_{11} &amp; h_{12}&amp;h_{13} \\\ h_{21} &amp; h_{22} &amp; h_{23} \\\ h_{31} &amp; h_{32} &amp; h_{33} \end{bmatrix} \begin{bmatrix} p \\\ q \\\ 1 \end{bmatrix}$$<br>最终推到出，3D转2D的投影变换成为2D转2D的变换，该变化可逆！其特例是，当采用的物方坐标系z轴与主光轴平行，即正射影像，则上式R矩阵为</p>
 <center><img src="http://ooo.0o0.ooo/2016/02/24/56ce7aab1b305.png" alt=""></center>
 
 <p>则上式变形为：</p>
@@ -576,7 +576,7 @@
 <p>$$y^{‘}=\frac{h_{21} \cdot x + h_{22} y + h_{23} }{ h_{31} x + h_{32} y + h_{33} }$$</p>
 <p>但可以看到，h所有元素同乘k 等式依旧成立。因而强制设为8自由度有两种方式，</p>
 <p>①$$ h_{33} = 1 $$</p>
-<p>②$ h_{11}\^{2} + h_{12}\^{2} = 1 $<br>采用第一种方式较为常见。<br>当采用最小二乘解求H矩阵时，一般先用Ransac筛选最大集，然后利用下方程。</p>
+<p>②$$ h_{11}^{2} + h_{12}^{2} = 1 $$<br>采用第一种方式较为常见。<br>当采用最小二乘解求H矩阵时，一般先用Ransac筛选最大集，然后利用下方程。</p>
 <center><img src="http://ooo.0o0.ooo/2016/02/25/56cf041a7c664.png" alt=""></center>
 
 <p>以x y x’y’为A b矩阵参数，迭代解求H。由于是线性方程，因而可以直接使用$$h=(A^{T}A)^{-1}(A^{T}b)$$求取每次的残差。</p>
