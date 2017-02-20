@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ovjaywang.github.io/"/>
-  <updated>2017-02-20T16:07:07.704Z</updated>
+  <updated>2017-02-20T16:22:50.762Z</updated>
   <id>http://ovjaywang.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://ovjaywang.github.io/2017/02/20/UEFI%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%B0%8F%E8%AE%B0/"/>
     <id>http://ovjaywang.github.io/2017/02/20/UEFI双系统小记/</id>
     <published>2017-02-20T15:44:55.000Z</published>
-    <updated>2017-02-20T16:07:07.704Z</updated>
+    <updated>2017-02-20T16:22:50.762Z</updated>
     
     <content type="html">&lt;p&gt;喷血了。一个小误会居然装了一个晚上。作为一个6年前就装过双系统的薛薇有些池乳。&lt;/p&gt;
 &lt;p&gt;正题&lt;/p&gt;
@@ -37,7 +37,8 @@
 &lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/lyhdream/article/details/52266523&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;a href=&quot;http://blog.csdn.net/lyhdream/article/details/52266523&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;UEFI引导的系统下装双系统解决方案&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;http://weibo.com/p/1001603968287473010231?from=page_100606_profile&amp;amp;wvr=6&amp;amp;mod=wenzhangmod&amp;amp;sudaref=www.google.com&amp;amp;retcode=6102&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;UEFI模式下安装Windows 10、Ubuntu 16.04 LTS双系统教程&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;之前的系统全是在mbr上安的，按照以往是吧iso里的几个文件解压出来放在c盘里，使用easybcd添加引导安装，再自动搜索添加Shaun该系统启动目录，双系统的引导直接放在win下。现在uefi的引导专门搞了一个盘来放置引导和乱七八糟的恢复文件。使用开源的uefi修改器相当顺滑。&lt;/p&gt;
-&lt;p&gt;TensorFlow1.0搞起。&lt;/p&gt;</content>
+&lt;p&gt;TensorFlow1.0搞起。&lt;/p&gt;
+&lt;p&gt;然后发现了一个相当顺滑的hexo同步&lt;a href=&quot;https://www.zhihu.com/question/21193762/answer/147374293&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;方案&lt;/a&gt;。不用更新完一次用一次git命令和hexo命令了。vps必须要摆在日程里了。自动化服务器方案是以后记录笔记、更新博客、抄段子的必备手段了。&lt;/p&gt;</content>
     
     <summary type="html">
     
