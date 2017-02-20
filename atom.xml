@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ovjaywang.github.io/"/>
-  <updated>2016-11-03T08:58:40.078Z</updated>
+  <updated>2017-02-20T16:07:07.704Z</updated>
   <id>http://ovjaywang.github.io/</id>
   
   <author>
@@ -14,6 +14,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>UEFI双系统小记</title>
+    <link href="http://ovjaywang.github.io/2017/02/20/UEFI%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%B0%8F%E8%AE%B0/"/>
+    <id>http://ovjaywang.github.io/2017/02/20/UEFI双系统小记/</id>
+    <published>2017-02-20T15:44:55.000Z</published>
+    <updated>2017-02-20T16:07:07.704Z</updated>
+    
+    <content type="html">&lt;p&gt;喷血了。一个小误会居然装了一个晚上。作为一个6年前就装过双系统的薛薇有些池乳。&lt;/p&gt;
+&lt;p&gt;正题&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;一些不会犯的错&quot;&gt;&lt;a href=&quot;#一些不会犯的错&quot; class=&quot;headerlink&quot; title=&quot;一些不会犯的错&quot;&gt;&lt;/a&gt;一些不会犯的错&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;安装的时候不要选双系统也不要选抹掉原系统啊。。不然哪来的双系统&lt;/li&gt;
+&lt;li&gt;分区确定好后记得把引导装在boot里面。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;一些可能犯的错误&quot;&gt;&lt;a href=&quot;#一些可能犯的错误&quot; class=&quot;headerlink&quot; title=&quot;一些可能犯的错误&quot;&gt;&lt;/a&gt;一些可能犯的错误&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;这次居然遇到了。。分区按别的教程给boot5120M。。居然不够？？最终提示无足够空间&lt;/li&gt;
+&lt;li&gt;一般的分区4个都不要少就好了-/ /boot swap /home(/usr也行)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;UEFI下的双系统&quot;&gt;&lt;a href=&quot;#UEFI下的双系统&quot; class=&quot;headerlink&quot; title=&quot;UEFI下的双系统&quot;&gt;&lt;/a&gt;UEFI下的双系统&lt;/h1&gt;&lt;p&gt;按照这两个来就相当好办了。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/lyhdream/article/details/52266523&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;a href=&quot;http://blog.csdn.net/lyhdream/article/details/52266523&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;UEFI引导的系统下装双系统解决方案&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://weibo.com/p/1001603968287473010231?from=page_100606_profile&amp;amp;wvr=6&amp;amp;mod=wenzhangmod&amp;amp;sudaref=www.google.com&amp;amp;retcode=6102&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;UEFI模式下安装Windows 10、Ubuntu 16.04 LTS双系统教程&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;之前的系统全是在mbr上安的，按照以往是吧iso里的几个文件解压出来放在c盘里，使用easybcd添加引导安装，再自动搜索添加Shaun该系统启动目录，双系统的引导直接放在win下。现在uefi的引导专门搞了一个盘来放置引导和乱七八糟的恢复文件。使用开源的uefi修改器相当顺滑。&lt;/p&gt;
+&lt;p&gt;TensorFlow1.0搞起。&lt;/p&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;喷血了。一个小误会居然装了一个晚上。作为一个6年前就装过双系统的薛薇有些池乳。&lt;/p&gt;
+&lt;p&gt;正题&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;一些不会犯的错&quot;&gt;&lt;a href=&quot;#一些不会犯的错&quot; class=&quot;headerlink&quot; title=&quot;一些不会犯的错&quot;&gt;&lt;/a&gt;一些不
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Learn Sth. the Other Day</title>
@@ -2437,48 +2473,6 @@ boolean isScreenOn = pm.isScreenOn();
     
     
       <category term="Android" scheme="http://ovjaywang.github.io/tags/Android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>后方交会检校(8)--光束法区域平差 Bundle Block Adjustment</title>
-    <link href="http://ovjaywang.github.io/2015/11/18/%E5%90%8E%E6%96%B9%E4%BA%A4%E4%BC%9A%E6%A3%80%E6%A0%A1(8)/"/>
-    <id>http://ovjaywang.github.io/2015/11/18/后方交会检校(8)/</id>
-    <published>2015-11-18T15:17:39.000Z</published>
-    <updated>2016-04-11T14:09:45.581Z</updated>
-    
-    <content type="html">&lt;font size=&quot;3&quot;&gt;航空摄影最终的目标都是，将某一波段的图像（传感器接收的某一宽度波长的电磁波），在一定范围（地理空间范畴）内融合在一起。原因有：&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font size=&quot;3&quot;&gt;①拍摄的每幅图像幅宽有限（高的分辨率不够低了拍的面积不够多）&lt;/font&gt;
-
-&lt;font size=&quot;3&quot;&gt;②需要研究的区域相对一张或几张照片来说，太太太大了，没有或难以测量地面的标识，就只能靠拼接（然而飞机需要飞行，飞行需要时间，时间就带来光照、镜头本身、飞行姿态等各种变化）&lt;/font&gt;
-
-&lt;font size=&quot;3&quot;&gt;③除了高端的飞机带有精度极高的POS（position &amp;amp; orientation system）能够实时记录飞行的姿态，即飞机的朝向、飞机的地理位置等明确告诉我该用哪个位置的点拼起来的，其他只能依赖，连续两张图片的相关性来拼（这里讲的就是，同名点即tie point）&lt;/font&gt;
-
-&lt;p&gt;——航摄大致思路？完成这一工作，最主要的工作是法一：利用地面其他物体的三维坐标（灰机、相机的某一时刻姿态也可以）点确定相邻两幅图像的地理位置（三维的，依赖地理空间的）——&amp;gt;解算相对位置；法二，利用同名点（两幅图像都拍到的点，二维的，不依赖地理空间的），找到某个投影变换（即一个投影矩阵），直接解求两幅相邻图像的相对位置。&lt;/p&gt;
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;
-&lt;font size=&quot;3&quot;&gt;航摄中常用的三种用于加密控制点的方法有&lt;span style=&quot;color: #ff0000&quot;&gt;航带法、独立模型法、光束法&lt;/span&gt;。其中航带法精度较低，不能用于高精度的测量。独立模型法较前者精度略高，光束法则是精度最高同时计算量最大的模型，适用于高精度航摄。&lt;/font&gt;
-
-&lt;font size=&quot;3&quot;&gt;——用来做啥?不同时刻的航摄图片，对绝对位置或相对坐标进行确认，为拼接准备。&lt;/font&gt;
-
-&lt;font size=&quot;3&quot;&gt;&lt;font color=&quot;#ff0000&quot;&gt;自检较光束&lt;/font&gt;则是最广泛应用的做法，尽管&lt;font size=&quot;3&quot;&gt;粗差（奇葩的大误差）对于精度的影响极大&lt;/font&gt;。其基本思想是选用一个由若干个参数组成的系统误差模型，将这些附加参数作为未知数与区域网的其他参数一起解求，从而达到在平差过程中自动消除系统误差的目的。其缺点是①&lt;span style=&quot;color: #ff0000&quot;&gt;附加参数人为选择&lt;/span&gt;，选择不当会导致迭代结果不收敛恶化计算结果。②附加参数与区域网参数一起解求，会使&lt;span style=&quot;color: #ff0000&quot;&gt;计算量明显上升&lt;/span&gt;。&lt;/font&gt;
-
-&lt;font size=&quot;3&quot;&gt;&lt;/font&gt;&amp;nbsp;&lt;br&gt;&lt;br&gt;&lt;font size=&quot;3&quot;&gt;光束法平差以单个像片作为平差单元（意思就是一个观测值是一个像片，主要包含像片的内外方位元素，它们作为一个整体，就如测量一个高程的值 一个坐标的值一样&amp;nbsp; 在整个区域进行一边计算一边排错 进行平差处理 解算出每张相片的外方位元素 然后按照前方交会计算加密点（不同像片的拍下的重复点 tie point）坐标。&lt;/font&gt;
-
-&lt;div class=&quot;PoweredByWebStory&quot; style=&quot;margin-bottom: 10px; margin-top: 15px&quot;&gt;&lt;font size=&quot;3&quot;&gt;&amp;nbsp;&lt;/font&gt;&lt;/div&gt;
-
-&lt;font size=&quot;3&quot;&gt;&lt;/font&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;font size=&quot;3&quot;&gt;航空摄影最终的目标都是，将某一波段的图像（传感器接收的某一宽度波长的电磁波），在一定范围（地理空间范畴）内融合在一起。原因有：&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font size=&quot;3&quot;&gt;①拍摄的每幅图像幅宽有限（高的分辨率不够低了拍的面积不够多）&lt;/
-    
-    </summary>
-    
-      <category term="什么都学一下" scheme="http://ovjaywang.github.io/categories/%E4%BB%80%E4%B9%88%E9%83%BD%E5%AD%A6%E4%B8%80%E4%B8%8B/"/>
-    
-      <category term="学习log" scheme="http://ovjaywang.github.io/categories/%E4%BB%80%E4%B9%88%E9%83%BD%E5%AD%A6%E4%B8%80%E4%B8%8B/%E5%AD%A6%E4%B9%A0log/"/>
-    
-    
-      <category term="检校" scheme="http://ovjaywang.github.io/tags/%E6%A3%80%E6%A0%A1/"/>
     
   </entry>
   
