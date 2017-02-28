@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ovjaywang.github.io/"/>
-  <updated>2017-02-20T16:22:50.762Z</updated>
+  <updated>2017-02-28T09:00:58.134Z</updated>
   <id>http://ovjaywang.github.io/</id>
   
   <author>
@@ -14,6 +14,52 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>机器学习要点检索</title>
+    <link href="http://ovjaywang.github.io/2017/02/27/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%A6%81%E7%82%B9%E6%A3%80%E7%B4%A2/"/>
+    <id>http://ovjaywang.github.io/2017/02/27/机器学习要点检索/</id>
+    <published>2017-02-27T08:54:19.000Z</published>
+    <updated>2017-02-28T09:00:58.134Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;strong&gt;判别式（识别式）学习&lt;/strong&gt;：通过预测数据生成对联合概率&lt;strong&gt;p(x,y)&lt;/strong&gt;进行模式识别的方法·&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;产生式学习&lt;/strong&gt;：利用机器学习方法对训练集&lt;strong&gt;p(y|x)&lt;/strong&gt;进行学习的过程&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;可能有拥有足够的信息来很好的解决一个感兴趣的特定问题，但却没有足够的信息来解决一个一般性问题。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;若果生成概率已知，则可以推出后验概率；反之，则不能。&lt;/p&gt;
+&lt;p&gt;$$p(y\mid x)=\frac{p(x,y)}{p(x)}=\frac{p(x,y)}{\sum _{y}p(x,y)}$$&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;统计派（频率派）&lt;/strong&gt;：将模式Θ(模型参数)作为决定论的变量，使用训练样本${(x_{i},y_{i})}_{i=1}^{n}$对Θ进行学习。(e.g.利用最大似然π)      &lt;/p&gt;
+&lt;p&gt;其主要&lt;strong&gt;研究课题&lt;/strong&gt;是如何有训练集得到高精度的模式Θ。      &lt;/p&gt;
+&lt;p&gt;$$\underset{\theta}{max}\prod_{i=1}^{y}q(x_{i},y_{i},\theta )$$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;贝叶斯派&lt;/strong&gt; ：将模式Θ作为概率变量，对其先验概率p(Θ)加以考虑，计算与训练集相对应的后验概率p(Θ|D).并利用贝叶斯公式求解后验概率&lt;/p&gt;
+&lt;p&gt;$$p(\theta \mid D)=\frac{p(D\mid \theta )p(\theta )}{p(D)}=\frac{\prod_{i=1}^{n}q(x_{i},y_{i}\mid \theta )p(\theta )}{\int \coprod_{i=1}^{n}q(x_{i},y_{y}|\theta )p(\theta )d\theta }$$&lt;/p&gt;
+&lt;p&gt;贝叶斯学派的&lt;strong&gt;主要任务&lt;/strong&gt;是如何通过各种方式精确计算后验概率。&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt; 只在训练集的输入样本附近对函数进行近似，可以减轻维数灾难的影像&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;线性模型&lt;/p&gt;
+&lt;p&gt;​&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;核模型&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;层次模型&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;判别式（识别式）学习&lt;/strong&gt;：通过预测数据生成对联合概率&lt;strong&gt;p(x,y)&lt;/strong&gt;进行模式识别的方法·&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;产生式学习&lt;/strong&gt;：利用机器学习方法对训练集&lt;strong&gt;p(y|x)&lt;/stro
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>UEFI双系统小记</title>
@@ -1071,6 +1117,131 @@ int BT_depth1(BiTree T, int depth)
   </entry>
   
   <entry>
+    <title>Hexo多客户端写作</title>
+    <link href="http://ovjaywang.github.io/2016/04/27/hexo%E5%A4%9A%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%86%99%E4%BD%9C/"/>
+    <id>http://ovjaywang.github.io/2016/04/27/hexo多客户端写作/</id>
+    <published>2016-04-27T03:50:01.000Z</published>
+    <updated>2016-04-28T15:29:03.676Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;Hexo是很棒的静态博客，简单的安装配置即可专注写作。&lt;br&gt;但是强迫症就是很爱折腾。倘若：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;主机烧了数据备份怎么破？&lt;/li&gt;
+&lt;li&gt;换了系统想继续之前的写作怎么破?&lt;/li&gt;
+&lt;li&gt;纯粹就是想多客户端写作怎么破？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我就纯属蛋疼的。喜欢在办公和休息的地方都写作；或者我一win本&lt;br&gt;一mac 都想写文章。但Hexo的静态部署的原则不像WordPress一样，能关联博客地址，利用数据库进行博客更新。好了，这里就来解决这个问题。┑(￣Д ￣)┍&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h1 id=&quot;Hexo写作的部署逻辑-amp-其他&quot;&gt;&lt;a href=&quot;#Hexo写作的部署逻辑-amp-其他&quot; class=&quot;headerlink&quot; title=&quot;Hexo写作的部署逻辑&amp;amp;其他&quot;&gt;&lt;/a&gt;Hexo写作的部署逻辑&amp;amp;其他&lt;/h1&gt;&lt;h2 id=&quot;Hexo的写作特点&quot;&gt;&lt;a href=&quot;#Hexo的写作特点&quot; class=&quot;headerlink&quot; title=&quot;Hexo的写作特点&quot;&gt;&lt;/a&gt;Hexo的写作特点&lt;/h2&gt;&lt;p&gt;Hexo最大特点就是静态博客，即部署到服务器的博客内容是静态写好的html（由markdown转义），而不像类似wordpress的数据都存放在服务器端数据库，每次更新即一次读写数据库的操作。所以如果需要更改博客内容、发布新内容，必须&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;更改源文件source文件夹下_post及其他各页面文件夹的md文件&lt;/li&gt;
+&lt;li&gt;通过&lt;code&gt;hexo g&lt;/code&gt;或&lt;code&gt;hexo generate&lt;/code&gt;在public生成静态文件。&lt;/li&gt;
+&lt;li&gt;利用&lt;code&gt;hexo-deployer-git&lt;/code&gt;插件及&lt;code&gt;hexo d&lt;/code&gt;命令将public的文件自动的部署到创建好的&lt;code&gt;user-name.github.io&lt;/code&gt;项目中。&lt;blockquote&gt;
+&lt;p&gt;在github项目中可以看到，自动上传的只有public文件夹中的文件，包括以年份分类的静态页面文件夹、tag、categories及其他辅助css、js、img等，还有域名指引的CNAME和rss sitemap等。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;在博客中看到更新的内容。当然，本地目录中，即存放了md源文件，也包含了生成的public文件。其实，本地并不需要public里的内容，只要有写作的源文件，generate一下就能生成。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;Hexo的缺憾&quot;&gt;&lt;a href=&quot;#Hexo的缺憾&quot; class=&quot;headerlink&quot; title=&quot;Hexo的缺憾&quot;&gt;&lt;/a&gt;Hexo的缺憾&lt;/h2&gt;&lt;p&gt;那么问题来了，如果我在公司和贫民窟都想写作怎么办。总不能在两个本地仓库hexo init都部署到pages项目。在公司更新一篇blog里面全都是公司写的，然后回到地下室又写一篇更新又全是小黑屋的内容。  &lt;/p&gt;
+&lt;p&gt;尽管Hexo让人专注写作，随时随地用md写一篇博，等到来到同步的机器才更新一次也让人很不爽。对于远程仓库只存放静态文件的方案，就想到了两个思路&lt;/p&gt;
+&lt;h3 id=&quot;同步静态文件&quot;&gt;&lt;a href=&quot;#同步静态文件&quot; class=&quot;headerlink&quot; title=&quot;同步静态文件&quot;&gt;&lt;/a&gt;同步静态文件&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;新仓库同步静态文件-&amp;gt;hexo g生成静态文件-&amp;gt;合并静态文件-&amp;gt;hexo d部署&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;在两地分别hexo init建立hexo博客目录，在_config.yml中都部署到同一个远程仓库，在每次generate时，都先将远程仓库的静态文件同步下来（新建一个单独的folder专门用于同步静态文件）。请勿使用hexo博客中的public文件夹用于同步，每次generate会覆盖同名文件。若另一台主机曾做过修改并提交，这次修改的静态文件将被本地未修改的静态文件覆盖。具体操作：&lt;br&gt;第一次克隆远程hexo主分支：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;git clone git@github.com:user-name/user-name.github.io.git
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;之后每次hexo仓库发布首先在静态文件仓库获取远程仓库最新静态文件(无条件merge)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git pull origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;ol&gt;
+&lt;li&gt;在静态文件同步仓库中，将自上次部署后，本地修改过的静态文件&lt;strong&gt;删掉&lt;/strong&gt;（不记得怪我咯┑(￣Д ￣)┍）；同时在hexo blog仓库中&lt;code&gt;hexo -g&lt;/code&gt;生成本地静态文件。&lt;/li&gt;
+&lt;li&gt;将剔除过期静态文件的public仓库中文件复制到hexo的public中。&lt;/li&gt;
+&lt;li&gt;使用&lt;code&gt;hexo -d&lt;/code&gt;部署&lt;blockquote&gt;
+&lt;p&gt;以上步骤2中的删除操作是为了保证静态文件的数据都是最新的，保证博客内容的一致性。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;同步源文件（大招）&quot;&gt;&lt;a href=&quot;#同步源文件（大招）&quot; class=&quot;headerlink&quot; title=&quot;同步源文件（大招）&quot;&gt;&lt;/a&gt;同步源文件（大招）&lt;/h3&gt;&lt;p&gt;想到上述方式需要进行2步骤的主要原因就是本地的源文件不同步，只能通过生成的静态文件进行合并的方式，为毛不将源文件同步呢？！参考&lt;a href=&quot;http://crazymilk.github.io/2015/12/28/GitHub-Pages-Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这篇文章&lt;/a&gt;的思路，同步源文件就是通过远程仓库对源文件融合统一。&lt;/p&gt;
+&lt;h2 id=&quot;呵呵哒&quot;&gt;&lt;a href=&quot;#呵呵哒&quot; class=&quot;headerlink&quot; title=&quot;呵呵哒&quot;&gt;&lt;/a&gt;呵呵哒&lt;/h2&gt;&lt;p&gt;本文为了完成多客户端的同Hexo博的管理和发布，对ssh、git安装、Hexo安装、配置插件主题管理、域名绑定&lt;strong&gt;不涉及&lt;/strong&gt;。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;系统不限制 &lt;/li&gt;
+&lt;li&gt;是否写过博部署过没差&lt;/li&gt;
+&lt;li&gt;最好Hexo3.X,2.X没试过出事自负&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;真·多客户端&quot;&gt;&lt;a href=&quot;#真·多客户端&quot; class=&quot;headerlink&quot; title=&quot;真·多客户端&quot;&gt;&lt;/a&gt;真·多客户端&lt;/h1&gt;&lt;h2 id=&quot;创建远程仓库&quot;&gt;&lt;a href=&quot;#创建远程仓库&quot; class=&quot;headerlink&quot; title=&quot;创建远程仓库&quot;&gt;&lt;/a&gt;创建远程仓库&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;对于没有进行创作的hexo博客，首先创建同名仓库，再创建一个hexo branch。此时俩分支都是空的  &lt;/li&gt;
+&lt;li&gt;对于已经进行创作的hexo博客，直接创建一个hexo 分支。此时，hexo clone了master的静态文件。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;设置主分支&quot;&gt;&lt;a href=&quot;#设置主分支&quot; class=&quot;headerlink&quot; title=&quot;设置主分支&quot;&gt;&lt;/a&gt;设置主分支&lt;/h2&gt;&lt;p&gt;将hexo branch设为主分支，用于同步源文件；master branch作为静态文件的存放。（由于github pages会检索master分支作为该域名下的部署分支，因此必须把master名字保留）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/04/27/5720a2a70a238.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;同步远程仓库并初始化&quot;&gt;&lt;a href=&quot;#同步远程仓库并初始化&quot; class=&quot;headerlink&quot; title=&quot;同步远程仓库并初始化&quot;&gt;&lt;/a&gt;同步远程仓库并初始化&lt;/h2&gt;&lt;p&gt;在本地（包含第一次所有源文件的主机）新建一个文件夹（就算已经写过博客的也这么搞）同步远程仓库并初始化&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git clone git@github.com:your-Id/your-Id.github.io.git
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;此时输入&lt;code&gt;git branch&lt;/code&gt;可以看到两个分支，红色分支为主分支。&lt;br&gt;若是非空白博客，同步后需要先删掉里面的静态文件.直接删光，把原博客的文件全部复制过来&lt;strong&gt;（好像没有发现更换远程仓库主分支后本地同步更换的git bash。求解?）&lt;/strong&gt;;若是空白博客，那么需要再令建一个文件夹，（因为hexo init操作会覆盖原.git文件导致与远程仓库失联）在该文件夹git bash执行&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm install -g hexo
+hexo init
+npm install
+hexo g
+npm install hexo-deployer-git--save
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;好了，里面该有的差不多都有了。全部复制到源文件仓库。&lt;strong&gt;注意把hello worl删掉啊。&lt;/strong&gt;关键的就是，config.yml里deployer的branch是master，而本地仓库关联的是hexo就对了。&lt;br&gt;然后执行&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git add .
+git commit -m &amp;quot;init&amp;quot;
+git push -u origin hexo
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;值得注意的是，有的时候提示主题的文件夹并未加入同步操作，显示&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;
+Changes not staged for commit
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;即主题文件夹的内容尚未有之前版本，应该加入tracked。应在提交前输入&lt;code&gt;git add themes/themes_name/&lt;/code&gt;.最后那个斜杠别忘了加。&lt;br&gt;这就完成源文件的同步了！(￣▽￣)”” 执行&lt;code&gt;hexo d&lt;/code&gt;操作将本地public静态文件部署。&lt;/p&gt;
+&lt;h1 id=&quot;发博日常&quot;&gt;&lt;a href=&quot;#发博日常&quot; class=&quot;headerlink&quot; title=&quot;发博日常&quot;&gt;&lt;/a&gt;发博日常&lt;/h1&gt;&lt;h2 id=&quot;更博&quot;&gt;&lt;a href=&quot;#更博&quot; class=&quot;headerlink&quot; title=&quot;更博&quot;&gt;&lt;/a&gt;更博&lt;/h2&gt;&lt;p&gt;如果你不能确定是否抽风需要经常换客户端，因此需要每次都要同步本地源文件；如果能忍住，，或者有规律的换客户端，那么平时更新不需要经常同步。&lt;br&gt;写博前操作(&lt;strong&gt;特么狠重要啊&lt;/strong&gt;)：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git pull origin hexo
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;更新操作：(同步源文件到hexo分支)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git add .
+git commit -m &amp;quot;hehe&amp;quot;
+git push origin hexo
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这样每次更博都需要多几个步骤，嫌麻烦就要忍住不手痒了。在手机、pad写md再同步到电脑也是个不错的习惯。&lt;/p&gt;
+&lt;h2 id=&quot;换客户端&quot;&gt;&lt;a href=&quot;#换客户端&quot; class=&quot;headerlink&quot; title=&quot;换客户端&quot;&gt;&lt;/a&gt;换客户端&lt;/h2&gt;&lt;p&gt;easy.只要远程仓库存在了一份完整的源文件，那同步就很容易了。似上步第一次同步，使用&lt;code&gt;git clone git@github.com:your-Id/your-Id.github.io.git&lt;/code&gt;拷贝仓库。然后执行&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm install -g hexo
+npm install
+npm install hexo-deployer-git
+&lt;/code&gt;&lt;/pre&gt;&lt;font color=&quot;red&quot;&gt;&lt;strong&gt;不用hexo init!!!&lt;/strong&gt;&lt;/font&gt;
+
+&lt;h1 id=&quot;后记&quot;&gt;&lt;a href=&quot;#后记&quot; class=&quot;headerlink&quot; title=&quot;后记&quot;&gt;&lt;/a&gt;后记&lt;/h1&gt;&lt;h2 id=&quot;多地部署&quot;&gt;&lt;a href=&quot;#多地部署&quot; class=&quot;headerlink&quot; title=&quot;多地部署&quot;&gt;&lt;/a&gt;多地部署&lt;/h2&gt;&lt;p&gt;pacman的公式和代码支持好差啊~还有需要多地备份的可以尝试coding（page之前免费的现在要钱了 = =）.在站点部署文件中更改deploy：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;markdown&quot;&gt;deploy:
+   type: git
+   repo: 
+      github: https://github.com/{YOUR_ID}/{YOUR_ID}.github.io.git,master
+      coding: https://git.coding.net/{YOUR_ID}/{BLOG　NAME}.git,master
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;同理也能部署到自己的ftp服务器上。&lt;/p&gt;
+&lt;h2 id=&quot;bug1-file-name-too-long&quot;&gt;&lt;a href=&quot;#bug1-file-name-too-long&quot; class=&quot;headerlink&quot; title=&quot;bug1 file-name-too-long&quot;&gt;&lt;/a&gt;&lt;font color=&quot;red&quot;&gt;bug1 file-name-too-long&lt;/font&gt;&lt;/h2&gt;&lt;p&gt;在拷贝原始数据的时候，提交远程仓库时可能会报modules的文件夹无法同步。这个情况在windows下安装msysgit进行git bash会报这一问题。&lt;a href=&quot;https://github.com/msysgit/git/pull/110&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;也提到了这个异常。但这并不是git的问题，而是msysgit的问题。使用其他git方式对文件路径较长的提交就不会报错。实测在github for windows下提交该modules文件就不会报错。&lt;/p&gt;
+&lt;h2 id=&quot;bug2-could-not-read-Username-for-‘https-XXX‘&quot;&gt;&lt;a href=&quot;#bug2-could-not-read-Username-for-‘https-XXX‘&quot; class=&quot;headerlink&quot; title=&quot;bug2 could not read Username for ‘https://XXX‘&quot;&gt;&lt;/a&gt;&lt;font color=&quot;red&quot;&gt;bug2 could not read Username for ‘&lt;a href=&quot;https://XXX&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://XXX&lt;/a&gt;‘&lt;/font&gt;&lt;/h2&gt;&lt;p&gt;当需要推送另一台设备的静态文件时，可能极少情况会碰上这个问题。有的说是bash的版本问题，不识别这种方式的推送。然而我用的同一版本的msysgit..&lt;/p&gt;
+&lt;p&gt;在&lt;a href=&quot;http://stackoverflow.com/questions/20871549/error-when-push-commits-with-github-fatal-could-not-read-username&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;也发现了这个问题，尝试了一下使用在https中加入用户名和密码的方式能够良好的推送。。当然配置文件别泄露了。。更改配置文件的deploy如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;markdown&quot;&gt;deploy:
+   type: git
+   repo: 
+      github: https://{YOUR_ID}:{Your_Pwd}@github.com/{YOUR_ID}/{YOUR_ID}.github.io.git,master
+      coding: https://{YOUR_ID}:{Your_Pwd}@git.coding.net/{YOUR_ID}/{BLOG　NAME}.git,master
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Enjoy Hexo!&lt;/p&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;Hexo是很棒的静态博客，简单的安装配置即可专注写作。&lt;br&gt;但是强迫症就是很爱折腾。倘若：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;主机烧了数据备份怎么破？&lt;/li&gt;
+&lt;li&gt;换了系统想继续之前的写作怎么破?&lt;/li&gt;
+&lt;li&gt;纯粹就是想多客户端写作怎么破？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我就纯属蛋疼的。喜欢在办公和休息的地方都写作；或者我一win本&lt;br&gt;一mac 都想写文章。但Hexo的静态部署的原则不像WordPress一样，能关联博客地址，利用数据库进行博客更新。好了，这里就来解决这个问题。┑(￣Д ￣)┍&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Effective Java 笔记--创建对象的几个Tips</title>
     <link href="http://ovjaywang.github.io/2016/04/27/effective-java-tips-of-create-object/"/>
     <id>http://ovjaywang.github.io/2016/04/27/effective-java-tips-of-create-object/</id>
@@ -1214,131 +1385,6 @@ public class Client {
     <summary type="html">
     
       &lt;p&gt;第一章-创建和销毁对象 的一些 小tips&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo多客户端写作</title>
-    <link href="http://ovjaywang.github.io/2016/04/27/hexo%E5%A4%9A%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%86%99%E4%BD%9C/"/>
-    <id>http://ovjaywang.github.io/2016/04/27/hexo多客户端写作/</id>
-    <published>2016-04-27T03:50:01.000Z</published>
-    <updated>2016-04-28T15:29:03.676Z</updated>
-    
-    <content type="html">&lt;blockquote&gt;
-&lt;p&gt;Hexo是很棒的静态博客，简单的安装配置即可专注写作。&lt;br&gt;但是强迫症就是很爱折腾。倘若：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;主机烧了数据备份怎么破？&lt;/li&gt;
-&lt;li&gt;换了系统想继续之前的写作怎么破?&lt;/li&gt;
-&lt;li&gt;纯粹就是想多客户端写作怎么破？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;我就纯属蛋疼的。喜欢在办公和休息的地方都写作；或者我一win本&lt;br&gt;一mac 都想写文章。但Hexo的静态部署的原则不像WordPress一样，能关联博客地址，利用数据库进行博客更新。好了，这里就来解决这个问题。┑(￣Д ￣)┍&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h1 id=&quot;Hexo写作的部署逻辑-amp-其他&quot;&gt;&lt;a href=&quot;#Hexo写作的部署逻辑-amp-其他&quot; class=&quot;headerlink&quot; title=&quot;Hexo写作的部署逻辑&amp;amp;其他&quot;&gt;&lt;/a&gt;Hexo写作的部署逻辑&amp;amp;其他&lt;/h1&gt;&lt;h2 id=&quot;Hexo的写作特点&quot;&gt;&lt;a href=&quot;#Hexo的写作特点&quot; class=&quot;headerlink&quot; title=&quot;Hexo的写作特点&quot;&gt;&lt;/a&gt;Hexo的写作特点&lt;/h2&gt;&lt;p&gt;Hexo最大特点就是静态博客，即部署到服务器的博客内容是静态写好的html（由markdown转义），而不像类似wordpress的数据都存放在服务器端数据库，每次更新即一次读写数据库的操作。所以如果需要更改博客内容、发布新内容，必须&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;更改源文件source文件夹下_post及其他各页面文件夹的md文件&lt;/li&gt;
-&lt;li&gt;通过&lt;code&gt;hexo g&lt;/code&gt;或&lt;code&gt;hexo generate&lt;/code&gt;在public生成静态文件。&lt;/li&gt;
-&lt;li&gt;利用&lt;code&gt;hexo-deployer-git&lt;/code&gt;插件及&lt;code&gt;hexo d&lt;/code&gt;命令将public的文件自动的部署到创建好的&lt;code&gt;user-name.github.io&lt;/code&gt;项目中。&lt;blockquote&gt;
-&lt;p&gt;在github项目中可以看到，自动上传的只有public文件夹中的文件，包括以年份分类的静态页面文件夹、tag、categories及其他辅助css、js、img等，还有域名指引的CNAME和rss sitemap等。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;在博客中看到更新的内容。当然，本地目录中，即存放了md源文件，也包含了生成的public文件。其实，本地并不需要public里的内容，只要有写作的源文件，generate一下就能生成。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&quot;Hexo的缺憾&quot;&gt;&lt;a href=&quot;#Hexo的缺憾&quot; class=&quot;headerlink&quot; title=&quot;Hexo的缺憾&quot;&gt;&lt;/a&gt;Hexo的缺憾&lt;/h2&gt;&lt;p&gt;那么问题来了，如果我在公司和贫民窟都想写作怎么办。总不能在两个本地仓库hexo init都部署到pages项目。在公司更新一篇blog里面全都是公司写的，然后回到地下室又写一篇更新又全是小黑屋的内容。  &lt;/p&gt;
-&lt;p&gt;尽管Hexo让人专注写作，随时随地用md写一篇博，等到来到同步的机器才更新一次也让人很不爽。对于远程仓库只存放静态文件的方案，就想到了两个思路&lt;/p&gt;
-&lt;h3 id=&quot;同步静态文件&quot;&gt;&lt;a href=&quot;#同步静态文件&quot; class=&quot;headerlink&quot; title=&quot;同步静态文件&quot;&gt;&lt;/a&gt;同步静态文件&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;新仓库同步静态文件-&amp;gt;hexo g生成静态文件-&amp;gt;合并静态文件-&amp;gt;hexo d部署&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ol&gt;
-&lt;li&gt;在两地分别hexo init建立hexo博客目录，在_config.yml中都部署到同一个远程仓库，在每次generate时，都先将远程仓库的静态文件同步下来（新建一个单独的folder专门用于同步静态文件）。请勿使用hexo博客中的public文件夹用于同步，每次generate会覆盖同名文件。若另一台主机曾做过修改并提交，这次修改的静态文件将被本地未修改的静态文件覆盖。具体操作：&lt;br&gt;第一次克隆远程hexo主分支：&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre&gt;&lt;code&gt;git clone git@github.com:user-name/user-name.github.io.git
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;之后每次hexo仓库发布首先在静态文件仓库获取远程仓库最新静态文件(无条件merge)&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git pull origin master
-&lt;/code&gt;&lt;/pre&gt;&lt;ol&gt;
-&lt;li&gt;在静态文件同步仓库中，将自上次部署后，本地修改过的静态文件&lt;strong&gt;删掉&lt;/strong&gt;（不记得怪我咯┑(￣Д ￣)┍）；同时在hexo blog仓库中&lt;code&gt;hexo -g&lt;/code&gt;生成本地静态文件。&lt;/li&gt;
-&lt;li&gt;将剔除过期静态文件的public仓库中文件复制到hexo的public中。&lt;/li&gt;
-&lt;li&gt;使用&lt;code&gt;hexo -d&lt;/code&gt;部署&lt;blockquote&gt;
-&lt;p&gt;以上步骤2中的删除操作是为了保证静态文件的数据都是最新的，保证博客内容的一致性。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;同步源文件（大招）&quot;&gt;&lt;a href=&quot;#同步源文件（大招）&quot; class=&quot;headerlink&quot; title=&quot;同步源文件（大招）&quot;&gt;&lt;/a&gt;同步源文件（大招）&lt;/h3&gt;&lt;p&gt;想到上述方式需要进行2步骤的主要原因就是本地的源文件不同步，只能通过生成的静态文件进行合并的方式，为毛不将源文件同步呢？！参考&lt;a href=&quot;http://crazymilk.github.io/2015/12/28/GitHub-Pages-Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这篇文章&lt;/a&gt;的思路，同步源文件就是通过远程仓库对源文件融合统一。&lt;/p&gt;
-&lt;h2 id=&quot;呵呵哒&quot;&gt;&lt;a href=&quot;#呵呵哒&quot; class=&quot;headerlink&quot; title=&quot;呵呵哒&quot;&gt;&lt;/a&gt;呵呵哒&lt;/h2&gt;&lt;p&gt;本文为了完成多客户端的同Hexo博的管理和发布，对ssh、git安装、Hexo安装、配置插件主题管理、域名绑定&lt;strong&gt;不涉及&lt;/strong&gt;。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;系统不限制 &lt;/li&gt;
-&lt;li&gt;是否写过博部署过没差&lt;/li&gt;
-&lt;li&gt;最好Hexo3.X,2.X没试过出事自负&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&quot;真·多客户端&quot;&gt;&lt;a href=&quot;#真·多客户端&quot; class=&quot;headerlink&quot; title=&quot;真·多客户端&quot;&gt;&lt;/a&gt;真·多客户端&lt;/h1&gt;&lt;h2 id=&quot;创建远程仓库&quot;&gt;&lt;a href=&quot;#创建远程仓库&quot; class=&quot;headerlink&quot; title=&quot;创建远程仓库&quot;&gt;&lt;/a&gt;创建远程仓库&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;对于没有进行创作的hexo博客，首先创建同名仓库，再创建一个hexo branch。此时俩分支都是空的  &lt;/li&gt;
-&lt;li&gt;对于已经进行创作的hexo博客，直接创建一个hexo 分支。此时，hexo clone了master的静态文件。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;设置主分支&quot;&gt;&lt;a href=&quot;#设置主分支&quot; class=&quot;headerlink&quot; title=&quot;设置主分支&quot;&gt;&lt;/a&gt;设置主分支&lt;/h2&gt;&lt;p&gt;将hexo branch设为主分支，用于同步源文件；master branch作为静态文件的存放。（由于github pages会检索master分支作为该域名下的部署分支，因此必须把master名字保留）&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://ooo.0o0.ooo/2016/04/27/5720a2a70a238.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;同步远程仓库并初始化&quot;&gt;&lt;a href=&quot;#同步远程仓库并初始化&quot; class=&quot;headerlink&quot; title=&quot;同步远程仓库并初始化&quot;&gt;&lt;/a&gt;同步远程仓库并初始化&lt;/h2&gt;&lt;p&gt;在本地（包含第一次所有源文件的主机）新建一个文件夹（就算已经写过博客的也这么搞）同步远程仓库并初始化&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git clone git@github.com:your-Id/your-Id.github.io.git
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;此时输入&lt;code&gt;git branch&lt;/code&gt;可以看到两个分支，红色分支为主分支。&lt;br&gt;若是非空白博客，同步后需要先删掉里面的静态文件.直接删光，把原博客的文件全部复制过来&lt;strong&gt;（好像没有发现更换远程仓库主分支后本地同步更换的git bash。求解?）&lt;/strong&gt;;若是空白博客，那么需要再令建一个文件夹，（因为hexo init操作会覆盖原.git文件导致与远程仓库失联）在该文件夹git bash执行&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;npm install -g hexo
-hexo init
-npm install
-hexo g
-npm install hexo-deployer-git--save
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;好了，里面该有的差不多都有了。全部复制到源文件仓库。&lt;strong&gt;注意把hello worl删掉啊。&lt;/strong&gt;关键的就是，config.yml里deployer的branch是master，而本地仓库关联的是hexo就对了。&lt;br&gt;然后执行&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git add .
-git commit -m &amp;quot;init&amp;quot;
-git push -u origin hexo
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;值得注意的是，有的时候提示主题的文件夹并未加入同步操作，显示&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;shell&quot;&gt;
-Changes not staged for commit
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;即主题文件夹的内容尚未有之前版本，应该加入tracked。应在提交前输入&lt;code&gt;git add themes/themes_name/&lt;/code&gt;.最后那个斜杠别忘了加。&lt;br&gt;这就完成源文件的同步了！(￣▽￣)”” 执行&lt;code&gt;hexo d&lt;/code&gt;操作将本地public静态文件部署。&lt;/p&gt;
-&lt;h1 id=&quot;发博日常&quot;&gt;&lt;a href=&quot;#发博日常&quot; class=&quot;headerlink&quot; title=&quot;发博日常&quot;&gt;&lt;/a&gt;发博日常&lt;/h1&gt;&lt;h2 id=&quot;更博&quot;&gt;&lt;a href=&quot;#更博&quot; class=&quot;headerlink&quot; title=&quot;更博&quot;&gt;&lt;/a&gt;更博&lt;/h2&gt;&lt;p&gt;如果你不能确定是否抽风需要经常换客户端，因此需要每次都要同步本地源文件；如果能忍住，，或者有规律的换客户端，那么平时更新不需要经常同步。&lt;br&gt;写博前操作(&lt;strong&gt;特么狠重要啊&lt;/strong&gt;)：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git pull origin hexo
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;更新操作：(同步源文件到hexo分支)&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git add .
-git commit -m &amp;quot;hehe&amp;quot;
-git push origin hexo
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这样每次更博都需要多几个步骤，嫌麻烦就要忍住不手痒了。在手机、pad写md再同步到电脑也是个不错的习惯。&lt;/p&gt;
-&lt;h2 id=&quot;换客户端&quot;&gt;&lt;a href=&quot;#换客户端&quot; class=&quot;headerlink&quot; title=&quot;换客户端&quot;&gt;&lt;/a&gt;换客户端&lt;/h2&gt;&lt;p&gt;easy.只要远程仓库存在了一份完整的源文件，那同步就很容易了。似上步第一次同步，使用&lt;code&gt;git clone git@github.com:your-Id/your-Id.github.io.git&lt;/code&gt;拷贝仓库。然后执行&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;npm install -g hexo
-npm install
-npm install hexo-deployer-git
-&lt;/code&gt;&lt;/pre&gt;&lt;font color=&quot;red&quot;&gt;&lt;strong&gt;不用hexo init!!!&lt;/strong&gt;&lt;/font&gt;
-
-&lt;h1 id=&quot;后记&quot;&gt;&lt;a href=&quot;#后记&quot; class=&quot;headerlink&quot; title=&quot;后记&quot;&gt;&lt;/a&gt;后记&lt;/h1&gt;&lt;h2 id=&quot;多地部署&quot;&gt;&lt;a href=&quot;#多地部署&quot; class=&quot;headerlink&quot; title=&quot;多地部署&quot;&gt;&lt;/a&gt;多地部署&lt;/h2&gt;&lt;p&gt;pacman的公式和代码支持好差啊~还有需要多地备份的可以尝试coding（page之前免费的现在要钱了 = =）.在站点部署文件中更改deploy：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;markdown&quot;&gt;deploy:
-   type: git
-   repo: 
-      github: https://github.com/{YOUR_ID}/{YOUR_ID}.github.io.git,master
-      coding: https://git.coding.net/{YOUR_ID}/{BLOG　NAME}.git,master
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;同理也能部署到自己的ftp服务器上。&lt;/p&gt;
-&lt;h2 id=&quot;bug1-file-name-too-long&quot;&gt;&lt;a href=&quot;#bug1-file-name-too-long&quot; class=&quot;headerlink&quot; title=&quot;bug1 file-name-too-long&quot;&gt;&lt;/a&gt;&lt;font color=&quot;red&quot;&gt;bug1 file-name-too-long&lt;/font&gt;&lt;/h2&gt;&lt;p&gt;在拷贝原始数据的时候，提交远程仓库时可能会报modules的文件夹无法同步。这个情况在windows下安装msysgit进行git bash会报这一问题。&lt;a href=&quot;https://github.com/msysgit/git/pull/110&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;也提到了这个异常。但这并不是git的问题，而是msysgit的问题。使用其他git方式对文件路径较长的提交就不会报错。实测在github for windows下提交该modules文件就不会报错。&lt;/p&gt;
-&lt;h2 id=&quot;bug2-could-not-read-Username-for-‘https-XXX‘&quot;&gt;&lt;a href=&quot;#bug2-could-not-read-Username-for-‘https-XXX‘&quot; class=&quot;headerlink&quot; title=&quot;bug2 could not read Username for ‘https://XXX‘&quot;&gt;&lt;/a&gt;&lt;font color=&quot;red&quot;&gt;bug2 could not read Username for ‘&lt;a href=&quot;https://XXX&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://XXX&lt;/a&gt;‘&lt;/font&gt;&lt;/h2&gt;&lt;p&gt;当需要推送另一台设备的静态文件时，可能极少情况会碰上这个问题。有的说是bash的版本问题，不识别这种方式的推送。然而我用的同一版本的msysgit..&lt;/p&gt;
-&lt;p&gt;在&lt;a href=&quot;http://stackoverflow.com/questions/20871549/error-when-push-commits-with-github-fatal-could-not-read-username&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;也发现了这个问题，尝试了一下使用在https中加入用户名和密码的方式能够良好的推送。。当然配置文件别泄露了。。更改配置文件的deploy如下：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;markdown&quot;&gt;deploy:
-   type: git
-   repo: 
-      github: https://{YOUR_ID}:{Your_Pwd}@github.com/{YOUR_ID}/{YOUR_ID}.github.io.git,master
-      coding: https://{YOUR_ID}:{Your_Pwd}@git.coding.net/{YOUR_ID}/{BLOG　NAME}.git,master
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Enjoy Hexo!&lt;/p&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;Hexo是很棒的静态博客，简单的安装配置即可专注写作。&lt;br&gt;但是强迫症就是很爱折腾。倘若：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;主机烧了数据备份怎么破？&lt;/li&gt;
-&lt;li&gt;换了系统想继续之前的写作怎么破?&lt;/li&gt;
-&lt;li&gt;纯粹就是想多客户端写作怎么破？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;我就纯属蛋疼的。喜欢在办公和休息的地方都写作；或者我一win本&lt;br&gt;一mac 都想写文章。但Hexo的静态部署的原则不像WordPress一样，能关联博客地址，利用数据库进行博客更新。好了，这里就来解决这个问题。┑(￣Д ￣)┍&lt;/p&gt;
     
     </summary>
     
@@ -2289,182 +2335,6 @@ public class TestHa {
 &lt;font size=&quot;4&quot; face=&quot;华文中宋&quot;&gt;本小节只讨论干货。在root及xposed框架下。同时兼顾不能肉身翻墙又想用google服务的小狗们。本人的使用情况是正常功能照开，google需要gmail和google photo及部分gcm，黑屏开启手势和解锁，正常收微信、闹钟、短信电话外熄屏一切不开，后台常开应用有snap锁屏、grenntify绿色守护、调音的audio mix、天气插件、BBS、输入法、Nova Launcher。测试的环境为Android L 5.1.1&lt;/font&gt;
 
 &lt;font size=&quot;4&quot; face=&quot;华文中宋&quot;&gt;&amp;nbsp;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="App强推" scheme="http://ovjaywang.github.io/categories/App%E5%BC%BA%E6%8E%A8/"/>
-    
-      <category term="软文" scheme="http://ovjaywang.github.io/categories/App%E5%BC%BA%E6%8E%A8/%E8%BD%AF%E6%96%87/"/>
-    
-    
-      <category term="Android" scheme="http://ovjaywang.github.io/tags/Android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android为毛耗电[1]</title>
-    <link href="http://ovjaywang.github.io/2015/12/28/Android%E4%B8%BA%E6%AF%9B%E8%80%97%E7%94%B5%5B1%5D/"/>
-    <id>http://ovjaywang.github.io/2015/12/28/Android为毛耗电[1]/</id>
-    <published>2015-12-28T15:34:25.000Z</published>
-    <updated>2016-04-29T09:13:23.588Z</updated>
-    
-    <content type="html">&lt;p&gt;&lt;strong&gt;&lt;font color=&quot;#000000&quot;&gt;&lt;/font&gt;**&lt;/strong&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot;&gt;&lt;font face=&quot;微软雅黑 Light&quot;&gt;本文只讨论安卓手机软节电，不负责推荐底包、rom、调频调压方案，&lt;font color=&quot;#ff0000&quot;&gt;刷机root后果自负。&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;**&lt;/p&gt;
-&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;&lt;strong&gt;纯硬货，只想节电看后文。&lt;/strong&gt;&lt;/font&gt;
-
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;使用安德猴主要还是谷歌的情怀。最近无可救药的恋上了无线高质量同步的Google相册和Keep。此外Google Contact和Gmail也时不时要收一下。&lt;/font&gt;
-
-&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;问题是。。墙内不能随时翻。国内流氓自启和相互唤醒严重影响待机时间。如何破？首先搞清楚什么在耗电。再来解决怎么防流氓的同时不影响收发消息体验。&lt;/font&gt;
-
-&lt;font color=&quot;#333333&quot;&gt;&lt;font size=&quot;4&quot;&gt;&lt;font face=&quot;微软雅黑 Light&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;这里提到的几个概念是安猪手机由于真后台，而造成的各种能耗电耗流量元凶——四大组件&lt;/font&gt;&lt;strong&gt;&lt;font color=&quot;#ff0000&quot;&gt;Activity、Service、BroadCastReceiver、ContentProvider&lt;/font&gt;。&lt;/strong&gt;&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;font color=&quot;#333333&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;耗电–一定是这四个中的一个在以某种方式运行&lt;/font&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;font color=&quot;#000000&quot; size=&quot;4&quot;&gt;&lt;font face=&quot;微软雅黑 Light&quot;&gt;&lt;font color=&quot;#ff0000&quot;&gt;&lt;strong&gt;Activity&lt;/strong&gt;&lt;/font&gt;简言之就是前台窗体可视界面它上面可以显示一些控件也可以监听并处理用户的事件做出响应。你跳转到一个程序的界面、里面可能嵌套了很多个Activity。也有的一个Activity自成一个界面，例如第一次启动的引导界面。当然，程序猿代码风格迥异，一个&lt;font size=&quot;4&quot;&gt;Activity有的直接盖在一个上面，这样按下返回键销毁当前的能直接返回上一个；有的流程和任务则直接生成新Activity把当前的干掉。一些广告，一些无聊的需求，如淘宝摇一摇、美图下游戏，你完全不想要，则可以通过阻止Activity启动的方式，干掉。这样的做法可以降低内存消耗。但如果代码流程，若写入了不开启这个Activity就没法运行，很可能造成FC。因此测试Activity阻止就需要很谨慎。网路也有很多大神提供了Activity的阻止列表。但App更新极快，同时包名和Activity的命名方式更加让人难以捉摸，就相当难以防范。&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;
-
-&lt;font color=&quot;#000000&quot;&gt;&lt;font size=&quot;4&quot;&gt;&lt;font face=&quot;微软雅黑 Light&quot;&gt;&lt;font color=&quot;#ff0000&quot;&gt;&lt;strong&gt;Activity&lt;/strong&gt;&lt;/font&gt;之间通过&lt;font color=&quot;#ff0000&quot;&gt;Intent&lt;/font&gt;进行通信，它描述的事某一个事件（单机、浏览、编辑）。也就是说这个Activity的一些参数在Activity跳转时，通过把参数塞入Intent这样一个对象，在另一个Activity读取。在Intent的描述结构中，有两个最重要的部分：动作和动作对应的数据。而IntentFilter则对应一个Activity能做哪些Intent。IntentFilter通常写入Android的AndroidManifest文件中定义好。&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;
-
-&lt;font color=&quot;#000000&quot;&gt;&lt;font size=&quot;4&quot;&gt;&lt;font face=&quot;微软雅黑 Light&quot;&gt;&lt;font color=&quot;#ff0000&quot;&gt;&lt;strong&gt;BroadCastReceiver&lt;/strong&gt;&lt;/font&gt;（广播接收器）它是监听响应各种手机变化并作出响应反应的组件。例如打进电话某个App调出号码查询，例如WiFi网络改变某App可以进行同步。这些监听并不经常是我们需要的，同时如果App写的极差，接收的广播级多，也会造成资源的浪费也相当耗电。它并不会产生一个界面，但是它能唤起一个Activity或者Service对事件进行相应。最常见的就是电话来了闪灯响铃，最讨厌的就是有Wifi了发个通知广告。甚至，当一个App装过还启动过，由于设置了开机启动的响应或网络状况的变化响应，都会产生通知。然而与Activity一样，阻止某一种广播接收同样会可能造成应用使用不正常，但FC情况相当少，测试的时候需要相当小心，但这里的组件命名方式都较为规范，因此测试起来也会比较顺利。&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;
-
-&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;监听广播同样可以视为一个事件，使用Intent对其参数进行传递。这些事件，就是通常意义上的权限，可以查看联系人、可以监听电话等。许多监控App都能查看并修改应用程序能够监听的内容。注册广播接收器可以写入一个App的AndroidManifest.xml中进行静态注册，若完成时间比较长必须通过线程，放进Service后台中运行，否则容易造成程序卡顿；也可以程序动态注册，当Activity关闭后，监听广播也关闭，这样的做法比较省电，但是关闭程序就无法接受一些通知和广告。（需要完全退出或者多任务杀掉）因此大多数App都采用静态注册，App不启动，也能通过订阅的广播触发，例如开机启动触发、时间变化触发等。&lt;/font&gt;
-
-&lt;font color=&quot;#000000&quot;&gt;&lt;font size=&quot;4&quot;&gt;&lt;font face=&quot;微软雅黑 Light&quot;&gt;&lt;font color=&quot;#ff0000&quot;&gt;&lt;strong&gt;Service&lt;/strong&gt;&lt;/font&gt;（服务）也是无界面的组件，它通过后台长时间的运行来进行运行一些监测程序，例如后台听歌单曲循环等，后台轮询查询最新消息的微博。配合BroadCastReceiver使用效果极佳耗电也极棒。一个App很可能有相当多的Service在后台挂着，同时一个流氓集团的Service也会相互唤醒保证一个被杀掉的时候又自启动。但乱杀也会造成严重的后果，一些闹钟，一些天气，一些消息软件误杀后没有了后台Service做消息推送，就会错过重要的事情。&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;
-
-&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;一个Service不能自己运行。首次启动需要create再start，第二次之后就只用start需要别的启动或触发。但Service一旦启动，就与调用者无关了。需要停止service需要调用stop方法同时销毁destroy。可以使用bindservice让service随着调用者关闭而终止。&lt;/font&gt;
-
-&lt;font color=&quot;#000000&quot;&gt;&lt;font size=&quot;4&quot;&gt;&lt;font face=&quot;微软雅黑 Light&quot;&gt;&lt;font color=&quot;#ff0000&quot;&gt;&lt;strong&gt;ContentProvider&lt;/strong&gt;&lt;/font&gt;(内容提供者)一个应用程序的指定数据集提供给其他应用程序。这些数据可以存储在文件系统中、在一个SQLite数据库、或以任何其他合理的方式。其他应用可以通过ContentResolver类(见ContentProviderAccessApp例子)从该内容提供者中获取或存入数据.(相当于在应用外包了一层壳),最常见的就是支付婊在别的应用中的调用，它提供了一个统一的支付接口，写在一个内部路径URL里。&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;
-
-&lt;font color=&quot;#ff0000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;四大组件启动，&lt;/font&gt;
-
-&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;除了ContentProvider是通过别的应用程序调用ContentResolver 发出内容请求后激活外，其他三个都是通过Intent异步消息激活。&lt;br&gt;Activity的激活通过传递一个Intent 对象至&lt;font color=&quot;#ff0000&quot;&gt;Context.startActivity()或Activity.startActivityForResult()&lt;/font&gt;以载入（或指定新工作给）一个activity。 前面的函数直接启动的Activity，可以查看Intent中传入的参数。若期待新启动的Activity返回一个值（例如填写个人信息提交返回是否成功）就调用后面那个函数，并调用onActivityResult() 查询返回结果.&lt;br&gt;Service的激活可以通过传递一个Intent 对象至&lt;font color=&quot;#ff0000&quot;&gt;Context.startService()或Context.bindService()&lt;/font&gt;前者Android 调用服务的onStart()方法并将Intent 对象传递给它，后者Android 调用服务的onBind()方法将这个Intent 对象传递给它&lt;br&gt;发送广播可以通过传递一个Intent 对象至给&lt;font color=&quot;#ff0000&quot;&gt;Context.sendBroadcast() 、Context.sendOrderedBroadcast()或Context.sendStickyBroadcast()。&lt;/font&gt;Android 会调用所有对此广播有兴趣的广播接收器的onReceive()方法，将intent 传递给它们&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#ff0000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;四大组件销毁时，&lt;/font&gt;
-
-&lt;font color=&quot;#000000&quot;&gt;&lt;font size=&quot;4&quot;&gt;&lt;font face=&quot;微软雅黑 Light&quot;&gt;&lt;font color=&quot;#ff0000&quot;&gt;&lt;strong&gt;ContentProvider&lt;/strong&gt;&lt;/font&gt;通过别的应用程序调用，消息处理完毕即销毁（如调用图片viewer看图，调用支付接口付款）。&lt;font color=&quot;#ff0000&quot;&gt;&lt;strong&gt;BroadCastReceiver&lt;/strong&gt;&lt;/font&gt;则注册在系统中监听，这两者都无需主动人为关闭，可以直接在权限中限制。其中BroadCastReceiver的生命周期只有十秒，否则就会报ANR(Application No Response)程序无响应的消息。&lt;br&gt;&lt;strong&gt;&lt;font color=&quot;#ff0000&quot;&gt;Activity&lt;/font&gt;&lt;/strong&gt;则通过finish()函数退出。一般情况下，按下返回退出键，或在多任务窗口杀掉都能直接关闭显式的Activity。有时直接按下Home键则会在后台缓存（Process），当切换过多个应用后，切回来时还能完整的保留原先打开时候的数据和窗口。当然，这样的过程会占用内存空间（RAM），同时也消耗一定的电量（比较少）。当后台运行过多缓存时，部分低内存手机会出现明显的卡顿。Android5.0之后的系统做的不错，能够按照优先级杀掉缓存应用。&lt;br&gt;&lt;strong&gt;&lt;font color=&quot;#ff0000&quot;&gt;Service&lt;/font&gt;&lt;/strong&gt;是个比较头疼的东西。尽管App可以调用&lt;font color=&quot;#ff0000&quot;&gt;Context.stopService()&lt;/font&gt;方法关闭服务，或使用&lt;font color=&quot;#ff0000&quot;&gt;bindService()&lt;/font&gt;绑定调用的组件关闭，但，流氓才不会这么做。&lt;br&gt;通常，手机应用中都看到正在运行的x个进程和y个服务。进程由多个线程组成，其中，主线程主要负责全局的参数传递，一些核心启动器及主界面的显示。而一些时间较长的函数，如获取多个图片，获取大量的数据，可以写在一个子线程，对主界面交互可以进行异步刷新，否则会造成主界面的卡顿。而当程序退居后台后，子线程依然处理数据，但没有了Activity进行联系，因此可以通过Service进行管理。由于Service并不负责应用层面的复杂操作，只对数据进行处理传递，同时可以写进单独的进程中，因而更为便利。&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;
-
-&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;这里总结一下Service能被启动&amp;amp;被守护的各种方式。&lt;/font&gt;
-
-&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;1.打开应用后，直接显而易见的调用它想要完成的Service，此时按照一般的逻辑，理应是退出App关闭Activity后就会stopservice.&lt;/font&gt;
-
-&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;2.注册一个广播，可以按时钟、按网络变化、屏幕变化等，每次触发这些广播，就会检查一次Service的状况。遇到杀掉就重启。此时应当关注app的权限及其注册的广播。&lt;/font&gt;
-
-&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;3.重写Service里的函数，在被杀时自动重启；配置到单独的进程中；配置安卓persistent=true；设置前台foreground=true.这些情况，在root情况下很容易被进程管理的杀掉&lt;/font&gt;
-
-&lt;font size=&quot;4&quot;&gt;&lt;font face=&quot;微软雅黑 Light&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;4.双Service或多Service守护，在AndroidManifest.xml里面定义Service时加入android:process=”:service1”&lt;/font&gt;&lt;br&gt;&lt;/font&gt;&lt;/font&gt;
-
-&lt;pre class=&quot;brush: xml; gutter: true; first-line: 1; highlight: []; html-script: false&quot;&gt;&amp;lt;service android:enabled=&quot;true&quot; 
-android:name=&quot;com.service.demo.Service1&quot; 
-android:process=&quot;:service1&quot;&amp;gt;
-&amp;lt;service&amp;gt;
-&amp;lt;service android:enabled=&quot;true&quot; 
-android:name=&quot;com.service.demo.Service2&quot; 
-android:process=&quot;:service2&quot;&amp;gt;
-&amp;lt;service&amp;gt;  
-&lt;/pre&gt;
-
-&lt;p&gt;&amp;lt;&lt;/p&gt;
-&lt;p&gt;p align=”left”&amp;gt;&lt;span&gt;&lt;span&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;关键的Point是触发了service的onTrimMemory()函数。又分别重新启动。&lt;/font&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span&gt;&lt;span&gt;&lt;font size=&quot;4&quot;&gt;&lt;font face=&quot;微软雅黑 Light&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;&lt;/span&gt;&lt;/span&gt;&amp;nbsp;&lt;/p&gt;
-&lt;p&gt;&lt;span&gt;&lt;span&gt;&lt;font size=&quot;4&quot;&gt;&lt;font face=&quot;微软雅黑 Light&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;5.Wakelock。Android机制下有一个唤醒锁，可以唤醒休眠中的手机。&lt;/font&gt;&lt;font color=&quot;#000000&quot;&gt;WakeLock阻止应用处理器（Application &lt;wbr&gt;Processor）挂起&lt;/font&gt;&lt;font color=&quot;#000000&quot;&gt;，确保关键代码的运行，通过中断唤起应用处理器（Application &lt;wbr&gt;Processor），可以阻止屏幕变暗。一旦有有效的wakelock，系统就不能进入深度睡眠（Deep Sleep）。一般在熄屏传输文件、下歌中使用。被滥用后，后果不堪设想。&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span&gt;&lt;span&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;AlarmManage有一个AlarmManagerService,该服务程序主要维护app注册下来的各类Alarm,并且一直监听 Alarm设备，一旦有Alarm触发，或者是Alarm事件发生，AlarmManagerService就会遍历Alarm列表，找到相应的注册 Alarm并发出广播。Alarm &lt;wbr&gt;Manager会维持一个cpu的wake &lt;wbr&gt;lock。这样能保证电话休眠时，也能处理alarm的广播。一旦alarm &lt;wbr&gt;receiver的onReceive() &lt;wbr&gt;方法执行完，wake &lt;wbr&gt;lock会迅速被释放。如果在receiver中开启一个service，有可能service还没启动，wake &lt;wbr&gt;lock已经被释放了。所以此时要实现单独的wake &lt;wbr&gt;lock策略。&lt;/font&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;这也是一般不root不能根治的唤醒service的手段。App通过反复注册系统应用，调用级别高的Wakelock使得手机很难进入低频率的待机状态。&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;6.注册成为系统app同时包名混乱的编写。隐藏需要调用的service。一般没root的做不到。&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;所以，杀进程很容易，杀会自启的service也不难，难的是杀各种唤醒。&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;font size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;&lt;/font&gt;
-
-&lt;font size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;&lt;br&gt;&lt;br&gt;&lt;div align=&quot;left&quot;&gt;&lt;br&gt;&lt;br&gt;&lt;em&gt; &lt;/em&gt; &lt;em&gt;&lt;br&gt;&lt;br&gt;&lt;/em&gt;&lt;/div&gt;&lt;br&gt;&lt;br&gt;&lt;/font&gt;&lt;br&gt;&lt;span&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;这里提到两个重要概念：&lt;/font&gt;&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;span&gt;&lt;font color=&quot;#000000&quot;&gt;&lt;font size=&quot;4&quot;&gt;&lt;font face=&quot;微软雅黑 Light&quot;&gt;&lt;font color=&quot;#ff0000&quot;&gt;&lt;strong&gt;Wakelock&lt;/strong&gt;&lt;/font&gt;。唤醒锁；&lt;font color=&quot;#ff0000&quot;&gt;&lt;strong&gt;Alarm&lt;/strong&gt;&lt;/font&gt;。定时器&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;span&gt;&lt;font size=&quot;4&quot;&gt;&lt;font face=&quot;微软雅黑 Light&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;&lt;em&gt;*Wakelock&lt;/em&gt;&lt;/font&gt;&lt;font color=&quot;#000000&quot;&gt;定义了一个接口，能让App有权限，在停止交互、黑屏状况下&lt;/font&gt;&lt;font color=&quot;#ff0000&quot;&gt;阻止手机休眠&lt;/font&gt;&lt;font color=&quot;#000000&quot;&gt;，运行关键而必要的一些代码，通常是账户同步、消息推送。&lt;span&gt;Android手机有两个处理器，一个叫Application Processor（AP），一个叫Baseband Processor（BP）。AP是ARM架构的处理器，用于运行Linux+Android系统；BP用于运行实时操作系统（RTOS），通讯协议栈运行于BP的RTOS之上。非通话时间，BP的能耗基本上在5mA左右，而AP只要处于非休眠状态，能耗至少在50mA以上，执行图形运算时会更高 。此外耗电大户wifi在100mA左右，LCD灯也在100mA左右。而进入休眠的手机大部分代码会停止运行。但，并不是很容易进入深度休眠的状态。&lt;/span&gt;&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;span&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;&lt;span&gt;wakelock针对的是&lt;font color=&quot;#ff0000&quot;&gt;某个Activity，而不是整个app&lt;/font&gt;。因此，获取和释放wakelock在单个Activity中进行。&lt;/span&gt;&lt;/font&gt;&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;span&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;&lt;span&gt;对于唤醒锁，官方文档中的解释是：&lt;/span&gt;&lt;/font&gt;&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;a href=&quot;http://developer.android.com/reference/android/os/PowerManager.html#goToSleep(long&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;华文中宋&quot;&gt;PowerManager&lt;/font&gt;&lt;/a&gt;)&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;华文中宋&quot;&gt;:This class gives you control of the power state of the device.&lt;/font&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://developer.android.com/reference/android/os/PowerManager.WakeLock.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;华文中宋&quot;&gt;PowerManager.WakeLock&lt;/font&gt;&lt;/a&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;华文中宋&quot;&gt;: lets you say that you need to have the device on.&lt;/font&gt;&lt;/p&gt;
-&lt;font color=&quot;#ff0000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;只要系统中存在任一有效的wake_lock，系统就不能进入深度休眠，但可以进行设备的浅度休眠操作。&lt;/font&gt;
-
-&lt;font size=&quot;4&quot;&gt;&lt;font face=&quot;微软雅黑 Light&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Android定义了几种低功耗状态，&lt;/font&gt;：&lt;strong&gt;&lt;font color=&quot;#ff0000&quot;&gt;earlysuspend、suspend、hibernation.&lt;/font&gt;&lt;/strong&gt;&lt;/font&gt;&lt;/font&gt;
-
-&lt;font size=&quot;4&quot;&gt;&lt;font face=&quot;微软雅黑 Light&quot;&gt;1) &lt;font color=&quot;#ff0000&quot;&gt;&lt;strong&gt;earlysuspend&lt;/strong&gt;&lt;/font&gt;&lt;font color=&quot;#000000&quot;&gt;（浅度休眠），&lt;/font&gt;&lt;font color=&quot;#000000&quot;&gt;也有称standby&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;&lt;font size=&quot;4&quot;&gt;&lt;font face=&quot;微软雅黑 Light&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;: 是一种低功耗的状态,某些设备可以选择进入某种功耗较低的状态,比如 LCD可以降低亮度或灭掉;它不会受到wakelock阻止。例如接收黑屏手势。&lt;br&gt;&lt;/font&gt;2) &lt;font color=&quot;#ff0000&quot;&gt;&lt;strong&gt;suspend&lt;/strong&gt;&lt;/font&gt;&lt;font color=&quot;#000000&quot;&gt;（休眠），也有称sleep（bad nomenclature）: 是指除电源管理以外的其他外围模块以及cpu均不工作,只有内存保持自刷新的状态; 一般休眠到RAM&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;
-
-&lt;font size=&quot;4&quot;&gt;&lt;font face=&quot;微软雅黑 Light&quot;&gt;3) &lt;font color=&quot;#ff0000&quot;&gt;&lt;strong&gt;hibernation&lt;/strong&gt;&lt;/font&gt;&lt;font color=&quot;#000000&quot;&gt;（冬眠）是指所有内存镜像都被写入磁盘（disk）中,然后系统关机,恢复后系统将能恢复到“关机”之前的状态。是最彻底的低功耗模式，它把所有内存镜像都写入磁盘中，然后系统关机，是Linux内核系统级的休眠。&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;
-
-&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;&lt;br&gt;&lt;br&gt;PowerManager.WakeLock有加锁与解锁两种状态，而加锁的形式有两种:&lt;br&gt;&lt;br&gt;①永久锁住，这种锁除非显式的放开，否则是不会解锁的，所以用起来需要非常小心！&lt;br&gt;&lt;br&gt;②超时锁，到时间后就会解锁，而创建WakeLock后，有两种加锁机制: ①不计数锁机制，②计数锁机制(默认)可通过setReferenceCounted(boolean value)来指定,区别在于: 前者无论acquire( )多少次，一次release( )就可以解开锁。 而后者则需要(–count == 0)的时候，同样当(count == 0)才会去申请锁 所以，WakeLock的计数机制并不是正真意义上对每次请求进行申请/释放一个锁; 只是对同一把锁被申请/释放的次数来进行统计，然后再去操作！&lt;/font&gt;&lt;font face=&quot;微软雅黑 Light&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;&lt;font size=&quot;4&quot;&gt;该操作可通过setReferenceCounted(boolean value)设置。&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;
-
-&lt;font color=&quot;#000000&quot; face=&quot;微软雅黑 Light&quot;&gt;当然，需要用到权限&lt;pre&gt;&amp;lt;uses-permission android:name=”android.permission.WAKE_LOCK”/&amp;gt;&lt;/pre&gt;&lt;pre&gt;&amp;lt;uses-permission android:name=”android.permission.DEVICE_POWER”/&amp;gt;&lt;/pre&gt;&lt;/font&gt;
-
-&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;锁有两种类型：&lt;/font&gt;
-
-&lt;font size=&quot;4&quot;&gt;&lt;font face=&quot;微软雅黑 Light&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;WAKE_LOCK_SUSPEND：这种锁会防止系统进入睡眠(suspend)。&lt;br&gt;WAKE_LOCK_IDLE：这种锁不会影响系统的休眠，用于阻止系统在持有锁的过程中进入低功耗状态。即直到wake_lock被释放，系统才会从idle状态进入低功耗状态，此低功耗状态将使中断延迟或禁用一组中断&lt;/font&gt; &lt;/font&gt;&lt;/font&gt;
-
-&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;有3个地方让&lt;font color=&quot;#ff0000&quot;&gt;系统直接开始挂起&lt;/font&gt;suspend()， 分别是:&lt;/font&gt;
-
-&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; • 在wake_unlock()中， 如果发现解锁以后没有任何其他的wake lock了，就开始休眠&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; • 在定时器都到时间以后，定时器的回调函数会查看是否有其他的wake lock，如果没有，就在这里让系统进入睡眠。&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; • 在wake_lock() 中，对一个wake lock加锁以后，会再次检查一下有没有锁， 这里的检查是没有必要的， 更好的方法是使加锁的这个操作原子化，而不是繁冗的检查，而且这样的检查也有可能漏掉。&lt;/font&gt;
-
-&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;如下是一些常见的调用wakelock的操作&lt;br&gt;&lt;br&gt;&lt;/font&gt;
-
-&lt;table width=&quot;80%&quot; border=&quot;0&quot;&gt;&lt;br&gt;&lt;tbody&gt;&lt;br&gt;&lt;tr&gt;&lt;br&gt;&lt;td width=&quot;20%&quot;&gt;&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;应用&lt;/font&gt;&lt;br&gt;&lt;/td&gt;&lt;br&gt;&lt;td width=&quot;20%&quot;&gt;&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;操作&lt;/font&gt;&lt;br&gt;&lt;/td&gt;&lt;br&gt;&lt;td width=&quot;20%&quot;&gt;&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;唤醒锁的服务&lt;/font&gt;&lt;br&gt;&lt;/td&gt;&lt;br&gt;&lt;td width=&quot;20%&quot; align=&quot;center&quot;&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;运行状态&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;br&gt;&lt;tr&gt;&lt;br&gt;&lt;td width=&quot;20%&quot;&gt;&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;任意&lt;/font&gt;&lt;br&gt;&lt;/td&gt;&lt;br&gt;&lt;td width=&quot;20%&quot;&gt;&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;按下UI中的button或listview&lt;/font&gt;&lt;br&gt;&lt;/td&gt;&lt;br&gt;&lt;td width=&quot;20%&quot;&gt;&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;PowerManagerService&lt;/font&gt;&lt;br&gt;&lt;/td&gt;&lt;br&gt;&lt;td width=&quot;20%&quot;&gt;&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;启用并在5秒后释放锁定&lt;/font&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;br&gt;&lt;tr&gt;&lt;br&gt;&lt;td width=&quot;20%&quot;&gt;&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;地图/导航&lt;/font&gt;&lt;br&gt;&lt;/td&gt;&lt;br&gt;&lt;td width=&quot;20%&quot;&gt;&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;启用地图或进入导航&lt;/font&gt;&lt;br&gt;&lt;/td&gt;&lt;br&gt;&lt;td width=&quot;20%&quot;&gt;&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;gps-lock&lt;/font&gt;&lt;br&gt;&lt;/td&gt;&lt;br&gt;&lt;td width=&quot;20%&quot;&gt;&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;锁定并使用GPS直到退出应用或手动设置取消GPS&lt;/font&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;br&gt;&lt;tr&gt;&lt;br&gt;&lt;td width=&quot;20%&quot;&gt;&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;视频软件&lt;/font&gt;&lt;br&gt;&lt;/td&gt;&lt;br&gt;&lt;td width=&quot;20%&quot;&gt;&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;观看视频流&lt;/font&gt;&lt;br&gt;&lt;/td&gt;&lt;br&gt;&lt;td width=&quot;20%&quot;&gt;&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;PowerManagerService&lt;/font&gt;&lt;br&gt;&lt;/td&gt;&lt;br&gt;&lt;td width=&quot;20%&quot;&gt;&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;视频播放过程中一直启用唤醒锁&lt;/font&gt;&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;br&gt;&lt;tr&gt;&lt;br&gt;&lt;td width=&quot;20%&quot;&gt;&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;音乐软件&lt;/font&gt;&lt;br&gt;&lt;/td&gt;&lt;br&gt;&lt;td width=&quot;20%&quot;&gt;&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;听歌&lt;/font&gt;&lt;br&gt;&lt;/td&gt;&lt;br&gt;&lt;td width=&quot;20%&quot;&gt;&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;PowerManagerService&lt;/font&gt;&lt;br&gt;&lt;/td&gt;&lt;br&gt;&lt;td width=&quot;20%&quot;&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;音乐播放过程中一直启用唤醒锁&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-
-&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;Video和 Music 应用能够很好地展示不同级别的唤醒锁。 用户播放视频时，Video应用将会启用唤醒锁。 在播放视频的整个过程中，显示器会保持开启状态（忽略系统的显示设置）。 但是，如果用户在播放过程中按下了电源按钮，设备将会挂起，这会导致显示器关闭以及音频/视频停止播放。 Music 应用在播放音频时使用不同的唤醒锁。 显示设置无法更改，因此设备的屏幕将会根据用户的显示设置来关闭。 显示器关闭后，唤醒锁会让 CPU 保持活动状态以便音频能够继续播放 — 即使用户按下了电源按钮。&lt;/font&gt;
-
-&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;上图可见，&lt;font color=&quot;#ff0000&quot;&gt;PowerManagerService&lt;/font&gt;是一项使用率非常高的wakelock调用的操作，它是Android上层电源管理服务，属于&lt;font color=&quot;#ff0000&quot;&gt;内核唤醒锁,适用于所有局部唤醒锁（partial wakelock 后文提到）的容器&lt;/font&gt;。主要负责系统待机、屏幕背光、按键背光、键盘背光以及用户事件的处理。这些可在后文的wakelock detector软件中看到。通过锁的申请和释放以及默认待机时间来控制系统的待机状态，通过系统的灭屏时间及用户操作的事件状态来控制背光暗亮。此外该服务还包括了光线、距离传感器上层查询与控制、LCD灯控制。&lt;/font&gt;
-
-&lt;font color=&quot;#000000&quot; face=&quot;微软雅黑 Light&quot;&gt;其他的内核唤醒锁有：&lt;/font&gt;
-
-&lt;font color=&quot;#000000&quot;&gt;Wlan_rx： 当通过 Wi-Fi* 发送或接收数据时由内核控制。&lt;/font&gt;
-
-&lt;font color=&quot;#000000&quot;&gt;Sync： 在同步流程运行时启用。&lt;/font&gt;
-
-&lt;font color=&quot;#000000&quot;&gt;Alarm_rtc： 控制告警（当应用或流程执行定期检查时使用）。&lt;/font&gt;
-
-&lt;font color=&quot;#000000&quot;&gt;Main： 保持内核处于唤醒状态。 系统进入挂起模式时，这是最后一个被释放的唤醒锁。&lt;/font&gt;
-
-&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;自最初版本的Android OS 的API中就设置了Android.OS.PowerManager.WakeLock类 &lt;/font&gt;&lt;a href=&quot;https://developer.xamarin.com/api/type/Android.OS.PowerManager+WakeLock/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;https://developer.xamarin.com/api/type/Android.OS.PowerManager+WakeLock/&lt;/font&gt;&lt;/a&gt;&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;一下为Java代码应用层的操作。&lt;/font&gt;&amp;nbsp;&lt;br&gt;&lt;br&gt;&lt;pre class=&quot;brush: java; gutter: true; first-line: 1; highlight: []; html-script: false&quot;&gt;PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);//创建pm对象&lt;br&gt;PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK, “Tag”);&lt;br&gt;//第一个参数为flag,即后文提到的六个标记；最后一个参数为实例名，可以换成其他的&lt;br&gt;wl.acquire(); //唤醒点亮屏幕 获取wakelock&lt;br&gt;wl.release(); //恢复屏幕到黑暗 释放wakelock&lt;/pre&gt;&lt;br&gt;&lt;br&gt;&amp;nbsp;&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;2.1 API Level7开始增加了一个判断屏幕是否处于点亮状态可以使用public boolean isScreenOn ()这个方法，代码为&lt;/font&gt;
-
-&lt;pre class=&quot;brush: java; gutter: true; first-line: 1; highlight: []; html-script: false&quot;&gt;PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-boolean isScreenOn = pm.isScreenOn();
-&lt;/pre&gt;
-
-&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;对它进行实例化。&lt;/font&gt;
-
-&lt;font size=&quot;4&quot;&gt;&lt;font face=&quot;微软雅黑 Light&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Wakelock源码简介&lt;/font&gt;&amp;nbsp; &lt;/font&gt;&lt;/font&gt;&lt;a href=&quot;http://www.07net01.com/2015/07/870479.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;font size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;http://www.07net01.com/2015/07/870479.html&lt;/font&gt;&lt;/a&gt;&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;PowerManager和Wakelock申请 &lt;a href=&quot;http://blog.csdn.net/wh_19910525/article/details/8287202&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://blog.csdn.net/wh_19910525/article/details/8287202&lt;/a&gt;&lt;/font&gt;&lt;br&gt;&lt;p align=&quot;left&quot;&gt;&lt;span&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;Android PowerManager API 介绍了4种用于更改设备电源状态的&lt;font color=&quot;#ff0000&quot;&gt;唤醒锁标记&lt;/font&gt;：&lt;br&gt;&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;br&gt;&lt;table width=&quot;80%&quot; border=&quot;0&quot;&gt;&lt;br&gt;&lt;tbody&gt;&lt;br&gt;&lt;tr&gt;&lt;br&gt;&lt;td width=&quot;20%&quot;&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;标记值&lt;/font&gt;&lt;/td&gt;&lt;br&gt;&lt;td width=&quot;20%&quot;&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;CPU/场景&lt;/font&gt;&lt;/td&gt;&lt;br&gt;&lt;td width=&quot;20%&quot;&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;屏幕&lt;/font&gt;&lt;/td&gt;&lt;br&gt;&lt;td width=&quot;20%&quot;&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;键盘&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;br&gt;&lt;tr&gt;&lt;br&gt;&lt;td width=&quot;20%&quot;&gt;&lt;font color=&quot;#ff0000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;PARTIAL_WAKE_LOCK&lt;/font&gt;&lt;/td&gt;&lt;br&gt;&lt;td width=&quot;20%&quot;&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;开启-长时间运行的后台service&lt;/font&gt;&lt;/td&gt;&lt;br&gt;&lt;td width=&quot;20%&quot;&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;关闭&lt;/font&gt;&lt;/td&gt;&lt;br&gt;&lt;td width=&quot;20%&quot;&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;关闭&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;br&gt;&lt;tr&gt;&lt;br&gt;&lt;td width=&quot;20%&quot;&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;SCREEN_DIM_WAKE_LOCK&lt;/font&gt;&lt;/td&gt;&lt;br&gt;&lt;td width=&quot;20%&quot;&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;开启-除非必须保持CPU运行至运算完成，否则尽量使用FLAG_KEEP_SCREEN_ON&lt;/font&gt;&lt;/td&gt;&lt;br&gt;&lt;td width=&quot;20%&quot;&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;低亮度&lt;/font&gt;&lt;/td&gt;&lt;br&gt;&lt;td width=&quot;20%&quot;&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;关闭&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;br&gt;&lt;tr&gt;&lt;br&gt;&lt;td width=&quot;20%&quot;&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;SCREEN_BRIGHT_WAKE_LOCK&lt;/font&gt;&lt;/td&gt;&lt;br&gt;&lt;td width=&quot;20%&quot;&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;同上&lt;/font&gt;&lt;/td&gt;&lt;br&gt;&lt;td width=&quot;20%&quot;&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;高亮度&lt;/font&gt;&lt;/td&gt;&lt;br&gt;&lt;td width=&quot;20%&quot;&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;关闭&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;br&gt;&lt;tr&gt;&lt;br&gt;&lt;td width=&quot;20%&quot;&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;FULL_WAKE_LOCK&lt;/font&gt;&lt;/td&gt;&lt;br&gt;&lt;td width=&quot;20%&quot;&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;同上&lt;/font&gt;&lt;/td&gt;&lt;br&gt;&lt;td width=&quot;20%&quot;&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;高亮度&lt;/font&gt;&lt;/td&gt;&lt;br&gt;&lt;td width=&quot;20%&quot;&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;调亮&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;br&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;需要注意的是 API17开始，FULL_WAKE_LOCK将被弃用，取而代之的是FLAG_KEEP_SCREEN_ON 因此有的检测软件也将屏幕亮屏所单独提出来，表明调用该锁时目的是保证屏幕不会超时熄灭。&lt;/font&gt;
-
-&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;除了四个标记值外，还提供了两个Flag配合使用。&lt;/font&gt;
-
-&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;ACQUIRE_CAUSES_WAKEUP：默认情况下唤醒锁并不是马上开启CPU、屏幕或者调整键盘的亮度（对于屏幕处于低亮度或高亮度、键盘处于高亮，唤醒锁只是在被开启后，延续这一状态）但如果加上这一标记，就可让屏幕或键盘亮度未开启的状态下，马上开启它们。典型的例子就是受到一个重要的notification时（短信、邮件等），需要马上点亮屏幕。&lt;/font&gt;
-
-&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;ON_AFTER_RELEASE：当wake lock被释放的时候，当前调用wake lock的activity的计数器会被重置，所以屏幕会继续亮一段时间。&lt;/font&gt;
-
-&lt;font size=&quot;4&quot;&gt;&lt;font face=&quot;微软雅黑 Light&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;因此，Android中通常是这么写。&lt;/font&gt;&lt;br&gt;&lt;/font&gt;&lt;/font&gt;&lt;br&gt;&lt;div align=&quot;center&quot;&gt;&lt;pre class=&quot;brush: java; gutter: true; first-line: 1; highlight: []; html-script: false&quot;&gt;PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);&lt;br&gt;&lt;br&gt; WakeLock sCpuWakeLock = pm.newWakeLock(&lt;br&gt;                PowerManager.FULL_WAKE_LOCK |&lt;br&gt;                PowerManager.ACQUIRE_CAUSES_WAKEUP,”okTag”);&lt;br&gt; if (sCpuWakeLock!= null) {&lt;br&gt; sCpuWakeLock.release();&lt;br&gt;          sCpuWakeLock = null;&lt;br&gt;&lt;br&gt;}&lt;br&gt;&lt;/pre&gt;&lt;/div&gt;&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;&lt;/font&gt;&amp;nbsp;&lt;br&gt;&lt;br&gt;&lt;strong&gt;&lt;font color=&quot;#ff0000&quot;&gt;注意&lt;/font&gt;&lt;/strong&gt;：如果申请了&lt;font color=&quot;#ff0000&quot;&gt;partial wakelock&lt;/font&gt;,那么即使按Power键,系统也不会进Sleep,如Music播放时。所有的锁必须成对的使用, 如果申请了而没有及时释放，会造成系统故障。如申请了partial wakelock,而没有及时释放, 那系统就永远进不了Sleep模式.&lt;br&gt;&lt;br&gt;因此，partial wakelock作为6中标识中，需最为谨慎使用的一个。BBS也专门指出了partial wakelock造成的电量损耗及待机时长。其余的则可标记为屏幕锁，辅助标记CPU锁。&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#000000&quot; face=&quot;微软雅黑 Light&quot;&gt;&lt;img src=&quot;http://ww4.sinaimg.cn/large/68eb7c93gw1eztpciku00j20de0bjjsd.jpg&quot; alt=&quot;&quot;&gt;&lt;/font&gt;
-
-&lt;font size=&quot;4&quot;&gt;&lt;font color=&quot;#000000&quot; face=&quot;微软雅黑 Light&quot;&gt;&lt;strong&gt;上图表明了App内部、Android框架及内核硬件在唤醒锁交互中的流程。&lt;/strong&gt;&lt;/font&gt;&lt;/font&gt;
-
-&lt;font size=&quot;4&quot;&gt;&lt;font face=&quot;微软雅黑 Light&quot;&gt;&lt;font color=&quot;#ff0000&quot;&gt;&lt;strong&gt;AlarmManager&lt;/strong&gt;&lt;/font&gt;&lt;font color=&quot;#000000&quot;&gt;，有一个AlarmManagerService,该服务程序主要维护app注册下来的各类Alarm,并且一直监听Alarm设备，一旦有Alarm触发，或者是Alarm事件发生，AlarmManagerService就会遍历Alarm列表，找到相应的注册Alarm并发出广播，是Android中常用的一种&lt;font color=&quot;#ff0000&quot;&gt;系统级别的提示服务&lt;/font&gt;，在特定的时刻为我们广播一个指定的Intent。通常我们使用 PendingIntent，可以理解为Intent的封装包，在Intent上在加个指定的动作。在使用Intent的时候，我们还需要在执行startActivity、startService或sendBroadcast才能使Intent有用。而PendingIntent的话就是将这个动作包含在内了。&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;
-
-&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;闹钟响起，实际上是系统发出了为这个&lt;font color=&quot;#ff0000&quot;&gt;闹钟注册的广播&lt;/font&gt;，会自动开启目标应用。这种做法可以在某一时刻当做唤醒应用。注册的闹钟在设备睡眠的时候仍然会保留，可以选择性地设置是否唤醒设备，但是当设备关机和重启后，闹钟将会被清除。在alarm的receiver的onReceive()方法被执行的时候，Alarm Manager持有一个CPU唤醒锁，这样就保证了设备在处理完广播之前不会sleep。&lt;/font&gt;
-
-&lt;/p&gt;&lt;p&gt;&lt;span&gt;&lt;font color=&quot;#000000&quot;&gt;&lt;font size=&quot;4&quot;&gt;&lt;font face=&quot;微软雅黑 Light&quot;&gt;有4种Alarm类型： &lt;wbr&gt;&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;font color=&quot;#000000&quot;&gt;&lt;font size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;1)&lt;/font&gt;&lt;font size=&quot;4&quot;&gt;&lt;font face=&quot;微软雅黑 Light&quot;&gt;&lt;font color=&quot;#ff0000&quot;&gt;RTC_WAKEUP &lt;wbr&gt;&lt;br&gt;&lt;/font&gt;在指定的时刻（设置Alarm的时候），唤醒设备来触发Intent。（闹钟）&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;&lt;font size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt; &lt;/font&gt;
-
-&lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;font color=&quot;#000000&quot;&gt;&lt;font size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;2)&lt;font color=&quot;#ff0000&quot;&gt;RTC&lt;/font&gt; &lt;wbr&gt;&lt;br&gt;在一个显式的时间触发Intent，但不唤醒设备。&lt;wbr&gt;&lt;wbr&gt;&lt;wbr&gt;&lt;br&gt;3)&lt;/font&gt;&lt;font size=&quot;4&quot;&gt;&lt;font face=&quot;微软雅黑 Light&quot;&gt;&lt;font color=&quot;#ff0000&quot;&gt;ELAPSED_REALTIME &lt;wbr&gt;&lt;br&gt;&lt;/font&gt;从设备启动后，如果流逝的时间达到总时间，那么触发Intent，但不唤醒设备。流逝的时间包括设备睡眠的任何时间。注意一点的是，时间流逝的计算点是自从它最后一次启动算起。 &lt;wbr&gt;&amp;nbsp;&lt;wbr&gt;&amp;nbsp;&lt;wbr&gt;&lt;br&gt;4)&lt;font color=&quot;#ff0000&quot;&gt;ELAPSED_REALTIME_WAKEUP&lt;/font&gt; &lt;wbr&gt;&lt;br&gt;从设备启动后，达到流逝的总时间后，如果需要将唤醒设备并触发Intent。&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;这样，唤醒对齐的方案就显得相当便捷，让唤醒次数大大降低。把允许唤醒的应用，按照某一合理的时刻进行排序和对齐，不会凌乱的唤醒手机而出现过度的cpu变频造成的耗电。&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span&gt;&lt;font color=&quot;#000000&quot;&gt;&lt;font size=&quot;4&quot;&gt;&lt;font face=&quot;微软雅黑 Light&quot;&gt;&lt;font color=&quot;#ff0000&quot;&gt;软节电&lt;/font&gt;方案：&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;1、对不需要联网、不需要通知的 限制权限&amp;amp;App自调 取消通知、联网等权限 杀注册广播&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;2、限制通知和自启动、互相启动、相互守护的service 禁启动&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;3、（千万少做）安全软件狂杀进程process和service&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;4、限制唤醒时长和对齐唤醒&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;5、对可识别的Activity禁止&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;6、对不需要通知、自升级、关闭软件啥也不想让他做的 结晶 禁止、半禁止一切后台&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;7、争取多冬眠service&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;8、在合理的时间重启并FQ&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;So 开搞&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span&gt;&lt;font color=&quot;#000000&quot; face=&quot;微软雅黑 Light&quot;&gt;&lt;/font&gt;&lt;/span&gt;参考&lt;/p&gt;
-&lt;p&gt;&lt;span&gt;&lt;a href=&quot;http://www.runoob.com/w3cnote/android-tutorial-powermanager.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.runoob.com/w3cnote/android-tutorial-powermanager.html&lt;/a&gt;&amp;nbsp; PowerManager(电源服务)&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://www.kancloud.cn/kancloud/android-tutorial/87277&quot; title=&quot;http://www.kancloud.cn/kancloud/android-tutorial/87277&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.kancloud.cn/kancloud/android-tutorial/87277&lt;/a&gt; 这俩好像一样、&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://forum.xda-developers.com/galaxy-s2/general/guide-complete-guide-maximum-battery-t1909996&quot; title=&quot;http://forum.xda-developers.com/galaxy-s2/general/guide-complete-guide-maximum-battery-t1909996&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://forum.xda-developers.com/galaxy-s2/general/guide-complete-guide-maximum-battery-t1909996&lt;/a&gt; 真的是能关的全给关了的大全&lt;/p&gt;
-&lt;font size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;&lt;/font&gt;
-
-&lt;font size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;&lt;/font&gt;
-
-&lt;font size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;&lt;/font&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://lockekk.github.io/jekyll-bootstrap/2014/07/22/Android-Standby/&quot; title=&quot;http://lockekk.github.io/jekyll-bootstrap/2014/07/22/Android-Standby/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://lockekk.github.io/jekyll-bootstrap/2014/07/22/Android-Standby/&lt;/a&gt; Android Standby 解析查杀软件的弊病&lt;/p&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;&lt;font color=&quot;#000000&quot;&gt;&lt;/font&gt;**&lt;/strong&gt;&lt;font color=&quot;#000000&quot; size=&quot;4&quot;&gt;&lt;font face=&quot;微软雅黑 Light&quot;&gt;本文只讨论安卓手机软节电，不负责推荐底包、rom、调频调压方案，&lt;font color=&quot;#ff0000&quot;&gt;刷机root后果自负。&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;**&lt;/p&gt;
-&lt;font color=&quot;#000000&quot; size=&quot;4&quot; face=&quot;微软雅黑 Light&quot;&gt;&lt;strong&gt;纯硬货，只想节电看后文。&lt;/strong&gt;&lt;/font&gt;
     
     </summary>
     
