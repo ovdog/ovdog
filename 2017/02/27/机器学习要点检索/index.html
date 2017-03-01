@@ -82,37 +82,37 @@
 
 
 
-<meta name="description" content="判别式（识别式）学习：通过预测数据生成对联合概率p(x,y)进行模式识别的方法·
+<meta name="description" content="机器学习任务判别式（识别式）学习：通过预测数据生成对联合概率p(x,y)进行模式识别的方法·
 产生式学习：利用机器学习方法对训练集p(y|x)进行学习的过程
 
 可能有拥有足够的信息来很好的解决一个感兴趣的特定问题，但却没有足够的信息来解决一个一般性问题。
 
 
 若果生成概率已知，则可以推出后验概率；反之，则不能。
-$$p(y\mid x)=\frac{p(x,y)}{p(x)}=\frac{p(x,y)}{\s">
+$$p(y\mid x)=\frac{p(x,y)}{p(x)}=\frac{p(x,">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器学习要点检索">
+<meta property="og:title" content="机器学习要点检索--基于图解机器学习">
 <meta property="og:url" content="http://ovjaywang.github.io/2017/02/27/机器学习要点检索/index.html">
 <meta property="og:site_name" content="ov智商捉急">
-<meta property="og:description" content="判别式（识别式）学习：通过预测数据生成对联合概率p(x,y)进行模式识别的方法·
+<meta property="og:description" content="机器学习任务判别式（识别式）学习：通过预测数据生成对联合概率p(x,y)进行模式识别的方法·
 产生式学习：利用机器学习方法对训练集p(y|x)进行学习的过程
 
 可能有拥有足够的信息来很好的解决一个感兴趣的特定问题，但却没有足够的信息来解决一个一般性问题。
 
 
 若果生成概率已知，则可以推出后验概率；反之，则不能。
-$$p(y\mid x)=\frac{p(x,y)}{p(x)}=\frac{p(x,y)}{\s">
-<meta property="og:updated_time" content="2017-02-28T09:00:58.134Z">
+$$p(y\mid x)=\frac{p(x,y)}{p(x)}=\frac{p(x,">
+<meta property="og:updated_time" content="2017-03-01T09:41:09.138Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="机器学习要点检索">
-<meta name="twitter:description" content="判别式（识别式）学习：通过预测数据生成对联合概率p(x,y)进行模式识别的方法·
+<meta name="twitter:title" content="机器学习要点检索--基于图解机器学习">
+<meta name="twitter:description" content="机器学习任务判别式（识别式）学习：通过预测数据生成对联合概率p(x,y)进行模式识别的方法·
 产生式学习：利用机器学习方法对训练集p(y|x)进行学习的过程
 
 可能有拥有足够的信息来很好的解决一个感兴趣的特定问题，但却没有足够的信息来解决一个一般性问题。
 
 
 若果生成概率已知，则可以推出后验概率；反之，则不能。
-$$p(y\mid x)=\frac{p(x,y)}{p(x)}=\frac{p(x,y)}{\s">
+$$p(y\mid x)=\frac{p(x,y)}{p(x)}=\frac{p(x,">
 
 
 
@@ -130,7 +130,7 @@ $$p(y\mid x)=\frac{p(x,y)}{p(x)}=\frac{p(x,y)}{\s">
   };
 </script>
 
-  <title> 机器学习要点检索 | ov智商捉急 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> 机器学习要点检索--基于图解机器学习 | ov智商捉急 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -316,7 +316,7 @@ $$p(y\mid x)=\frac{p(x,y)}{p(x)}=\frac{p(x,y)}{\s">
             
             
               
-                机器学习要点检索
+                机器学习要点检索--基于图解机器学习
               
             
           </h1>
@@ -368,7 +368,7 @@ $$p(y\mid x)=\frac{p(x,y)}{p(x)}=\frac{p(x,y)}{\s">
       
 
       
-        <p><strong>判别式（识别式）学习</strong>：通过预测数据生成对联合概率<strong>p(x,y)</strong>进行模式识别的方法·</p>
+        <h1 id="机器学习任务"><a href="#机器学习任务" class="headerlink" title="机器学习任务"></a>机器学习任务</h1><p><strong>判别式（识别式）学习</strong>：通过预测数据生成对联合概率<strong>p(x,y)</strong>进行模式识别的方法·</p>
 <p><strong>产生式学习</strong>：利用机器学习方法对训练集<strong>p(y|x)</strong>进行学习的过程</p>
 <blockquote>
 <p>可能有拥有足够的信息来很好的解决一个感兴趣的特定问题，但却没有足够的信息来解决一个一般性问题。</p>
@@ -381,19 +381,40 @@ $$p(y\mid x)=\frac{p(x,y)}{p(x)}=\frac{p(x,y)}{\s">
 <p>其主要<strong>研究课题</strong>是如何有训练集得到高精度的模式Θ。      </p>
 <p>$$\underset{\theta}{max}\prod_{i=1}^{y}q(x_{i},y_{i},\theta )$$</p>
 <p><strong>贝叶斯派</strong> ：将模式Θ作为概率变量，对其先验概率p(Θ)加以考虑，计算与训练集相对应的后验概率p(Θ|D).并利用贝叶斯公式求解后验概率</p>
-<p>$$p(\theta \mid D)=\frac{p(D\mid \theta )p(\theta )}{p(D)}=\frac{\prod_{i=1}^{n}q(x_{i},y_{i}\mid \theta )p(\theta )}{\int \coprod_{i=1}^{n}q(x_{i},y_{y}|\theta )p(\theta )d\theta }$$</p>
+<p>$$p(\theta \mid D)=\frac{p(D\mid \theta )p(\theta )}{p(D)}=\frac{\prod_{i=1}^{n}q(x_{i},y_{i}\mid \theta )p(\theta )}{\int \prod_{i=1}^{n}q(x_{i},y_{y}|\theta )p(\theta )d\theta }$$</p>
 <p>贝叶斯学派的<strong>主要任务</strong>是如何通过各种方式精确计算后验概率。</p>
 <hr>
 <blockquote>
 <p> 只在训练集的输入样本附近对函数进行近似，可以减轻维数灾难的影像</p>
 </blockquote>
+<h1 id="学习模型"><a href="#学习模型" class="headerlink" title="学习模型"></a>学习模型</h1><ul>
+<li><p><em>线性模型*</em>–典型的代表是$$f_{\theta}(x)=\theta_{1}x+\theta_{0}$$对面积-房价进行一元一次线性拟合</p>
+<p>标准形式为：$f_{\theta }(x)=\sum_{j=1}^{b}\theta_{j}\phi_{j}(x)=\theta ^{\top }\phi (x)$,其中$\theta_{j}$是参数向量（待解求的参数集合）$\theta=(\theta_{1},\theta_{2}…\theta_{b})^{\top }$的第j个因子；$\phi_{j}(x)$ 是基函数（决定了拟合的模式 以特征为基础可以自由决定衍生的多项式、函数模式$ln x$、$\frac{1}{x}$等，一般来说都是多项式，即$\phi_{j}(x)=(1,x,x^2…x^{b-1})^{\top }$;又或者是三角多项式形式，即$\phi_{j}(x)=(1,sin x,cos x,sin 2x,cos 2x…sin mx,cos mx)^{\top }$）</p>
+</li>
+</ul>
+<p><strong>当不止考虑一个维度的因素（特征）时，输入维度太多易造成维度爆炸。</strong></p>
 <ul>
-<li><p>线性模型</p>
+<li><p><strong>核模型</strong>–典型代表四高斯核$K(x,c)=e^{-\frac{\left | x-c \right |^2}{2h^2}}$，可理解为欧几里得空间映射到核函数空间中，在函数设计时可以依赖样本$$\{(x_{i},y_{i})\}_{i=1}^{n}$$。式中，h和c分别是带宽和均值。高斯核模型一般只能对样本附近的函数进行近似.</p>
+<p>标准形式为：$f_{\theta}(x)=\sum_{j=1}^{n}\theta_{j}K(x,x_j)$ 其中$K(x,x_j)$是二元核函数，以线性相加所有样本的方式定义。</p>
+</li>
+</ul>
+<p><strong>参数的个数不依赖于输入变量的维度d，而只有训练样本的数量m决定。</strong></p>
+<ul>
+<li><p><strong>层级模型</strong>–典型代表是神经网络,尤其是不完全映射的神经网络.</p>
+<p>标准形式为:$f_{\theta}(x)=\sum_{j=1}^{b}\alpha _{j}\phi (x;\beta _{j})$  其中$\phi (x;\beta _{j})$是带有参数向量β的基函数。即，整个模型的参数为$\theta=(\alpha ,\beta _{1}^\top ,…,\beta _{b}^\top )^\top $其中，α是层次模型线性形式的参数向量。</p>
 <p>​</p>
-</li>
-<li><p>核模型</p>
-</li>
-<li><p>层次模型</p>
+<hr>
+<h1 id="最小二乘法"><a href="#最小二乘法" class="headerlink" title="最小二乘法"></a>最小二乘法</h1><p>入门的入门就是最小二乘了，类似二范数，目标是最小化所有样本与其预测值差的平方和：</p>
+<p><strong>敲黑板</strong>，上边表达的就是代价函数，即下式：</p>
+<p>$$J_{LS}(\theta )=\frac{1}{2}\sum_{i=1}^{n}(f_{\theta }(x_{i})-y_{i})^2$$</p>
+<p>解求目标是：</p>
+<p>$$\widehat{\theta_{LS}}=\underset{\theta }{argmin}J_{LS}(\theta )$$</p>
+<p>再次<strong>敲黑板</strong>，这句话包含很多意思</p>
+<ol>
+<li>使用最小二乘算法，解算的目标是：当代价函数求得最小的时候参数$\theta$的值</li>
+<li>代价函数的最小值是多少我不关心，我只关心代价函数求得最小时参数向量的值是多少–即解求的目标不是函数的最值，是函数的极值点。</li>
+<li>常用在线性函数最值的求解，易过拟合</li>
+</ol>
 </li>
 </ul>
       
@@ -439,7 +460,7 @@ $$p(y\mid x)=\frac{p(x,y)}{p(x)}=\frac{p(x,y)}{\s">
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2017/02/27/机器学习要点检索/" data-title="机器学习要点检索" data-content="" data-url="http://ovjaywang.github.io/2017/02/27/机器学习要点检索/">
+        <div class="ds-share flat" data-thread-key="2017/02/27/机器学习要点检索/" data-title="机器学习要点检索--基于图解机器学习" data-content="" data-url="http://ovjaywang.github.io/2017/02/27/机器学习要点检索/">
   <div class="ds-share-inline">
     <ul class="ds-share-icons-16">
 
@@ -469,7 +490,7 @@ $$p(y\mid x)=\frac{p(x,y)}{p(x)}=\frac{p(x,y)}{\s">
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/27/机器学习要点检索/" data-title="机器学习要点检索" data-url="http://ovjaywang.github.io/2017/02/27/机器学习要点检索/">
+      <div class="ds-thread" data-thread-key="2017/02/27/机器学习要点检索/" data-title="机器学习要点检索--基于图解机器学习" data-url="http://ovjaywang.github.io/2017/02/27/机器学习要点检索/">
       </div>
     
   </div>
@@ -612,7 +633,7 @@ $$p(y\mid x)=\frac{p(x,y)}{p(x)}=\frac{p(x,y)}{\s">
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#机器学习任务"><span class="nav-number">1.</span> <span class="nav-text">机器学习任务</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#学习模型"><span class="nav-number">2.</span> <span class="nav-text">学习模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最小二乘法"><span class="nav-number">3.</span> <span class="nav-text">最小二乘法</span></a></li></ol></div>
             
           </div>
         </section>
