@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ovjaywang.github.io/"/>
-  <updated>2017-03-01T09:41:09.138Z</updated>
+  <updated>2017-03-01T10:37:47.620Z</updated>
   <id>http://ovjaywang.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://ovjaywang.github.io/2017/02/27/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%A6%81%E7%82%B9%E6%A3%80%E7%B4%A2/"/>
     <id>http://ovjaywang.github.io/2017/02/27/机器学习要点检索/</id>
     <published>2017-02-27T08:54:19.000Z</published>
-    <updated>2017-03-01T09:41:09.138Z</updated>
+    <updated>2017-03-01T10:37:47.620Z</updated>
     
     <content type="html">&lt;h1 id=&quot;机器学习任务&quot;&gt;&lt;a href=&quot;#机器学习任务&quot; class=&quot;headerlink&quot; title=&quot;机器学习任务&quot;&gt;&lt;/a&gt;机器学习任务&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;判别式（识别式）学习&lt;/strong&gt;：通过预测数据生成对联合概率&lt;strong&gt;p(x,y)&lt;/strong&gt;进行模式识别的方法·&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;产生式学习&lt;/strong&gt;：利用机器学习方法对训练集&lt;strong&gt;p(y|x)&lt;/strong&gt;进行学习的过程&lt;/p&gt;
@@ -69,6 +69,8 @@
 &lt;li&gt;代价函数的最小值是多少我不关心，我只关心代价函数求得最小时参数向量的值是多少–即解求的目标不是函数的最值，是函数的极值点。&lt;/li&gt;
 &lt;li&gt;常用在线性函数最值的求解，易过拟合&lt;/li&gt;
 &lt;/ol&gt;
+&lt;p&gt;对于解求一元函数，窝们知道应该对函数求导求取零值点；而对于向量（可视为多元函数），求取各参量的偏导求解零值亦可求取极值。其偏导为：&lt;/p&gt;
+&lt;p&gt;​&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;</content>
     
