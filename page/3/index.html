@@ -682,7 +682,7 @@
 <p>其中，右边三项分别为像点观测坐标，像点计算坐标，畸变误差。<br> 在后方交会时，当只计算外方位元素时：</p>
 <p> $$V_{2n\times 1}=A_{2n\times6}X_{6\times1}-L_{2n\times1}$$.</p>
 <p> 其中，式子每两行具体为</p>
-<p>$$\begin{bmatrix}v_{x}\\\\v_{y}\end{bmatrix}=\begin{bmatrix}\frac{f}{\overline{Z}}&amp;0&amp;\frac{x}{\overline{Z}}&amp;-(f+\frac{x^{2}}{f})&amp;-\frac{xy}{f}&amp;y\\\\0&amp;\frac{f}{\overline{Z}}&amp;\frac{y}{\overline{Z}}&amp;-\frac{xy}{f}&amp;-(f+\frac{y^{2}}{f})&amp;-x\end{bmatrix}\begin{bmatrix}dXs\\\\dYs\\\\dZs\\\\d\varphi\\\\d\omega\\\\d\kappa\end{bmatrix}-\begin{bmatrix}l_{x}\\\\l_{y}\end{bmatrix}​$$</p>
+<p>$$\begin{bmatrix}v_{x}\\\\v_{y}\end{bmatrix}=\begin{bmatrix}\frac{f}{\overline{Z}}&amp;0&amp;\frac{x}{\overline{Z}}&amp;-(f+\frac{x^{2}}{f})&amp;-\frac{xy}{f}&amp;y\\\\0&amp;\frac{f}{\overline{Z}}&amp;\frac{y}{\overline{Z}}&amp;-\frac{xy}{f}&amp;-(f+\frac{y^{2}}{f})&amp;-x\end{bmatrix}\begin{bmatrix}dXs\\\\dYs\\\\dZs\\\\d\varphi\\\\d\omega\\\\d\kappa\end{bmatrix}-\begin{bmatrix}l_{x}\\\\l_{y}\end{bmatrix}$$</p>
 <p>若要求出V方程的最佳估计值，在摄影测量中，一般按照最小二乘原理进行解答，即<font color="#FF0000"><strong>$$V^{T}V=min$$</strong></font>这就转化为了对该式求极值的问题。</p>
 <p>$$V^{T}V=(AX-L)^{T}(AX-L)=X^{T}A^{T}AX-2X^{T}A^{T}L+L^{T}L\Rightarrow \frac{\partial V^{T}V}{\partial X}=2A^{T}AX-2A^{T}L=0$$</p>
 <p>上式中大X的含义是待求解的每个元素的残差矩阵包含了Xs Ys Zs Ω φ k，而不是实际测量三维点坐标X。此外，推导过程中对$V^{T}V$求导，则可得到对应6个残差的最佳估计值。这个过程称为误差方程式的<font color="#FF0000"><strong>法化</strong></font>。</p>
@@ -703,8 +703,8 @@
 <p>④根据改正数的值加上上一步的值得到各项新值。</p>
 <p>⑤检查是否收敛时，一般只对角元素改正数设定限差，为0.1’（按弧度值是<span style="WHITE-SPACE: normal; WORD-SPACING: 0px; TEXT-TRANSFORM: none; FLOAT: none; COLOR: rgb(0,0,0); TEXT-ALIGN: left; FONT: 13px/30px arial; WIDOWS: 1; DISPLAY: inline !important; LETTER-SPACING: normal; BACKGROUND-COLOR: rgb(255,255,255); TEXT-INDENT: 0px; -webkit-text-stroke-width: 0px">0.0000291rad</span>）当三个角改正数都小于限差时迭代结束。<br>平差理论中，单位权中的误差为</p>
 <p>$$m_{0}=\sqrt{\frac{\sum v_{i}^{2}}{2n-t}}$$其中m0为单位权中误差。vi是第i个方程的残差，n是控制点个数，t是未知数个数。只解求外方位精度则只有6个精度。</p>
-<p>根据传播定律，$$m^{2}=N^{-1}m_{0}^{2}$$式中$N^{-1}$是法方程系数矩阵的逆矩阵。即</p>
-<p>$$N^{-1}=\begin{bmatrix}Q_{11}&amp;Q_{12}&amp;.&amp;.&amp;.&amp;Q_{1t}\\Q_{21}&amp;Q_{22}&amp;.&amp;.&amp;.&amp;Q_{2t}\.&amp;.&amp;.&amp;.\.&amp;.&amp;.&amp;.\.&amp;.&amp;.&amp;.\\Q_{t1}&amp;Q_{t2}&amp;.&amp;.&amp;.&amp;Q_{tt}\end{bmatrix}$$,则<font color="#FF0000"><strong>第i个未知数中的误差</strong></font>为:</p>
+<p>根据传播定律，$$m^{2}=N^{-1}m_{0}^{2}​$$式中$N^{-1}​$是法方程系数矩阵的逆矩阵。即</p>
+<p>$$N^{-1}=\begin{bmatrix}Q_{11}&amp;Q_{12}&amp;.&amp;.&amp;.&amp;Q_{1t}\\Q_{21}&amp;Q_{22}&amp;.&amp;.&amp;.&amp;Q_{2t} \ .&amp;.&amp;.&amp;.\ .&amp;.&amp;.&amp;.\ .&amp;.&amp;.&amp;.\\Q_{t1}&amp;Q_{t2}&amp;.&amp;.&amp;.&amp;Q_{tt}\end{bmatrix}$$,则<font color="#FF0000"><strong>第i个未知数中的误差</strong></font>为:</p>
 <p>$m_{i}=\sqrt{Q_{ii}}m_{0}$,其中$Q_{ii}$为$N^{-1}$的各项系数的对角元素,也称为第i个未知数的权倒数。</p>
 <p>——<strong><font color="#FF0000">一点说明</font></strong></p>
 <p>再次声明，无论半片还是全片，增加控制点都可以提高精度，但精度提高的不是很大；采用相同数量控制点，全片比半片精度成倍的提高，分布良好更有利于精度改善。</p>

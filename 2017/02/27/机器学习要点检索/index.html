@@ -102,7 +102,7 @@ $$p(y\mid x)=\frac{p(x,y)}{p(x)}=\frac{p(x,">
 
 若果生成概率已知，则可以推出后验概率；反之，则不能。
 $$p(y\mid x)=\frac{p(x,y)}{p(x)}=\frac{p(x,">
-<meta property="og:updated_time" content="2017-03-07T09:31:01.527Z">
+<meta property="og:updated_time" content="2017-03-07T09:39:06.445Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习要点检索--基于图解机器学习">
 <meta name="twitter:description" content="机器学习任务判别式（识别式）学习：通过预测数据生成对联合概率p(x,y)进行模式识别的方法·
@@ -419,10 +419,12 @@ $$p(y\mid x)=\frac{p(x,y)}{p(x)}=\frac{p(x,">
 <li>常用在线性函数最值的求解，配合<strong>SVD</strong>或<strong>梯度下降法</strong>解求$\theta$的值</li>
 <li>需提前大致知道样本的模式(即基函数的确定，对多项式来说是最高几次？对三角函数式来说是基函数的振幅和频率的确定——基函数次数过高或项数过多易造成过拟合</li>
 </ol>
-<p>对于解求一元函数，窝们知道应该对函数求导求取零值点；而对于向量（可视为多元函数），求取各参量的偏导求解零值亦可求取极值。对广义线性模式的预测函数$f_{\theta }(x_{j})=\theta_{b-1}x^{b-1}_{j}+…+\theta_{2}x^{2}_{j}+\theta_{1}x_{j}+\theta_{0}x_{j}=\Theta ^{\top }\phi (x)$来说，参数的偏导形式为：</p>
+<p>对于解求一元函数，窝们知道应该对函数求导求取零值点；而对于向量（可视为多元函数），求取各参量的偏导求解零值亦可求取极值。对广义线性模式的预测函数</p>
+<p>$$f_{\theta }(x_{j})=\theta_{b-1}x^{b-1}_{j}+…+\theta_{2}x^{2}_{j}+\theta_{1}x_{j}+\theta_{0}x_{j}=\Theta ^{\top }\phi (x)$$</p>
+<p>来说，参数的偏导形式为：</p>
 <p>$$\bigtriangledown_{\theta}J_{LS}=\frac{\partial J_{LS}}{\partial \theta }=\frac{1}{2}\cdot 2\cdot\Phi ^{\top }(\Phi \Theta -y)=\Phi^{\top }\Phi \Theta ^{\top }-\Phi ^{\top}y$$</p>
 <p>其中，$\Phi $为基函数与样本点组成的n×b矩阵，</p>
-<p>$$\Phi =\begin{pmatrix}<br>\phi_{1}(x_{1}) &amp;\cdots   &amp; \phi_{b}(x_1)\\\\<br> \vdots &amp; \ddots  &amp; \vdots \\\\<br>\phi_{1}(x_n) &amp;\cdots &amp; \phi _{b}(x_{n})<br>\end{pmatrix}$$</p>
+<p>$$\Phi =\begin{pmatrix}<br>\phi_{1}(x_{1}) &amp;\cdots   &amp; \phi_{b}(x_1)\\<br> \vdots &amp; \ddots  &amp; \vdots \\<br>\phi_{1}(x_n) &amp;\cdots &amp; \phi _{b}(x_{n})<br>\end{pmatrix}$$</p>
 <p>$\Theta$为b ×1 维参数向量参数向量。令偏导为0即可解求参数向量$\theta$的具体值：</p>
 <p>$$\widehat{\theta _{LS}}=(\Phi^{\top }\Phi)^{-1} \Phi^{\top }y$$</p>
 <p>上式对广义线性模式的基函数与参数向量的组合均适用。式中的矩阵逆运算，可通过<strong>SVD</strong>分解求得，因而如果样本过多，维度过大，则复杂度较高，计算消耗较大。</p>

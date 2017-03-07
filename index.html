@@ -397,10 +397,12 @@
 <li>常用在线性函数最值的求解，配合<strong>SVD</strong>或<strong>梯度下降法</strong>解求$\theta$的值</li>
 <li>需提前大致知道样本的模式(即基函数的确定，对多项式来说是最高几次？对三角函数式来说是基函数的振幅和频率的确定——基函数次数过高或项数过多易造成过拟合</li>
 </ol>
-<p>对于解求一元函数，窝们知道应该对函数求导求取零值点；而对于向量（可视为多元函数），求取各参量的偏导求解零值亦可求取极值。对广义线性模式的预测函数$f_{\theta }(x_{j})=\theta_{b-1}x^{b-1}_{j}+…+\theta_{2}x^{2}_{j}+\theta_{1}x_{j}+\theta_{0}x_{j}=\Theta ^{\top }\phi (x)$来说，参数的偏导形式为：</p>
+<p>对于解求一元函数，窝们知道应该对函数求导求取零值点；而对于向量（可视为多元函数），求取各参量的偏导求解零值亦可求取极值。对广义线性模式的预测函数</p>
+<p>$$f_{\theta }(x_{j})=\theta_{b-1}x^{b-1}_{j}+…+\theta_{2}x^{2}_{j}+\theta_{1}x_{j}+\theta_{0}x_{j}=\Theta ^{\top }\phi (x)$$</p>
+<p>来说，参数的偏导形式为：</p>
 <p>$$\bigtriangledown_{\theta}J_{LS}=\frac{\partial J_{LS}}{\partial \theta }=\frac{1}{2}\cdot 2\cdot\Phi ^{\top }(\Phi \Theta -y)=\Phi^{\top }\Phi \Theta ^{\top }-\Phi ^{\top}y$$</p>
 <p>其中，$\Phi $为基函数与样本点组成的n×b矩阵，</p>
-<p>$$\Phi =\begin{pmatrix}<br>\phi_{1}(x_{1}) &amp;\cdots   &amp; \phi_{b}(x_1)\\\\<br> \vdots &amp; \ddots  &amp; \vdots \\\\<br>\phi_{1}(x_n) &amp;\cdots &amp; \phi _{b}(x_{n})<br>\end{pmatrix}$$</p>
+<p>$$\Phi =\begin{pmatrix}<br>\phi_{1}(x_{1}) &amp;\cdots   &amp; \phi_{b}(x_1)\\<br> \vdots &amp; \ddots  &amp; \vdots \\<br>\phi_{1}(x_n) &amp;\cdots &amp; \phi _{b}(x_{n})<br>\end{pmatrix}$$</p>
 <p>$\Theta$为b ×1 维参数向量参数向量。令偏导为0即可解求参数向量$\theta$的具体值：</p>
 <p>$$\widehat{\theta _{LS}}=(\Phi^{\top }\Phi)^{-1} \Phi^{\top }y$$</p>
 <p>上式对广义线性模式的基函数与参数向量的组合均适用。式中的矩阵逆运算，可通过<strong>SVD</strong>分解求得，因而如果样本过多，维度过大，则复杂度较高，计算消耗较大。</p>
@@ -1716,109 +1718,6 @@ x = x ^ ((~(x&gt;&gt;31))+1) + x&gt;&gt;31;
             
               
                 
-                <a class="post-title-link" href="/2016/04/27/effective-java-tips-of-create-object/" itemprop="url">
-                  Effective Java 笔记--创建对象的几个Tips
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-27T11:50:01+08:00" content="2016-04-27">
-              2016-04-27
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/27/effective-java-tips-of-create-object/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/27/effective-java-tips-of-create-object/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>第一章-创建和销毁对象 的一些 小tips</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/27/effective-java-tips-of-create-object/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2016/04/27/hexo多客户端写作/" itemprop="url">
                   Hexo多客户端写作
                 </a>
@@ -1880,6 +1779,109 @@ x = x ^ ((~(x&gt;&gt;31))+1) + x&gt;&gt;31;
 <p>我就纯属蛋疼的。喜欢在办公和休息的地方都写作；或者我一win本<br>一mac 都想写文章。但Hexo的静态部署的原则不像WordPress一样，能关联博客地址，利用数据库进行博客更新。好了，这里就来解决这个问题。┑(￣Д ￣)┍</p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/04/27/hexo多客户端写作/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/27/effective-java-tips-of-create-object/" itemprop="url">
+                  Effective Java 笔记--创建对象的几个Tips
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-27T11:50:01+08:00" content="2016-04-27">
+              2016-04-27
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/27/effective-java-tips-of-create-object/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/27/effective-java-tips-of-create-object/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>第一章-创建和销毁对象 的一些 小tips</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/27/effective-java-tips-of-create-object/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
