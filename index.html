@@ -383,6 +383,7 @@
 <li><p><strong>层级模型</strong>–典型代表是神经网络,尤其是不完全映射的神经网络.</p>
 <p>标准形式为:$f_{\theta}(x)=\sum_{j=1}^{b}\alpha _{j}\phi (x;\beta _{j})$  其中$\phi (x;\beta _{j})$是带有参数向量β的基函数。即，整个模型的参数为$\theta=(\alpha ,\beta _{1}^\top ,…,\beta _{b}^\top )^\top $其中，α是层次模型线性形式的参数向量。</p>
 <p>​</p>
+<p>常见的层级模型是卷积和神经网络。</p>
 <hr>
 <h1 id="最小二乘法"><a href="#最小二乘法" class="headerlink" title="最小二乘法"></a>最小二乘法</h1><p>入门的入门就是最小二乘了，类似二范数，目标是最小化所有样本与其预测值差的平方和：</p>
 <p><strong>敲黑板</strong>，上边表达的就是代价函数，即下式：</p>
@@ -406,12 +407,40 @@
 <p>$\Theta$为b ×1 维参数向量参数向量。令偏导为0即可解求参数向量$\theta$的具体值：</p>
 <p>$$\widehat{\theta _{LS}}=(\Phi^{\top }\Phi)^{-1} \Phi^{\top }y$$</p>
 <p>上式对广义线性模式的基函数与参数向量的组合均适用。式中的矩阵逆运算，可通过<strong>SVD</strong>分解求得，因而如果样本过多，维度过大，则复杂度较高，计算消耗较大。</p>
-<p>若换用核模型，$$f_{\theta}(x)=\sum_{j=1}^{n}\theta _{j}K(x,x_j)$$,可认为直接把$\Phi$替换定义的核矩阵，即可求得核模型的最小二乘解。</p>
+<p>若换用核模型，$$f_{\theta}(x)=\sum_{j=1}^{n}\theta _{j}K(x,x_j)$$,可认为直接把$\Phi$替换定义的核矩阵，即可求得核模型的最小二乘解。上式$\Phi$可替换为</p>
+<p>$$\kappa = \begin{pmatrix}</p>
+<p>K(x_{1},x_{1}) &amp;\cdots   &amp; K(x_{1},x_{n})\\\\</p>
+<p> \vdots &amp; \ddots  &amp; \vdots \\\\</p>
+<p>K(x_n,x_1) &amp;\cdots &amp; K(x_{n},x_{n})</p>
+<p>\end{pmatrix}$$</p>
+<hr>
+<blockquote>
+<p>最小二乘法输出的预测值时由$    \Re(\Phi )$的正摄投影得到。其中，$\Re$表达$\Phi$的值域，$\Phi$是上式基函数矩阵与具体样本构成的n×b矩阵</p>
+</blockquote>
+<hr>
+<p>为了更快收敛更节省计算资源，设计<strong>梯度下降法</strong>——给定某个初值，以一定的步长α（学习率）向梯度的方向（函数向局部极小值 下降最快的方向）趋近迭代的算法。</p>
+<ul>
+<li>该方式主要针对线性空间凸函数，即有可求极值点</li>
+<li>该方法需要同时更新所有的参数向量，计算本次 参数向量统一使用上一次的数据</li>
+<li>设置合理的阈值能更快收敛</li>
+</ul>
+<p>对向量参数$\theta$的每个具体参数，其迭代的方式为：$$\theta_{j}  += \theta_{j} - \alpha \frac{\partial }{\partial \theta _{j}}J_{LS}(\theta )$$</p>
+<p>其中α是<strong>学习率</strong>，后边一坨是对<strong>代价函数的偏导</strong>。学习率决定了趋近的速率，过小迭代次数过多收敛过慢，过大易造成远离极值点。对假设模型为线性函数形如上式$f_{\theta }(x_{j})=\theta_{b-1}x^{b-1}_{j}+…+\theta_{2}x^{2}_{j}+\theta_{1}x_{j}+\theta_{0}x_{j}=\Theta ^{\top }\phi (x)$的偏导数，其具体偏导为：</p>
 <p>​</p>
-<p>为了更快收敛更节省计算资源，设计<strong>梯度下降法</strong>——给定某个初值，以一定的步长α（学习率）向梯度的方向（函数向局部极小值 下降最快的方向）趋近迭代的算法。对向量参数$\theta$的每个具体参数，其迭代的方式为：</p>
-<p>$$\theta_{j}  += \theta_{j} - \alpha \frac{\partial }{\partial \theta _{j}}J_{LS}(\theta )$$</p>
-<p>其中α是<strong>学习率</strong>，后边一坨是对<strong>代价函数的偏导</strong>。学习率决定了趋近的速率，过小迭代次数过多收敛过慢，过大易造成远离极值点。</p>
-<p>举个<strong>栗子</strong>,</p>
+<p>$$ \frac{\partial }{\partial \theta }\frac{1}{2}(f_{\Theta }(X)-Y)^2=2\cdot \frac{1}{2}\cdot(h_{\theta}(X)-Y)\frac{\partial }{\partial \theta _j}(\sum_{i=0}^{n}\theta _{i}x_{i}-Y)=(h_{\theta}(X)-Y)x_j $$</p>
+</li>
+<li><p>其中j是参数向量某个具体位置，而$x_j$是其对应位置的基函数的值而非样本</p>
+</li>
+<li><p>$\phi$是基函数，$X$ Y分别是样本向量$X=\{x_1,x_2,…x_m\}$和样本结果实际值向量$Y=\{y_1,y_2…y_m\}$</p>
+</li>
+<li><p>i是基函数数量</p>
+</li>
+<li><p>举个栗子。当假设基函数为$\phi(x)={(x,1)}$即$f(x)=\theta_1x_1+\theta_0$其迭代时具体值为：</p>
+<p>$$\theta_0 += \theta_0 - \alpha\frac{1}{m}\sum_{m}^{i=1}(h_{\theta}(x_i)-y_i)$$</p>
+<p>$$\theta_1 += \theta_1 - \alpha\frac{1}{m}\sum_{m}^{i=1}((h_{\theta}(x_i)-y_i)x_i)$$</p>
+<hr>
+<p>​</p>
+<p>​</p>
 <p>​</p>
 </li>
 </ul>
