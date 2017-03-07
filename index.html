@@ -366,13 +366,15 @@
 <p> 只在训练集的输入样本附近对函数进行近似，可以减轻维数灾难的影像</p>
 </blockquote>
 <h1 id="学习模型"><a href="#学习模型" class="headerlink" title="学习模型"></a>学习模型</h1><ul>
-<li><p><em>线性模型*</em>–典型的代表是$$f_{\theta}(x)=\theta_{1}x+\theta_{0}$$对面积-房价进行一元一次线性拟合</p>
+<li><p><strong>线性模型</strong>–典型的代表是$$f_{\theta}(x)=\theta_{1}x+\theta_{0}$$对面积-房价进行一元一次线性拟合</p>
 <p>标准形式为：$f_{\theta }(x)=\sum_{j=1}^{b}\theta_{j}\phi_{j}(x)=\theta ^{\top }\phi (x)$,其中$\theta_{j}$是参数向量（待解求的参数集合）$\theta=(\theta_{1},\theta_{2}…\theta_{b})^{\top }$的第j个因子；$\phi_{j}(x)$ 是基函数（决定了拟合的模式 以特征为基础可以自由决定衍生的多项式、函数模式$ln x$、$\frac{1}{x}$等，一般来说都是多项式，即$\phi_{j}(x)=(1,x,x^2…x^{b-1})^{\top }$;又或者是三角多项式形式，即$\phi_{j}(x)=(1,sin x,cos x,sin 2x,cos 2x…sin mx,cos mx)^{\top }$）</p>
 </li>
 </ul>
 <p><strong>当不止考虑一个维度的因素（特征）时，输入维度太多易造成维度爆炸。</strong></p>
 <ul>
-<li><p><strong>核模型</strong>–典型代表四高斯核$K(x,c)=e^{-\frac{\left | x-c \right |^2}{2h^2}}$，可理解为欧几里得空间映射到核函数空间中，在函数设计时可以依赖样本$$\{(x_{i},y_{i})\}_{i=1}^{n}$$。式中，h和c分别是带宽和均值。高斯核模型一般只能对样本附近的函数进行近似.</p>
+<li><p><strong>核模型</strong>–典型代表四高斯核</p>
+<p>$$K(x,c)=e^{-\frac{\left | x-c \right |^2}{2h^2}}$$</p>
+<p>可理解为欧几里得空间映射到核函数空间中，在函数设计时可以依赖样本$$\{(x_{i},y_{i})\}_{i=1}^{n}$$。式中，h和c分别是带宽和均值。高斯核模型一般只能对样本附近的函数进行近似.</p>
 <p>标准形式为：$f_{\theta}(x)=\sum_{j=1}^{n}\theta_{j}K(x,x_j)$ 其中$K(x,x_j)$是二元核函数，以线性相加所有样本的方式定义。</p>
 </li>
 </ul>
@@ -385,15 +387,29 @@
 <h1 id="最小二乘法"><a href="#最小二乘法" class="headerlink" title="最小二乘法"></a>最小二乘法</h1><p>入门的入门就是最小二乘了，类似二范数，目标是最小化所有样本与其预测值差的平方和：</p>
 <p><strong>敲黑板</strong>，上边表达的就是代价函数，即下式：</p>
 <p>$$J_{LS}(\theta )=\frac{1}{2}\sum_{i=1}^{n}(f_{\theta }(x_{i})-y_{i})^2$$</p>
+<p>其中，i是具体样本编号，n是样本个数，LS即least square最小二乘。</p>
 <p>解求目标是：</p>
 <p>$$\widehat{\theta_{LS}}=\underset{\theta }{argmin}J_{LS}(\theta )$$</p>
-<p>再次<strong>敲黑板</strong>，这句话包含很多意思</p>
+<p>其中$\widehat{\theta_{LS}}$表达对参数的预测值。再次<strong>敲黑板</strong>，这句话包含很多意思</p>
 <ol>
-<li>使用最小二乘算法，解算的目标是：当代价函数求得最小的时候参数$\theta$的值</li>
+<li>以最小二乘法表达代价函数，解算的目标是：当代价函数求得最小的时候参数$\theta$的值</li>
 <li>代价函数的最小值是多少我不关心，我只关心代价函数求得最小时参数向量的值是多少–即解求的目标不是函数的最值，是函数的极值点。</li>
-<li>常用在线性函数最值的求解，易过拟合</li>
+<li>常用在线性函数最值的求解，配合<strong>SVD</strong>或<strong>梯度下降法</strong>解求$\theta$的值</li>
+<li>需提前大致知道样本的模式(即基函数的确定，对多项式来说是最高几次？对三角函数式来说是基函数的振幅和频率的确定——基函数次数过高或项数过多易造成过拟合</li>
 </ol>
-<p>对于解求一元函数，窝们知道应该对函数求导求取零值点；而对于向量（可视为多元函数），求取各参量的偏导求解零值亦可求取极值。其偏导为：</p>
+<p>对于解求一元函数，窝们知道应该对函数求导求取零值点；而对于向量（可视为多元函数），求取各参量的偏导求解零值亦可求取极值。对广义线性模式的预测函数$f_{\theta }(x_{j})=\theta_{b-1}x^{b-1}_{j}+…+\theta_{2}x^{2}_{j}+\theta_{1}x_{j}+\theta_{0}x_{j}=\Theta ^{\top }\phi (x)$来说，参数的偏导形式为：</p>
+<p>$$\bigtriangledown_{\theta}J_{LS}=\frac{\partial J_{LS}}{\partial \theta }=\frac{1}{2}\cdot 2\cdot\Phi ^{\top }(\Phi \Theta -y)=\Phi^{\top }\Phi \Theta ^{\top }-\Phi ^{\top}y$$</p>
+<p>其中，$\Phi $为基函数与样本点组成的n×b矩阵，</p>
+<p>$$\Phi =\begin{pmatrix}<br>\phi_{1}(x_{1}) &amp;\cdots   &amp; \phi_{b}(x_1)\\\\<br> \vdots &amp; \ddots  &amp; \vdots \\\\<br>\phi_{1}(x_n) &amp;\cdots &amp; \phi _{b}(x_{n})<br>\end{pmatrix}$$</p>
+<p>$\Theta$为b ×1 维参数向量参数向量。令偏导为0即可解求参数向量$\theta$的具体值：</p>
+<p>$$\widehat{\theta _{LS}}=(\Phi^{\top }\Phi)^{-1} \Phi^{\top }y$$</p>
+<p>上式对广义线性模式的基函数与参数向量的组合均适用。式中的矩阵逆运算，可通过<strong>SVD</strong>分解求得，因而如果样本过多，维度过大，则复杂度较高，计算消耗较大。</p>
+<p>若换用核模型，$$f_{\theta}(x)=\sum_{j=1}^{n}\theta _{j}K(x,x_j)$$,可认为直接把$\Phi$替换定义的核矩阵，即可求得核模型的最小二乘解。</p>
+<p>​</p>
+<p>为了更快收敛更节省计算资源，设计<strong>梯度下降法</strong>——给定某个初值，以一定的步长α（学习率）向梯度的方向（函数向局部极小值 下降最快的方向）趋近迭代的算法。对向量参数$\theta$的每个具体参数，其迭代的方式为：</p>
+<p>$$\theta_{j}  += \theta_{j} - \alpha \frac{\partial }{\partial \theta _{j}}J_{LS}(\theta )$$</p>
+<p>其中α是<strong>学习率</strong>，后边一坨是对<strong>代价函数的偏导</strong>。学习率决定了趋近的速率，过小迭代次数过多收敛过慢，过大易造成远离极值点。</p>
+<p>举个<strong>栗子</strong>,</p>
 <p>​</p>
 </li>
 </ul>
@@ -1700,6 +1716,109 @@ x = x ^ ((~(x&gt;&gt;31))+1) + x&gt;&gt;31;
             
               
                 
+                <a class="post-title-link" href="/2016/04/27/effective-java-tips-of-create-object/" itemprop="url">
+                  Effective Java 笔记--创建对象的几个Tips
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-27T11:50:01+08:00" content="2016-04-27">
+              2016-04-27
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/27/effective-java-tips-of-create-object/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/27/effective-java-tips-of-create-object/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>第一章-创建和销毁对象 的一些 小tips</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/27/effective-java-tips-of-create-object/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/04/27/hexo多客户端写作/" itemprop="url">
                   Hexo多客户端写作
                 </a>
@@ -1761,109 +1880,6 @@ x = x ^ ((~(x&gt;&gt;31))+1) + x&gt;&gt;31;
 <p>我就纯属蛋疼的。喜欢在办公和休息的地方都写作；或者我一win本<br>一mac 都想写文章。但Hexo的静态部署的原则不像WordPress一样，能关联博客地址，利用数据库进行博客更新。好了，这里就来解决这个问题。┑(￣Д ￣)┍</p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/04/27/hexo多客户端写作/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/27/effective-java-tips-of-create-object/" itemprop="url">
-                  Effective Java 笔记--创建对象的几个Tips
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-27T11:50:01+08:00" content="2016-04-27">
-              2016-04-27
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/27/effective-java-tips-of-create-object/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/27/effective-java-tips-of-create-object/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>第一章-创建和销毁对象 的一些 小tips</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/27/effective-java-tips-of-create-object/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>

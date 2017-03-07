@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="ov智商捉急">
 <meta property="og:description" content="上文中明确了两个式子：$$\lbrace\begin{matrix}\frac{f}{\overline{Z}}dXs+\frac{x}{\overline{Z}}dZs-(f+\frac{x^{2}}{f})d\varphi-\frac{xy}{f}d\omega+yd\kappa -\frac{f}{\overline{Z}}dX-\frac{x}{\overline{Z}}dZ+\frac{">
 <meta property="og:image" content="http://ww4.sinaimg.cn/large/68eb7c93gw1exesrtmyzlj20rr0iiq5q.jpg">
-<meta property="og:updated_time" content="2016-11-15T03:07:53.114Z">
+<meta property="og:updated_time" content="2017-03-07T09:29:06.617Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="后方交会检校(2)--误差方程及各项系数解求及精度">
 <meta name="twitter:description" content="上文中明确了两个式子：$$\lbrace\begin{matrix}\frac{f}{\overline{Z}}dXs+\frac{x}{\overline{Z}}dZs-(f+\frac{x^{2}}{f})d\varphi-\frac{xy}{f}d\omega+yd\kappa -\frac{f}{\overline{Z}}dX-\frac{x}{\overline{Z}}dZ+\frac{">
@@ -396,7 +396,7 @@
 <p>其中，右边三项分别为像点观测坐标，像点计算坐标，畸变误差。<br> 在后方交会时，当只计算外方位元素时：</p>
 <p> $$V_{2n\times 1}=A_{2n\times6}X_{6\times1}-L_{2n\times1}$$.</p>
 <p> 其中，式子每两行具体为</p>
-<p>$$\begin{bmatrix}v_{x}\\\\v_{y}\end{bmatrix}=\begin{bmatrix}\frac{f}{\overline{Z}}&amp;0&amp;\frac{x}{\overline{Z}}&amp;-(f+\frac{x^{2}}{f})&amp;-\frac{xy}{f}&amp;y\\\\0&amp;\frac{f}{\overline{Z}}&amp;\frac{y}{\overline{Z}}&amp;-\frac{xy}{f}&amp;-(f+\frac{y^{2}}{f})&amp;-x\end{bmatrix}\begin{bmatrix}dXs\\\\dYs\\\\dZs\\\\d\varphi\\\\d\omega\\\\d\kappa\end{bmatrix}-\begin{bmatrix}l_{x}\\\\l_{y}\end{bmatrix}$$</p>
+<p>$$\begin{bmatrix}v_{x}\\\\v_{y}\end{bmatrix}=\begin{bmatrix}\frac{f}{\overline{Z}}&amp;0&amp;\frac{x}{\overline{Z}}&amp;-(f+\frac{x^{2}}{f})&amp;-\frac{xy}{f}&amp;y\\\\0&amp;\frac{f}{\overline{Z}}&amp;\frac{y}{\overline{Z}}&amp;-\frac{xy}{f}&amp;-(f+\frac{y^{2}}{f})&amp;-x\end{bmatrix}\begin{bmatrix}dXs\\\\dYs\\\\dZs\\\\d\varphi\\\\d\omega\\\\d\kappa\end{bmatrix}-\begin{bmatrix}l_{x}\\\\l_{y}\end{bmatrix}​$$</p>
 <p>若要求出V方程的最佳估计值，在摄影测量中，一般按照最小二乘原理进行解答，即<font color="#FF0000"><strong>$$V^{T}V=min$$</strong></font>这就转化为了对该式求极值的问题。</p>
 <p>$$V^{T}V=(AX-L)^{T}(AX-L)=X^{T}A^{T}AX-2X^{T}A^{T}L+L^{T}L\Rightarrow \frac{\partial V^{T}V}{\partial X}=2A^{T}AX-2A^{T}L=0$$</p>
 <p>上式中大X的含义是待求解的每个元素的残差矩阵包含了Xs Ys Zs Ω φ k，而不是实际测量三维点坐标X。此外，推导过程中对$V^{T}V$求导，则可得到对应6个残差的最佳估计值。这个过程称为误差方程式的<font color="#FF0000"><strong>法化</strong></font>。</p>
@@ -410,9 +410,8 @@
 
 <font color="#FF0000"><br>③答解线性方程组，得到△Xs，△Ys，△Zs，△k，△ω，△φ</font>
 
-<font color="#FF0000"><br>④将增量△和初值相加，得到新的一个外方位元素。</font><br><font color="#FF0000">      ⑤各个增量△与一个给定的限差作比较，若小于则停止迭代运算；若不是则重复②到⑤</font>      
-
-<p>分别对上式各步骤进行解释：<br>①$X_{s}^{0},Y_{s}^{0}$可以利用X Y的物方点均值设置，$Z_{s}^{0}$一般为H即航摄高度，有时也用mf表示。m是航摄比例尺，f是相机焦距。这些值也可以直接给定某个初值。三个角元素则一般设为0,k有时可根据航迹图给定。</p>
+<p><font color="#FF0000"><br>④将增量△和初值相加，得到新的一个外方位元素。</font></p>
+<p><font color="#FF0000">      ⑤各个增量△与一个给定的限差作比较，若小于则停止迭代运算；若不是则重复②到⑤</font><br>​<br>分别对上式各步骤进行解释：<br>①$X_{s}^{0},Y_{s}^{0}$可以利用X Y的物方点均值设置，$Z_{s}^{0}$一般为H即航摄高度，有时也用mf表示。m是航摄比例尺，f是相机焦距。这些值也可以直接给定某个初值。三个角元素则一般设为0,k有时可根据航迹图给定。</p>
 <p>②该步骤可分解为计算旋转矩阵R（R的具体值参考下文）、计算得到的变换坐标$\overline{X},\overline{Y},\overline{Z}$（其实就是地面辅助坐标系的坐标）、计算x计、y计（即由<font color="#FF0000"><strong>相应地面坐标点</strong></font>和<font color="#FF0000"><strong>外方位元素</strong></font>计算得到的像点坐标，$$x_{cal}=-f\frac{\overline{X}}{\overline{Z}},y_{cal}=-f\frac{\overline{Y}}{\overline{Z}}$$、计算误差方程各项系数、组成误差方程V=AX-L</p>
 <p>③该步骤其实就是矩阵运算，求出$A^{T}PA$   ($A^{T}A$) 及其逆矩阵。求出$A^{T}L$ ($A^{T}PL$)，两式相乘求取X[△Xs,△Ys,△Zs,△k,△ω,△φ]</p>
 <p>④根据改正数的值加上上一步的值得到各项新值。</p>
