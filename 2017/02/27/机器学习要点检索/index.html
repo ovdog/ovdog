@@ -88,8 +88,8 @@
 可能有拥有足够的信息来很好的解决一个感兴趣的特定问题，但却没有足够的信息来解决一个一般性问题。
 
 
-若果生成概率已知，则可以推出后验概率；反之，则不能。
-$$p(y\mid x)=\frac{p(x,y)}{p(x)}=\frac{p(x,">
+如果生成概率已知，则可以推出后验概率（所有y可能性的联合概率加和计算x的概率）；反之，则不能。
+$$p(y\mid x)=\frac{p(x">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习要点检索--基于图解机器学习">
 <meta property="og:url" content="http://ovjaywang.github.io/2017/02/27/机器学习要点检索/index.html">
@@ -100,9 +100,9 @@ $$p(y\mid x)=\frac{p(x,y)}{p(x)}=\frac{p(x,">
 可能有拥有足够的信息来很好的解决一个感兴趣的特定问题，但却没有足够的信息来解决一个一般性问题。
 
 
-若果生成概率已知，则可以推出后验概率；反之，则不能。
-$$p(y\mid x)=\frac{p(x,y)}{p(x)}=\frac{p(x,">
-<meta property="og:updated_time" content="2017-03-07T15:21:33.960Z">
+如果生成概率已知，则可以推出后验概率（所有y可能性的联合概率加和计算x的概率）；反之，则不能。
+$$p(y\mid x)=\frac{p(x">
+<meta property="og:updated_time" content="2017-03-17T08:54:51.804Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习要点检索--基于图解机器学习">
 <meta name="twitter:description" content="机器学习任务判别式（识别式）学习：通过预测数据生成对联合概率p(x,y)进行模式识别的方法·
@@ -111,8 +111,8 @@ $$p(y\mid x)=\frac{p(x,y)}{p(x)}=\frac{p(x,">
 可能有拥有足够的信息来很好的解决一个感兴趣的特定问题，但却没有足够的信息来解决一个一般性问题。
 
 
-若果生成概率已知，则可以推出后验概率；反之，则不能。
-$$p(y\mid x)=\frac{p(x,y)}{p(x)}=\frac{p(x,">
+如果生成概率已知，则可以推出后验概率（所有y可能性的联合概率加和计算x的概率）；反之，则不能。
+$$p(y\mid x)=\frac{p(x">
 
 
 
@@ -384,10 +384,10 @@ $$p(y\mid x)=\frac{p(x,y)}{p(x)}=\frac{p(x,">
 <p>可能有拥有足够的信息来很好的解决一个感兴趣的特定问题，但却没有足够的信息来解决一个一般性问题。</p>
 </blockquote>
 <hr>
-<p>若果生成概率已知，则可以推出后验概率；反之，则不能。</p>
+<p>如果生成概率已知，则可以推出后验概率（所有y可能性的联合概率加和计算x的概率）；反之，则不能。</p>
 <p>$$p(y\mid x)=\frac{p(x,y)}{p(x)}=\frac{p(x,y)}{\sum _{y}p(x,y)}$$</p>
 <hr>
-<p><strong>统计派（频率派）</strong>：将模式Θ(模型参数)作为决定论的变量，使用训练样本${(x_{i},y_{i})}_{i=1}^{n}$对Θ进行学习。(e.g.利用最大似然π)      </p>
+<p><strong>统计派（频率派）</strong>：将模式θ(模型参数)作为决定论的变量，使用训练样本${(x_{i},y_{i})}_{i=1}^{n}$对Θ进行学习。(e.g.利用最大似然π)      </p>
 <p>其主要<strong>研究课题</strong>是如何有训练集得到高精度的模式Θ。      </p>
 <p>$$\underset{\theta}{max}\prod_{i=1}^{y}q(x_{i},y_{i},\theta )$$</p>
 <p><strong>贝叶斯派</strong> ：将模式Θ作为概率变量，对其先验概率p(Θ)加以考虑，计算与训练集相对应的后验概率p(Θ|D).并利用贝叶斯公式求解后验概率</p>
@@ -395,7 +395,7 @@ $$p(y\mid x)=\frac{p(x,y)}{p(x)}=\frac{p(x,">
 <p>贝叶斯学派的<strong>主要任务</strong>是如何通过各种方式精确计算后验概率。</p>
 <hr>
 <blockquote>
-<p> 只在训练集的输入样本附近对函数进行近似，可以减轻维数灾难的影像</p>
+<p> 只在训练集的输入样本附近对函数进行近似，可以减轻维数灾难的影响</p>
 </blockquote>
 <h1 id="学习模型"><a href="#学习模型" class="headerlink" title="学习模型"></a>学习模型</h1><ul>
 <li><p><strong>线性模型</strong>–典型的代表是$$f_{\theta}(x)=\theta_{1}x+\theta_{0}$$对面积-房价进行一元一次线性拟合</p>
@@ -427,37 +427,38 @@ $$p(y\mid x)=\frac{p(x,y)}{p(x)}=\frac{p(x,">
 <ol>
 <li>以最小二乘法表达代价函数，解算的目标是：当代价函数求得最小的时候参数$\theta$的值</li>
 <li>代价函数的最小值是多少我不关心，我只关心代价函数求得最小时参数向量的值是多少–即解求的目标不是函数的最值，是函数的极值点。</li>
-<li>常用在线性函数最值的求解，配合<strong>SVD</strong>或<strong>梯度下降法</strong>解求$\theta$的值</li>
+<li>常用在线性函数最值的求解，配合<strong>SVD</strong>(范式函数)或<strong>梯度下降法</strong>解求$\theta$的值 两者的内涵是一致的</li>
 <li>需提前大致知道样本的模式(即基函数的确定，对多项式来说是最高几次？对三角函数式来说是基函数的振幅和频率的确定——基函数次数过高或项数过多易造成过拟合</li>
 </ol>
-<p>对于解求一元函数，窝们知道应该对函数求导求取零值点；而对于向量（可视为多元函数），求取各参量的偏导求解零值亦可求取极值。对广义线性模式的预测函数</p>
+<h2 id="正态方程解法-Normal-Equation"><a href="#正态方程解法-Normal-Equation" class="headerlink" title="正态方程解法(Normal Equation)"></a>正态方程解法(Normal Equation)</h2><p>对于解求一元函数，窝们知道应该对函数求导求取零值点；而对于向量（可视为多元函数），求取各参量的偏导求解零值亦可求取极值。对广义线性模式的预测函数</p>
 <p>$$f_{\theta }(x_{j})=\theta_{b-1}x^{b-1}_{j}+…+\theta_{2}x^{2}_{j}+\theta_{1}x_{j}+\theta_{0}x_{j}=\Theta ^{\top }\phi (x)$$</p>
 <p>来说，参数的偏导形式为：</p>
 <p>$$\bigtriangledown_{\theta}J_{LS}=\frac{\partial J_{LS}}{\partial \theta }=\frac{1}{2}\cdot 2\cdot\Phi ^{\top }(\Phi \Theta -y)=\Phi^{\top }\Phi \Theta ^{\top }-\Phi ^{\top}y$$</p>
 <p>其中，$\Phi $为基函数与样本点组成的n×b矩阵，</p>
 <p>$$\Phi =\begin{pmatrix}<br>\phi_{1}(x_{1}) &amp;\cdots   &amp; \phi_{b}(x_1)\\<br> \vdots &amp; \ddots  &amp; \vdots \\<br>\phi_{1}(x_n) &amp;\cdots &amp; \phi _{b}(x_{n})<br>\end{pmatrix}$$</p>
 <p>$\Theta$为b ×1 维参数向量参数向量。令偏导为0即可解求参数向量$\theta$的具体值：</p>
-<p>$$\widehat{\theta _{LS}}=(\Phi^{\top }\Phi)^{-1} \Phi^{\top }y$$</p>
-<p>上式对广义线性模式的基函数与参数向量的组合均适用。式中的矩阵逆运算，可通过<strong>SVD</strong>分解求得，因而如果样本过多，维度过大，则复杂度较高，计算消耗较大。</p>
+<p><strong>$$\widehat{\theta _{LS}}=(\Phi^{\top }\Phi)^{-1} \Phi^{\top }y$$</strong></p>
+<p>上式对广义线性模式的基函数与参数向量的组合均适用。式中的矩阵逆运算，可通过<strong>SVD</strong>分解求得，因而如果样本过多（m值过大），维度过大(n值过大)，则复杂度较高，计算消耗较大（O(n^3)的复杂度）。</p>
 <p>若换用核模型，$$f_{\theta}(x)=\sum_{j=1}^{n}\theta _{j}K(x,x_j)$$,可认为直接把$\Phi$替换定义的核矩阵，即可求得核模型的最小二乘解。上式$\Phi$可替换为</p>
 <p>$$\kappa = \begin{pmatrix}</p>
 <p>K(x_{1},x_{1}) &amp;\cdots   &amp; K(x_{1},x_{n})\\\\</p>
 <p> \vdots &amp; \ddots  &amp; \vdots \\\\</p>
 <p>K(x_n,x_1) &amp;\cdots &amp; K(x_{n},x_{n})</p>
 <p>\end{pmatrix}$$</p>
+<p><strong>注意notes</strong>  当矩阵不可逆，及其可能两个特征过于<strong>接近</strong>或特征过少样本过多</p>
 <hr>
 <blockquote>
 <p>最小二乘法输出的预测值时由$    \Re(\Phi )$的正摄投影得到。其中，$\Re$表达$\Phi$的值域，$\Phi$是上式基函数矩阵与具体样本构成的n×b矩阵</p>
 </blockquote>
 <hr>
-<p>为了更快收敛更节省计算资源，设计<strong>梯度下降法</strong>——给定某个初值，以一定的步长α（学习率）向梯度的方向（函数向局部极小值 下降最快的方向）趋近迭代的算法。</p>
+<h2 id="梯度下降解法"><a href="#梯度下降解法" class="headerlink" title="梯度下降解法"></a>梯度下降解法</h2><h3 id="梯度下降基本原理"><a href="#梯度下降基本原理" class="headerlink" title="梯度下降基本原理"></a>梯度下降基本原理</h3><p>计算线性回归时，为了更快收敛更节省计算资源，设计<strong>梯度下降法</strong>——给定某个初值，以一定的<strong>步长α</strong>（学习率）向<strong>梯度的方向</strong>（函数向局部极小值 下降最快的方向）趋近迭代的算法。</p>
 <ul>
 <li>该方式主要针对线性空间凸函数，即有可求极值点</li>
 <li>该方法需要同时更新所有的参数向量，计算本次 参数向量统一使用上一次的数据</li>
 <li>设置合理的阈值能更快收敛</li>
 </ul>
 <p>对向量参数$\theta$的每个具体参数，其迭代的方式为：$$\theta_{j}  += \theta_{j} - \alpha \frac{\partial }{\partial \theta _{j}}J_{LS}(\theta )$$</p>
-<p>其中α是<strong>学习率</strong>，后边一坨是对<strong>代价函数的偏导</strong>。学习率决定了趋近的速率，过小迭代次数过多收敛过慢，过大易造成远离极值点。对假设模型为线性函数形如上式$f_{\theta }(x_{j})=\theta_{b-1}x^{b-1}_{j}+…+\theta_{2}x^{2}_{j}+\theta_{1}x_{j}+\theta_{0}x_{j}=\Theta ^{\top }\phi (x)$的偏导数，其具体偏导为：</p>
+<p>其中α是<strong>学习率</strong>，后边一坨是<strong>代价函数对具体参数向量的偏导</strong>。学习率决定了趋近的速率，过小迭代次数过多收敛过慢，过大易造成远离极值点。对假设模型为线性函数形如上式$f_{\theta }(x_{j})=\theta_{b-1}x^{b-1}_{j}+…+\theta_{2}x^{2}_{j}+\theta_{1}x_{j}+\theta_{0}x_{j}=\Theta ^{\top }\phi (x)$的偏导数，其具体偏导为：</p>
 <p>​</p>
 <p>$$ \frac{\partial }{\partial \theta }\frac{1}{2}(f_{\Theta }(X)-Y)^2=2\cdot \frac{1}{2}\cdot(h_{\theta}(X)-Y)\frac{\partial }{\partial \theta _j}(\sum_{i=0}^{n}\theta _{i}x_{i}-Y)=(h_{\theta}(X)-Y)x_j $$</p>
 </li>
@@ -471,11 +472,62 @@ $$p(y\mid x)=\frac{p(x,y)}{p(x)}=\frac{p(x,">
 <p>$$\theta_0 += \theta_0 - \alpha\frac{1}{m}\sum_{m}^{i=1}(h_{\theta}(x_i)-y_i)$$</p>
 <p>$$\theta_1 += \theta_1 - \alpha\frac{1}{m}\sum_{m}^{i=1}((h_{\theta}(x_i)-y_i)x_i)$$</p>
 <hr>
-<p>​</p>
-<p>​</p>
-<p>​</p>
+<h3 id="梯度下降的注意事项"><a href="#梯度下降的注意事项" class="headerlink" title="梯度下降的注意事项"></a>梯度下降的注意事项</h3><p>梯度下降主要由三种更新方式：</p>
+<ol>
+<li><p>以最最基本的梯度下降原理，每一次带入<strong>所有</strong>的样本数据解求更新偏导数-batch批量梯度下降</p>
+</li>
+<li><p>数据量过多，每次<strong>随机</strong>抽一个带入解算偏导数，则上式解算每个偏导的函数变为</p>
+<p>$$666$$–随机梯度下降</p>
+</li>
+<li><p>结合以上两种方式，每次迭代抽取<strong>一小波</strong>样本更新偏导数–mini-batch 随机批量梯度下降</p>
+</li>
+</ol>
+<p>一般来说，梯度下降为了保证计算效率和迭代效率，选择第三种比较划算。      </p>
+<p>​      </p>
+<p>梯度下降中，选择<strong>合适的α</strong>比较重要。</p>
+<ul>
+<li>过小导致收敛过慢</li>
+<li>过大可能无法收敛或越出该局部最小值</li>
+<li><p>需要对多个α进行测试–出现代价函数增大应减小学习率；若迭代收敛过慢则增大学习率</p>
+<p>选择合适的特征尺度也利于收敛。一般而言，可以选择正则化以保证收敛时的计算更为<strong>顺滑精确</strong>(梯度平缓步长合适)。<strong>注意</strong>：特征尺度不能解决设计矩阵不可逆、J(θ)不收敛等问题。</p>
 </li>
 </ul>
+<hr>
+<h3 id="梯度下降和正太方程比较"><a href="#梯度下降和正太方程比较" class="headerlink" title="梯度下降和正太方程比较"></a>梯度下降和正太方程比较</h3></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">Gradient Descent</th>
+<th style="text-align:center">NORmal Equation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">需要选择α</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✘</td>
+</tr>
+<tr>
+<td style="text-align:center">需要迭代计算</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✘</td>
+</tr>
+<tr>
+<td style="text-align:center">需要计算逆矩阵</td>
+<td style="text-align:center">✘</td>
+<td style="text-align:center">✔</td>
+</tr>
+<tr>
+<td style="text-align:center">当维度n和样本m过大时计算顺利</td>
+<td style="text-align:center">✔</td>
+<td style="text-align:center">✘</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="Logistics回归（逻辑回归）"><a href="#Logistics回归（逻辑回归）" class="headerlink" title="Logistics回归（逻辑回归）"></a>Logistics回归（逻辑回归）</h1><h2 id="这是一个分类算法"><a href="#这是一个分类算法" class="headerlink" title="这是一个分类算法"></a><strong>这是一个分类算法</strong></h2>
       
     </div>
     
@@ -692,7 +744,7 @@ $$p(y\mid x)=\frac{p(x,y)}{p(x)}=\frac{p(x,">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#机器学习任务"><span class="nav-number">1.</span> <span class="nav-text">机器学习任务</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#学习模型"><span class="nav-number">2.</span> <span class="nav-text">学习模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最小二乘法"><span class="nav-number">3.</span> <span class="nav-text">最小二乘法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#机器学习任务"><span class="nav-number">1.</span> <span class="nav-text">机器学习任务</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#学习模型"><span class="nav-number">2.</span> <span class="nav-text">学习模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最小二乘法"><span class="nav-number">3.</span> <span class="nav-text">最小二乘法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#正态方程解法-Normal-Equation"><span class="nav-number">3.1.</span> <span class="nav-text">正态方程解法(Normal Equation)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#梯度下降解法"><span class="nav-number">3.2.</span> <span class="nav-text">梯度下降解法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#梯度下降基本原理"><span class="nav-number">3.2.1.</span> <span class="nav-text">梯度下降基本原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#梯度下降的注意事项"><span class="nav-number">3.2.2.</span> <span class="nav-text">梯度下降的注意事项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#梯度下降和正太方程比较"><span class="nav-number">3.2.3.</span> <span class="nav-text">梯度下降和正太方程比较</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Logistics回归（逻辑回归）"><span class="nav-number">4.</span> <span class="nav-text">Logistics回归（逻辑回归）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#这是一个分类算法"><span class="nav-number">4.1.</span> <span class="nav-text">这是一个分类算法</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
