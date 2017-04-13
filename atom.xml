@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ovjaywang.github.io/"/>
-  <updated>2017-03-22T14:22:12.616Z</updated>
+  <updated>2017-04-13T13:41:49.646Z</updated>
   <id>http://ovjaywang.github.io/</id>
   
   <author>
@@ -20,9 +20,10 @@
     <link href="http://ovjaywang.github.io/2017/02/27/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%A6%81%E7%82%B9%E6%A3%80%E7%B4%A2/"/>
     <id>http://ovjaywang.github.io/2017/02/27/机器学习要点检索/</id>
     <published>2017-02-27T08:54:19.000Z</published>
-    <updated>2017-03-22T14:22:12.616Z</updated>
+    <updated>2017-04-13T13:41:49.646Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;机器学习任务&quot;&gt;&lt;a href=&quot;#机器学习任务&quot; class=&quot;headerlink&quot; title=&quot;机器学习任务&quot;&gt;&lt;/a&gt;机器学习任务&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;判别式（识别式）学习&lt;/strong&gt;：通过预测数据生成对联合概率&lt;strong&gt;p(x,y)&lt;/strong&gt;进行模式识别的方法·&lt;/p&gt;
+    <content type="html">&lt;p&gt;这是一个机器学习知识记录贴，主要内容是Ng的ML课、《图解机器学习》、《机器学习》周志华版。懒癌发作了可能就不更了&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;机器学习任务&quot;&gt;&lt;a href=&quot;#机器学习任务&quot; class=&quot;headerlink&quot; title=&quot;机器学习任务&quot;&gt;&lt;/a&gt;机器学习任务&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;判别式（识别式）学习&lt;/strong&gt;：通过预测数据生成对联合概率&lt;strong&gt;p(x,y)&lt;/strong&gt;进行模式识别的方法·&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;产生式学习&lt;/strong&gt;：利用机器学习方法对训练集&lt;strong&gt;p(y|x)&lt;/strong&gt;进行学习的过程&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;可能有拥有足够的信息来很好的解决一个感兴趣的特定问题，但却没有足够的信息来解决一个一般性问题。&lt;/p&gt;
@@ -180,7 +181,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;机器学习任务&quot;&gt;&lt;a href=&quot;#机器学习任务&quot; class=&quot;headerlink&quot; title=&quot;机器学习任务&quot;&gt;&lt;/a&gt;机器学习任务&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;判别式（识别式）学习&lt;/strong&gt;：通过预测数据生成对联合概率&lt;strong&gt;p(x,y
+      &lt;p&gt;这是一个机器学习知识记录贴，主要内容是Ng的ML课、《图解机器学习》、《机器学习》周志华版。懒癌发作了可能就不更了&lt;br&gt;
     
     </summary>
     
